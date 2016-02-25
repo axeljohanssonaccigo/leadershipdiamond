@@ -1,0 +1,16 @@
+.question-post-container{
+	background-color: #999;
+	color: #fff;
+}
+
+.question-post-title-container{
+	background-color: #abc123;
+}
+
+.question-post-content-container{
+	background-color: #123abc;
+}
+
+#page{
+	width: 100%;
+}

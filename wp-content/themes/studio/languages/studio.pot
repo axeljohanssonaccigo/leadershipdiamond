@@ -1,0 +1,469 @@
+# Copyright (C) 2015 Catch Themes
+# This file is distributed under the GNU General Public License v3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Studio 1.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/studio\n"
+"POT-Creation-Date: 2015-08-20 17:14+0545\n"
+"PO-Revision-Date: 2015-08-20 17:14+0545\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Catch Themes <info@catchthemes.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.1\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;esc_attr_e;esc_attr__;"
+"_nx:1,2,4c;esc_html__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+# @ studio
+#. translators: %1$s: smiley
+#: ../404.php:44
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+# @ studio
+#: ../comments.php:29
+#, php-format
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+# @ studio
+#: ../comments.php:41 ../comments.php:63
+msgid "Older Comments"
+msgstr ""
+
+# @ studio
+#: ../comments.php:42 ../comments.php:64
+msgid "Newer Comments"
+msgstr ""
+
+#: ../footer.php:22
+msgctxt "attribution"
+msgid "by"
+msgstr ""
+
+# @ studio
+#: ../functions.php:107
+msgid "Primary Menu"
+msgstr ""
+
+# @ studio
+#: ../functions.php:108
+msgid "Social Menu"
+msgstr ""
+
+# @ studio
+#: ../functions.php:167
+msgctxt "Google font: on or off"
+msgid "on"
+msgstr ""
+
+# @ studio
+#: ../functions.php:200
+msgid "Name"
+msgstr ""
+
+# @ studio
+#: ../functions.php:201
+msgid "Email"
+msgstr ""
+
+# @ studio
+#: ../functions.php:202
+msgid "URL"
+msgstr ""
+
+# @ studio
+#: ../functions.php:203
+msgid "Comment"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-custom-controls.php:36
+msgid ""
+"Hold down the Ctrl (windows) / Command (Mac) button to select multiple "
+"options."
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-custom-controls.php:58
+msgid "Theme Instructions"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-custom-controls.php:62
+msgid "Support"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-custom-controls.php:66
+msgid "Changelog"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-custom-controls.php:70
+msgid "Review"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:12
+msgid "Basic theme Options"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:15
+msgid "Theme Options"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:20
+msgid ""
+"Comments can also be disabled on a per post/page basis when creating/editing "
+"posts/pages."
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:23
+msgid "Comment Options"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:41
+msgid "Comment Option"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:55
+msgid "Check to Disable Website Field"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:64
+msgid "Custom/Inline CSS"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:67
+msgid "Custom CSS Options"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:77
+msgid "Enter Custom CSS"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:89
+msgid "Excerpt Options"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:99
+msgid "Excerpt length. Default is 40 words"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:106
+msgid "Excerpt Length (words)"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:120
+msgid "Read More Text"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:129
+msgid ""
+"Only posts that belong to the categories selected here will be displayed on "
+"the front page"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:132
+msgid "Homepage / Frontpage Options"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:142
+msgid "Select Categories"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:156
+msgid "Layout Options"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:173
+msgid "Default Layout"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:183
+#, php-format
+msgid ""
+"Numeric Option requires <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</"
+"a>.<br/>Infinite Scroll Options requires <a target=\"_blank\" href=\"%s"
+"\">JetPack Plugin</a> with Infinite Scroll module Enabled."
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:190
+#, php-format
+msgid ""
+"Infinite Scroll Options requires <a target=\"_blank\" href=\"%s\">JetPack "
+"Plugin</a> with Infinite Scroll module Enabled."
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:201
+msgid "Pagination Options"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:218
+msgid "Pagination type"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:227
+msgid "Change default placeholder text in Search."
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:230
+msgid "Search Options"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:240
+msgid "Default Display Text in Search"
+msgstr ""
+
+#: ../inc/customizer.php:29
+msgid ""
+"Caution: Reset all settings to default. Refresh the page after save to view "
+"full effects."
+msgstr ""
+
+#: ../inc/customizer.php:31
+msgid "Reset all settings"
+msgstr ""
+
+#: ../inc/customizer.php:42
+msgid "Check to reset all settings to default"
+msgstr ""
+
+#: ../inc/customizer.php:51 ../inc/customizer.php:62
+msgid "Important Links"
+msgstr ""
+
+#: ../inc/customizer.php:89
+msgid "Upgrade To Pro &raquo;"
+msgstr ""
+
+#: ../inc/default-options.php:31
+msgid "Read More ..."
+msgstr ""
+
+#: ../inc/default-options.php:40
+msgid "Search..."
+msgstr ""
+
+#: ../inc/default-options.php:63 ../inc/default-options.php:145
+msgid "Primary Sidebar, Content"
+msgstr ""
+
+#: ../inc/default-options.php:67 ../inc/default-options.php:150
+msgid "Content, Primary Sidebar"
+msgstr ""
+
+#: ../inc/default-options.php:71 ../inc/default-options.php:155
+msgid "No Sidebar"
+msgstr ""
+
+#: ../inc/default-options.php:86
+msgid "Default(Older Posts/Newer Posts)"
+msgstr ""
+
+#: ../inc/default-options.php:90
+msgid "Numeric"
+msgstr ""
+
+#: ../inc/default-options.php:94
+msgid "Infinite Scroll (Click)"
+msgstr ""
+
+#: ../inc/default-options.php:98
+msgid "Infinite Scroll (Scroll)"
+msgstr ""
+
+#: ../inc/default-options.php:115
+msgid "Use WordPress Setting"
+msgstr ""
+
+#: ../inc/default-options.php:119
+msgid "Disable in Pages"
+msgstr ""
+
+#: ../inc/default-options.php:123
+msgid "Disable Completely"
+msgstr ""
+
+#: ../inc/default-options.php:140
+msgid "Default"
+msgstr ""
+
+#: ../inc/extras.php:174
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: ../inc/template-tags.php:36
+msgid "Posts navigation"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:48
+msgid "Older posts"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:52
+msgid "Newer posts"
+msgstr ""
+
+# @ studio
+#. translators: used between list items, there is a space after the comma
+#: ../inc/template-tags.php:130 ../inc/template-tags.php:136
+msgid ", "
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:132
+#, php-format
+msgid "Posted in %1$s"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:138
+#, php-format
+msgid "Tagged %1$s"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:144
+msgid "Leave a comment"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:144
+msgid "1 Comment"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:144
+msgid "% Comments"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:148 ../template-parts/content-landing.php:26
+#: ../template-parts/content-page.php:26
+msgid "Edit"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:165
+#, php-format
+msgid "Category: %s"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:167
+#, php-format
+msgid "Tag: %s"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:169
+#, php-format
+msgid "Author: %s"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:171
+#, php-format
+msgid "Year: %s"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:173
+#, php-format
+msgid "Month: %s"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:175
+#, php-format
+msgid "Day: %s"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:197
+#, php-format
+msgid "Archives: %s"
+msgstr ""
+
+# @ studio
+#. translators: 1: Taxonomy singular name, 2: Current taxonomy term
+#: ../inc/template-tags.php:201
+#, php-format
+msgid "%1$s: %2$s"
+msgstr ""
+
+# @ studio
+#: ../inc/template-tags.php:203 ../sidebar.php:86
+msgid "Archives"
+msgstr ""
+
+# @ studio
+#: ../inc/widgets.php:17
+msgid "Footer Widget (left)"
+msgstr ""
+
+# @ studio
+#: ../inc/widgets.php:26
+msgid "Footer Widget (right)"
+msgstr ""
+
+#: ../inc/widgets.php:37
+msgid "Primary Sidebar"
+msgstr ""
+
+# @ studio
+#: ../search.php:16
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../searchform.php:14 ../searchform.php:15
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: ../sidebar.php:69
+msgid "Primary Sidebar Widget Area"
+msgstr ""
+
+#: ../sidebar.php:72
+msgid ""
+"This is the Primary Sidebar Widget Area if you are using a two or three "
+"column site layout option."
+msgstr ""
+
+#: ../sidebar.php:73
+#, php-format
+msgid ""
+"By default it will load Search and Archives widgets as shown below. You can "
+"add widget to this area by visiting your <a href=\"%s\">Widgets Panel</a> "
+"which will replace default widgets."
+msgstr ""
+
+# @ studio
+#: ../template-parts/content-none.php:20
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+# @ studio
+#: ../template-parts/content-page.php:19
+#: ../template-parts/content-single.php:30 ../template-parts/content.php:32
+msgid "Pages:"
+msgstr ""
+
+# @ studio
+#: ../template-parts/content.php:25
+#, php-format
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
