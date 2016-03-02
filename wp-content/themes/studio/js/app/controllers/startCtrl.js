@@ -4,8 +4,10 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 	console.log($scope.a);
 	$scope.allQuestionPosts = [];
 	$scope.allTranslations = [];
+	$scope.allCourses = [];
 	$scope.loading = true;
 	$scope.postInFocus = null;
+	$scope.hasViewedAboutDiamond = false;
 	
 	// Sets custom strings from translation custom post type
 	$scope.setCustomStrings = function(){
@@ -16,11 +18,12 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 		$scope.howToHandle = $scope.getTranslationByContent('howtohandle');
 		$scope.close = $scope.getTranslationByContent('close');
 		$scope.goToNextPost = $scope.getTranslationByContent('gotonextpost');
+		$scope.aboutDiamond = $scope.getTranslationByContent('aboutdiamond');
 	};
 
 	//Scope functions
 	$scope.focusOnQuestionPost = function(post){
-	
+
 		$scope.unFocusOtherPosts(post);
 		$scope.postInFocus = post;
 		$scope.scrollToDivTop('#post-' + post.index);
@@ -36,12 +39,12 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 	$scope.unFocusOtherPosts = function(clickedPost){
 		angular.forEach($scope.allQuestionPosts, function(post){
 			if (clickedPost.id === post.id) {
-			post.inFocus = true;
+				post.inFocus = true;
 
-		} else {
-			post.inFocus = false;
+			} else {
+				post.inFocus = false;
 
-		}
+			}
 		});
 	};
 	$scope.moveToNextPost = function(currentPost){
@@ -54,20 +57,19 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 		}
 		var nextPost = $scope.allQuestionPosts.filter(function(item) { return item.index === nextPostIndex; });
 		$scope.focusOnQuestionPost(nextPost[0]);
-		
 	};
 
 
 	//On Document ready
-	 jQuery( document ).ready(function() {
-	 	console.log( "ready!" );
+	jQuery( document ).ready(function() {
+		console.log( "ready!" );
 
-	 });
+	});
 
 	//Scope functions on page load
 	$scope.getTranslationByContent = function(content){
 		var translation = $scope.allTranslations.filter(function(item) { return item.content === content; });
-		return translation[0].title;
+		return translation[0];
 	};
 
 	$scope.trimPostContent = function(content){
@@ -104,8 +106,12 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 				content: $scope.trimPostContent(post.content),
 				title: post.title
 			}
+			if ('wpcf-extra-content' in post.custom_fields) {
+				transObject["extraContent"] = post.custom_fields['wpcf-extra-content'][0];
+			};
 			$scope.allTranslations.push(transObject);
 		});
+		console.log("all translations");
 		console.log($scope.allTranslations);
 		//Set the custom strings
 		$scope.setCustomStrings();
@@ -119,8 +125,27 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 			$scope.prettyfyTranslations(response.data.posts);
 		});
 	};
+
+	$scope.getAllCourses = function(){
+		startSvc.getAllCourses().then(function(response){
+			$scope.allCourses = response.data.posts;
+			angular.forEach($scope.allCourses, function(course){
+				course.content = $scope.trimPostContent(course.content);
+				if ('wpcf-course-index' in course.custom_fields) {
+					course["courseIndex"] = course.custom_fields['wpcf-course-index'][0];
+				};
+				if ('wpcf-level' in course.custom_fields) {
+					course["level"] = course.custom_fields['wpcf-level'][0];
+				};
+			});
+			console.log("all courses");
+			console.log($scope.allCourses);
+		});
+	};
+
 	$scope.getAllTranslations();
 	$scope.getAllQuestionPosts();
+	$scope.getAllCourses();
 	
 
 }]);

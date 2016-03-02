@@ -25,8 +25,8 @@
 			<div id="headerContainer" ng-controller="startCtrl" nh-hide="loading">
 
 				<div class="site-branding">
-					<h1 class="site-title">{{leadershipOS}}</h1>
-					<div class="site-subtitle">{{nothingButApps}}</div>
+					<h1 class="site-title">{{leadershipOS.title}}</h1>
+					<div class="site-subtitle">{{nothingButApps.title}}</div>
 				</div><!-- .site-branding -->
 
 				<a href="#sidr-main" class="menu-toggle icon">
@@ -35,7 +35,7 @@
 				<nav id="site-navigation" class="main-navigation" role="navigation">
 					<!--<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>-->
 					<div class="custom-site-header">
-						{{leadershipdiamond}}	
+						{{leadershipdiamond.title}}	
 					</div>
 
 				</nav><!-- #site-navigation -->

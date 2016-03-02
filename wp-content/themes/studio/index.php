@@ -41,58 +41,73 @@ get_header(); ?>
 
 
 							<div class="question-post-content-container col-xs-8">
-									{{post.content}}
-								</div>
-								<div class="focus-button-container" >
-									<button ng-hide="post.inFocus" type="button" class="btn btn-success btn-lg" ng-click="focusOnQuestionPost(post)">{{howToHandle}}</button>
-									<button ng-show="post.inFocus" type="button" class="btn btn-success btn-lg" ng-click="post.inFocus = false">{{close}}</button>
+								{{post.content}}
+							</div>
+							<div class="focus-button-container" >
+								<button ng-hide="post.inFocus" type="button" class="btn btn-success btn-lg" ng-click="focusOnQuestionPost(post)">{{howToHandle.title}}</button>
+								<button ng-show="post.inFocus" type="button" class="btn btn-success btn-lg" ng-click="post.inFocus = false">{{close.title}}</button>
 
-									<!-- <button ng-show="!post.showDescription" type="button" class="btn btn-primary btn-lg btn-block" ng-click="post.showDescription = !post.showDescription">{{readMore}}</button> -->
-								</div>
-								<div class="col-xs-12 solution-container" ng-show="post.inFocus">
-									<div class="row">
-										<div class="col-xs-8">
-											<h5></h5>
-											{{post.solution}}
-										</div>
-										<div class="col-xs-4 video-player-container">
-											<img src="http://localhost/leadershipdiamond/wp-content/uploads/2016/02/video-player.jpg">
-										</div>
-										<div class="col-xs-4 col-xs-offset-8 move-to-next-post-container">
-											<button type="button" ng-click="" class="btn btn-success btn-block">{{goToNextPost}}</button>
-										</div>
+								<!-- <button ng-show="!post.showDescription" type="button" class="btn btn-primary btn-lg btn-block" ng-click="post.showDescription = !post.showDescription">{{readMore}}</button> -->
+							</div>
+							<div class="col-xs-12 solution-container" ng-show="post.inFocus">
+								<div class="row">
+									<div class="col-xs-8">
+										<h5></h5>
+										{{post.solution}}
 									</div>
-									
+									<div class="col-xs-4 video-player-container">
+										<img src="http://localhost/leadershipdiamond/wp-content/uploads/2016/02/video-player.jpg">
+									</div>
+									<div class="col-xs-4 col-xs-offset-8 move-to-next-post-container">
+										<button type="button" ng-click="" class="btn btn-success btn-block">{{goToNextPost.title}}</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+
+					</div>
+				</section><!-- Post section -->
+
+				<section><!-- Course offers section -->
+					<div class="row">
+						<div class="course-section clearfix col-xs-12">
+							<div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-xs-12">
+								<div class="course-title-container">
+									{{course.title}} | {{course.level}}
+								</div>
+								<div class="course-content-container">
+									{{course.content}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</section><!-- Course offers section -->
+
+				<section><!-- Leadership Diamond section -->
+					<div class="row ng-hide" >
+
+						<div id="diamond-solver" ng-show="postInFocus !== null">
+
+							<div class="question-post-container clearfix post-in-focus">
+								<div class="col-sm-6 col-xs-12">
+									<div class="question-post-title-container">
+										<h4>{{postInFocus.title}}</h4>
+									</div>
+									<div class="question-post-content-container">
+										{{postInFocus.content}}
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6">
+									<h4>Detta problem och dess lösning återfinns i Ledarskapsdiamanten!</h4>
+
 								</div>
 							</div>
 
 
 						</div>
-					</section><!-- Post section -->
-
-					<section><!-- Leadership Diamond section -->
-						<div class="row ng-hide" >
-
-							<div id="diamond-solver" ng-show="postInFocus !== null">
-
-								<div class="question-post-container clearfix post-in-focus">
-									<div class="col-sm-6 col-xs-12">
-										<div class="question-post-title-container">
-											<h4>{{postInFocus.title}}</h4>
-										</div>
-										<div class="question-post-content-container">
-											{{postInFocus.content}}
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-6">
-										<h4>Detta problem och dess lösning återfinns i Ledarskapsdiamanten!</h4>
-
-									</div>
-								</div>
-
-
-							</div>
-						</div>
+					</div>
 
 					<!-- <div class="container-fluid off-white-section">
 						<div class="container">
