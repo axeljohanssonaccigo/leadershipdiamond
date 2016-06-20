@@ -22,7 +22,7 @@
 	<div id="page" class="hfeed site">
 		
 		<header id="masthead" class="site-header" role="banner">
-			<div id="headerContainer" ng-controller="startCtrl" nh-hide="loading">
+			<div id="headerContainer" ng-controller="startCtrl" ng-hide="loading">
 
 				<div class="site-branding">
 					<h1 class="site-title">{{leadershipOS.title}}</h1>
