@@ -1,16 +1,16 @@
 <?php
 
-/*
- * manages compatibility with 3rd party plugins ( and themes )
- * this class is available as soon as the plugin is loaded
+/**
+ * Manages compatibility with 3rd party plugins ( and themes )
+ * This class is available as soon as the plugin is loaded
  *
  * @since 1.0
  */
 class PLL_Plugins_Compat {
 	static protected $instance; // for singleton
 
-	/*
-	 * constructor
+	/**
+	 * Constructor
 	 *
 	 * @since 1.0
 	 */
@@ -20,7 +20,7 @@ class PLL_Plugins_Compat {
 		add_filter( 'wp_import_terms', array( &$this, 'wp_import_terms' ) );
 
 		// YARPP
-		add_action( 'pll_init', array( &$this, 'yarpp_init' ) );
+		add_action( 'init', array( &$this, 'yarpp_init' ) ); // after Polylang has registered its taxonomy in setup_theme
 
 		// Yoast SEO
 		add_action( 'pll_language_defined', array( &$this, 'wpseo_init' ) );
@@ -47,13 +47,13 @@ class PLL_Plugins_Compat {
 		add_filter( 'jetpack_relatedposts_filter_filters', array( &$this, 'jetpack_relatedposts_filter_filters' ), 10, 2 );
 
 		// Jetpack infinite scroll
-		if ( !defined( 'PLL_AJAX_ON_FRONT' ) && isset( $_GET['infinity'], $_POST['action'] ) && 'infinite_scroll' == $_POST['action'] ) {
+		if ( ! defined( 'PLL_AJAX_ON_FRONT' ) && isset( $_GET['infinity'], $_POST['action'] ) && 'infinite_scroll' == $_POST['action'] ) {
 			define( 'PLL_AJAX_ON_FRONT', true );
 		}
 	}
 
-	/*
-	 * access to the single instance of the class
+	/**
+	 * Access to the single instance of the class
 	 *
 	 * @since 1.7
 	 *
@@ -67,9 +67,9 @@ class PLL_Plugins_Compat {
 		return self::$instance;
 	}
 
-	/*
+	/**
 	 * WordPress Importer
-	 * if WordPress Importer is active, replace the wordpress_importer_init function
+	 * If WordPress Importer is active, replace the wordpress_importer_init function
 	 *
 	 * @since 1.2
 	 */
@@ -80,9 +80,9 @@ class PLL_Plugins_Compat {
 		}
 	}
 
-	/*
+	/**
 	 * WordPress Importer
-	 * loads our child class PLL_WP_Import instead of WP_Import
+	 * Loads our child class PLL_WP_Import instead of WP_Import
 	 *
 	 * @since 1.2
 	 */
@@ -94,10 +94,10 @@ class PLL_Plugins_Compat {
 		register_importer( 'wordpress', 'WordPress', __( 'Import <strong>posts, pages, comments, custom fields, categories, and tags</strong> from a WordPress export file.', 'wordpress-importer' ), array( $GLOBALS['wp_import'], 'dispatch' ) );
 	}
 
-	/*
+	/**
 	 * WordPress Importer
 	 * Backward Compatibility Polylang < 1.8
-	 * sets the flag when importing a language and the file has been exported with Polylang < 1.8
+	 * Sets the flag when importing a language and the file has been exported with Polylang < 1.8
 	 *
 	 * @since 1.8
 	 *
@@ -119,9 +119,9 @@ class PLL_Plugins_Compat {
 		return $terms;
 	}
 
-	/*
+	/**
 	 * YARPP
-	 * just makes YARPP aware of the language taxonomy ( after Polylang registered it )
+	 * Just makes YARPP aware of the language taxonomy ( after Polylang registered it )
 	 *
 	 * @since 1.0
 	 */
@@ -129,10 +129,9 @@ class PLL_Plugins_Compat {
 		$GLOBALS['wp_taxonomies']['language']->yarpp_support = 1;
 	}
 
-	/*
+	/**
 	 * Yoast SEO
-	 * translate options
-	 * add specific filters and actions
+	 * Translate options and add specific filters and actions
 	 *
 	 * @since 1.6.4
 	 */
@@ -141,13 +140,12 @@ class PLL_Plugins_Compat {
 			return;
 		}
 
-		// reloads options once the language has been defined to enable translations
-		// useful only when the language is set from content
+		// Reloads options once the language has been defined to enable translations
+		// Useful only when the language is set from content
 		if ( did_action( 'wp_loaded' ) ) {
 			if ( version_compare( WPSEO_VERSION, '1.7.2', '<' ) ) {
 				global $wpseo_front;
-			}
-			else {
+			} else {
 				$wpseo_front = WPSEO_Frontend::get_instance();
 			}
 
@@ -157,7 +155,7 @@ class PLL_Plugins_Compat {
 			}
 		}
 
-		// one sitemap per language when using multiple domains or subdomains
+		// One sitemap per language when using multiple domains or subdomains
 		// because WPSEO does not accept several domains or subdomains in one sitemap
 		if ( PLL()->options['force_lang'] > 1 ) {
 			add_filter( 'wpseo_enable_xml_sitemap_transient_caching', '__return_false' ); // disable cache! otherwise WPSEO keeps only one domain (thanks to Junaid Bhura)
@@ -168,9 +166,14 @@ class PLL_Plugins_Compat {
 			add_filter( 'wpseo_typecount_where', array( &$this, 'wpseo_posts_where' ), 10, 2 );
 		}
 
-		// one sitemap for all languages when the language is set from the content or directory name
+		// One sitemap for all languages when the language is set from the content or directory name
 		else {
 			add_filter( 'get_terms_args', array( &$this, 'wpseo_remove_terms_filter' ) );
+
+			// Add the homepages for all languages to the sitemap when the front page displays posts
+			if ( ! get_option( 'page_on_front' ) ) {
+				add_filter( 'wpseo_sitemap_post_content', array( &$this, 'add_language_home_urls' ) );
+			}
 		}
 
 		add_filter( 'pll_home_url_white_list', array( &$this, 'wpseo_home_url_white_list' ) );
@@ -178,10 +181,10 @@ class PLL_Plugins_Compat {
 		add_filter( 'wpseo_canonical', array( &$this, 'wpseo_canonical' ) );
 	}
 
-	/*
+	/**
 	 * Yoast SEO
-	 * fixes the home url as well as the stylesheet url
-	 * only when using multiple domains or subdomains
+	 * Fixes the home url as well as the stylesheet url
+	 * Only when using multiple domains or subdomains
 	 *
 	 * @since 1.6.4
 	 *
@@ -198,14 +201,14 @@ class PLL_Plugins_Compat {
 		return $url;
 	}
 
-	/*
+	/**
 	 * Yoast SEO
-	 * modifies the sql request for posts sitemaps
-	 * only when using multiple domains or subdomains
+	 * Modifies the sql request for posts sitemaps
+	 * Only when using multiple domains or subdomains
 	 *
 	 * @since 1.6.4
 	 *
-	 * @param string $sql join clause
+	 * @param string $sql       JOIN clause
 	 * @param string $post_type
 	 * @return string
 	 */
@@ -213,14 +216,14 @@ class PLL_Plugins_Compat {
 		return pll_is_translated_post_type( $post_type ) ? $sql. PLL()->model->post->join_clause() : $sql;
 	}
 
-	/*
+	/**
 	 * Yoast SEO
-	 * modifies the sql request for posts sitemaps
-	 * only when using multiple domains or subdomains
+	 * Modifies the sql request for posts sitemaps
+	 * Only when using multiple domains or subdomains
 	 *
 	 * @since 1.6.4
 	 *
-	 * @param string $sql where clause
+	 * @param string $sql       WHERE clause
 	 * @param string $post_type
 	 * @return string
 	 */
@@ -228,10 +231,10 @@ class PLL_Plugins_Compat {
 		return pll_is_translated_post_type( $post_type ) ? $sql . PLL()->model->post->where_clause( PLL()->curlang ) : $sql;
 	}
 
-	/*
+	/**
 	 * Yoast SEO
-	 * removes the language filter for the taxonomy sitemaps
-	 * only when the language is set from the content or directory name
+	 * Removes the language filter for the taxonomy sitemaps
+	 * Only when the language is set from the content or directory name
 	 *
 	 * @since 1.0.3
 	 *
@@ -245,7 +248,31 @@ class PLL_Plugins_Compat {
 		return $args;
 	}
 
-	/*
+	/**
+	 * Yoast SEO
+	 * Adds the home urls for all languages to the sitemap
+	 *
+	 * @since 1.9
+	 *
+	 * @param string $str additional urls to sitemap post
+	 * @return string
+	 */
+	public function add_language_home_urls( $str ) {
+		global $wpseo_sitemaps;
+
+		foreach ( pll_languages_list() as $lang ) {
+			if ( empty( PLL()->options['hide_default'] ) || pll_default_language() !== $lang ) {
+				$str .= $wpseo_sitemaps->sitemap_url( array(
+					'loc' => pll_home_url( $lang ),
+					'pri' => 1,
+					'chf' => apply_filters( 'wpseo_sitemap_homepage_change_freq', 'daily', pll_home_url( $lang ) ),
+				) );
+			}
+		}
+		return $str;
+	}
+
+	/**
 	 * Yoast SEO
 	 *
 	 * @since 1.1.2
@@ -257,9 +284,9 @@ class PLL_Plugins_Compat {
 		return array_merge( $arr, array( array( 'file' => 'wordpress-seo' ) ) );
 	}
 
-	/*
+	/**
 	 * Yoast SEO
-	 * adds opengraph support for translations
+	 * Adds opengraph support for translations
 	 *
 	 * @since 1.6
 	 */
@@ -276,9 +303,9 @@ class PLL_Plugins_Compat {
 		}
 	}
 
-	/*
+	/**
 	 * Yoast SEO
-	 * fixes the canonical front page url as unlike WP, WPSEO does not add a trailing slash to the canonical front page url
+	 * Fixes the canonical front page url as unlike WP, WPSEO does not add a trailing slash to the canonical front page url
 	 *
 	 * @since 1.7.10
 	 *
@@ -289,7 +316,7 @@ class PLL_Plugins_Compat {
 		return is_front_page( $url ) && get_option( 'permalink_structure' ) ? trailingslashit( $url ) : $url;
 	}
 
-	/*
+	/**
 	 * Aqua Resizer
 	 *
 	 * @since 1.1.5
@@ -301,14 +328,14 @@ class PLL_Plugins_Compat {
 		return array_merge( $arr, array( array( 'function' => 'aq_resize' ) ) );
 	}
 
-	/*
+	/**
 	 * Custom field template
 	 * Custom field template does check $_REQUEST['post'] to populate the custom fields values
 	 *
 	 * @since 1.0.2
 	 *
 	 * @param string $post_type unused
-	 * @param object $post current post object
+	 * @param object $post      current post object
 	 */
 	public function cft_copy( $post_type, $post ) {
 		global $custom_field_template;
@@ -317,9 +344,9 @@ class PLL_Plugins_Compat {
 		}
 	}
 
-	/*
+	/**
 	 * Twenty Fourteen
-	 * rewrites the function Featured_Content::get_featured_post_ids()
+	 * Rewrites the function Featured_Content::get_featured_post_ids()
 	 *
 	 * @since 1.4
 	 *
@@ -337,12 +364,12 @@ class PLL_Plugins_Compat {
 			return $featured_ids;
 		}
 
-		// get featured tag translations
+		// Get featured tag translations
 		$tags = PLL()->model->term->get_translations( $term->term_id );
 		$ids = array();
 
 		// Query for featured posts in all languages
-		// one query per language to get the correct number of posts per language
+		// One query per language to get the correct number of posts per language
 		foreach ( $tags as $tag ) {
 			$_ids = get_posts( array(
 				'lang'        => 0, // avoid language filters
@@ -363,11 +390,11 @@ class PLL_Plugins_Compat {
 		return $ids;
 	}
 
-	/*
+	/**
 	 * Twenty Fourteen
-	 * translates the featured tag id in featured content settings
-	 * mainly to allow hiding it when requested in featured content options
-	 * acts only on frontend
+	 * Translates the featured tag id in featured content settings
+	 * Mainly to allow hiding it when requested in featured content options
+	 * Acts only on frontend
 	 *
 	 * @since 1.4
 	 *
@@ -382,7 +409,7 @@ class PLL_Plugins_Compat {
 		return $settings;
 	}
 
-	/*
+	/**
 	 * Duplicate Post
 	 * Avoid duplicating the 'post_translations' taxonomy
 	 *
@@ -396,9 +423,9 @@ class PLL_Plugins_Compat {
 		return $taxonomies;
 	}
 
-	/*
+	/**
 	 * Jetpack
-	 * adapted from the same function in jetpack-3.0.2/3rd-party/wpml.php
+	 * Adapted from the same function in jetpack-3.0.2/3rd-party/wpml.php
 	 *
 	 * @since 1.5.4
 	 */
@@ -412,10 +439,10 @@ class PLL_Plugins_Compat {
 		return $posts;
 	}
 
-	/*
+	/**
 	 * Jetpack
-	 * adapted from the same function in jetpack-3.0.2/3rd-party/wpml.php
-	 * keeps using 'icl_translate' as the function registers the string
+	 * Adapted from the same function in jetpack-3.0.2/3rd-party/wpml.php
+	 * Keeps using 'icl_translate' as the function registers the string
 	 *
 	 * @since 1.5.4
 	 */
@@ -430,9 +457,9 @@ class PLL_Plugins_Compat {
 		return $r;
 	}
 
-	/*
+	/**
 	 * Jetpack
-	 * adds opengraph support for locale and translations
+	 * Adds opengraph support for locale and translations
 	 *
 	 * @since 1.6
 	 *
@@ -453,23 +480,23 @@ class PLL_Plugins_Compat {
 		return $tags;
 	}
 
-	/*
+	/**
 	 * Jetpack
 	 * Allows to make sure that related posts are in the correct language
 	 *
 	 * @since 1.8
 	 *
-	 * @param array $filters Array of ElasticSearch filters based on the post_id and args.
+	 * @param array  $filters Array of ElasticSearch filters based on the post_id and args.
 	 * @param string $post_id Post ID of the post for which we are retrieving Related Posts.
 	 * @return array
 	 */
 	function jetpack_relatedposts_filter_filters( $filters, $post_id ) {
 		$slug = sanitize_title( pll_get_post_language( $post_id, 'name' ) );
-		$filters[] = array( 'term' => array('taxonomy.language.slug' =>  $slug ) );
+		$filters[] = array( 'term' => array( 'taxonomy.language.slug' => $slug ) );
 		return $filters;
 	}
 
-	/*
+	/**
 	 * Correspondance between WordPress locales and Facebook locales
 	 * @see https://translate.wordpress.org/
 	 * @see https://www.facebook.com/translations/FacebookLocales.xml

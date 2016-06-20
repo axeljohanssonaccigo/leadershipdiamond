@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * adds the language column in posts and terms list tables
  * manages quick edit and bulk edit as well
  *
@@ -9,7 +9,7 @@
 class PLL_Admin_Filters_Columns {
 	public $links, $model, $curlang;
 
-	/*
+	/**
 	 * constructor: setups filters and actions
 	 *
 	 * @since 1.2
@@ -44,7 +44,7 @@ class PLL_Admin_Filters_Columns {
 		add_action( 'wp_ajax_pll_update_term_rows', array( &$this, 'ajax_update_term_rows' ) );
 	}
 
-	/*
+	/**
 	 * adds languages and translations columns in posts, pages, media, categories and tags tables
 	 *
 	 * @since 0.8.2
@@ -69,7 +69,7 @@ class PLL_Admin_Filters_Columns {
 		return isset( $end ) ? array_merge( $columns, $end ) : $columns;
 	}
 
-	/*
+	/**
 	 * returns the first language column in the posts, pages and media library tables
 	 *
 	 * @since 0.9
@@ -86,7 +86,7 @@ class PLL_Admin_Filters_Columns {
 		return empty( $columns ) ? '' : reset( $columns );
 	}
 
-	/*
+	/**
 	 * adds the language and translations columns ( before the comments column ) in the posts, pages and media library tables
 	 *
 	 * @since 0.1
@@ -98,7 +98,7 @@ class PLL_Admin_Filters_Columns {
 		return $this->add_column( $columns, 'comments' );
 	}
 
-	/*
+	/**
 	 * fills the language and translations columns in the posts, pages and media library tables
 	 * take care that when doing ajax inline edit, the post may not be updated in database yet
 	 *
@@ -108,7 +108,7 @@ class PLL_Admin_Filters_Columns {
 	 * @param int $post_id
 	 */
 	public function post_column( $column, $post_id ) {
-		$inline = defined( 'DOING_AJAX' ) && 'inline-save' == $_REQUEST['action'] && isset( $_POST['inline_lang_choice'] );
+		$inline = defined( 'DOING_AJAX' ) && isset( $_REQUEST['action'], $_POST['inline_lang_choice'] ) && 'inline-save' === $_REQUEST['action'];
 		$lang = $inline ? $this->model->get_language( $_POST['inline_lang_choice'] ) : $this->model->post->get_language( $post_id );
 
 		if ( false === strpos( $column, 'language_' ) || ! $lang ) {
@@ -140,7 +140,7 @@ class PLL_Admin_Filters_Columns {
 				}
 				printf(
 					'<a class="%1$s" title="%2$s" href="%3$s"><span class="screen-reader-text">%4$s</span></a>',
-					$class, esc_attr( get_post( $id )->post_title ), esc_url( $link ), esc_html( $s )
+					esc_attr( $class ), esc_attr( get_post( $id )->post_title ), esc_url( $link ), esc_html( $s )
 				);
 			} elseif ( $id === $post_id ) {
 				printf(
@@ -156,7 +156,7 @@ class PLL_Admin_Filters_Columns {
 		}
 	}
 
-	/*
+	/**
 	 * quick edit & bulk edit
 	 *
 	 * @since 0.9
@@ -191,7 +191,7 @@ class PLL_Admin_Filters_Columns {
 		return $column;
 	}
 
-	/*
+	/**
 	 * adds the language column ( before the posts column ) in the 'Categories' or 'Post Tags' table
 	 *
 	 * @since 0.1
@@ -203,7 +203,7 @@ class PLL_Admin_Filters_Columns {
 		return $this->add_column( $columns, 'posts' );
 	}
 
-	/*
+	/**
 	 * fills the language column in the 'Categories' or 'Post Tags' table
 	 *
 	 * @since 0.1
@@ -213,7 +213,7 @@ class PLL_Admin_Filters_Columns {
 	 * @param int term_id
 	 */
 	public function term_column( $out, $column, $term_id ) {
-		$inline = defined( 'DOING_AJAX' ) && 'inline-save-tax' == $_REQUEST['action'] && isset( $_POST['inline_lang_choice'] );
+		$inline = defined( 'DOING_AJAX' ) && isset( $_REQUEST['action'], $_POST['inline_lang_choice'] ) && 'inline-save-tax' === $_REQUEST['action'];
 		if ( false === strpos( $column, 'language_' ) || ! ( $lang = $inline ? $this->model->get_language( $_POST['inline_lang_choice'] ) : $this->model->term->get_language( $term_id ) ) ) {
 			return $out;
 		}
@@ -270,7 +270,7 @@ class PLL_Admin_Filters_Columns {
 		return $out;
 	}
 
-	/*
+	/**
 	 * update rows of translated posts when the language is modified in quick edit
 	 *
 	 * @since 1.7
@@ -304,7 +304,7 @@ class PLL_Admin_Filters_Columns {
 		$x->send();
 	}
 
-	/*
+	/**
 	 * update rows of translated terms when adding / deleting a translation or when the language is modified in quick edit
 	 *
 	 * @since 1.7
