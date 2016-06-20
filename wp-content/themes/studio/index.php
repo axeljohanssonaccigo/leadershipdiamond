@@ -19,11 +19,11 @@ get_header(); ?>
 			<div ng-hide="loading">
 				<!--heading-->
 				<div class="row">
-				</div>		
+				</div>
 
 
 				<section><!-- Graph section -->
-					<div class="row">
+					<div class="row"> 
 
 					</div>
 				</section><!-- Graph section -->
