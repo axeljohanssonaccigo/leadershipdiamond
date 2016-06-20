@@ -20,13 +20,13 @@
 
 <body <?php body_class(); ?>>
 	<div id="page" class="hfeed site">
-		
+
 		<header id="masthead" class="site-header" role="banner">
-			<div id="headerContainer" ng-controller="startCtrl" ng-hide="loading">
+			<div id="headerContainer" ng-controller="headerCtrl">
 
 				<div class="site-branding">
-					<h1 class="site-title">{{leadershipOS.title}}</h1>
-					<div class="site-subtitle">{{nothingButApps.title}}</div>
+					<!-- <h1 class="site-title">{{leadershipOS.title}}</h1>
+					<div class="site-subtitle">{{nothingButApps.title}}</div> -->
 				</div><!-- .site-branding -->
 
 				<a href="#sidr-main" class="menu-toggle icon">
@@ -35,7 +35,7 @@
 				<nav id="site-navigation" class="main-navigation" role="navigation">
 					<!--<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>-->
 					<div class="custom-site-header">
-						{{leadershipdiamond.title}}	
+						Hardcoded header title
 					</div>
 
 				</nav><!-- #site-navigation -->

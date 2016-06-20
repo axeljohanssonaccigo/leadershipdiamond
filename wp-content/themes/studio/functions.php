@@ -22,7 +22,7 @@ if ( ! function_exists( 'studio_content_width' ) ) :
 
 		//Getting Ready to load options data
 		$themeoption_layout 	= get_theme_mod( 'theme_layout', studio_get_default_theme_options( 'theme_layout' ) );
-		
+
 		// Front page displays in Reading Settings
 		$page_on_front = get_option('page_on_front') ;
 		$page_for_posts = get_option('page_for_posts');
@@ -35,13 +35,13 @@ if ( ! function_exists( 'studio_content_width' ) ) :
 	        $layout  = get_post_meta( $page_id,'studio-layout-option', true );
 	    }
     	elseif ( is_singular() ) {
-	 		if ( is_attachment() ) { 
+	 		if ( is_attachment() ) {
 				$parent = $post->post_parent;
-				
+
 				$layout = get_post_meta( $parent,'studio-layout-option', true );
-			} 
+			}
 			else {
-				$layout = get_post_meta( $post->ID,'studio-layout-option', true ); 
+				$layout = get_post_meta( $post->ID,'studio-layout-option', true );
 			}
 		}
 		else {
@@ -54,7 +54,7 @@ if ( ! function_exists( 'studio_content_width' ) ) :
 		}
 
 		//Two Column: Left and Right Sidebar
-		if ( $layout == 'right-sidebar' || $layout == 'left-sidebar' || ( $layout=='default' && ( $themeoption_layout == 'right-sidebar' || $themeoption_layout == 'left-sidebar' ) ) ) { 
+		if ( $layout == 'right-sidebar' || $layout == 'left-sidebar' || ( $layout=='default' && ( $themeoption_layout == 'right-sidebar' || $themeoption_layout == 'left-sidebar' ) ) ) {
 			$content_width = 860;
 		}
 
@@ -81,7 +81,7 @@ function studio_setup() {
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
-	
+
 	// Add tyles the visual editor to resemble the theme style.
 	add_editor_style( array( 'css/editor-style.css', studio_fonts_url() ) );
 
@@ -105,7 +105,7 @@ function studio_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'studio' ),
-		'social'  => esc_html__( 'Social Menu', 'studio' ),		
+		'social'  => esc_html__( 'Social Menu', 'studio' ),
 	) );
 
 	/*
@@ -184,7 +184,7 @@ add_action( 'admin_print_scripts-appearance_page_custom-header', 'studio_admin_f
  */
 function studio_scripts() {
 	wp_enqueue_style( 'studio-style', get_stylesheet_uri(), array(), '1.0.0' );
-	
+
 	wp_enqueue_style( 'studio-fonts', studio_fonts_url(), array(), '1.0.0' );
 
 	wp_enqueue_style( 'studio-icons', get_template_directory_uri() . '/css/typicons.css', array(), '1.0.0' );
@@ -196,26 +196,34 @@ function studio_scripts() {
 	wp_enqueue_style('diamond-style-common',  get_template_directory_uri() . '/css/leadership.diamond.common.css', false);
 
 	wp_enqueue_script( 'studio-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0.0', true );
-	
+
 	wp_enqueue_script( 'studio-helpers', get_template_directory_uri() . '/js/helpers.js', array( 'jquery' ), '1.0.0', true );
 
 	wp_enqueue_script( 'studio-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '1.0.0', true );
 
 	/* Angular */
-	wp_enqueue_script('angular', get_template_directory_uri() . '/js/angular.js', array('jquery'), null, true);
+	wp_enqueue_script('angular', get_template_directory_uri() . '/js/angular.js', array(), null, true);
+	wp_enqueue_script('animateJs', get_template_directory_uri() . '/js/animateJs.js', array(), null, true);
+
+	/* BOOTSTRAP */
+	wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/assets/bootstrap.js', array(), null, true);
+	// wp_enqueue_script('bootstrap_min', get_template_directory_uri() . '/js/assets/bootstrap.min.js', array('jquery'), null, true);
 
 	/* CUSTOM SCRIPTS */
+	$version = '0.8';
 	/* Diamond App */
-	wp_enqueue_script('diamondApp', get_template_directory_uri() . '/js/app/diamondApp.js', array('jquery'), null, true);
-	wp_enqueue_script('startCtrl', get_template_directory_uri() . '/js/app/controllers/startCtrl.js', array('jquery'), null, true);
-	wp_enqueue_script('startSvc', get_template_directory_uri() . '/js/app/services/startSvc.js', array('jquery'), null, true);
+	wp_enqueue_script('diamond_app', get_template_directory_uri() . '/js/app/diamondApp.js', array(), $version, true);
+	wp_enqueue_script('start_ctrl', get_template_directory_uri() . '/js/app/controllers/startCtrl.js', array(), $version, true);
+	wp_enqueue_script('header_ctrl', get_template_directory_uri() . '/js/app/controllers/headerCtrl.js', array(), $version, true);
+
+	wp_enqueue_script('start-svc', get_template_directory_uri() . '/js/app/services/startSvc.js', array(), $version, true);
 
 	// Localize script (only few lines in helpers.js)
-    wp_localize_script( 'studio-helpers', 'placeholder', array(  
- 	    'author'   => __( 'Name', 'studio' ), 
+    wp_localize_script( 'studio-helpers', 'placeholder', array(
+ 	    'author'   => __( 'Name', 'studio' ),
  	    'email'    => __( 'Email', 'studio' ),
 		'url'      => __( 'URL', 'studio' ),
-		'comment'  => __( 'Comment', 'studio' ) 
+		'comment'  => __( 'Comment', 'studio' )
  	) );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

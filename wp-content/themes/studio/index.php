@@ -23,7 +23,7 @@ get_header(); ?>
 
 
 				<section><!-- Graph section -->
-					<div class="row"> 
+					<div class="row">
 
 					</div>
 				</section><!-- Graph section -->
@@ -32,41 +32,50 @@ get_header(); ?>
 
 				<section><!-- Post section -->
 					<div class="row">
-						<div ng-repeat="post in allQuestionPosts | orderBy: 'index'" class="question-post-container clearfix" ng-attr-id="{{ 'post-' + post.index }}">
-							<div class="question-post-title-container col-xs-4 center-vertical-outer">
-								<div class="center-vertical-inner">
-									{{post.title}}
-								</div>
-							</div>
+						<div class="panel-group" id="questionAccordion">
+							<div ng-repeat="post in allQuestionPosts | orderBy: 'index'" class="clearfix" ng-attr-id="{{ 'post-' + post.index }}">
+								<div class="panel panel-default">
 
 
-							<div class="question-post-content-container col-xs-8">
-								{{post.content}}
-							</div>
-							<div class="focus-button-container" >
-								<button ng-hide="post.inFocus" type="button" class="btn btn-success btn-lg" ng-click="focusOnQuestionPost(post)">{{howToHandle.title}}</button>
-								<button ng-show="post.inFocus" type="button" class="btn btn-success btn-lg" ng-click="post.inFocus = false">{{close.title}}</button>
+ <!-- question-post-container -->
+								<!-- <div class="question-post-title-container center-vertical-outer"> -->
+								<!-- center-vertical-inner -->
+									<div class=" panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-parent="#questionAccordion" ng-href="{{ '#collapse-' + post.index }}" ng-click="focusOnQuestionPost(post)">
+											{{post.title}}</a>
+										</h4>
+									</div>
+								<!-- </div> -->
 
-								<!-- <button ng-show="!post.showDescription" type="button" class="btn btn-primary btn-lg btn-block" ng-click="post.showDescription = !post.showDescription">{{readMore}}</button> -->
-							</div>
-							<div class="col-xs-12 solution-container" ng-show="post.inFocus">
-								<div class="row">
-									<div class="col-xs-8">
-										<h5></h5>
+								<!-- question-post-content-container -->
+								<div class=" panel-body" ng-show="post.inFocus">
+									<div ng-attr-id="{{ 'collapse-' + post.index }}" class="panel-collapse collapse">
 										{{post.solution}}
 									</div>
-									<div class="col-xs-4 video-player-container">
-										<img src="http://localhost/leadershipdiamond/wp-content/uploads/2016/02/video-player.jpg">
-									</div>
-									<div class="col-xs-4 col-xs-offset-8 move-to-next-post-container">
-										<button type="button" ng-click="" class="btn btn-success btn-block">{{goToNextPost.title}}</button>
-									</div>
 								</div>
+								<!-- <div class="focus-button-container" >
+									<button ng-hide="post.inFocus" type="button" class="btn btn-success btn-lg" ng-click="focusOnQuestionPost(post)">{{howToHandle.title}}</button>
+									<button ng-show="post.inFocus" type="button" class="btn btn-success btn-lg" ng-click="post.inFocus = false">{{close.title}}</button>
+								</div>
+								<div class="col-xs-12 solution-container ng-hide" ng-show="post.inFocus">
+									<div class="row">
+										<div class="col-xs-8">
+											<h5></h5>
+											{{post.solution}}
+										</div>
+										<div class="col-xs-4 video-player-container">
+											<img src="http://localhost/leadershipdiamond/wp-content/uploads/2016/02/video-player.jpg">
+										</div>
+										<div class="col-xs-4 col-xs-offset-8 move-to-next-post-container">
+											<button type="button" ng-click="" class="btn btn-success btn-block">{{goToNextPost.title}}</button>
+										</div>
+									</div>
 
+								</div> -->
+							</div>
 							</div>
 						</div>
-
-
 					</div>
 				</section><!-- Post section -->
 
