@@ -90,7 +90,12 @@ get_header(); ?>
 			</div>
               <div class="lang-picker">
                   <div ng-repeat="lang in languages">
-                    <a href="{{lang.url}}">{{lang.name}}</a>
+                        <div ng-if="currentLanguage.name !== lang.name">
+                           <a href="{{lang.url}}">{{lang.name}}</a>
+                        </div>
+                       <div ng-if="currentLanguage.name === lang.name" >
+                           {{lang.name}}
+                      </div>
                   </div>
               </div>
 
