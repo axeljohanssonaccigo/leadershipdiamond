@@ -8,6 +8,10 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 	$scope.postInFocus = null;
 	$scope.hasViewedAboutDiamond = false;
 	$scope.oneAtATime = true;
+    $scope.languages = [
+        {"name": "Svenska", "url": baseUrl.concat("/sv")},
+        {"name": "English", "url": baseUrl.concat("/en")}
+    ];
 
 	// Sets custom strings from translation custom post type
 	$scope.setCustomStrings = function(){
@@ -36,17 +40,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 		window.scrollTo(0,toTop - 50);
 	};
 
-	$scope.unFocusOtherPosts = function(clickedPost){
-		angular.forEach($scope.allQuestionPosts, function(post){
-			if (clickedPost.id === post.id) {
-				post.inFocus = true;
-
-			} else {
-				post.inFocus = false;
-
-			}
-		});
-	};
 	$scope.moveToNextPost = function(currentPost){
 		$scope.dummyDistance = 150;
 		currentPost.inFocus = false;
@@ -120,8 +113,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 
 	$scope.getAllTranslations = function(){
 		startSvc.getAllTranslations().then(function(response){
-			//$scope.allTranslations = response.data.posts;
-			//console.log($scope.allTranslations);
 			$scope.prettyfyTranslations(response.data.posts);
 		});
 	};

@@ -31,11 +31,11 @@ get_header(); ?>
 
 				<section><!-- Post section -->
 					<div class="row">
-						<uib-accordion close-others="oneAtATime">
-						<uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}">
-							{{post.solution}}
-						</uib-accordion-group>
-					</uib-accordion>
+				        <uib-accordion close-others="oneAtATime">
+                            <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}">
+                                {{post.solution}}
+                            </uib-accordion-group>
+				        </uib-accordion>
 					</div>
 				</section><!-- Post section -->
 
@@ -88,6 +88,12 @@ get_header(); ?>
 				</section><!-- Leadership Diamond section -->
 
 			</div>
+              <div class="lang-picker">
+                  <div ng-repeat="lang in languages">
+                    <a href="{{lang.url}}">{{lang.name}}</a>
+                  </div>
+              </div>
+
 		</div>
 
 

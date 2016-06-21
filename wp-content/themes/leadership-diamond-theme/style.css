@@ -112,6 +112,11 @@
   padding-top: 15px;
   margin: 15px 0;
 }
+.lang-picker {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
 /* Media tags */
 @media screen and (max-width: 768px) {
   .site-subtitle {
