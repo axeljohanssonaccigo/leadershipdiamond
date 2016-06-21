@@ -1,4 +1,31 @@
 diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, startSvc) {
+
+	$scope.oneAtATime = true;
+
+	  $scope.groups = [
+	    {
+	      title: 'Dynamic Group Header - 1',
+	      content: 'Dynamic Group Body - 1'
+	    },
+	    {
+	      title: 'Dynamic Group Header - 2',
+	      content: 'Dynamic Group Body - 2'
+	    }
+	  ];
+
+	  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+	  $scope.addItem = function() {
+	    var newItemNo = $scope.items.length + 1;
+	    $scope.items.push('Item ' + newItemNo);
+	  };
+
+	  $scope.status = {
+	    isCustomHeaderOpen: false,
+	    isFirstOpen: true,
+	    isFirstDisabled: false
+	  };
+
 	//Scope variables
 	$scope.a = "startCtrl";
 	console.log($scope.a);
@@ -8,7 +35,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 	$scope.loading = true;
 	$scope.postInFocus = null;
 	$scope.hasViewedAboutDiamond = false;
-	
+
 	// Sets custom strings from translation custom post type
 	$scope.setCustomStrings = function(){
 		$scope.leadershipOS = $scope.getTranslationByContent('leadershipOS');
@@ -115,7 +142,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 		console.log($scope.allTranslations);
 		//Set the custom strings
 		$scope.setCustomStrings();
-	};	
+	};
 
 
 	$scope.getAllTranslations = function(){
@@ -146,6 +173,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 	$scope.getAllTranslations();
 	$scope.getAllQuestionPosts();
 	$scope.getAllCourses();
-	
+
 
 }]);

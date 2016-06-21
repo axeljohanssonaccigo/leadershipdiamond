@@ -1,6 +1,6 @@
 'use strict'
 
-var diamondApp = angular.module('diamondApp', []);
+var diamondApp = angular.module('diamondApp', ['ngAnimate', 'ngTouch', 'ui.bootstrap']);
 // BadController will fail to instantiate, due to relying on automatic function annotation,
 // rather than an explicit annotation
 
