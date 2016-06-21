@@ -25,6 +25,9 @@ function studio_jetpack_setup() {
         ) );
     }
     else if ( 'infinite-scroll-scroll' == $pagination_type ) {
+        //Override infinite scroll disable scroll option
+        update_option('infinite_scroll', true);
+
         add_theme_support( 'infinite-scroll', array(
             'type'      => 'scroll',
             'container' => 'main',
@@ -36,7 +39,7 @@ function studio_jetpack_setup() {
     /**
      * Add theme support for responsive videos.
      */
-    add_theme_support( 'jetpack-responsive-videos' );	
+    add_theme_support( 'jetpack-responsive-videos' );
 } // end function studio_jetpack_setup
 add_action( 'after_setup_theme', 'studio_jetpack_setup' );
 

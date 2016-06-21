@@ -1,11 +1,11 @@
-# Copyright (C) 2015 Catch Themes
+# Copyright (C) 2016 Catch Themes
 # This file is distributed under the GNU General Public License v3 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: Studio 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/studio\n"
-"POT-Creation-Date: 2015-08-20 17:14+0545\n"
-"PO-Revision-Date: 2015-08-20 17:14+0545\n"
+"POT-Creation-Date: 2016-05-10 23:10+0545\n"
+"PO-Revision-Date: 2016-05-10 23:10+0545\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Catch Themes <info@catchthemes.com>\n"
 "Language: en\n"
@@ -46,66 +46,66 @@ msgstr ""
 msgid "Newer Comments"
 msgstr ""
 
-#: ../footer.php:22
+#: ../footer.php:27
 msgctxt "attribution"
 msgid "by"
 msgstr ""
 
 # @ studio
-#: ../functions.php:107
+#: ../functions.php:122
 msgid "Primary Menu"
 msgstr ""
 
 # @ studio
-#: ../functions.php:108
+#: ../functions.php:123
 msgid "Social Menu"
 msgstr ""
 
 # @ studio
-#: ../functions.php:167
+#: ../functions.php:182
 msgctxt "Google font: on or off"
 msgid "on"
 msgstr ""
 
 # @ studio
-#: ../functions.php:200
+#: ../functions.php:215
 msgid "Name"
 msgstr ""
 
 # @ studio
-#: ../functions.php:201
+#: ../functions.php:216
 msgid "Email"
 msgstr ""
 
 # @ studio
-#: ../functions.php:202
+#: ../functions.php:217
 msgid "URL"
 msgstr ""
 
 # @ studio
-#: ../functions.php:203
+#: ../functions.php:218
 msgid "Comment"
 msgstr ""
 
-#: ../inc/customizer-includes/customizer-custom-controls.php:36
+#: ../inc/customizer-includes/customizer-custom-controls.php:35
 msgid ""
 "Hold down the Ctrl (windows) / Command (Mac) button to select multiple "
 "options."
 msgstr ""
 
-#: ../inc/customizer-includes/customizer-custom-controls.php:58
+#: ../inc/customizer-includes/customizer-custom-controls.php:57
 msgid "Theme Instructions"
 msgstr ""
 
-#: ../inc/customizer-includes/customizer-custom-controls.php:62
+#: ../inc/customizer-includes/customizer-custom-controls.php:61
 msgid "Support"
 msgstr ""
 
-#: ../inc/customizer-includes/customizer-custom-controls.php:66
+#: ../inc/customizer-includes/customizer-custom-controls.php:65
 msgid "Changelog"
 msgstr ""
 
-#: ../inc/customizer-includes/customizer-custom-controls.php:70
+#: ../inc/customizer-includes/customizer-custom-controls.php:69
 msgid "Review"
 msgstr ""
 
@@ -185,7 +185,11 @@ msgstr ""
 msgid "Default Layout"
 msgstr ""
 
-#: ../inc/customizer-includes/customizer-theme-options.php:183
+#: ../inc/customizer-includes/customizer-theme-options.php:193
+msgid "Archive Content Layout"
+msgstr ""
+
+#: ../inc/customizer-includes/customizer-theme-options.php:203
 #, php-format
 msgid ""
 "Numeric Option requires <a target=\"_blank\" href=\"%s\">WP-PageNavi Plugin</"
@@ -193,110 +197,392 @@ msgid ""
 "\">JetPack Plugin</a> with Infinite Scroll module Enabled."
 msgstr ""
 
-#: ../inc/customizer-includes/customizer-theme-options.php:190
+#: ../inc/customizer-includes/customizer-theme-options.php:210
 #, php-format
 msgid ""
 "Infinite Scroll Options requires <a target=\"_blank\" href=\"%s\">JetPack "
 "Plugin</a> with Infinite Scroll module Enabled."
 msgstr ""
 
-#: ../inc/customizer-includes/customizer-theme-options.php:201
+#: ../inc/customizer-includes/customizer-theme-options.php:221
 msgid "Pagination Options"
 msgstr ""
 
-#: ../inc/customizer-includes/customizer-theme-options.php:218
+#: ../inc/customizer-includes/customizer-theme-options.php:238
 msgid "Pagination type"
 msgstr ""
 
-#: ../inc/customizer-includes/customizer-theme-options.php:227
+#: ../inc/customizer-includes/customizer-theme-options.php:247
 msgid "Change default placeholder text in Search."
 msgstr ""
 
-#: ../inc/customizer-includes/customizer-theme-options.php:230
+#: ../inc/customizer-includes/customizer-theme-options.php:250
 msgid "Search Options"
 msgstr ""
 
-#: ../inc/customizer-includes/customizer-theme-options.php:240
+#: ../inc/customizer-includes/customizer-theme-options.php:260
 msgid "Default Display Text in Search"
 msgstr ""
 
-#: ../inc/customizer.php:29
+# @ studio
+#: ../inc/customizer-includes/widgets.php:17 ../inc/widgets.php:17
+msgid "Footer Widget (left)"
+msgstr ""
+
+# @ studio
+#: ../inc/customizer-includes/widgets.php:26 ../inc/widgets.php:26
+msgid "Footer Widget (right)"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:37 ../inc/widgets.php:37
+msgid "Primary Sidebar"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:48
+msgid "Header Right"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:54
+msgid ""
+"This is the header right widget area. It typically appears on the right of "
+"the site title or logo. This widget area is not equipped to display any "
+"widget, and works best with a custom menu assigned as header right menu, a "
+"search form, social icons widget or possibly a text widget."
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:59
+msgid "Featured Widget Content"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:65
+msgid ""
+"This is the Featured Widget Content. Enable it by going to Appearance => "
+"Customize => Featured Widget Content Options => Enable Featured content "
+"Widget Content on"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:70
+msgid "Promotion Headline Left"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:76
+msgid ""
+"This is the Promotion Headline Left. Enable it by going to Appearance => "
+"Customize => Theme Options => Promotion Headline Options."
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:81
+msgid "Promotion Headline Right"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:87
+msgid ""
+"This is the Promotion Headline Right. Enable it by going to Appearance => "
+"Customize => Theme Options => Promotion Headline Options."
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:92
+msgid "Optional Homepage Sidebar"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:94
+msgid "This is Optional Sidebar for Homepage"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:103
+msgid "Optional Archive Sidebar"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:105
+msgid "This is Optional Sidebar for Archive"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:114
+msgid "Optional Page Sidebar"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:116
+msgid "This is Optional Sidebar for Page"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:125
+msgid "Optional Post Sidebar"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:127
+msgid "This is Optional Sidebar for Post"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:136
+msgid "Optional Sidebar One"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:138
+msgid "This is Optional Sidebar One"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:147
+msgid "Optional Sidebar Two"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:149
+msgid "This is Optional Sidebar Two"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:158
+msgid "Optional Sidebar Three"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:160
+msgid "This is Optional Sidebar Three"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:169
+msgid "404 Page Not Found Content"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:171
+msgid "Replaces the default 404 Page Not Found Content"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:208
+msgid "Use this widget to add Social Icons Menu as a widget. "
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:275
+#, php-format
+msgid "No menus have been created yet. <a href=\"%s\">Create some</a>."
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:280
+msgid "Title"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:284
+msgid "Select Menu:"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:286
+msgid "&mdash; Select &mdash;"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:316
+msgid "Display Featured Page. Suitable for Home Top Area and Home Left Area"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:339
+#: ../inc/customizer-includes/widgets.php:530
+msgid "Title:"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:344
+msgid "Displays the title of the Page if title input is empty."
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:348
+msgid "Page"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:358
+#: ../inc/customizer-includes/widgets.php:552
+msgid "Remove Featured image"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:363
+#: ../inc/customizer-includes/widgets.php:368
+#: ../inc/customizer-includes/widgets.php:557
+#: ../inc/customizer-includes/widgets.php:562
+msgid "Show Image Before Title"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:364
+#: ../inc/customizer-includes/widgets.php:369
+#: ../inc/customizer-includes/widgets.php:558
+#: ../inc/customizer-includes/widgets.php:563
+msgid "Show Image After Title"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:374
+#: ../inc/customizer-includes/widgets.php:568
+msgid "Show Content"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:376
+#: ../inc/customizer-includes/widgets.php:570
+msgid "Excerpt"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:377
+#: ../inc/customizer-includes/widgets.php:571
+msgid "Full Content"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:378
+#: ../inc/customizer-includes/widgets.php:572
+msgid "Hide"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:383
+msgid "Content Character Limit for Excerpt Only"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:505
+msgid "Display Featured Post. Suitable for Home Top Area and Home Left Area"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:535
+msgid "Displays the title of the Post if title input is empty."
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:539
+msgid "ID of the Post:"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:544
+msgid "This Post ID is Not Valid"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:577
+msgid "Content Character Limit"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:732
+msgid "CT: Advertisement"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:733
+msgid "Use this widget to add any type of Advertisement as a widget"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:763
+msgid "Title (optional):"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:768
+msgid "Advertisement Code:"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:774
+msgid "Image Url:"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:778
+msgid "Link URL:"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:782
+msgid "Open Link in New Window"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:785
+msgid "Alt text:"
+msgstr ""
+
+#: ../inc/customizer-includes/widgets.php:853
+msgid "Add Advertisement Code or Image URL"
+msgstr ""
+
+#: ../inc/customizer.php:35
+msgid "Logo"
+msgstr ""
+
+#: ../inc/customizer.php:48
+msgid "Check to disable logo"
+msgstr ""
+
+#: ../inc/customizer.php:62
+msgid "Logo Alt Text"
+msgstr ""
+
+#: ../inc/customizer.php:76
 msgid ""
 "Caution: Reset all settings to default. Refresh the page after save to view "
 "full effects."
 msgstr ""
 
-#: ../inc/customizer.php:31
+#: ../inc/customizer.php:78
 msgid "Reset all settings"
 msgstr ""
 
-#: ../inc/customizer.php:42
+#: ../inc/customizer.php:89
 msgid "Check to reset all settings to default"
 msgstr ""
 
-#: ../inc/customizer.php:51 ../inc/customizer.php:62
+#: ../inc/customizer.php:98 ../inc/customizer.php:109
 msgid "Important Links"
 msgstr ""
 
-#: ../inc/customizer.php:89
+#: ../inc/customizer.php:136
 msgid "Upgrade To Pro &raquo;"
 msgstr ""
 
-#: ../inc/default-options.php:31
+#: ../inc/default-options.php:37
 msgid "Read More ..."
 msgstr ""
 
-#: ../inc/default-options.php:40
+#: ../inc/default-options.php:46
 msgid "Search..."
 msgstr ""
 
-#: ../inc/default-options.php:63 ../inc/default-options.php:145
+#: ../inc/default-options.php:69 ../inc/default-options.php:151
 msgid "Primary Sidebar, Content"
 msgstr ""
 
-#: ../inc/default-options.php:67 ../inc/default-options.php:150
+#: ../inc/default-options.php:73 ../inc/default-options.php:156
 msgid "Content, Primary Sidebar"
 msgstr ""
 
-#: ../inc/default-options.php:71 ../inc/default-options.php:155
+#: ../inc/default-options.php:77 ../inc/default-options.php:161
 msgid "No Sidebar"
 msgstr ""
 
-#: ../inc/default-options.php:86
+#: ../inc/default-options.php:92
 msgid "Default(Older Posts/Newer Posts)"
 msgstr ""
 
-#: ../inc/default-options.php:90
+#: ../inc/default-options.php:96
 msgid "Numeric"
 msgstr ""
 
-#: ../inc/default-options.php:94
+#: ../inc/default-options.php:100
 msgid "Infinite Scroll (Click)"
 msgstr ""
 
-#: ../inc/default-options.php:98
+#: ../inc/default-options.php:104
 msgid "Infinite Scroll (Scroll)"
 msgstr ""
 
-#: ../inc/default-options.php:115
+#: ../inc/default-options.php:121
 msgid "Use WordPress Setting"
 msgstr ""
 
-#: ../inc/default-options.php:119
+#: ../inc/default-options.php:125
 msgid "Disable in Pages"
 msgstr ""
 
-#: ../inc/default-options.php:123
+#: ../inc/default-options.php:129
 msgid "Disable Completely"
 msgstr ""
 
-#: ../inc/default-options.php:140
+#: ../inc/default-options.php:146
 msgid "Default"
 msgstr ""
 
-#: ../inc/extras.php:174
+#: ../inc/default-options.php:176
+msgid "Show Excerpt (Image Top)"
+msgstr ""
+
+#: ../inc/default-options.php:180
+msgid "Show Full Content (No Featured Image)"
+msgstr ""
+
+#: ../inc/extras.php:273
 #, php-format
 msgid "%s"
+msgstr ""
+
+#: ../inc/structure.php:56
+msgid "Skip to content"
 msgstr ""
 
 #: ../inc/template-tags.php:36
@@ -347,8 +633,7 @@ msgid "% Comments"
 msgstr ""
 
 # @ studio
-#: ../inc/template-tags.php:148 ../template-parts/content-landing.php:26
-#: ../template-parts/content-page.php:26
+#: ../inc/template-tags.php:148 ../template-parts/content-page.php:26
 msgid "Edit"
 msgstr ""
 
@@ -407,20 +692,6 @@ msgid "Archives"
 msgstr ""
 
 # @ studio
-#: ../inc/widgets.php:17
-msgid "Footer Widget (left)"
-msgstr ""
-
-# @ studio
-#: ../inc/widgets.php:26
-msgid "Footer Widget (right)"
-msgstr ""
-
-#: ../inc/widgets.php:37
-msgid "Primary Sidebar"
-msgstr ""
-
-# @ studio
 #: ../search.php:16
 #, php-format
 msgid "Search Results for: %s"
@@ -437,8 +708,8 @@ msgstr ""
 
 #: ../sidebar.php:72
 msgid ""
-"This is the Primary Sidebar Widget Area if you are using a two or three "
-"column site layout option."
+"This is the Primary Sidebar Widget Area if you are using a two column site "
+"layout option."
 msgstr ""
 
 #: ../sidebar.php:73
@@ -458,12 +729,6 @@ msgstr ""
 
 # @ studio
 #: ../template-parts/content-page.php:19
-#: ../template-parts/content-single.php:30 ../template-parts/content.php:32
+#: ../template-parts/content-single.php:30 ../template-parts/content.php:42
 msgid "Pages:"
-msgstr ""
-
-# @ studio
-#: ../template-parts/content.php:25
-#, php-format
-msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""

@@ -6,7 +6,7 @@
  * @subpackage Studio Pro
  * @since Studio 1.0
  */
-	
+
 	//Theme Options
 	$wp_customize->add_panel( 'studio_theme_options', array(
 	    'description'    => __( 'Basic theme Options', 'studio' ),
@@ -29,7 +29,7 @@
 		'sanitize_callback' => 'studio_sanitize_select',
 	) );
 
-	
+
 	$comment_option_types = studio_comment_options();
 	$choices = array();
 	foreach ( $comment_option_types as $comment_option_type ) {
@@ -58,7 +58,7 @@
 		'type'		=> 'checkbox',
 	) );
    	// Comment End
-   	
+
    	// Custom CSS Option
 	$wp_customize->add_section( 'studio_custom_css', array(
 		'description'	=> __( 'Custom/Inline CSS', 'studio'),
@@ -145,7 +145,7 @@
         'section'  	=> 'studio_homepage_options',
         'settings' 	=> 'front_page_category',
         'type'     	=> 'dropdown-categories',
-    ) ) );  
+    ) ) );
 	//Homepage / Frontpage Settings End
 
 	// Layout Options
@@ -175,13 +175,33 @@
 		'settings'  => 'theme_layout',
 		'type'		=> 'select',
 	) );
+
+	$wp_customize->add_setting( 'content_layout', array(
+		'capability'		=> 'edit_theme_options',
+		'default'			=> $defaults['content_layout'],
+		'sanitize_callback' => 'studio_sanitize_select',
+	) );
+
+	$layouts = studio_get_archive_content_layout();
+	$choices = array();
+	foreach ( $layouts as $layout ) {
+		$choices[ $layout['value'] ] = $layout['label'];
+	}
+
+	$wp_customize->add_control( 'content_layout', array(
+		'choices'   => $choices,
+		'label'		=> __( 'Archive Content Layout', 'studio' ),
+		'section'   => 'studio_layout',
+		'settings'  => 'content_layout',
+		'type'      => 'select',
+	) );
    	// Layout Options End
-	
+
 	// Pagination Options
 	$pagination_type	= get_theme_mod( 'pagination_type' );
 
 	$studio_navigation_description = sprintf( __( 'Numeric Option requires <a target="_blank" href="%s">WP-PageNavi Plugin</a>.<br/>Infinite Scroll Options requires <a target="_blank" href="%s">JetPack Plugin</a> with Infinite Scroll module Enabled.', 'studio' ), esc_url( 'https://wordpress.org/plugins/wp-pagenavi' ), esc_url( 'https://wordpress.org/plugins/jetpack/' ) );
-	
+
 	/**
 	 * Check if navigation type is Jetpack Infinite Scroll and if it is enabled
 	 */

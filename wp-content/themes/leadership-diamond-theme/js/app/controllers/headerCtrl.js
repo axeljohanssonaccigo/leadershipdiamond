@@ -2,7 +2,4 @@ diamondApp.controller('headerCtrl', ['$scope', 'startSvc', function($scope, star
 	//Scope variables
 	$scope.a = "header Ctrl";
 	console.log($scope.a);
-
-
-
 }]);

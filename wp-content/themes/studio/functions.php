@@ -93,6 +93,16 @@ function studio_setup() {
 	 */
 	add_theme_support( 'title-tag' );
 
+	//@remove Remove check when WordPress 4.8 is released
+	if ( function_exists( 'has_custom_logo' ) ) {
+		/**
+		* Setup Custom Logo Support for theme
+		* Supported from WordPress version 4.5 onwards
+		* More Info: https://make.wordpress.org/core/2016/03/10/custom-logo/
+		*/
+		add_theme_support( 'custom-logo' );
+	}
+
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
@@ -100,7 +110,12 @@ function studio_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 924, 520, true );
-	add_image_size( 'studio-single', '924', '520', true );
+
+	// Used as Featured Image Ratio / No Sidebar 16:9
+	add_image_size( 'studio-single', 924, 520, true );
+
+	// Used For Featured Content With Sidebar Ratio 16:9
+	add_image_size( 'studio-single-sidebar', 830, 467, true ); // Featured Image
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -195,8 +210,6 @@ function studio_scripts() {
 
 	wp_enqueue_script( 'studio-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '1.0.0', true );
 
-
-
 	// Localize script (only few lines in helpers.js)
     wp_localize_script( 'studio-helpers', 'placeholder', array(
  	    'author'   => __( 'Name', 'studio' ),
@@ -215,6 +228,11 @@ add_action( 'wp_enqueue_scripts', 'studio_scripts' );
  * Include Default Options for Studio
  */
 require get_template_directory() . '/inc/default-options.php';
+
+/**
+ * Implement the Custom Header feature.
+ */
+require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -237,6 +255,47 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
+ * Include Structure for Studio
+ */
+require get_template_directory() . '/inc/structure.php';
+
+/**
  * Load sidebars and widgets
  */
 require get_template_directory() . '/inc/widgets.php';
+
+/**
+ * Migrate Logo to New WordPress core Custom Logo
+ *
+ *
+ * Runs if version number saved in theme_mod "logo_version" doesn't match current theme version.
+ */
+function studio_logo_migrate() {
+	$ver = get_theme_mod( 'logo_version', false );
+
+	// Return if update has already been run
+	if ( version_compare( $ver, '1.1' ) >= 0 ) {
+		return;
+	}
+
+	// If a logo has been set previously, update to use logo feature introduced in WordPress 4.5
+	if ( function_exists( 'the_custom_logo' ) ) {
+		/**
+		 * Get Logo from Theme Mod
+		 */
+		$logo = get_theme_mod( 'logo', studio_get_default_theme_options( 'logo' ) );
+		if( '' != $logo ) {
+			// Since previous logo was stored a URL, convert it to an attachment ID
+			$logo = attachment_url_to_postid( $logo );
+
+			if ( is_int( $logo ) ) {
+				set_theme_mod( 'custom_logo', $logo );
+			}
+		}
+
+  		// Update to match logo_version so that script is not executed continously
+		set_theme_mod( 'logo_version', '1.1' );
+	}
+
+}
+add_action( 'after_setup_theme', 'studio_logo_migrate' );

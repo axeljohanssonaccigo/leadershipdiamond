@@ -16,8 +16,14 @@
 function studio_get_default_theme_options( $parameter = null ) {
 	
 	$default_theme_options = array(
+		//Logo
+		'logo'												=> get_template_directory_uri() . '/images/logo.png',
+		'logo_alt_text' 									=> '',
+		'logo_disable'										=> 1,
+
 		//Layout
 		'theme_layout' 										=> 'no-sidebar',
+		'content_layout'									=> 'excerpt-image-top',
 		
 		//Comment Options
 		'comment_option'									=> 'use-wordpress-setting',
@@ -159,18 +165,21 @@ function studio_metabox_layouts() {
 }
 
 /**
- * Checks if there are options already present from Studio free version and adds it to the Studio Pro theme
+ * Returns an array of content layout options registered for studio.
  *
  * @since Studio 1.0
- * @hook after_theme_switch
  */
-function studio_setup_options() {
-	if ( $studio_free_options = get_option ( 'theme_mods_studio' ) ) {
-		foreach( $studio_free_options as $key => $value ) {
-			if ( ! get_theme_mod( $key ) ) {
-				set_theme_mod( $key, $value );
-			}
-		}
-	}
+function studio_get_archive_content_layout() {
+	$layout_options = array(
+		'excerpt-image-top' => array(
+			'value' => 'excerpt-image-top',
+			'label' => __( 'Show Excerpt (Image Top)', 'studio' ),
+		),	
+		'full-content' => array(
+			'value' => 'full-content',
+			'label' => __( 'Show Full Content (No Featured Image)', 'studio' ),
+		),
+	);
+
+	return apply_filters( 'studio_get_archive_content_layout', $layout_options );
 }
-add_action('after_switch_theme', 'studio_setup_options');

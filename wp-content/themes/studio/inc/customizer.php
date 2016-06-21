@@ -18,12 +18,59 @@ function studio_customize_register( $wp_customize ) {
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+
 	// Theme doesn't add a tagline.
 	$wp_customize->remove_control('blogdescription');
 
+	//@remove Remove this block when WordPress 4.8 is released
+    if ( ! function_exists( 'has_custom_logo' ) ) {
+		// Custom Logo (added to Site Identity section in Theme Customizer)
+		$wp_customize->add_setting( 'logo', array(
+			'capability'		=> 'edit_theme_options',
+			'default'			=> $defaults['logo'],
+			'sanitize_callback'	=> 'esc_url_raw'
+		) );
+
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'logo', array(
+			'label'		=> __( 'Logo', 'studio' ),
+			'priority'	=> 100,
+			'section'   => 'title_tagline',
+		    'settings'  => 'logo',
+		) ) );
+
+		$wp_customize->add_setting( 'logo_disable', array(
+			'capability'		=> 'edit_theme_options',
+			'default'			=> $defaults['logo_disable'],
+			'sanitize_callback' => 'studio_sanitize_checkbox',
+		) );
+
+		$wp_customize->add_control( 'logo_disable', array(
+			'label'    => __( 'Check to disable logo', 'studio' ),
+			'priority' => 101,
+			'section'  => 'title_tagline',
+			'settings' => 'logo_disable',
+			'type'     => 'checkbox',
+		) );
+
+		$wp_customize->add_setting( 'logo_alt_text', array(
+			'capability'		=> 'edit_theme_options',
+			'default'			=> $defaults['logo_alt_text'],
+			'sanitize_callback'	=> 'sanitize_text_field',
+		) );
+
+		$wp_customize->add_control( 'logo_alt_text', array(
+			'label'    	=> __( 'Logo Alt Text', 'studio' ),
+			'priority'	=> 102,
+			'section' 	=> 'title_tagline',
+			'settings' 	=> 'logo_alt_text',
+			'type'     	=> 'text',
+		) );
+		// Custom Logo End
+	}
+
 	//Theme Options
 	require get_template_directory() . '/inc/customizer-includes/customizer-theme-options.php';
-	
+
 	// Reset all settings to default
 	$wp_customize->add_section( 'studio_reset_all_settings', array(
 		'description'	=> __( 'Caution: Reset all settings to default. Refresh the page after save to view full effects.', 'studio' ),
@@ -63,7 +110,7 @@ function studio_customize_register( $wp_customize ) {
         'section'  	=> 'important_links',
         'settings' 	=> 'important_links',
         'type'     	=> 'important_links',
-    ) ) );  
+    ) ) );
     //Important Links End
 }
 add_action( 'customize_register', 'studio_customize_register' );

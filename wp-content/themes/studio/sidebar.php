@@ -69,7 +69,7 @@ do_action( 'studio_before_secondary' );?>
 	                	<h4 class="widget-title"><?php _e( 'Primary Sidebar Widget Area', 'studio' ); ?></h4>
 	           		
 	           			<div class="textwidget">
-	                   		<p><?php _e( 'This is the Primary Sidebar Widget Area if you are using a two or three column site layout option.', 'studio' ); ?></p>
+	                   		<p><?php _e( 'This is the Primary Sidebar Widget Area if you are using a two column site layout option.', 'studio' ); ?></p>
 	                   		<p><?php printf( __( 'By default it will load Search and Archives widgets as shown below. You can add widget to this area by visiting your <a href="%s">Widgets Panel</a> which will replace default widgets.', 'studio' ), admin_url( 'widgets.php' ) ); ?></p>
 	                 	</div>
 	           		</div><!-- .widget-wrap -->

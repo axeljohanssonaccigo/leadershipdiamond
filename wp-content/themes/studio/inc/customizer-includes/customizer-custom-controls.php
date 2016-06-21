@@ -21,7 +21,6 @@
 					'hide_empty'       => false,
 					'show_option_none' => false,
 					'hide_if_empty'    => false,
-					'selected'         => $this->value(),
 				)
 			);
 

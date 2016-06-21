@@ -1,10 +1,10 @@
 /*
 Theme Name: Studio
-Theme URI: http://catchthemes.com/themes/studio/
+Theme URI: https://catchthemes.com/themes/studio/
 Author: Catch Themes
-Author URI: http://catchthemes.com
-Description: Studio is a Responsive, clean and modern WordPress Theme that works for any type of site. It comes with few dozen customization to personalize the look and feel. Enjoy the layout that scales perfectly on all mobile devices. This theme is translation ready. Check out Support at http://catchthemes.com/support/ and Demo at http://catchthemes.com/demo/studio/
-Version: 1.0
+Author URI: https://catchthemes.com
+Description: Studio is a Responsive, clean and modern WordPress Theme that works for any type of site. It comes with few dozen customization to personalize the look and feel. Enjoy the layout that scales perfectly on all mobile devices. This theme is translation ready. Check out Support at https://catchthemes.com/support/ and Demo at https://catchthemes.com/demo/studio/
+Version: 1.2
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: studio
@@ -17,7 +17,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /* =Table of Contents
 -------------------------------------------------------------- */
 
-/* 
+/*
     01. CSS Reset (Normalize)
     02. Theme Base
     03. Clearfix
@@ -147,7 +147,7 @@ a:hover {
     outline: 0;
 }
 
-   
+
 /* =Text-level semantics
 -------------------------------------------------------------- */
 
@@ -461,9 +461,9 @@ th {
 
 /* Apply a natural box layout model to all elements */
 
-*, 
-*:before, 
-*:after { 
+*,
+*:before,
+*:after {
     box-sizing: border-box;
 }
 
@@ -524,17 +524,17 @@ h6,
 pre,
 table,
 .gallery,
+.entry-thumbnail,
 blockquote,
 .wp-caption,
 .entry-footer,
 .comment-body,
 .page-links,
-p:last-item,
+p,
 .entry-content,
 .comment-meta,
 .page-content,
 .entry-summary,
-.entry-thumbnail,
 .comments-title,
 .comment-respond,
 .wp-caption-text,
@@ -561,7 +561,7 @@ p:last-item,
 .entry-footer,
 .comments-title,
 .entry-content,
-.comment-reply-title 
+.comment-reply-title
 .site-main .navigation {
     padding-top: 30px;
 }
@@ -669,7 +669,7 @@ h6 {
 
 /* =07. Forms
 -------------------------------------------------------------- */
- 
+
 select,
 textarea,
 input:not([type]),
@@ -734,7 +734,7 @@ input[type="url"]:disabled,
 input[type="search"]:disabled,
 input[type="tel"]:disabled,
 input[type="color"]:disabled {
-    cursor: none;  
+    cursor: none;
 }
 
 /*
@@ -862,7 +862,7 @@ button:active,
 input[type="reset"]:active,
 input[type="submit"]:active,
 input[type="button"]:active {
-    background-color: rgb(147, 175, 56);   
+    background-color: rgb(147, 175, 56);
 }
 
 /* Disabled */
@@ -872,7 +872,7 @@ button:disabled,
 input[type="reset"]:disabled,
 input[type="submit"]:disabled,
 input[type="button"]:disabled {
-    cursor: none;  
+    cursor: none;
 }
 
 /*
@@ -922,32 +922,56 @@ a:active {
 
 .site-branding {
     position: relative;
+    min-height: 500px;
     min-height: calc(100vh - 122px);
 }
 
-.site-header {
-    background-color: transparent;
-}
-
-.site-title {
-    background-color: rgba(54, 45, 57, 0.8);
-    border: 4px solid rgb(255, 255, 255);
-    font-size: 55px;
-    font-family: 'Bowlby One', cursive;
-    font-weight: 400;
-    margin: 0;
-    padding: 10px 20px;
+.site-branding-wrap {
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%);
+}
+
+.site-logo {
+    padding: 30px 0;
+    text-align: center;
+}
+
+#site-header {
+    border: 4px solid #fff;
+    text-align: center;
+}
+
+.site-title {
+    background: #58515c; /* For Old Browser */
+    background: rgba(54, 45, 57, 0.8);
+    font-size: 55px;
+    font-family: 'Bowlby One', cursive;
+    font-weight: 400;
+    margin: 0;
+    padding: 10px 20px 0;
+}
+
+.site-description {
+    background: #58515c; /* For Old Browser */
+    background: rgba(54, 45, 57, 0.8);
+    color: #eee;
+    display: block;
+    margin: 0;
+    padding: 0 20px 15px;
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: normal;
+    text-transform: none;
 }
 
 .site-title a {
-    color: rgb(255, 255, 255);
+    color: #fff;
 }
 
 /* =12. Layout
@@ -959,7 +983,7 @@ a:active {
     width: 100%;
 }
 
-@viewport{ 
+@viewport{
     width: device-width;
 }
 
@@ -1045,7 +1069,7 @@ a:active {
 
 .main-navigation ul li {
 	display: inline-block;
-} 
+}
 
 .main-navigation ul li a {
 	padding: 8px 12px;
@@ -1099,6 +1123,11 @@ a:active {
 
 .icon:before {
 	content: "\e116";
+}
+
+.sidr-open .icon:before {
+    content: "\e122";
+    padding: 5px 4px;
 }
 
 .icon:hover,
@@ -1341,7 +1370,7 @@ a:active {
 /*
  * Responsive media.
  */
- 
+
 img,
 embed,
 object,
@@ -1366,7 +1395,6 @@ figure {
 
 .entry-thumbnail {
     display: block;
-    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -1409,7 +1437,7 @@ figure {
 }
 
 .wp-caption .wp-caption-text {
-    margin-bottom: 0.8075em; 
+    margin-bottom: 0.8075em;
     margin-top: 0.8075em;
 }
 
@@ -1638,7 +1666,7 @@ figure {
     padding-bottom: 30px;
 }
 
-.two-columns .entry-header, 
+.two-columns .entry-header,
 .two-columns .entry-footer {
     text-align: left;
 }
@@ -1662,6 +1690,12 @@ figure {
 
 .two-columns.content-right .sidebar-primary {
     float: left;
+}
+
+.site-main .navigation {
+    display: block;
+    height: 1%;
+    overflow: hidden;
 }
 
 .two-columns .site-main .navigation {
@@ -1692,7 +1726,7 @@ figure {
 
 .comment-body {
     border: 1px solid rgba(0, 0, 0 ,0.1);
-}   
+}
 
 .comment-notes {
     font-size: 12px;
@@ -1783,7 +1817,7 @@ figure {
     border: none;
 }
 
-.wp-pagenavi a, 
+.wp-pagenavi a,
 .wp-pagenavi span {
     padding: 3px 10px;
 }
@@ -1825,14 +1859,14 @@ figure {
 
 /* =24. Responsive design
 -------------------------------------------------------------- */
- 
+
 @media screen and (max-width: 768px) { /* Mobile Devices Landscape */
 
     .site-title,
     .entry-title {
         font-size: x-large;
     }
- 
+
     img,
     .alignleft,
     .alignright,
@@ -1843,32 +1877,32 @@ figure {
         margin-right: auto;
         text-align: center;
     }
-    
+
     .site-info,
     .site-content {
 		padding: 20px;
 	}
-        
+
     .widget-area,
     .content-area {
         display: block;
         margin-right: auto;
         margin-left: auto;
     }
-    
+
     .comment-list .children {
 		padding-left: 0;
 	}
-    
+
     .main-navigation {
         display: none;
     }
-    
+
     .icon,
     .menu-toggle {
 		display: block;
 	}
-    
+
     .widget select {
         display: block;
     }
@@ -1884,8 +1918,8 @@ figure {
     .footer-col {
         width: 100%;
         padding: 20px;
-    }    
-    
+    }
+
 }
 
 @media screen and (max-width: 480px) { /* Mobile Devices Portrait */
@@ -1897,7 +1931,7 @@ figure {
 }
 
 @media screen and (min-width: 1024px) { /* Desktop */
-    
+
     .site-info,
     .content-area,
     .site-branding,
@@ -1910,7 +1944,7 @@ figure {
     .site-main .navigation {
         padding: 0;
     }
-    
+
     .site-branding {
         min-height: calc(110vh - 162px);
     }
@@ -1927,7 +1961,7 @@ figure {
     .sidebar-primary {
         max-width: 360px;
         width: 30%;
-    }  
+    }
 
 }
 
@@ -1937,7 +1971,7 @@ figure {
 /* Print styles inlined to avoid extra HTTP connection */
 
 @media print {
-    
+
 	* {
 		background: transparent !important;
 		color: black !important; /* Black prints faster: sanbeiji.com/archives/953 */
@@ -1960,7 +1994,7 @@ figure {
 
 	/* Do not show javascript and internal links */
 	a[href^="javascript:"]:after, a[href^="#"]:after {
-		content: ""; 
+		content: "";
 	}
 
 	/* Printing Tables: css-discuss.incutio.com/wiki/Printing_Tables */
@@ -1984,5 +2018,5 @@ figure {
 	h2, h3 {
 		page-break-after: avoid;
 	}
-    
+
 }
