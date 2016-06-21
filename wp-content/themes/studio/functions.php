@@ -189,34 +189,13 @@ function studio_scripts() {
 
 	wp_enqueue_style( 'studio-icons', get_template_directory_uri() . '/css/typicons.css', array(), '1.0.0' );
 
-	/* BOOTSTRAP */
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), '1.0.0' );
-
-	/*CUSTOM CSS*/
-	wp_enqueue_style('diamond-style-common',  get_template_directory_uri() . '/css/leadership.diamond.common.css', false);
-
 	wp_enqueue_script( 'studio-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0.0', true );
 
 	wp_enqueue_script( 'studio-helpers', get_template_directory_uri() . '/js/helpers.js', array( 'jquery' ), '1.0.0', true );
 
 	wp_enqueue_script( 'studio-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '1.0.0', true );
 
-	/* Angular */
-	wp_enqueue_script('angular', get_template_directory_uri() . '/js/assets/angular.js', array(), null, true);
-	wp_enqueue_script('angular_animate', get_template_directory_uri() . '/js/assets/angular-animate.js', array(), null, true);
-	wp_enqueue_script('angular_touch', get_template_directory_uri() . '/js/assets/angular-touch.js', array(), null, true);
 
-	/* BOOTSTRAP */
-	wp_enqueue_script('ui_bootstrap_tpls_min', get_template_directory_uri() . '/js/assets/ui-bootstrap-tpls-1.3.3.min.js', array(), null, true);
-
-	/* CUSTOM SCRIPTS */
-	$version = '0.8';
-	/* Diamond App */
-	wp_enqueue_script('diamond_app', get_template_directory_uri() . '/js/app/diamondApp.js', array(), $version, true);
-	wp_enqueue_script('start_ctrl', get_template_directory_uri() . '/js/app/controllers/startCtrl.js', array(), $version, true);
-	wp_enqueue_script('header_ctrl', get_template_directory_uri() . '/js/app/controllers/headerCtrl.js', array(), $version, true);
-
-	wp_enqueue_script('start-svc', get_template_directory_uri() . '/js/app/services/startSvc.js', array(), $version, true);
 
 	// Localize script (only few lines in helpers.js)
     wp_localize_script( 'studio-helpers', 'placeholder', array(
@@ -261,15 +240,3 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load sidebars and widgets
  */
 require get_template_directory() . '/inc/widgets.php';
-
-/* CUSTOM FUNCTIONS */
-/********************/
-/**
-* Add custom fields to api
-*/
-function json_api_prepare_post( $post_response, $post, $context ) {
-	$field = get_post_custom($post['ID']);
-	$post_response['custom-fields'] = $field;
-	return $post_response;
-}
-add_filter( 'json_prepare_post', 'json_api_prepare_post', 10, 3 );
