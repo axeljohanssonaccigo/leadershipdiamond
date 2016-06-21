@@ -13,93 +13,103 @@
 
 get_header(); ?>
 
-<div id="primary" class="content-area">
-	<main id="main" class="site-main" role="main">
-		<div class="container" ng-app="diamondApp" ng-controller="startCtrl" >
-			<div ng-hide="loading">
-				<!--heading-->
-				<div class="row">
-				</div>
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <div class="" ng-app="diamondApp" ng-controller="startCtrl">
+                <div ng-hide="loading">
+                    <!--heading-->
+                    <div class="row">
+                    </div>
 
 
-				<section><!-- Graph section -->
-					<div class="row">
+                    <section>
+                        <!-- Graph section -->
+                        <div class="row">
 
 
-					</div>
-				</section><!-- Graph section -->
+                        </div>
+                    </section>
+                    <!-- Graph section -->
 
-				<section><!-- Post section -->
-					<div class="row">
-				        <uib-accordion close-others="oneAtATime">
-                            <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}">
-                                {{post.solution}}
-                            </uib-accordion-group>
-				        </uib-accordion>
-					</div>
-				</section><!-- Post section -->
+                    <section>
+                        <!-- Post section -->
+                        <div class="row">
+                            <uib-accordion close-others="oneAtATime">
+                                <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}">
+                                    {{post.solution}}
+                                </uib-accordion-group>
+                            </uib-accordion>
+                        </div>
+                    </section>
+                    <!-- Post section -->
 
-				<section><!-- Course offers section -->
-					<div class="row">
-						<div class="course-section clearfix col-xs-12">
-							<div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-xs-12">
-								<div class="course-title-container">
-									{{course.title}} | {{course.level}}
-								</div>
-								<div class="course-content-container">
-									{{course.content}}
-								</div>
-							</div>
-						</div>
-					</div>
-				</section><!-- Course offers section -->
+                    <section>
+                        <!-- Course offers section -->
+                        <div class="row">
+                            <div class="course-section clearfix col-xs-12">
+                                <div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-xs-12">
+                                    <div class="course-title-container">
+                                        {{course.title}} | {{course.level}}
+                                    </div>
+                                    <div class="course-content-container">
+                                        {{course.content}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Course offers section -->
 
-				<section><!-- Leadership Diamond section -->
-					<div class="row ng-hide" >
+                    <section>
+                        <!-- Leadership Diamond section -->
+                        <div class="row ng-hide">
 
-						<div id="diamond-solver" ng-show="postInFocus !== null">
+                            <div id="diamond-solver" ng-show="postInFocus !== null">
 
-							<div class="question-post-container clearfix post-in-focus">
-								<div class="col-sm-6 col-xs-12">
-									<div class="question-post-title-container">
-										<h4>{{postInFocus.title}}</h4>
-									</div>
-									<div class="question-post-content-container">
-										{{postInFocus.content}}
-									</div>
-								</div>
-								<div class="col-xs-12 col-sm-6">
-									<h4>Detta problem och dess lösning återfinns i Ledarskapsdiamanten!</h4>
+                                <div class="question-post-container clearfix post-in-focus">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="question-post-title-container">
+                                            <h4>{{postInFocus.title}}</h4>
+                                        </div>
+                                        <div class="question-post-content-container">
+                                            {{postInFocus.content}}
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <h4>Detta problem och dess lösning återfinns i Ledarskapsdiamanten!</h4>
 
-								</div>
-							</div>
+                                    </div>
+                                </div>
 
 
-						</div>
-					</div>
+                            </div>
+                        </div>
 
-					<!-- <div class="container-fluid off-white-section">
+                        <!-- <div class="container-fluid off-white-section">
 						<div class="container">
 							<div class="row">
 
 							</div>
 						</div>
 					</div> -->
-				</section><!-- Leadership Diamond section -->
+                    </section>
+                    <!-- Leadership Diamond section -->
 
-			</div>
-              <div class="lang-picker">
-                  <div ng-repeat="lang in languages">
-                    <a href="{{lang.url}}">{{lang.name}}</a>
-                  </div>
-              </div>
+                </div>
+                <div class="lang-picker">
+                    <div ng-repeat="lang in languages">
+                        <a href="{{lang.url}}">{{lang.name}}</a>
+                    </div>
+                </div>
 
-		</div>
+            </div>
 
 
-	</main><!-- #main -->
-</div><!-- #primary -->
+        </main>
+        <!-- #main -->
+    </div>
+    <!-- #primary -->
 
-<?php get_sidebar(); ?>
+    <?php get_sidebar(); ?>
 
-<?php get_footer(); ?>
+        <?php get_footer(); ?>
