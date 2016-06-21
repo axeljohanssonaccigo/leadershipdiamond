@@ -23,6 +23,12 @@ if (currentEnvironment === environments.dev) {
 	baseUrl = currentEnvironment;
 }
 
+//Setting current language depending on url (Default = Swedish)
+var currentLanguage = {"name": "Svenska", "url": baseUrl.concat("/sv")};
+if(location.href.search("en") > -1){
+    var currentLanguage = {"name": "English", "url": baseUrl.concat("/en")};
+}
+
 jQuery(document).ready(function () {
     angular.bootstrap(document.getElementById("headerContainer"), ['diamondApp']);
 });

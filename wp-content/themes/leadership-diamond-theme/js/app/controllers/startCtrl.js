@@ -8,6 +8,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 	$scope.postInFocus = null;
 	$scope.hasViewedAboutDiamond = false;
 	$scope.oneAtATime = true;
+    $scope.currentLanguage = currentLanguage;
     $scope.languages = [
         {"name": "Svenska", "url": baseUrl.concat("/sv")},
         {"name": "English", "url": baseUrl.concat("/en")}
