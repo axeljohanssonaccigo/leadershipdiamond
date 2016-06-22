@@ -32,3 +32,6 @@ if(location.href.search("en") > -1){
 jQuery(document).ready(function () {
     angular.bootstrap(document.getElementById("headerContainer"), ['diamondApp']);
 });
+jQuery(document).ready(function () {
+    angular.bootstrap(document.getElementById("footerContainer"), ['diamondApp']);
+});
