@@ -77,6 +77,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 			post["inFocus"] = false;
 			post["index"] = parseInt(post['custom_fields']['wpcf-index'][0]);
 			post["solution"] = (post['custom_fields']['wpcf-answer'][0]);
+            post["isRead"] = false;
 			post.content = $scope.trimPostContent(post.content);
 			if (count === $scope.allQuestionPosts.length) {
 				$scope.loading = false;
@@ -129,11 +130,16 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 				if ('wpcf-level' in course.custom_fields) {
 					course["level"] = course.custom_fields['wpcf-level'][0];
 				};
+                course["isRead"] = false;
 			});
 			console.log("all courses");
 			console.log($scope.allCourses);
 		});
 	};
+    
+    $scope.registerQuestionClick = function(post){
+      post.isRead = true;  
+    };
 
 	$scope.getAllTranslations();
 	$scope.getAllQuestionPosts();

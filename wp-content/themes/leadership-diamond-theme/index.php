@@ -25,6 +25,12 @@ get_header(); ?>
                     <section>
                         <!-- Graph section -->
                         <div class="row">
+                            (TEST PURPOSE) <br>You have so far opened the following questions: <br>
+                            <div ng-repeat="post in allQuestionPosts">
+                                <div ng-show="post.isRead">
+                                    {{post.title + " (index = " + post.index + ")"}}
+                                </div>
+                            </div>
 
 
                         </div>
@@ -35,7 +41,7 @@ get_header(); ?>
                         <!-- Post section -->
                         <div class="row">
                             <uib-accordion close-others="oneAtATime">
-                                <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}">
+                                <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}" ng-click="registerQuestionClick(post)">
                                     {{post.solution}}
                                 </uib-accordion-group>
                             </uib-accordion>
