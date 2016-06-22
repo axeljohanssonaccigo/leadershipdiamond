@@ -24,13 +24,13 @@ do_action( 'studio_after_content' );
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-6 col-md-5 col-md-offset-1">
-                            <h3>Kontakt</h3>
+                            <h3>{{currentStrings.contact}}</h3>
                             hej där<br>
                             mer kontakt
                             {{a}}
                         </div>
                         <div class="col-xs-6 col-md-5">
-                            <h3>Ledarskapspartners</h3>
+                            <h3>{{currentStrings.leadershipPartners}}</h3>
                             partner 1<br>
                             partner 2
                         </div>
