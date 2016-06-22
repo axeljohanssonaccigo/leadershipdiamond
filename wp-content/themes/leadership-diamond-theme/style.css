@@ -158,6 +158,13 @@ background-size: cover no-repeat;*/
   bottom: 20px;
   right: 20px;
 }
+footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+footer ul li {
+  text-decoration: none;
+}
 /* Media tags */
 @media screen and (max-width: 768px) {
   .site-subtitle {

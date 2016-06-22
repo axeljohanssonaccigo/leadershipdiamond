@@ -25,14 +25,20 @@ do_action( 'studio_after_content' );
                     <div class="row">
                         <div class="col-xs-6 col-md-5 col-md-offset-1">
                             <h3>{{currentStrings.contact}}</h3>
-                            hej där<br>
-                            mer kontakt
-                            {{a}}
+                            <ul>
+                                <li ng-repeat="contact in contacts">
+                                    <a href="{{contact.url}}" target="_blank">{{contact.name}}</a>
+                                </li>
+                            </ul>
+                            
                         </div>
                         <div class="col-xs-6 col-md-5">
                             <h3>{{currentStrings.leadershipPartners}}</h3>
-                            partner 1<br>
-                            partner 2
+                            <ul>
+                                <li ng-repeat="partner in partners">
+                                    <a href="{{partner.url}}" target="_blank">{{partner.name}}</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
