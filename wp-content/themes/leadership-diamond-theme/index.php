@@ -54,7 +54,7 @@ get_header(); ?>
                     </section>
                     <!-- Post section -->
 
-                    <section>
+                    <section id="course">
                         <!-- Course offers section -->
                         <div class="row">
                             <div class="course-section clearfix col-xs-12">
