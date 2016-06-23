@@ -1,6 +1,9 @@
 'use strict'
 
-var diamondApp = angular.module('diamondApp', ['ngAnimate', 'ngTouch', 'ui.bootstrap']);
+var diamondApp = angular.module('diamondApp', ['ngAnimate', 'ngTouch', 'ui.bootstrap'])
+.run(['$anchorScroll', function($anchorScroll) {
+  console.log("in app");   // always scroll by 50 extra pixels
+}]);
 
 // Global variabels
 var environments = {
@@ -28,6 +31,8 @@ var currentLanguage = {"name": "Svenska", "url": baseUrl.concat("/sv")};
 if(location.href.search("en") > -1){
     var currentLanguage = {"name": "English", "url": baseUrl.concat("/en")};
 }
+
+
 
 jQuery(document).ready(function () {
     angular.bootstrap(document.getElementById("headerContainer"), ['diamondApp']);

@@ -27,7 +27,7 @@ a:hover {
   width: 960px;
 }
 .panel-heading h4 {
-  font-size: 60px;
+  font-size: 30px;
 }
 /* !OVERRIDING BOOTSTRAP DEFAULTS! */
 .panel {
