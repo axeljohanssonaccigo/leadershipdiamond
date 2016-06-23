@@ -45,8 +45,8 @@ get_header(); ?>
                             <uib-accordion close-others="oneAtATime">
                                 <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}" ng-click="registerQuestionClick(post)">
                                     {{post.solution}}
-                                    <div ng-show="post.index < allQuestionPosts.length">
-                                        <button type="button" class="btn btn-success" ng-click="moveToNextPost(post)">{{goToNextPost.title}}</button>
+                                    <div ng-show="post.index < allQuestionPosts.length" class="next-btn-div">
+                                        <button type="button" class="btn btn-success waves-effect waves-light" ng-click="moveToNextPost(post)">{{goToNextPost.title}}</button>
                                     </div>
                                 </uib-accordion-group>
                             </uib-accordion>

@@ -21,6 +21,9 @@ function my_theme_enqueue_scripts() {
 
     /* BOOTSTRAP */
     wp_enqueue_script('ui_bootstrap_tpls_min', get_stylesheet_directory_uri() . '/js/assets/ui-bootstrap-tpls-1.3.3.min.js', array(), null, true);
+    
+    /* MATERIALIZE JS */
+     wp_enqueue_script('materialize_js', get_stylesheet_directory_uri() . '/js/assets/materialize.min.js', array(), null, true);
 
     /* CUSTOM SCRIPTS */
     /* SCRIPT AND STYLES VERSION */
