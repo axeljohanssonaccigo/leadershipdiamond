@@ -11,27 +11,10 @@ Tags:         responsive-layout
 Text Domain:  leadership-diamond-theme
 */
 
-
-/* NEW DIAMOND STYLING */
-
-a {
-    text-decoration: none;
-    transition: 0.2s all ease-in-out;
-    &:hover {
-        text-decoration: none;
-    }
-}
-
-.row {
-    margin: 0px;
-}
-
-.panel-heading {
-    margin: 0 auto;
-    width: 960px;
-    h4 {
-        font-size: 60px;
-    }
+@font-face {
+    font-family: 'TCCEB';
+    src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.eot');
+    src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.eot') format('embedded-opentype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.woff2') format('woff2'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.woff') format('woff'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.ttf') format('truetype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.svg#TCCEB') format('svg');
 }
 
 
@@ -44,14 +27,6 @@ a {
     border-radius: none;
     -webkit-box-shadow: none;
     box-shadow: none;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    height: 100vh;
-    max-height: 600px;
 }
 
 .panel-default {
@@ -60,6 +35,62 @@ a {
         background-color: transparent;
         border-color: transparent;
         display: block;
+    }
+}
+
+
+/* SECTION COLORS */
+
+#post-1 {
+    background-color: #f31e57;
+}
+
+
+/* NEW DIAMOND STYLING */
+
+a {
+    text-decoration: none;
+    transition: 0.2s all ease-in-out;
+    &:hover {
+        text-decoration: none;
+    }
+    &:focus {
+        text-decoration: none;
+    }
+    &:active {
+        text-decoration: none;
+    }
+}
+
+.row {
+    margin: 0px;
+}
+
+.panel-heading {
+    margin: 0 auto;
+    width: 960px;
+    h4 {
+        font-size: 70px;
+        font-family: 'TCCEB';
+    }
+}
+
+.panel-title {
+    line-height: 70px;
+}
+
+.panel-body {
+    margin: 0 auto;
+    width: 960px;
+    color: white;
+}
+
+.panel {
+    min-height: 600px;
+    height: auto;
+    background-color: #5397e3;
+    a {
+        color: white;
     }
 }
 
@@ -193,11 +224,12 @@ background-size: cover no-repeat;*/
     bottom: 20px;
     right: 20px;
 }
+
 footer {
-    ul{
+    ul {
         list-style: none;
         padding-left: 0;
-        li{
+        li {
             text-decoration: none;
         }
     }

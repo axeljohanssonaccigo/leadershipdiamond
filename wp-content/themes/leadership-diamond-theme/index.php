@@ -25,7 +25,9 @@ get_header(); ?>
                     <section>
                         <!-- Graph section -->
                         <div class="row">
-                            (TEST PURPOSE) <br>You have so far opened the following questions: <br>
+                            (TEST PURPOSE)
+                            <br>You have so far opened the following questions:
+                            <br>
                             <div ng-repeat="post in allQuestionPosts">
                                 <div ng-show="post.isRead">
                                     {{post.title + " (index = " + post.index + ")"}}
@@ -86,8 +88,6 @@ get_header(); ?>
 
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
 
@@ -111,10 +111,7 @@ get_header(); ?>
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
         </main>
         <!-- #main -->
     </div>

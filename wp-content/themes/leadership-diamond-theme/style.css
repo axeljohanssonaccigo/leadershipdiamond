@@ -11,12 +11,44 @@ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
 Tags:         responsive-layout
 Text Domain:  leadership-diamond-theme
 */
+@font-face {
+  font-family: 'TCCEB';
+  src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.eot');
+  src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.eot') format('embedded-opentype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.woff2') format('woff2'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.woff') format('woff'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.ttf') format('truetype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.svg#TCCEB') format('svg');
+}
+/* !OVERRIDING BOOTSTRAP DEFAULTS! */
+.panel {
+  margin-bottom: none;
+  background-color: transparent;
+  border: none;
+  border-radius: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.panel-default {
+  border-color: none;
+}
+.panel-default > .panel-heading {
+  background-color: transparent;
+  border-color: transparent;
+  display: block;
+}
+/* SECTION COLORS */
+#post-1 {
+  background-color: #f31e57;
+}
 /* NEW DIAMOND STYLING */
 a {
   text-decoration: none;
   transition: 0.2s all ease-in-out;
 }
 a:hover {
+  text-decoration: none;
+}
+a:focus {
+  text-decoration: none;
+}
+a:active {
   text-decoration: none;
 }
 .row {
@@ -27,32 +59,24 @@ a:hover {
   width: 960px;
 }
 .panel-heading h4 {
-  font-size: 60px;
+  font-size: 70px;
+  font-family: 'TCCEB';
 }
-/* !OVERRIDING BOOTSTRAP DEFAULTS! */
+.panel-title {
+  line-height: 70px;
+}
+.panel-body {
+  margin: 0 auto;
+  width: 960px;
+  color: white;
+}
 .panel {
-  margin-bottom: none;
-  background-color: transparent;
-  border: none;
-  border-radius: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 100vh;
-  max-height: 600px;
+  min-height: 600px;
+  height: auto;
+  background-color: #5397e3;
 }
-.panel-default {
-  border-color: none;
-}
-.panel-default > .panel-heading {
-  background-color: transparent;
-  border-color: transparent;
-  display: block;
+.panel a {
+  color: white;
 }
 /* Customized theme css */
 #primary {
