@@ -59,8 +59,8 @@ a:active {
   width: 960px;
 }
 .panel-heading h4 {
-  font-size: 70px;
   font-family: 'TCCEB';
+  font-size: 30px;
 }
 .panel-title {
   line-height: 70px;

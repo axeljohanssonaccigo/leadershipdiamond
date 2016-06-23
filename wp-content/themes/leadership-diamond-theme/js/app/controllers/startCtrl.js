@@ -1,4 +1,4 @@
-diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, startSvc) {
+diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout', '$anchorScroll', function($scope, startSvc, $location, $timeout, $anchorScroll) {
 
 	//Scope variables
 	$scope.allQuestionPosts = [];
@@ -25,34 +25,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 		$scope.goToNextPost = $scope.getTranslationByContent('gotonextpost');
 		$scope.aboutDiamond = $scope.getTranslationByContent('aboutdiamond');
 	};
-
-	//Scope functions
-	$scope.focusOnQuestionPost = function(post){
-
-		$scope.unFocusOtherPosts(post);
-		$scope.postInFocus = post;
-		$scope.scrollToDivTop('#post-' + post.index);
-	};
-
-	$scope.scrollToDivTop = function(divId){
-		var toTop = jQuery(divId).offset().top
-    	//var menuHeight = jQuery("#site-navigation").height();
-		//var y = toTop + menuHeight;
-		window.scrollTo(0,toTop - 50);
-	};
-
-	$scope.moveToNextPost = function(currentPost){
-		$scope.dummyDistance = 150;
-		currentPost.inFocus = false;
-		if (currentPost.index === 8) {
-			var nextPostIndex = 1;
-		} else {
-			var nextPostIndex = currentPost.index + 1;
-		}
-		var nextPost = $scope.allQuestionPosts.filter(function(item) { return item.index === nextPostIndex; });
-		$scope.focusOnQuestionPost(nextPost[0]);
-	};
-
 
 	//On Document ready
 	jQuery( document ).ready(function() {
@@ -138,7 +110,40 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', function($scope, start
 	};
     
     $scope.registerQuestionClick = function(post){
-      post.isRead = true;  
+        post.isRead = true;  
+        $scope.gotoDivId("post-" + post.index);
+    };
+    
+    $scope.moveToNextPost = function(currentPost){
+        var nextPost = $scope.getQuestionPostByIndex(currentPost.index + 1);
+        if(currentPost.index < $scope.allQuestionPosts.length){
+            $timeout(function(){
+                jQuery("#post-" + nextPost.index + " a").click();
+            });
+        };
+	};
+    
+    $scope.gotoDivId = function(divId) {
+      //var newHash = 'post-' + postId;
+      if ($location.hash() !== divId) {
+        // set the $location.hash to `newHash` and
+        // $anchorScroll will automatically scroll to it
+        $location.hash(divId);
+      } else {
+        // call $anchorScroll() explicitly,
+        // since $location.hash hasn't changed
+        $anchorScroll();
+      }
+    };
+    
+    $scope.getQuestionPostByIndex = function(postIndex){
+        var returnPost = null;
+        angular.forEach($scope.allQuestionPosts, function(post){
+           if(post.index == postIndex){
+               returnPost = post;
+           } 
+        });
+      return returnPost;
     };
 
 	$scope.getAllTranslations();

@@ -2,13 +2,22 @@
 # This file is distributed under the same license as the Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-01-19 18:09:08+0000\n"
+"PO-Revision-Date: 2016-03-02 17:00:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/1.0-alpha-1100\n"
+"X-Generator: GlotPress/1.1.0-alpha\n"
 "Project-Id-Version: Stable (latest release)\n"
+
+#: include/widget-calendar.php:224
+msgid "Posts published on %s"
+msgstr ""
+
+#: include/widget-calendar.php:223
+msgctxt "daily archives date format"
+msgid "F j, Y"
+msgstr "j F, Y"
 
 #: settings/table-string.php:208
 msgid "Filter by group"
@@ -23,11 +32,11 @@ msgstr "Välj en flagga för språket."
 msgid "Select %s"
 msgstr "﻿Välj %s"
 
-#: settings/table-settings.php:130
+#: settings/table-settings.php:139
 msgid "Description"
 msgstr "﻿Beskrivning"
 
-#: settings/table-settings.php:129
+#: settings/table-settings.php:138
 msgid "Module"
 msgstr "Modul"
 
@@ -38,6 +47,14 @@ msgstr "Spara uppdateringar"
 #: settings/table-settings.php:65
 msgid "Cancel"
 msgstr "Avsluta"
+
+#: settings/settings-tools.php:19
+msgid "Decide whether to remove all data when deleting Polylang."
+msgstr ""
+
+#: settings/settings-tools.php:32
+msgid "Remove all Polylang data when using the \"Delete\" link on the plugins screen."
+msgstr ""
 
 #: settings/settings-url.php:21
 msgid "Decide how your URLs will look like."
@@ -1151,49 +1168,61 @@ msgstr "Flaggan existerar inte"
 msgid "Add to Menu"
 msgstr "Lägg till i menyn"
 
-#: lingotek/lingotek.php:92 settings/settings-module.php:57
-msgid "Activate"
-msgstr "Aktivera"
-
 #: lingotek/lingotek.php:92 settings/settings-module.php:60
 msgid "Activated"
 msgstr "Aktiverad"
 
-#: lingotek/lingotek.php:114
-msgid "Polylang is now fully integrated with Lingotek!"
-msgstr "Polylang är nu fullt integrerad med Lingotek!"
+#: lingotek/lingotek.php:92 settings/settings-module.php:57
+msgid "Activate"
+msgstr "Aktivera"
+
+#: lingotek/lingotek.php:97
+msgid "Request Translation"
+msgstr "Begär översättning"
+
+#: lingotek/lingotek.php:103
+msgid "Request Services"
+msgstr "Efterfråga tjänster"
+
+#: lingotek/lingotek.php:110
+msgid "Polylang is now fully integrated with Lingotek, a professional translation management system!"
+msgstr "Polylang är nu fullt integrerad med Lingotek, ett professionellt översättningssystem!"
 
 #: lingotek/lingotek.php:113
 msgid "Automatically Translate My Site"
 msgstr "Översätt min sajt automatiskt"
 
-#: lingotek/lingotek.php:262
-msgid "Learn more..."
-msgstr "Lär dig mer..."
+#: lingotek/lingotek.php:114
+msgid "Polylang is now fully integrated with Lingotek!"
+msgstr "Polylang är nu fullt integrerad med Lingotek!"
+
+#: lingotek/lingotek.php:116 lingotek/lingotek.php:127
+msgid "Access free machine translation for your site for up to 100,000 characters."
+msgstr "Få fri maskinöversättning för din webbplats för upp till 100 000 tecken."
+
+#: lingotek/lingotek.php:117
+msgid "Machine translation is an excellent option if you're on a tight budget, looking for near-instant results, and are okay with less-than-perfect quality."
+msgstr "Maskinöversättning är ett utmärkt alternativ om du har en stram budget, behöver omedelbara resultat, och är okej med ej helt perfekt kvalitet."
+
+#: lingotek/lingotek.php:124
+msgid "Translation Management System"
+msgstr "Översättningssystem"
 
 #: lingotek/lingotek.php:125
 msgid "Do you need to connect to a professional translation management system?"
 msgstr "Behöver du ansluta till ett professionellt översättningssystem?"
 
-#. Author URI of the plugin/theme
-msgid "http://polylang.wordpress.com"
-msgstr "http://polylang.wordpress.com"
+#: lingotek/lingotek.php:128
+msgid "Access an online translator workbench."
+msgstr "Anslut till en översättningsarbetsbänk online."
 
-#. Author of the plugin/theme
-msgid "Frédéric Demarle"
-msgstr "Frédéric Demarle"
+#: lingotek/lingotek.php:129
+msgid "Have linguists compare side-by-side versions of original and translated text."
+msgstr "Få lingvister att jämföra versioner av original och översatt text."
 
-#. Description of the plugin/theme
-msgid "Adds multilingual capability to WordPress"
-msgstr "Lägger till flerspråkighet i WordPress"
-
-#. Plugin URI of the plugin/theme
-msgid "http://polylang.wordpress.com/"
-msgstr "http://polylang.wordpress.com/"
-
-#. Plugin Name of the plugin/theme
-msgid "Polylang"
-msgstr "Polylang"
+#: lingotek/lingotek.php:130
+msgid "Save and re-use previously translated material (leverage translation memory (TM))."
+msgstr "Spara och återanvända tidigare översatt material (översättningsminne (TM))"
 
 #: lingotek/lingotek.php:137
 msgid "Professionally Translate My Site"
@@ -1202,42 +1231,6 @@ msgstr "Översätt min webbplats professionellt"
 #: lingotek/lingotek.php:138
 msgid "Do you need to professionally translate your site?"
 msgstr "Behöver du översätta din webbplats professionellt?"
-
-#: lingotek/lingotek.php:124
-msgid "Translation Management System"
-msgstr "Översättningssystem"
-
-#: lingotek/lingotek.php:117
-msgid "Machine translation is an excellent option if you're on a tight budget, looking for near-instant results, and are okay with less-than-perfect quality."
-msgstr "Maskinöversättning är ett utmärkt alternativ om du har en stram budget, behöver omedelbara resultat, och är okej med ej helt perfekt kvalitet."
-
-#: lingotek/lingotek.php:97
-msgid "Request Translation"
-msgstr "Begär översättning"
-
-#: lingotek/lingotek.php:116 lingotek/lingotek.php:127
-msgid "Access free machine translation for your site for up to 100,000 characters."
-msgstr "Få fri maskinöversättning för din webbplats för upp till 100 000 tecken."
-
-#: lingotek/lingotek.php:110
-msgid "Polylang is now fully integrated with Lingotek, a professional translation management system!"
-msgstr "Polylang är nu fullt integrerad med Lingotek, ett professionellt översättningssystem!"
-
-#: lingotek/lingotek.php:103
-msgid "Request Services"
-msgstr "Efterfråga tjänster"
-
-#: lingotek/lingotek.php:129
-msgid "Have linguists compare side-by-side versions of original and translated text."
-msgstr "Få lingvister att jämföra versioner av original och översatt text."
-
-#: lingotek/lingotek.php:128
-msgid "Access an online translator workbench."
-msgstr "Anslut till en översättningsarbetsbänk online."
-
-#: lingotek/lingotek.php:130
-msgid "Save and re-use previously translated material (leverage translation memory (TM))."
-msgstr "Spara och återanvända tidigare översatt material (översättningsminne (TM))"
 
 #: lingotek/lingotek.php:140
 msgid "Start the process of getting a professional translation bid."
@@ -1279,6 +1272,30 @@ msgstr "Har du existerande översättningsminne (TM) du vill använda?"
 msgid "Do you need help creating glossaries and terminologies?"
 msgstr "Behöver du hjälp med att skapa ordlistor och terminologier?"
 
+#: lingotek/lingotek.php:262
+msgid "Learn more..."
+msgstr "Lär dig mer..."
+
+#. Plugin Name of the plugin/theme
+msgid "Polylang"
+msgstr "Polylang"
+
+#. Plugin URI of the plugin/theme
+msgid "http://polylang.wordpress.com/"
+msgstr "http://polylang.wordpress.com/"
+
+#. Description of the plugin/theme
+msgid "Adds multilingual capability to WordPress"
+msgstr "Lägger till flerspråkighet i WordPress"
+
+#. Author of the plugin/theme
+msgid "Frédéric Demarle"
+msgstr "Frédéric Demarle"
+
+#. Author URI of the plugin/theme
+msgid "http://polylang.wordpress.com"
+msgstr "http://polylang.wordpress.com"
+
 #: admin/admin-filters-columns.php:173
 msgid "&mdash; No Change &mdash;"
 msgstr "&mdash; Ingen förändring &mdash;"
@@ -1295,6 +1312,10 @@ msgstr "Språk"
 #: settings/view-languages.php:11
 msgid "Languages"
 msgstr "Språk"
+
+#: admin/admin-filters-post.php:252
+msgid "(no parent)"
+msgstr "(ingen förälder)"
 
 #: settings/table-languages.php:173
 msgid "Edit"
@@ -1422,7 +1443,7 @@ msgstr "Textsträngöversättningar"
 msgid "Translations updated."
 msgstr "Översättning uppdaterad"
 
-#: settings/settings-module.php:175
+#: settings/settings-module.php:176
 msgid "Settings saved."
 msgstr "Inställningarna sparade."
 
@@ -1502,17 +1523,17 @@ msgstr "Flagga"
 msgid "Posts"
 msgstr "Inlägg"
 
-#: settings/table-string.php:113
-msgid "Group"
-msgstr "Grupp"
+#: settings/table-string.php:111
+msgid "String"
+msgstr "Sträng"
 
 #: settings/table-string.php:112
 msgid "Name"
 msgstr "Namn"
 
-#: settings/table-string.php:111
-msgid "String"
-msgstr "Sträng"
+#: settings/table-string.php:113
+msgid "Group"
+msgstr "Grupp"
 
 #: admin/view-translations-media.php:12 admin/view-translations-post.php:11
 #: admin/view-translations-term.php:13 admin/view-translations-term.php:18
@@ -1754,6 +1775,12 @@ msgstr "Gömmer språk utan översättning"
 msgid "Displays as dropdown"
 msgstr "Visa som rullgardinsmeny"
 
+#. translators: Calendar caption: 1: month name, 2: 4-digit year
+#: include/widget-calendar.php:130
+msgctxt "calendar caption"
+msgid "%1$s %2$s"
+msgstr "%1$s %2$s"
+
 #: include/widget-languages.php:16
 msgid "Language Switcher"
 msgstr "Språkväljaren"
@@ -1769,6 +1796,12 @@ msgstr "Rubrik:"
 #: include/widget-recent-comments.php:47
 msgid "Recent Comments"
 msgstr "Tidigare kommentarer"
+
+#. translators: comments widget: 1: comment author, 2: post link
+#: include/widget-recent-comments.php:85
+msgctxt "widgets"
+msgid "%1$s on %2$s"
+msgstr "%1$s om %2$s"
 
 #: include/widget-recent-posts.php:47
 msgid "Recent Posts"
@@ -1788,42 +1821,26 @@ msgstr "Polylang har blivit inaktiverat p.g.a. att du uppgraderade från en för
 msgid "Please upgrade first to %s before ugrading to %s."
 msgstr "Uppdatera först till %s före du uppdaterar till %s."
 
-#: lingotek/lingotek.php:61
-msgid "Congratulations!"
-msgstr "Grattis!"
-
-#: lingotek/lingotek.php:48
-msgid "Activate Lingotek"
-msgstr "Aktivera Lingotek"
-
-#: lingotek/lingotek.php:45
-msgid "Click on Activate Lingotek to start translating."
-msgstr "Klicka på Aktivera Lingotek för att börja översätta."
-
-#: lingotek/lingotek.php:39
-msgid "Learn more"
-msgstr "Lär dig mer"
+#: lingotek/lingotek.php:32
+msgid "You’ve just upgraded to the latest version of Polylang! Would you like to automatically translate your website for free?"
+msgstr "Ni har precis uppgraderat till senaste version av Polylang! Önskar ni att få automatisk översättning av webbplatsen gratis?"
 
 #: lingotek/lingotek.php:36
 msgid "Close"
 msgstr "Stäng"
 
-#. translators: Calendar caption: 1: month name, 2: 4-digit year
-#: include/widget-calendar.php:125
-msgctxt "calendar caption"
-msgid "%1$s %2$s"
-msgstr "%1$s %2$s"
+#: lingotek/lingotek.php:39
+msgid "Learn more"
+msgstr "Lär dig mer"
 
-#: admin/admin-filters-post.php:252
-msgid "(no parent)"
-msgstr "(ingen förälder)"
+#: lingotek/lingotek.php:45
+msgid "Click on Activate Lingotek to start translating."
+msgstr "Klicka på Aktivera Lingotek för att börja översätta."
 
-#: lingotek/lingotek.php:32
-msgid "You’ve just upgraded to the latest version of Polylang! Would you like to automatically translate your website for free?"
-msgstr "Ni har precis uppgraderat till senaste version av Polylang! Önskar ni att få automatisk översättning av webbplatsen gratis?"
+#: lingotek/lingotek.php:48
+msgid "Activate Lingotek"
+msgstr "Aktivera Lingotek"
 
-#. translators: comments widget: 1: comment author, 2: post link
-#: include/widget-recent-comments.php:85
-msgctxt "widgets"
-msgid "%1$s on %2$s"
-msgstr "%1$s om %2$s"
+#: lingotek/lingotek.php:61
+msgid "Congratulations!"
+msgstr "Grattis!"
