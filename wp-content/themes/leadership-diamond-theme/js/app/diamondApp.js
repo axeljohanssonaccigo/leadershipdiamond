@@ -2,7 +2,7 @@
 
 var diamondApp = angular.module('diamondApp', ['ngAnimate', 'ngTouch', 'ui.bootstrap'])
 .run(['$anchorScroll', function($anchorScroll) {
-  console.log("in app");   // always scroll by 50 extra pixels
+  $anchorScroll.yOffset = 70;    // always scroll by 50 extra pixels
 }]);
 
 // Global variabels
