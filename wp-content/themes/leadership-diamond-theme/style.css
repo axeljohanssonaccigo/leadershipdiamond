@@ -168,7 +168,115 @@ button.btn-floating {
   margin-bottom: 0;
   z-index: 998;
 }
+/*!
+ * Waves v0.6.0
+ * http://fian.my.id/Waves
+ *
+ * Copyright 2014 Alfiana E. Sibuea and other contributors
+ * Released under the MIT license
+ * https://github.com/fians/Waves/blob/master/LICENSE
+ */
+.waves-effect {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  z-index: 1;
+  will-change: opacity, transform;
+  transition: all 0.3s ease-out;
+}
+.waves-effect .waves-ripple {
+  position: absolute;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.2);
+  transition: all 0.7s ease-out;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  pointer-events: none;
+}
+.waves-effect.waves-light .waves-ripple {
+  background-color: rgba(255, 255, 255, 0.45);
+}
+.waves-effect.waves-red .waves-ripple {
+  background-color: rgba(244, 67, 54, 0.7);
+}
+.waves-effect.waves-yellow .waves-ripple {
+  background-color: rgba(255, 235, 59, 0.7);
+}
+.waves-effect.waves-orange .waves-ripple {
+  background-color: rgba(255, 152, 0, 0.7);
+}
+.waves-effect.waves-purple .waves-ripple {
+  background-color: rgba(156, 39, 176, 0.7);
+}
+.waves-effect.waves-green .waves-ripple {
+  background-color: rgba(76, 175, 80, 0.7);
+}
+.waves-effect.waves-teal .waves-ripple {
+  background-color: rgba(0, 150, 136, 0.7);
+}
+.waves-effect input[type="button"],
+.waves-effect input[type="reset"],
+.waves-effect input[type="submit"] {
+  border: 0;
+  font-style: normal;
+  font-size: inherit;
+  text-transform: inherit;
+  background: none;
+}
+.waves-notransition {
+  transition: none !important;
+}
+.waves-circle {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(circle, #ffffff 100%, #000000 100%);
+}
+.waves-input-wrapper {
+  border-radius: 0.2em;
+  vertical-align: bottom;
+}
+.waves-input-wrapper .waves-button-input {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.waves-circle {
+  text-align: center;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  border-radius: 50%;
+  -webkit-mask-image: none;
+}
+.waves-block {
+  display: block;
+}
+a.waves-effect .waves-ripple {
+  z-index: -1;
+}
 /* PANELS.LESS */
+.panel-inner {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .panel-title {
   line-height: 1em;
 }
@@ -181,7 +289,7 @@ button.btn-floating {
 }
 .panel-heading {
   margin: 0 auto;
-  width: 960px;
+  max-width: 960px;
   text-align: center;
 }
 .panel-heading h4 {
@@ -189,20 +297,21 @@ button.btn-floating {
   font-size: 75px;
 }
 .panel-heading h4 a {
-  transition: 0.5s all cubic-bezier(0.8, 0, 0.2, 1);
-  transition: 0.6s all cubic-bezier(0.55, -0.4, 0.45, 1.4);
+  transition: 0.3s all cubic-bezier(0.8, 0, 0.2, 1);
+  transition: 0.3s all cubic-bezier(0.55, -0.4, 0.45, 1.4);
 }
 .panel-open h4 {
-  font-size: 40px;
+  font-size: 36px;
 }
 .panel-open h4 a {
-  transition: 0.5s all cubic-bezier(0.8, 0, 0.2, 1);
-  transition: 0.6s all cubic-bezier(0.55, -0.4, 0.45, 1.4);
+  transition: 0.3s all cubic-bezier(0.8, 0, 0.2, 1);
+  transition: 0.3s all cubic-bezier(0.55, -0.4, 0.45, 1.4);
 }
 .panel-open .panel-heading {
   width: 720px;
 }
 .panel {
+  position: relative;
   min-height: 600px;
   height: auto;
   background-color: #5397e3;
@@ -210,12 +319,76 @@ button.btn-floating {
 .panel a {
   color: white;
 }
-/* SECTION COLORS */
+body {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+/* HOVER CUSTOM */
+.hvr-float-shadow:before {
+  top: 103%;
+  left: 20%;
+  height: 30px;
+  width: 60%;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+}
+/* SECTION & COLORS */
+section#heading {
+  position: relative;
+  min-height: 400px;
+  background: url("../leadership-diamond-theme/img/gradient-blue.jpg") no-repeat 50% 50%;
+  height: 800px;
+}
+section#heading .row {
+  max-width: 960px;
+  margin: 0 auto;
+  font-family: 'TCCEB';
+  color: white;
+}
+section#heading .row .heading-container {
+  position: absolute;
+  bottom: 70px;
+}
+section#heading .row .heading-container .heading-title {
+  font-size: 90px;
+  line-height: 1.1;
+}
+section#heading .row .heading-container .heading-second {
+  font-size: 36px;
+  line-height: 1;
+}
+section#heading .row .diamond {
+  width: 1500px;
+  right: -40%;
+  bottom: -8%;
+  position: absolute;
+  z-index: 1001;
+  max-width: auto;
+}
+section#graph {
+  min-height: 400px;
+}
+section#graph .row {
+  max-width: 960px;
+  margin: 0 auto;
+}
 #post-1 {
   background-color: #f31e57;
 }
+#post-1 .btn {
+  color: #f31e57;
+  background-color: white;
+  min-width: 250px;
+}
 #post-2 {
   background-color: #70c1b3;
+}
+#post-2 .btn {
+  color: #70c1b3;
+  background-color: white;
+  min-width: 250px;
 }
 /* NEW DIAMOND STYLING */
 a {
@@ -235,10 +408,24 @@ a:active {
   margin: 0px;
 }
 /* Customized theme css */
-.next-btn-div {
+button {
+  font-family: 'TCCEB';
+  background-color: white;
+}
+.btns {
+  width: 100%;
+  padding: 50px 0px 10px;
+}
+.next-btn-cont {
   display: flex;
 }
-.next-btn-div button {
+.next-btn-cont button {
+  margin: 0 auto;
+}
+.leader-btn-cont {
+  display: flex;
+}
+.leader-btn-cont button {
   margin: 0 auto;
 }
 #primary {
@@ -356,5 +543,10 @@ footer ul li {
   .site-subtitle {
     font-size: large;
     bottom: 10%;
+  }
+}
+@media screen and (max-width: 1600px) {
+  section#heading .row .diamond {
+    right: -60%;
   }
 }
