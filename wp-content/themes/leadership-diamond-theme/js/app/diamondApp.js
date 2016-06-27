@@ -1,6 +1,7 @@
 'use strict'
 
 var diamondApp = angular.module('diamondApp', ['ngAnimate', 'ngTouch', 'ui.bootstrap'])
+
 .run(['$anchorScroll', function($anchorScroll) {
   $anchorScroll.yOffset = 70;    // always scroll by 50 extra pixels
 }]);
@@ -32,11 +33,8 @@ if(location.href.search("en") > -1){
     var currentLanguage = {"name": "English", "url": baseUrl.concat("/en")};
 }
 
-
+jQuery("#page").attr("ng-controller", "startCtrl");
 
 jQuery(document).ready(function () {
-    angular.bootstrap(document.getElementById("headerContainer"), ['diamondApp']);
-});
-jQuery(document).ready(function () {
-    angular.bootstrap(document.getElementById("footerContainer"), ['diamondApp']);
+    angular.bootstrap(document.getElementById("page"), ['diamondApp']); 
 });
