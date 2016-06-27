@@ -1,7 +1,14 @@
 <?php
-
+//Global script version for custom scripts
+$version = '0.81';
 
 function my_theme_enqueue_styles() {
+    global $version;
+    /* BOOTSTRAP */
+    wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css', array(), '1.0.0' );
+    $parent_style = 'parent-style';
+    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ), $version, true);
   /* BOOTSTRAP */
   wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css', array(), '1.0.0' );
 
@@ -18,6 +25,7 @@ function my_theme_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
 function my_theme_enqueue_scripts() {
+    global $version;
     /* Angular */
     wp_enqueue_script('angular', get_stylesheet_directory_uri() . '/js/assets/angular.js', array(), null, true);
     wp_enqueue_script('angular_animate', get_stylesheet_directory_uri() . '/js/assets/angular-animate.js', array(), null, true);
@@ -30,13 +38,9 @@ function my_theme_enqueue_scripts() {
      wp_enqueue_script('materialize_js', get_stylesheet_directory_uri() . '/js/assets/materialize.min.js', array(), null, true);
 
     /* CUSTOM SCRIPTS */
-    /* SCRIPT AND STYLES VERSION */
-    $version = '0.8';
     /* Diamond App */
     wp_enqueue_script('diamond_app', get_stylesheet_directory_uri() . '/js/app/diamondApp.js', array(), $version, true);
     wp_enqueue_script('start_ctrl', get_stylesheet_directory_uri() . '/js/app/controllers/startCtrl.js', array(), $version, true);
-    wp_enqueue_script('header_ctrl', get_stylesheet_directory_uri() . '/js/app/controllers/headerCtrl.js', array(), $version, true);
-    wp_enqueue_script('footer_ctrl', get_stylesheet_directory_uri() . '/js/app/controllers/footerCtrl.js', array(), $version, true);
 
 wp_enqueue_script('start_svc', get_stylesheet_directory_uri() . '/js/app/services/startSvc.js', array(), $version, true);
 }

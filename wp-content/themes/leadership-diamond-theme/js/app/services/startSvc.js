@@ -1,28 +1,26 @@
 diamondApp.service('startSvc', function ($http) {
-	this.test = function(){
-		console.log("startsvc");
-		return true;
-	};
 
 	this.getAllQuestionPosts = function(){
 		return $http({
 			method: 'GET',
-			url: baseUrl + '/api/get_posts/'
+			url: baseUrl + '/api/get_posts/',
+            params: {
+                'tics': (new Date()).getTime()
+            }
+		});
+	};
+    
+    this.getPostsByType = function(type){
+		return $http({
+			method: 'GET',
+			url: baseUrl + '/api/get_posts/',
+            params: {
+                'tics': (new Date()).getTime(),
+                'post_type': type,
+                'posts_per_page': -1
+            }
 		});
 	};
 
-	this.getAllTranslations = function(){
-		return $http({
-			method: 'GET',
-			url: baseUrl + '/api/get_posts/?post_type=translation&posts_per_page=-1'
-		});
-	};
-
-	this.getAllCourses = function(){
-		return $http({
-			method: 'GET',
-			url: baseUrl + '/api/get_posts/?post_type=course&posts_per_page=-1'
-		});
-	};
 });
 

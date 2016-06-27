@@ -4,7 +4,8 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
 	$scope.allQuestionPosts = [];
 	$scope.allTranslations = [];
 	$scope.allCourses = [];
-	$scope.loading = true;
+    $scope.allContacts = [];
+    $scope.allPartners = [];
 	$scope.postInFocus = null;
 	$scope.hasViewedAboutDiamond = false;
 	$scope.oneAtATime = true;
@@ -13,6 +14,25 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
         {"name": "Svenska", "url": baseUrl.concat("/sv")},
         {"name": "English", "url": baseUrl.concat("/en")}
     ];
+    $scope.isLoaded = {
+        "translations": false,
+        "questionPosts": false,
+        "contacts": false,
+        "partners": false,
+        "all": false
+    };
+    
+    $scope.$watch('isLoaded', function(){
+        var allLoaded = true;
+        angular.forEach($scope.isLoaded, function (value) {
+            if(value === false){
+                var allLoaded = false;
+            }
+        });
+        if(allLoaded) {
+            $scope.isLoaded.all = true;
+        }
+    }, true);
 
 	// Sets custom strings from translation custom post type
 	$scope.setCustomStrings = function(){
@@ -24,6 +44,8 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
 		$scope.close = $scope.getTranslationByContent('close');
 		$scope.goToNextPost = $scope.getTranslationByContent('gotonextpost');
 		$scope.aboutDiamond = $scope.getTranslationByContent('aboutdiamond');
+        $scope.contact = $scope.getTranslationByContent('contact');
+        $scope.leadershipPartners = $scope.getTranslationByContent('leadershippartners');
 	};
 
 	//On Document ready
@@ -63,7 +85,10 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
 			$scope.allQuestionPosts = response.data.posts;
 			console.log($scope.allQuestionPosts);
 			$scope.defineQuestionPostObjects();
-		});
+            $scope.isLoaded.questionPosts = true; 
+		}).catch(function(){
+            $scope.isLoaded.questionPosts = true; 
+        });
 	};
 
 	$scope.prettyfyTranslations = function(translations){
@@ -86,13 +111,19 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
 
 
 	$scope.getAllTranslations = function(){
-		startSvc.getAllTranslations().then(function(response){
+        var postType = 'translation';
+		startSvc.getPostsByType(postType).then(function(response){
 			$scope.prettyfyTranslations(response.data.posts);
-		});
+            $scope.isLoaded.translations = true;
+		}).catch(function(){
+            console.log("Error in get all translations");
+            $scope.isLoaded.translations = true;
+        });
 	};
 
 	$scope.getAllCourses = function(){
-		startSvc.getAllCourses().then(function(response){
+        var postType = 'course';
+		startSvc.getPostsByType(postType).then(function(response){
 			$scope.allCourses = response.data.posts;
 			angular.forEach($scope.allCourses, function(course){
 				course.content = $scope.trimPostContent(course.content);
@@ -106,8 +137,45 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
 			});
 			console.log("all courses");
 			console.log($scope.allCourses);
-		});
+            $scope.isLoaded.courses = true;
+		}).catch(function(){
+            console.log("Error in get all courses");
+            $scope.isLoaded.courses = true;
+        });
 	};
+    
+    $scope.getFooterContent = function(){
+        //Get contacts
+        var postType = 'contact';
+        startSvc.getPostsByType(postType).then(function(response){
+            $scope.allContacts = response.data.posts;
+            angular.forEach($scope.allContacts, function(contact){
+                if ('wpcf-url' in contact.custom_fields) {
+					contact["url"] = contact.custom_fields['wpcf-url'][0];
+				};	
+            });
+            console.log($scope.allContacts);
+            $scope.isLoaded.contacts = true;
+            //Get leadership partners
+            var postType = 'partner';
+            startSvc.getPostsByType(postType).then(function(response){
+                $scope.allPartners = response.data.posts;
+                angular.forEach($scope.allPartners, function(partner){
+                    if ('wpcf-url' in partner.custom_fields) {
+                        partner["url"] = partner.custom_fields['wpcf-url'][0];
+                    };		
+                });
+                console.log($scope.allPartners);
+                $scope.isLoaded.partners = true;
+            });
+
+        }).catch(function(){
+            console.log("Error in get all contacts");
+            $scope.isLoaded.contacts = true;
+            $scope.isLoaded.partners = true;
+        });
+        
+    };
     
     $scope.registerQuestionClick = function(post){
         post.isRead = true;  
@@ -149,6 +217,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
 	$scope.getAllTranslations();
 	$scope.getAllQuestionPosts();
 	$scope.getAllCourses();
-
+    $scope.getFooterContent();
 
 }]);
