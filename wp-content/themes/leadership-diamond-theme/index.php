@@ -17,7 +17,7 @@ get_header(); ?>
         <main id="main" class="site-main" role="main">
             <div class="" ng-app="diamondApp" ng-controller="startCtrl">
                 <div ng-hide="loading">
-                    
+
                     <!-- Heading -->
                     <section id="heading">
                         <div class="row">
@@ -36,8 +36,8 @@ get_header(); ?>
                     <section id="graph">
                         <!-- Graph section -->
                         <div class="row">
-                            
-                            
+
+
 
                         </div>
                     </section>
@@ -47,7 +47,7 @@ get_header(); ?>
                         <!-- Post section -->
                         <div class="row">
                             <uib-accordion close-others="oneAtATime">
-                                <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}" ng-click="registerQuestionClick(post)" >
+                                <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}" ng-click="registerQuestionClick(post)">
                                     {{post.solution}}
                                     <div class="btns">
                                         <div ng-show="post.index < allQuestionPosts.length" class="next-btn-cont col-md-6">
@@ -61,6 +61,7 @@ get_header(); ?>
                                     </div>
                                 </uib-accordion-group>
                             </uib-accordion>
+
                         </div>
                     </section>
                     <!-- Post section -->
@@ -69,15 +70,26 @@ get_header(); ?>
                         <!-- Course offers section -->
                         <div class="row">
                             <div class="course-section clearfix col-xs-12">
-                                <div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-xs-12">
+                                <div class="course-title">
+                                    LEDARSKAPSDIAMANTEN
+                                </div>
+                                <div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-sm-6  col-xs-12">
                                     <div class="course-title-container">
-                                        {{course.title}} | {{course.level}}
+                                        <!--{{course.title}} |-->{{course.level}}
                                     </div>
                                     <div class="course-content-container">
                                         {{course.content}}
                                     </div>
                                 </div>
+                                <div class="course-btn">
+                                    <button class="btn">
+                                        Kontakta oss!
+                                    </button>
+                                </div>
                             </div>
+                            <img class="diamond pos-1 shadow" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                            <img class="diamond pos-2" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                            <img class="diamond pos-3" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         </div>
                     </section>
                     <!-- Course offers section -->
@@ -97,11 +109,12 @@ get_header(); ?>
                                             {{postInFocus.content}}
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-6">
+                                    <div class="col-sm-6 col-xs-12">
                                         <h4>Detta problem och dess lösning återfinns i Ledarskapsdiamanten!</h4>
 
                                     </div>
                                 </div>
+
                             </div>
                         </div>
 

@@ -128,13 +128,16 @@ nav,
   z-index: 1;
   width: 37px;
   height: 37px;
-  line-height: 37px;
+  line-height: 57px;
   padding: 0;
   background-color: #26a69a;
   border-radius: 50%;
   transition: .3s;
   cursor: pointer;
   vertical-align: middle;
+  font-size: 12px;
+  color: white;
+  font-family: 'TCCEB';
 }
 .btn-floating i {
   width: inherit;
@@ -166,7 +169,7 @@ button.btn-floating {
   bottom: 23px;
   padding-top: 15px;
   margin-bottom: 0;
-  z-index: 998;
+  z-index: 1002;
 }
 /*!
  * Waves v0.6.0
@@ -339,7 +342,7 @@ section#heading {
   position: relative;
   min-height: 400px;
   background: url("../leadership-diamond-theme/img/gradient-blue.jpg") no-repeat 50% 50%;
-  height: 800px;
+  height: 600px;
 }
 section#heading .row {
   max-width: 960px;
@@ -373,6 +376,88 @@ section#graph {
 section#graph .row {
   max-width: 960px;
   margin: 0 auto;
+}
+section#course {
+  position: relative;
+  min-height: 600px;
+  background: url("../leadership-diamond-theme/img/gradient-blue.jpg") no-repeat 50% 50%;
+}
+section#course .row {
+  display: flex;
+  width: 100%;
+}
+section#course .row .course-title {
+  font-size: 72px;
+  color: white;
+  font-family: 'TCCEB';
+  text-align: center;
+}
+section#course .row .course-section {
+  width: 720px;
+  margin: 30px auto;
+}
+section#course .row .course-container {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  margin: 15px 0;
+}
+section#course .row .course-title-container {
+  text-transform: uppercase;
+  font-size: 36px;
+  color: white;
+  font-family: 'TCCEB';
+  text-align: center;
+}
+section#course .row .course-content-container {
+  text-align: justify;
+  color: white;
+}
+section#course .row .course-btn {
+  display: flex;
+  width: 100%;
+}
+section#course .row .course-btn .btn {
+  margin: 0 auto;
+}
+section#course .row .pos-1 {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0px;
+  right: 1000px;
+  top: 100px;
+  position: absolute;
+  opacity: 0.6;
+}
+section#course .row .pos-2 {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 1100px;
+  right: 0px;
+  top: 250px;
+  position: absolute;
+  opacity: 0.5;
+}
+section#course .row .pos-3 {
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0px;
+  right: 840px;
+  top: 460px;
+  position: absolute;
+  opacity: 0.4;
+}
+section#course .row .shadow:before {
+  top: 103%;
+  left: 20%;
+  height: 30px;
+  width: 60%;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
 }
 #post-1 {
   background-color: #f31e57;
@@ -447,8 +532,7 @@ button {
 }
 #content {
   background-color: rgba(255, 255, 255, 0.85);
-  /*background-image: url('http://localhost/leadershipdiamond/wp-content/uploads/2016/02/Clouds_background.jpg');
-background-size: cover no-repeat;*/
+  padding-bottom: 0px;
 }
 /* Custom CSS */
 .question-post-container {
@@ -516,16 +600,6 @@ background-size: cover no-repeat;*/
 .move-to-next-post-container {
   margin-top: 10px;
 }
-.course-section {
-  background-color: hotpink;
-  margin: 30px 0;
-}
-.course-container {
-  background-color: #afffa1;
-  padding-bottom: 15px;
-  padding-top: 15px;
-  margin: 15px 0;
-}
 .lang-picker {
   position: fixed;
   bottom: 20px;
@@ -543,10 +617,5 @@ footer ul li {
   .site-subtitle {
     font-size: large;
     bottom: 10%;
-  }
-}
-@media screen and (max-width: 1600px) {
-  section#heading .row .diamond {
-    right: -60%;
   }
 }

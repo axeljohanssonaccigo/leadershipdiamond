@@ -11,7 +11,7 @@ function my_theme_enqueue_styles() {
 
   /* SCRIPT AND STYLES VERSION */
   $parent_style = 'parent-style';
-  $version = '0.8';
+  $version = '0.9';
   wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
   wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ), $version, true);
 }
