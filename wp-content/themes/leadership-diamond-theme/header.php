@@ -16,8 +16,8 @@
 	do_action( 'studio_doctype' );
 	?>
 
-<head>
-<?php	
+    <head>
+        <?php	
 	/** 
 	 * studio_before_wp_head hook
 	 *
@@ -27,11 +27,11 @@
 	do_action( 'studio_before_wp_head' );
 
 	wp_head(); ?>
-</head>
+    </head>
 
-<body <?php body_class(); ?>>
+    <body <?php body_class(); ?>>
 
-	<?php 
+        <?php 
 	/** 
 	 * studio_before_header hook
 	 *
@@ -54,7 +54,7 @@
 	 * @hooked studio_header_end -  200
 	 * 
 	 */
-	do_action( 'studio_header' );
+	 // do_action( 'studio_header' );
 
 
 	/** 

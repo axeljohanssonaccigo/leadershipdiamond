@@ -1,11 +1,82 @@
-/* SECTION COLORS */
+body {
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+
+/* HOVER CUSTOM */
+
+.hvr-float-shadow:before {
+    top: 103%;
+    left: 20%;
+    height: 30px;
+    width: 60%;
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+}
+
+
+/* SECTION & COLORS */
+
+section#heading {
+    position: relative;
+    min-height: 400px;
+    background: url("../leadership-diamond-theme/img/gradient-blue.jpg") no-repeat 50% 50%;
+    height: 800px;
+    .row {
+        max-width: 960px;
+        margin: 0 auto;
+        font-family: 'TCCEB';
+        color: white;
+        .heading-container {
+            position: absolute;
+            bottom: 70px;
+            .heading-title {
+                font-size: 90px;
+                line-height: 1.1;
+            }
+            .heading-second {
+                font-size: 36px;
+                line-height: 1;
+            }
+        }
+        .diamond {
+            width: 1500px;
+            right: -40%;
+            bottom: -8%;
+            position: absolute;
+            z-index: 1001;
+            max-width: auto;
+        }
+    }
+}
+
+section#graph {
+    min-height: 400px;
+    .row {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+}
 
 #post-1 {
     background-color: #f31e57;
+    .btn {
+        color: #f31e57;
+        background-color: white;
+        min-width: 250px;
+    }
 }
 
 #post-2 {
     background-color: #70c1b3;
+    .btn {
+        color: #70c1b3;
+        background-color: white;
+        min-width: 250px;
+    }
 }
 
 
@@ -32,7 +103,24 @@ a {
 
 /* Customized theme css */
 
-.next-btn-div {
+button {
+    font-family: 'TCCEB';
+    background-color: white;
+}
+
+.btns {
+    width: 100%;
+    padding: 50px 0px 10px;
+}
+
+.next-btn-cont {
+    display: flex;
+    button {
+        margin: 0 auto;
+    }
+}
+
+.leader-btn-cont {
     display: flex;
     button {
         margin: 0 auto;

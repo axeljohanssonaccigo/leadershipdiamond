@@ -9,6 +9,18 @@ function my_theme_enqueue_styles() {
     $parent_style = 'parent-style';
     wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ), $version, true);
+  /* BOOTSTRAP */
+  wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css', array(), '1.0.0' );
+
+    
+  /* HOVER */
+  wp_enqueue_style( 'hover', get_stylesheet_directory_uri() . '/css/hover-min.css', array(), '1.0.0' );
+
+  /* SCRIPT AND STYLES VERSION */
+  $parent_style = 'parent-style';
+  $version = '0.8';
+  wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
+  wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ), $version, true);
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 

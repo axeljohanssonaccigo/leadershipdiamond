@@ -17,23 +17,27 @@ get_header(); ?>
         <main id="main" class="site-main" role="main">
             <div class="">
                 <div ng-hide="loading">
-                    <!--heading-->
-                    <div class="row">
-                    </div>
-
-
-                    <section>
-                        <!-- Graph section -->
+                    
+                    <!-- Heading -->
+                    <section id="heading">
                         <div class="row">
-                            (TEST PURPOSE)
-                            <br>You have so far opened the following questions:
-                            <br>
-                            <div ng-repeat="post in allQuestionPosts">
-                                <div ng-show="post.isRead">
-                                    {{post.title + " (index = " + post.index + ")"}}
+                            <div class="heading-container">
+                                <div class="heading-title">
+                                    LEDARSKAPSDIAMANTEN
+                                </div>
+                                <div class="heading-second">
+                                    Ledarskapets operativsystem - allt annat är applikationer.
                                 </div>
                             </div>
+                            <img class="diamond" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                        </div>
+                    </section>
 
+                    <section id="graph">
+                        <!-- Graph section -->
+                        <div class="row">
+                            
+                            
 
                         </div>
                     </section>
@@ -43,10 +47,17 @@ get_header(); ?>
                         <!-- Post section -->
                         <div class="row">
                             <uib-accordion close-others="oneAtATime">
-                                <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}" ng-click="registerQuestionClick(post)">
+                                <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}" ng-click="registerQuestionClick(post)" >
                                     {{post.solution}}
-                                    <div ng-show="post.index < allQuestionPosts.length" class="next-btn-div">
-                                        <button type="button" class="btn btn-success waves-effect waves-light" ng-click="moveToNextPost(post)">{{goToNextPost.title}}</button>
+                                    <div class="btns">
+                                        <div ng-show="post.index < allQuestionPosts.length" class="next-btn-cont col-md-6">
+                                            <button type="button" class="btn next-btn btn-success waves-effect waves-light" ng-click="moveToNextPost(post)">{{goToNextPost.title}} ▼</button>
+                                        </div>
+                                        <div class="leader-btn-cont col-md-6">
+                                            <button type="button" class="btn leader-btn waves-effect waves-light">
+                                                Till Ledarskapsdiamanten! ▼
+                                            </button>
+                                        </div>
                                     </div>
                                 </uib-accordion-group>
                             </uib-accordion>
@@ -104,14 +115,14 @@ get_header(); ?>
                     </section>
                     <!-- Leadership Diamond section -->
                 </div>
-                <div class="lang-picker">
+                <div class="lang-picker fixed-action-btn" style="bottom: 25px; right: 25px;">
                     <div ng-repeat="lang in languages">
                         <div ng-if="currentLanguage.name !== lang.name">
-                            <a href="{{lang.url}}">{{lang.name}}</a>
+                            <a class="btn-floating btn-large red" href="{{lang.url}}">{{lang.name}}</a>
                         </div>
-                        <div ng-if="currentLanguage.name === lang.name">
+                        <!-- <div ng-if="currentLanguage.name === lang.name">
                             {{lang.name}}
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div><!-- startCtrl-->
