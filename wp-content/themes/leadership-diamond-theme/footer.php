@@ -26,7 +26,7 @@ do_action( 'studio_after_content' );
                         <div class="col-xs-6 col-md-5 col-md-offset-1">
                             <h3>{{contact.title}}</h3>
                             <ul>
-                                <li ng-repeat="contact in allContacts">
+                                <li ng-repeat="contact in allContacts  | orderBy: 'index'">
                                     <a href="{{contact.url}}" target="_blank">{{contact.title}}</a>
                                 </li>
                             </ul>
@@ -35,7 +35,7 @@ do_action( 'studio_after_content' );
                         <div class="col-xs-6 col-md-5">
                             <h3>{{leadershipPartners.title}}</h3>
                             <ul>
-                                <li ng-repeat="partner in allPartners">
+                                <li ng-repeat="partner in allPartners  | orderBy: 'index'">
                                     <a href="{{partner.url}}" target="_blank">{{partner.title}}</a>
                                 </li>
                             </ul>

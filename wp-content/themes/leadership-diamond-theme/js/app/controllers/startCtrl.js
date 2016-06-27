@@ -46,6 +46,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
 		$scope.aboutDiamond = $scope.getTranslationByContent('aboutdiamond');
         $scope.contact = $scope.getTranslationByContent('contact');
         $scope.leadershipPartners = $scope.getTranslationByContent('leadershippartners');
+        $scope.courseIntro = $scope.getTranslationByContent('courseintro');
 	};
 
 	//On Document ready
@@ -128,7 +129,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
 			angular.forEach($scope.allCourses, function(course){
 				course.content = $scope.trimPostContent(course.content);
 				if ('wpcf-course-index' in course.custom_fields) {
-					course["courseIndex"] = course.custom_fields['wpcf-course-index'][0];
+					course["courseIndex"] = parseInt(course.custom_fields['wpcf-course-index'][0]);
 				};
 				if ('wpcf-level' in course.custom_fields) {
 					course["level"] = course.custom_fields['wpcf-level'][0];
@@ -152,7 +153,10 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             angular.forEach($scope.allContacts, function(contact){
                 if ('wpcf-url' in contact.custom_fields) {
 					contact["url"] = contact.custom_fields['wpcf-url'][0];
-				};	
+				};
+                if ('wpcf-sort-index' in contact.custom_fields) {
+					contact["index"] = parseInt(contact.custom_fields['wpcf-sort-index'][0]);
+				};
             });
             console.log($scope.allContacts);
             $scope.isLoaded.contacts = true;
@@ -163,7 +167,10 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
                 angular.forEach($scope.allPartners, function(partner){
                     if ('wpcf-url' in partner.custom_fields) {
                         partner["url"] = partner.custom_fields['wpcf-url'][0];
-                    };		
+                    };	
+                    if ('wpcf-sort-index' in partner.custom_fields) {
+					partner["index"] = parseInt(partner.custom_fields['wpcf-sort-index'][0]);
+				};
                 });
                 console.log($scope.allPartners);
                 $scope.isLoaded.partners = true;
