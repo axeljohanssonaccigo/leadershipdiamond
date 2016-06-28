@@ -12,17 +12,12 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
     $scope.currentLanguage = currentLanguage;
     $scope.languages = [
         {
-            "name": "Svenska"
-            , "url": baseUrl.concat("/sv")
-        }
-
-
-
-
-        
-        , {
-            "name": "English"
-            , "url": baseUrl.concat("/en")
+            "name": "Svenska",
+            "url": baseUrl.concat("/sv")
+        }, 
+        {
+            "name": "English",
+            "url": baseUrl.concat("/en")
         }
     ];
     $scope.isLoaded = {
