@@ -1,20 +1,20 @@
 <?php
 //Global script version for custom scripts
-$version = '0.81';
+$version = '0.9';
 
 function my_theme_enqueue_styles() {
     global $version;
     
-    /* CHILD AND PARENT STYLE */
-    $parent_style = 'parent-style';
-    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ), $version, true);
-    
     /* BOOTSTRAP */
     wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css', array(), '1.0.0' );
     
-  /* HOVER */
-  wp_enqueue_style( 'hover', get_stylesheet_directory_uri() . '/css/hover-min.css', array(), '1.0.0' );
+    /* HOVER */
+    wp_enqueue_style( 'hover', get_stylesheet_directory_uri() . '/css/hover-min.css', array(), '1.0.0' );
+    
+        /* CHILD AND PARENT STYLE */
+    $parent_style = 'parent-style';
+    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ), $version, true);
 
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
