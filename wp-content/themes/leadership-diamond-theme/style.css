@@ -343,6 +343,9 @@ body {
   overflow-x: hidden;
   font-family: "Roboto";
 }
+a {
+  outline: 0 !important;
+}
 /* HOVER CUSTOM */
 .hvr-float-shadow:before {
   top: 105%;
