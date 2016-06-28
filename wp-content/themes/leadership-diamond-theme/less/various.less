@@ -1,18 +1,19 @@
 body {
     font-size: 16px;
     overflow-x: hidden;
+    font-family: "Roboto";
 }
 
 
 /* HOVER CUSTOM */
 
 .hvr-float-shadow:before {
-    top: 103%;
-    left: 20%;
-    height: 30px;
-    width: 60%;
-    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
-    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+    top: 105%;
+    left: 15%;
+    height: 25px;
+    width: 70%;
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.08) 0, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.08) 0, rgba(0, 0, 0, 0) 80%);
     -webkit-transition-duration: .5s;
     transition-duration: .5s;
 }
@@ -49,6 +50,7 @@ section#heading {
             position: absolute;
             z-index: 1001;
             max-width: auto;
+            pointer-events: none;
         }
     }
 }
@@ -63,7 +65,7 @@ section#graph {
 
 section#course {
     position: relative;
-    min-height: 600px;
+    min-height: 800px;
     background: url("../leadership-diamond-theme/img/gradient-blue.jpg") no-repeat 50% 50%;
     .row {
         display: flex;
@@ -131,16 +133,36 @@ section#course {
             position: absolute;
             opacity: 0.4;
         }
-        .shadow:before {
-            top: 103%;
-            left: 20%;
-            height: 30px;
-            width: 60%;
+        .shadow {
+            height: 20px;
             background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
             background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
             -webkit-transition-duration: .5s;
             transition-duration: .5s;
+            &.pos-1 {
+                top: 200px;
+            }
+            &.pos-2 {
+                top: 390px;
+            }
+            &.pos-3 {
+                top: 510px;
+                height: 10px;
+            }
         }
+    }
+}
+
+footer {
+    .site-footer {
+        background-color: rgba(0, 0, 0, 0.3);
+        color: #fff;
+        font-size: 14px;
+        position: absolute;
+        text-align: center;
+        vertical-align: middle;
+        bottom: 0;
+        width: 100%;
     }
 }
 

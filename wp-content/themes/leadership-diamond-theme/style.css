@@ -16,6 +16,12 @@ Text Domain:  leadership-diamond-theme
   src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.eot');
   src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.eot') format('embedded-opentype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.woff2') format('woff2'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.woff') format('woff'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.ttf') format('truetype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.svg#TCCEB') format('svg');
 }
+@font-face {
+  font-family: 'Roboto';
+  src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/roboto-regular-webfont.woff2') format('woff2'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/roboto-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 /* !OVERRIDING BOOTSTRAP DEFAULTS! */
 .panel {
   margin-bottom: none;
@@ -313,6 +319,16 @@ a.waves-effect .waves-ripple {
 .panel-open .panel-heading {
   width: 720px;
 }
+.panel-open .hvr-float-shadow:before {
+  opacity: 0 !important;
+}
+.panel-open .hvr-float-shadow:hover {
+  -webkit-transform: translateY(0px) !important;
+  transform: translateY(0px) !important;
+}
+.panel-open .hvr-float-shadow:hover:before {
+  opacity: 0 !important;
+}
 .panel {
   position: relative;
   min-height: 600px;
@@ -325,15 +341,16 @@ a.waves-effect .waves-ripple {
 body {
   font-size: 16px;
   overflow-x: hidden;
+  font-family: "Roboto";
 }
 /* HOVER CUSTOM */
 .hvr-float-shadow:before {
-  top: 103%;
-  left: 20%;
-  height: 30px;
-  width: 60%;
-  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+  top: 105%;
+  left: 15%;
+  height: 25px;
+  width: 70%;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.08) 0, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.08) 0, rgba(0, 0, 0, 0) 80%);
   -webkit-transition-duration: .5s;
   transition-duration: .5s;
 }
@@ -369,6 +386,7 @@ section#heading .row .diamond {
   position: absolute;
   z-index: 1001;
   max-width: auto;
+  pointer-events: none;
 }
 section#graph {
   min-height: 400px;
@@ -379,7 +397,7 @@ section#graph .row {
 }
 section#course {
   position: relative;
-  min-height: 600px;
+  min-height: 800px;
   background: url("../leadership-diamond-theme/img/gradient-blue.jpg") no-repeat 50% 50%;
 }
 section#course .row {
@@ -449,15 +467,32 @@ section#course .row .pos-3 {
   position: absolute;
   opacity: 0.4;
 }
-section#course .row .shadow:before {
-  top: 103%;
-  left: 20%;
-  height: 30px;
-  width: 60%;
+section#course .row .shadow {
+  height: 20px;
   background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
   -webkit-transition-duration: .5s;
   transition-duration: .5s;
+}
+section#course .row .shadow.pos-1 {
+  top: 200px;
+}
+section#course .row .shadow.pos-2 {
+  top: 390px;
+}
+section#course .row .shadow.pos-3 {
+  top: 510px;
+  height: 10px;
+}
+footer .site-footer {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 14px;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  bottom: 0;
+  width: 100%;
 }
 #post-1 {
   background-color: #f31e57;
