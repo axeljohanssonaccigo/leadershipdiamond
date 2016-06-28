@@ -12,8 +12,8 @@ var environments = {
 	"prod": "http://www.leadershipdiamond.com"
 };
 
-var currentEnvironment = "";
 //Setting the current environment
+var currentEnvironment = "";
 angular.forEach(environments, function(env){
 	if (env === location.origin) {
 		currentEnvironment = env;
@@ -29,12 +29,14 @@ if (currentEnvironment === environments.dev) {
 
 //Setting current language depending on url (Default = Swedish)
 var currentLanguage = {"name": "Svenska", "url": baseUrl.concat("/sv")};
-if(location.href.search("en") > -1){
+if(location.href.search("/en") > -1){
     var currentLanguage = {"name": "English", "url": baseUrl.concat("/en")};
 }
 
+//Adding controller
 jQuery("#page").attr("ng-controller", "startCtrl");
 
+//Bootstrapping the app
 jQuery(document).ready(function () {
     angular.bootstrap(document.getElementById("page"), ['diamondApp']); 
 });
