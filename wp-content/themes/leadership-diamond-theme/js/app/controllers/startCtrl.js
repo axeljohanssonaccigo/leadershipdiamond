@@ -12,12 +12,13 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
     $scope.currentLanguage = currentLanguage;
     $scope.languages = [
         {
-            "name": "Svenska",
-            "url": baseUrl.concat("/sv")
-        }, 
-        {
-            "name": "English",
-            "url": baseUrl.concat("/en")
+            "name": "Svenska"
+            , "url": baseUrl.concat("/sv")
+        }
+        
+        , {
+            "name": "English"
+            , "url": baseUrl.concat("/en")
         }
     ];
     $scope.isLoaded = {
@@ -53,6 +54,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
         $scope.contact = $scope.getTranslationByContent('contact');
         $scope.leadershipPartners = $scope.getTranslationByContent('leadershippartners');
         $scope.courseIntro = $scope.getTranslationByContent('courseintro');
+        $scope.diamondAboutText = $scope.getTranslationByContent('diamondabouttext');
     };
 
     //On Document ready
@@ -190,7 +192,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
                 if ('wpcf-url' in contact.custom_fields) {
                     contact["url"] = contact.custom_fields['wpcf-url'][0];
                 };
-                contact["url"] = contact.custom_fields['wpcf-url'][0];
 
                 if ('wpcf-sort-index' in contact.custom_fields) {
                     contact["index"] = parseInt(contact.custom_fields['wpcf-sort-index'][0]);

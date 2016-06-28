@@ -2,6 +2,7 @@ body {
     font-size: 16px;
     overflow-x: hidden;
     font-family: "Roboto";
+    line-height: 1.4;
 }
 
 a,
@@ -9,16 +10,21 @@ a,
     outline: 0 !important;
 }
 
+h3 {
+    font-family: 'TCCEB';
+    font-size: 36px;
+}
+
 
 /* HOVER CUSTOM */
 
 .hvr-float-shadow:before {
     top: 105%;
-    left: 15%;
+    left: -15%;
     height: 25px;
-    width: 70%;
-    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.08) 0, rgba(0, 0, 0, 0) 80%);
-    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.08) 0, rgba(0, 0, 0, 0) 80%);
+    width: 130%;
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0) 50%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.12) 0, rgba(0, 0, 0, 0) 50%);
     -webkit-transition-duration: .5s;
     transition-duration: .5s;
 }
@@ -32,6 +38,7 @@ section#heading {
     background: url("../leadership-diamond-theme/img/gradient-blue.jpg") no-repeat 50% 50%;
     height: 600px;
     .row {
+        height: 100%;
         max-width: 960px;
         margin: 0 auto;
         font-family: 'TCCEB';
@@ -40,6 +47,7 @@ section#heading {
             position: absolute;
             bottom: 70px;
             .heading-title {
+                text-transform: uppercase;
                 font-size: 90px;
                 line-height: 1.1;
             }
@@ -49,13 +57,29 @@ section#heading {
             }
         }
         .diamond {
-            width: 1500px;
-            right: -40%;
+            width: 1000px;
+            right: -18%;
             bottom: -8%;
             position: absolute;
             z-index: 1001;
             max-width: auto;
             pointer-events: none;
+        }
+        .shadow {
+            height: 25px;
+            background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 50%);
+            -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            &.pos-0 {
+                top: 680px;
+                position: absolute;
+                width: 750px;
+                right: -10%;
+                bottom: -8%;
+                position: absolute;
+                z-index: 1001;
+            }
         }
     }
 }
@@ -64,19 +88,20 @@ section#graph {
     min-height: 400px;
     .row {
         max-width: 960px;
-        margin: 0 auto;
+        margin: 80px auto;
     }
 }
 
 section#course {
     position: relative;
-    min-height: 800px;
+    min-height: 1080px;
     color: white;
     background: url("../leadership-diamond-theme/img/gradient-blue.jpg") no-repeat 50% 50%;
     .row {
         display: flex;
         width: 100%;
         .course-title {
+            text-transform: uppercase;
             font-size: 72px;
             color: white;
             font-family: 'TCCEB';
@@ -103,12 +128,16 @@ section#course {
             color: white;
         }
         .course-btn {
-            display: flex;
+            display: inline-flex;
+            margin: 20px 0;
             width: 100%;
             .btn {
+                font-size: 36px;
                 margin: 0 auto;
                 color: #0fd3ff;
                 background-color: white;
+                width: 320px;
+                height: 55px;
             }
         }
         .pos-1 {
@@ -125,9 +154,9 @@ section#course {
             width: 150px;
             margin-left: auto;
             margin-right: auto;
-            left: 1100px;
+            left: 1000px;
             right: 0px;
-            top: 250px;
+            top: 350px;
             position: absolute;
             opacity: 0.5;
         }
@@ -137,9 +166,9 @@ section#course {
             margin-right: auto;
             left: 0px;
             right: 840px;
-            top: 560px;
+            top: 660px;
             position: absolute;
-            opacity: 0.4;
+            opacity: 0.5;
         }
         .shadow {
             height: 20px;
@@ -151,10 +180,10 @@ section#course {
                 top: 300px;
             }
             &.pos-2 {
-                top: 390px;
+                top: 490px;
             }
             &.pos-3 {
-                top: 610px;
+                top: 710px;
                 height: 10px;
             }
         }
@@ -162,14 +191,15 @@ section#course {
 }
 
 footer {
-    .site-footer {
-        background-color: rgba(0, 0, 0, 0.3);
+    &.site-footer {
+        height: 220px;
+        margin-top: -220px;
+        position: absolute;
+        background-color: rgba(54, 45, 57, 0.4);
         color: #fff;
         font-size: 14px;
-        position: absolute;
         text-align: center;
         vertical-align: middle;
-        bottom: 0;
         width: 100%;
     }
 }
@@ -187,6 +217,60 @@ footer {
     background-color: #70c1b3;
     .btn {
         color: #70c1b3;
+        background-color: white;
+        min-width: 250px;
+    }
+}
+
+#post-3 {
+    background-color: #5397e3;
+    .btn {
+        color: #5397e3;
+        background-color: white;
+        min-width: 250px;
+    }
+}
+
+#post-4 {
+    background-color: #7a80cb;
+    .btn {
+        color: #7a80cb;
+        background-color: white;
+        min-width: 250px;
+    }
+}
+
+#post-5 {
+    background-color: #d3bd1f;
+    .btn {
+        color: #d3bd1f;
+        background-color: white;
+        min-width: 250px;
+    }
+}
+
+#post-6 {
+    background-color: #f31e57;
+    .btn {
+        color: #f31e57;
+        background-color: white;
+        min-width: 250px;
+    }
+}
+
+#post-7 {
+    background-color: #70c1b3;
+    .btn {
+        color: #70c1b3;
+        background-color: white;
+        min-width: 250px;
+    }
+}
+
+#post-8 {
+    background-color: #5397e3;
+    .btn {
+        color: #5397e3;
         background-color: white;
         min-width: 250px;
     }

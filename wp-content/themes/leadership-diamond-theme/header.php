@@ -51,10 +51,13 @@
 	 * @hooked studio_site_branding_end -  70
 	 * @hooked studio_header_menu -  80
 	 * @hooked studio_primary_menu - 110
-	 * @hooked studio_header_end -  200
+	 * @hooked studio_header_end -  200s
 	 * 
 	 */
-	 // do_action( 'studio_header' );
+        add_action( 'studio_header', 'studio_header_start', 10 );
+        add_action( 'studio_header', 'studio_header_menu', 80 );
+         add_action( 'studio_header', 'studio_primary_menu', 110 );
+         add_action( 'studio_header', 'studio_header_end', 200 );
 
 
 	/** 
