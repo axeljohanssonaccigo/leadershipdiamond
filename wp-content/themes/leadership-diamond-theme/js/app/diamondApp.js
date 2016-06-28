@@ -18,19 +18,33 @@ angular.forEach(environments, function(env){
 	if (env === location.origin) {
 		currentEnvironment = env;
 	};
+angular.forEach(environments, function (env) {
+    if (env === location.origin) {
+        currentEnvironment = env;
+    };
+>>>>>>> 6b553ed9a1ea8bacb7454689e83e3e7a4077352b
 });
 
 //Adding a baseUrl, used in Angular services
 if (currentEnvironment === environments.dev) {
-	var baseUrl = currentEnvironment.concat('/leadershipdiamond');
+    var baseUrl = currentEnvironment.concat('/leadershipdiamond');
 } else {
-	baseUrl = currentEnvironment;
+    baseUrl = currentEnvironment;
 }
 
 //Setting current language depending on url (Default = Swedish)
 var currentLanguage = {"name": "Svenska", "url": baseUrl.concat("/sv")};
 if(location.href.search("/en") > -1){
     var currentLanguage = {"name": "English", "url": baseUrl.concat("/en")};
+var currentLanguage = {
+    "name": "Svenska"
+    , "url": baseUrl.concat("/sv")
+};
+if (location.href.search("en") > -1) {
+    var currentLanguage = {
+        "name": "English"
+        , "url": baseUrl.concat("/en")
+    };
 }
 
 //Adding controller
@@ -38,5 +52,5 @@ jQuery("#page").attr("ng-controller", "startCtrl");
 
 //Bootstrapping the app
 jQuery(document).ready(function () {
-    angular.bootstrap(document.getElementById("page"), ['diamondApp']); 
+    angular.bootstrap(document.getElementById("page"), ['diamondApp']);
 });

@@ -45,6 +45,18 @@
     .panel-heading {
         width: 720px;
     }
+    .hvr-float-shadow {
+        &:before {
+            opacity: 0 !important;
+        }
+        &:hover {
+            -webkit-transform: translateY(0px) !important;
+            transform: translateY(0px) !important;
+            &:before {
+                opacity: 0 !important;
+            }
+        }
+    }
 }
 
 .panel {
