@@ -537,6 +537,11 @@ footer.site-footer {
   vertical-align: middle;
   width: 100%;
 }
+footer .group-name-heading {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 2px;
+}
 #post-1 {
   background-color: #f31e57;
 }

@@ -10,6 +10,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
     $scope.hasViewedAboutDiamond = false;
     $scope.oneAtATime = true;
     $scope.currentLanguage = currentLanguage;
+    $scope.groupNames = ["none", "Sweden", "India"];
     $scope.languages = [
         {
             "name": "Svenska"
@@ -55,6 +56,9 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
         $scope.leadershipPartners = $scope.getTranslationByContent('leadershippartners');
         $scope.courseIntro = $scope.getTranslationByContent('courseintro');
         $scope.diamondAboutText = $scope.getTranslationByContent('diamondabouttext');
+        $scope.sweden = $scope.getTranslationByContent('sweden');
+        $scope.india = $scope.getTranslationByContent('india');
+        $scope.goToDiamond = $scope.getTranslationByContent('gotodiamond');
     };
 
     //On Document ready
@@ -88,6 +92,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
     //On Document ready
     jQuery(document).ready(function () {
         console.log("ready!");
+        jQuery(".panel-title").attr("ng-click", "registerQuestionClick(post)");
 
     });
 
@@ -117,6 +122,25 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             };
             count++;
         });
+    };
+    
+    $scope.getGroupName = function(groupId){
+        groupName = "";
+        switch(groupId){
+            case "1":
+                groupName = $scope.sweden.title;
+                break;
+            case "2":
+                groupName = $scope.india.title;
+                break;
+            case "3":
+                groupName = "none"
+                break;
+            default:
+                groupName = "";
+                break;
+        }
+        return groupName;
     };
 
     $scope.getAllQuestionPosts = function () {
@@ -196,6 +220,9 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
                 if ('wpcf-sort-index' in contact.custom_fields) {
                     contact["index"] = parseInt(contact.custom_fields['wpcf-sort-index'][0]);
                 };
+                if ('wpcf-group' in contact.custom_fields) {
+                        contact["group"] = $scope.getGroupName(contact.custom_fields['wpcf-group'][0]);
+                };
             });
 
             console.log($scope.allContacts);
@@ -208,11 +235,15 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
                     if ('wpcf-url' in partner.custom_fields) {
                         partner["url"] = partner.custom_fields['wpcf-url'][0];
                     };
-
                     if ('wpcf-sort-index' in partner.custom_fields) {
                         partner["index"] = parseInt(partner.custom_fields['wpcf-sort-index'][0]);
                     };
+                    if ('wpcf-group' in partner.custom_fields) {
+                        partner["group"] = $scope.getGroupName(partner.custom_fields['wpcf-group'][0]);
+                    };
+                    
                 });
+                console.log($scope.groupNames);
                 console.log($scope.allPartners);
                 $scope.isLoaded.partners = true;
             });
@@ -251,6 +282,8 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             $anchorScroll();
         }
     };
+    
+    
 
     $scope.getQuestionPostByIndex = function (postIndex) {
         var returnPost = null;
