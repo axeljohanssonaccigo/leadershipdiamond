@@ -37,7 +37,7 @@ get_header(); ?>
                         <!-- Graph section -->
                         <div class="row">
 
-                            Diamanten är en universell förklaringsmodell, struktur, verktyg och språk som utvecklats av Prof. Peter Koestenbaum. Han har samlat eviga sanningar som filosofer från Sokrates och Platon till von Wrigt och ……. samt de landvinningar som psykologin nått och analyserat näringslivets behov genom mångårigt styrelsearbete i stora, internationella företag. Resultatet är strukturerat i Ledarskapsdiamanten som nu används i hela världen av de främsta organisationerna. Diamanten är heltäckande och har blivit grundbulten i förståelsen av hur ledare fungerar och kan utvecklas och kallas därför för Ledarskapets Operativsystem (som ett Windows 10). Allt annat är applikationer eller tillämpningar. Förståelsen av Diamanten gör att rätt applikationer nu kan sättas in till rätt personer och skapa fördjupning och fortsatt utveckling. Alla appar passar som handsken till Diamanten och kan därför lätt ”klicka in”. (hit ska alla som klickar vidare kunna läsa som en första beskrivning. Härefter går vi vidare med förklaring av fråga efter fråga) Ex:
+                            {{diamondAboutText.title}}
 
 
                         </div>
