@@ -13,7 +13,7 @@
 
 get_header(); ?>
 
-    <div id="primary" class="content-area">
+    <div id="primary" class="content-area" ng-cloak>
         <main id="main" class="site-main" role="main">
             <div class="">
                 <div ng-hide="loading">
@@ -23,10 +23,10 @@ get_header(); ?>
                         <div class="row">
                             <div class="heading-container">
                                 <div class="heading-title">
-                                    LEDARSKAPSDIAMANTEN
+                                    {{leadershipdiamond.title}}
                                 </div>
                                 <div class="heading-second">
-                                    Ledarskapets operativsystem - allt annat är applikationer.
+                                    {{leadershipOS.title}} - {{nothingButApps.title}}.
                                 </div>
                             </div>
                             <img class="diamond" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
@@ -72,11 +72,17 @@ get_header(); ?>
                         <div class="row">
                             <div class="course-section clearfix col-xs-12">
                                 <div class="course-title">
-                                    LEDARSKAPSDIAMANTEN
+                                    {{leadershipdiamond.title}}
+                                </div>
+                                <div class="course-intro">
+                                    {{courseIntro.title}}
                                 </div>
                                 <div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-sm-6  col-xs-12">
                                     <div class="course-title-container">
-                                        <!--{{course.title}} |-->{{course.level}}
+                                        {{course.title}}
+                                    </div>
+                                    <div class="course-level-container ng-hide">
+                                        {{course.level}}
                                     </div>
                                     <div class="course-content-container">
                                         {{course.content}}
