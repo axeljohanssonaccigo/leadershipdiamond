@@ -15,6 +15,11 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             "name": "Svenska"
             , "url": baseUrl.concat("/sv")
         }
+
+
+
+
+        
         , {
             "name": "English"
             , "url": baseUrl.concat("/en")
@@ -52,6 +57,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
         $scope.aboutDiamond = $scope.getTranslationByContent('aboutdiamond');
         $scope.contact = $scope.getTranslationByContent('contact');
         $scope.leadershipPartners = $scope.getTranslationByContent('leadershippartners');
+        $scope.courseIntro = $scope.getTranslationByContent('courseintro');
     };
 
     //On Document ready
@@ -79,32 +85,34 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             post["inFocus"] = false;
             post["index"] = parseInt(post['custom_fields']['wpcf-index'][0]);
             post["solution"] = (post['custom_fields']['wpcf-answer'][0]);
-        $scope.courseIntro = $scope.getTranslationByContent('courseintro');
-	};
+        });
+    };
 
-	//On Document ready
-	jQuery( document ).ready(function() {
-		console.log( "ready!" );
+    //On Document ready
+    jQuery(document).ready(function () {
+        console.log("ready!");
 
-	});
+    });
 
-	//Scope functions on page load
-	$scope.getTranslationByContent = function(content){
-		var translation = $scope.allTranslations.filter(function(item) { return item.content === content; });
-		return translation[0];
-	};
+    //Scope functions on page load
+    $scope.getTranslationByContent = function (content) {
+        var translation = $scope.allTranslations.filter(function (item) {
+            return item.content === content;
+        });
+        return translation[0];
+    };
 
-	$scope.trimPostContent = function(content){
-		return content.replace(/<\/?[^>]+(>|$)/g, "").replace(/(\r\n|\n|\r)/gm," ").trim();
-	};
+    $scope.trimPostContent = function (content) {
+        return content.replace(/<\/?[^>]+(>|$)/g, "").replace(/(\r\n|\n|\r)/gm, " ").trim();
+    };
 
-	$scope.defineQuestionPostObjects = function(){
-		var count = 1;
-		angular.forEach($scope.allQuestionPosts, function(post){
-			post["showDescription"] = false;
-			post["inFocus"] = false;
-			post["index"] = parseInt(post['custom_fields']['wpcf-index'][0]);
-			post["solution"] = (post['custom_fields']['wpcf-answer'][0]);
+    $scope.defineQuestionPostObjects = function () {
+        var count = 1;
+        angular.forEach($scope.allQuestionPosts, function (post) {
+            post["showDescription"] = false;
+            post["inFocus"] = false;
+            post["index"] = parseInt(post['custom_fields']['wpcf-index'][0]);
+            post["solution"] = (post['custom_fields']['wpcf-answer'][0]);
             post["isRead"] = false;
             post.content = $scope.trimPostContent(post.content);
             if (count === $scope.allQuestionPosts.length) {
@@ -162,21 +170,11 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             angular.forEach($scope.allCourses, function (course) {
                 course.content = $scope.trimPostContent(course.content);
                 if ('wpcf-course-index' in course.custom_fields) {
-                    course["courseIndex"] = course.custom_fields['wpcf-course-index'][0];
+                    course["courseIndex"] = parseInt(course.custom_fields['wpcf-course-index'][0]);
                 };
                 if ('wpcf-level' in course.custom_fields) {
                     course["level"] = course.custom_fields['wpcf-level'][0];
                 };
-		startSvc.getPostsByType(postType).then(function(response){
-			$scope.allCourses = response.data.posts;
-			angular.forEach($scope.allCourses, function(course){
-				course.content = $scope.trimPostContent(course.content);
-				if ('wpcf-course-index' in course.custom_fields) {
-					course["courseIndex"] = parseInt(course.custom_fields['wpcf-course-index'][0]);
-				};
-				if ('wpcf-level' in course.custom_fields) {
-					course["level"] = course.custom_fields['wpcf-level'][0];
-				};
                 course["isRead"] = false;
             });
             console.log("all courses");
@@ -197,12 +195,13 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
                 if ('wpcf-url' in contact.custom_fields) {
                     contact["url"] = contact.custom_fields['wpcf-url'][0];
                 };
-					contact["url"] = contact.custom_fields['wpcf-url'][0];
-				};
+                contact["url"] = contact.custom_fields['wpcf-url'][0];
+
                 if ('wpcf-sort-index' in contact.custom_fields) {
-					contact["index"] = parseInt(contact.custom_fields['wpcf-sort-index'][0]);
-				};
+                    contact["index"] = parseInt(contact.custom_fields['wpcf-sort-index'][0]);
+                };
             });
+
             console.log($scope.allContacts);
             $scope.isLoaded.contacts = true;
             //Get leadership partners
@@ -213,10 +212,10 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
                     if ('wpcf-url' in partner.custom_fields) {
                         partner["url"] = partner.custom_fields['wpcf-url'][0];
                     };
-                    };	
+
                     if ('wpcf-sort-index' in partner.custom_fields) {
-					partner["index"] = parseInt(partner.custom_fields['wpcf-sort-index'][0]);
-				};
+                        partner["index"] = parseInt(partner.custom_fields['wpcf-sort-index'][0]);
+                    };
                 });
                 console.log($scope.allPartners);
                 $scope.isLoaded.partners = true;
