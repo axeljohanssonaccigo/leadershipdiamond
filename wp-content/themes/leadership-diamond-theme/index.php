@@ -29,7 +29,7 @@ get_header(); ?>
                                     {{leadershipOS.title}} - {{nothingButApps.title}}.
                                 </div>
                             </div>
-                            <img class="diamond" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                            <img class="diamond" src="./wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         </div>
                     </section>
 
@@ -95,11 +95,11 @@ get_header(); ?>
                                 </div>
                             </div>
 
-                            <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                            <img class="diamond pos-1" src="./wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                             <div class="shadow pos-1"></div>
-                            <img class="diamond pos-2" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                            <img class="diamond pos-2" src="./wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                             <div class="shadow pos-2"></div>
-                            <img class="diamond pos-3" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                            <img class="diamond pos-3" src="./wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                             <div class="shadow pos-3"></div>
                         </div>
                     </section>

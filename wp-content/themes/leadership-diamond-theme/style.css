@@ -311,6 +311,7 @@ a.waves-effect .waves-ripple {
 }
 .panel-open h4 {
   font-size: 36px;
+  text-align: justify;
 }
 .panel-open h4 a {
   transition: 0.3s all cubic-bezier(0.8, 0, 0.2, 1);
