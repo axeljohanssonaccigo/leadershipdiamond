@@ -37,7 +37,6 @@ get_header(); ?>
                     <section id="graph">
                         <!-- Graph section -->
                         <div class="row">
-<<<<<<< HEAD
                             <div class="col-md-4">
                                 <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png">
                             </div>
@@ -47,9 +46,6 @@ get_header(); ?>
                             <div class="col-md-4">
                                 <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png">
                             </div>
-=======
-                            {{diamondAboutText.title}}
->>>>>>> e8821de7549960b4924a390afe96e8c897eede0a
                         </div>
                     </section>
                     <!-- Graph section -->
