@@ -36,10 +36,7 @@ get_header(); ?>
                     <section id="graph">
                         <!-- Graph section -->
                         <div class="row">
-
                             {{diamondAboutText.title}}
-
-
                         </div>
                     </section>
                     <!-- Graph section -->
@@ -48,15 +45,15 @@ get_header(); ?>
                         <!-- Post section -->
                         <div class="row">
                             <uib-accordion close-others="oneAtATime">
-                                <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}" ng-click="registerQuestionClick(post)" class="page-scroll">
+                                <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}" class="page-scroll">
                                     {{post.solution}}
                                     <div class="btns">
                                         <div ng-show="post.index < allQuestionPosts.length" class="next-btn-cont col-md-6">
                                             <button type="button" class="btn next-btn btn-success waves-effect waves-light" ng-click="moveToNextPost(post)">{{goToNextPost.title}} ▼</button>
                                         </div>
                                         <div class="leader-btn-cont col-md-6">
-                                            <button type="button" class="btn leader-btn waves-effect waves-light">
-                                                Till Ledarskapsdiamanten! ▼
+                                            <button type="button" class="btn leader-btn waves-effect waves-light" ng-click="gotoDivId('course')">
+                                                {{goToDiamond.title}}! ▼
                                             </button>
                                         </div>
                                     </div>

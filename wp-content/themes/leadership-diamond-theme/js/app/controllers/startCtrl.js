@@ -57,6 +57,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
         $scope.diamondAboutText = $scope.getTranslationByContent('diamondabouttext');
         $scope.sweden = $scope.getTranslationByContent('sweden');
         $scope.india = $scope.getTranslationByContent('india');
+        $scope.goToDiamond = $scope.getTranslationByContent('gotodiamond');
     };
 
     //On Document ready
@@ -90,6 +91,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
     //On Document ready
     jQuery(document).ready(function () {
         console.log("ready!");
+        jQuery(".panel-title").attr("ng-click", "registerQuestionClick(post)");
 
     });
 
@@ -278,6 +280,8 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             $anchorScroll();
         }
     };
+    
+    
 
     $scope.getQuestionPostByIndex = function (postIndex) {
         var returnPost = null;
