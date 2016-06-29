@@ -54,14 +54,14 @@ get_header(); ?>
                         <!-- Post section -->
                         <div class="row">
                             <uib-accordion close-others="oneAtATime">
-                                <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}" class="page-scroll">
+                                <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}" class="page-scroll" ng-click="registerQuestionClick(post)">
                                     {{post.solution}}
                                     <div class="btns">
                                         <div ng-show="post.index < allQuestionPosts.length" class="next-btn-cont col-md-6">
-                                            <button type="button" class="btn next-btn btn-success waves-effect waves-light" ng-click="moveToNextPost(post)">{{goToNextPost.title}} ▼</button>
+                                            <button type="button" class="btn next-btn btn-success waves-effect waves-light" ng-click="$event.stopPropagation(); moveToNextPost(post)">{{goToNextPost.title}} ▼</button>
                                         </div>
                                         <div class="leader-btn-cont col-md-6">
-                                            <button type="button" class="btn leader-btn waves-effect waves-light" ng-click="gotoDivId('course')">
+                                            <button type="button" class="btn leader-btn waves-effect waves-light" ng-click="$event.stopPropagation(); goToCourses()" >
                                                 {{goToDiamond.title}}! ▼
                                             </button>
                                         </div>

@@ -7,8 +7,9 @@ var diamondApp = angular.module('diamondApp', ['ngAnimate', 'ngTouch', 'ui.boots
 
 // Global variabels
 var environments = {
-    "dev": "http://localhost:81"
-    , "prod": "http://www.leadershipdiamond.com"
+    "dev": "http://localhost:81",
+    "dev2": "http://localhost",
+    "prod": "http://www.leadershipdiamond.com"
 };
 
 //Setting the current environment
@@ -20,7 +21,7 @@ angular.forEach(environments, function (env) {
 });
 
 //Adding a baseUrl, used in Angular services
-if (currentEnvironment === environments.dev) {
+if (currentEnvironment === environments.dev || currentEnvironment === environments.dev2) {
     var baseUrl = currentEnvironment.concat('/leadershipdiamond');
 } else {
     baseUrl = currentEnvironment;

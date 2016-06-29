@@ -39,6 +39,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
         });
         if (allLoaded) {
             $scope.isLoaded.all = true;
+            //jQuery(".panel-title").attr("ng-click", "registerQuestionClick(post)"); 
         }
     }, true);
 
@@ -60,12 +61,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
         $scope.india = $scope.getTranslationByContent('india');
         $scope.goToDiamond = $scope.getTranslationByContent('gotodiamond');
     };
-
-    //On Document ready
-    jQuery(document).ready(function () {
-        console.log("ready!");
-
-    });
 
     //Scope functions on page load
     $scope.getTranslationByContent = function (content) {
@@ -92,7 +87,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
     //On Document ready
     jQuery(document).ready(function () {
         console.log("ready!");
-        jQuery(".panel-title").attr("ng-click", "registerQuestionClick(post)");
 
     });
 
@@ -258,7 +252,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
 
     $scope.registerQuestionClick = function (post) {
         post.isRead = true;
-        $scope.gotoDivId("post-" + post.index);
+        $scope.goToElement("post-" + post.index);
     };
 
     $scope.moveToNextPost = function (currentPost) {
@@ -269,19 +263,23 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             });
         };
     };
-
-    $scope.gotoDivId = function (divId) {
-        //var newHash = 'post-' + postId;
-        if ($location.hash() !== divId) {
-            // set the $location.hash to `newHash` and
-            // $anchorScroll will automatically scroll to it
-            $location.hash(divId);
-        } else {
-            // call $anchorScroll() explicitly,
-            // since $location.hash hasn't changed
-            $anchorScroll();
-        }
+    
+    $scope.goToCourses = function () { 
+          $scope.goToElement("course");
     };
+
+//    $scope.gotoDivId = function (divId) {
+//        //var newHash = 'post-' + postId;
+//        if ($location.hash() !== divId) {
+//            // set the $location.hash to `newHash` and
+//            // $anchorScroll will automatically scroll to it
+//            $location.hash(divId);
+//        } else {
+//            // call $anchorScroll() explicitly,
+//            // since $location.hash hasn't changed
+//            $anchorScroll();
+//        }
+//    };
     
     
 
@@ -300,14 +298,14 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
     $scope.getAllCourses();
     $scope.getFooterContent();
 
-    $scope.gotoElement = function (eID) {
+    $scope.goToElement = function (eID) {
         // set the location.hash to the id of
         // the element you wish to scroll to.
-        $location.hash('bottom');
-
+        $location.hash(eID);
         // call $anchorScroll()
-        anchorSmoothScroll.scrollTo(eID);
-
+        startSvc.scrollTo(eID);
     };
+
+
 
 }]);
