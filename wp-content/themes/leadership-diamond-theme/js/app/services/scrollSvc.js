@@ -1,10 +1,7 @@
-app.service('anchorSmoothScroll', function () {
-
+diamondApp.service('scrollSvc', function () {
     this.scrollTo = function (eID) {
-
         // This scrolling function 
         // is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
-
         var startY = currentYPosition();
         var stopY = elmYPosition(eID);
         var distance = stopY > startY ? stopY - startY : startY - stopY;
@@ -12,7 +9,7 @@ app.service('anchorSmoothScroll', function () {
             scrollTo(0, stopY);
             return;
         }
-        var speed = Math.round(distance / 100);
+        var speed = Math.round(distance / 10);
         if (speed >= 20) speed = 20;
         var step = Math.round(distance / 25);
         var leapY = stopY > startY ? startY + step : startY - step;
@@ -37,8 +34,7 @@ app.service('anchorSmoothScroll', function () {
             // Firefox, Chrome, Opera, Safari
             if (self.pageYOffset) return self.pageYOffset;
             // Internet Explorer 6 - standards mode
-            if (document.documentElement && document.documentElement.scrollTop)
-                return document.documentElement.scrollTop;
+            if (document.documentElement && document.documentElement.scrollTop) return document.documentElement.scrollTop;
             // Internet Explorer 6, 7 and 8
             if (document.body.scrollTop) return document.body.scrollTop;
             return 0;
@@ -54,7 +50,5 @@ app.service('anchorSmoothScroll', function () {
             }
             return y;
         }
-
     };
-
 });

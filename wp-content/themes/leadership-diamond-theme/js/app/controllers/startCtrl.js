@@ -1,5 +1,4 @@
-diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout', '$anchorScroll', function ($scope, startSvc, $location, $timeout, $anchorScroll) {
-
+diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$location', '$timeout', '$anchorScroll', function ($scope, startSvc, scrollSvc, $location, $timeout, $anchorScroll) {
     //Scope variables
     $scope.allQuestionPosts = [];
     $scope.allTranslations = [];
@@ -16,7 +15,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             "name": "Svenska"
             , "url": baseUrl.concat("/sv")
         }
-        
+
         , {
             "name": "English"
             , "url": baseUrl.concat("/en")
@@ -29,7 +28,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
         , "partners": false
         , "all": false
     };
-
     $scope.$watch('isLoaded', function () {
         var allLoaded = true;
         angular.forEach($scope.isLoaded, function (value) {
@@ -42,7 +40,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             //jQuery(".panel-title").attr("ng-click", "registerQuestionClick(post)"); 
         }
     }, true);
-
     // Sets custom strings from translation custom post type
     $scope.setCustomStrings = function () {
         $scope.leadershipOS = $scope.getTranslationByContent('leadershipOS');
@@ -61,7 +58,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
         $scope.india = $scope.getTranslationByContent('india');
         $scope.goToDiamond = $scope.getTranslationByContent('gotodiamond');
     };
-
     //Scope functions on page load
     $scope.getTranslationByContent = function (content) {
         var translation = $scope.allTranslations.filter(function (item) {
@@ -69,11 +65,9 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
         });
         return translation[0];
     };
-
     $scope.trimPostContent = function (content) {
         return content.replace(/<\/?[^>]+(>|$)/g, "").replace(/(\r\n|\n|\r)/gm, " ").trim();
     };
-
     $scope.defineQuestionPostObjects = function () {
         var count = 1;
         angular.forEach($scope.allQuestionPosts, function (post) {
@@ -83,13 +77,10 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             post["solution"] = (post['custom_fields']['wpcf-answer'][0]);
         });
     };
-
     //On Document ready
     jQuery(document).ready(function () {
         console.log("ready!");
-
     });
-
     //Scope functions on page load
     $scope.getTranslationByContent = function (content) {
         var translation = $scope.allTranslations.filter(function (item) {
@@ -97,11 +88,9 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
         });
         return translation[0];
     };
-
     $scope.trimPostContent = function (content) {
         return content.replace(/<\/?[^>]+(>|$)/g, "").replace(/(\r\n|\n|\r)/gm, " ").trim();
     };
-
     $scope.defineQuestionPostObjects = function () {
         var count = 1;
         angular.forEach($scope.allQuestionPosts, function (post) {
@@ -117,26 +106,24 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             count++;
         });
     };
-    
-    $scope.getGroupName = function(groupId){
+    $scope.getGroupName = function (groupId) {
         groupName = "";
-        switch(groupId){
-            case "1":
-                groupName = $scope.sweden.title;
-                break;
-            case "2":
-                groupName = $scope.india.title;
-                break;
-            case "3":
-                groupName = "none"
-                break;
-            default:
-                groupName = "";
-                break;
+        switch (groupId) {
+        case "1":
+            groupName = $scope.sweden.title;
+            break;
+        case "2":
+            groupName = $scope.india.title;
+            break;
+        case "3":
+            groupName = "none"
+            break;
+        default:
+            groupName = "";
+            break;
         }
         return groupName;
     };
-
     $scope.getAllQuestionPosts = function () {
         startSvc.getAllQuestionPosts().then(function (response) {
             $scope.allQuestionPosts = response.data.posts;
@@ -147,7 +134,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             $scope.isLoaded.questionPosts = true;
         });
     };
-
     $scope.prettyfyTranslations = function (translations) {
         angular.forEach(translations, function (post) {
             var transObject = {
@@ -165,8 +151,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
         //Set the custom strings
         $scope.setCustomStrings();
     };
-
-
     $scope.getAllTranslations = function () {
         var postType = 'translation';
         startSvc.getPostsByType(postType).then(function (response) {
@@ -177,7 +161,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             $scope.isLoaded.translations = true;
         });
     };
-
     $scope.getAllCourses = function () {
         var postType = 'course';
         startSvc.getPostsByType(postType).then(function (response) {
@@ -200,7 +183,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             $scope.isLoaded.courses = true;
         });
     };
-
     $scope.getFooterContent = function () {
         //Get contacts
         var postType = 'contact';
@@ -210,15 +192,13 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
                 if ('wpcf-url' in contact.custom_fields) {
                     contact["url"] = contact.custom_fields['wpcf-url'][0];
                 };
-
                 if ('wpcf-sort-index' in contact.custom_fields) {
                     contact["index"] = parseInt(contact.custom_fields['wpcf-sort-index'][0]);
                 };
                 if ('wpcf-group' in contact.custom_fields) {
-                        contact["group"] = $scope.getGroupName(contact.custom_fields['wpcf-group'][0]);
+                    contact["group"] = $scope.getGroupName(contact.custom_fields['wpcf-group'][0]);
                 };
             });
-
             console.log($scope.allContacts);
             $scope.isLoaded.contacts = true;
             //Get leadership partners
@@ -235,26 +215,21 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
                     if ('wpcf-group' in partner.custom_fields) {
                         partner["group"] = $scope.getGroupName(partner.custom_fields['wpcf-group'][0]);
                     };
-                    
                 });
                 console.log($scope.groupNames);
                 console.log($scope.allPartners);
                 $scope.isLoaded.partners = true;
             });
-
         }).catch(function () {
             console.log("Error in get all contacts");
             $scope.isLoaded.contacts = true;
             $scope.isLoaded.partners = true;
         });
-
     };
-
     $scope.registerQuestionClick = function (post) {
         post.isRead = true;
         $scope.goToElement("post-" + post.index);
     };
-
     $scope.moveToNextPost = function (currentPost) {
         var nextPost = $scope.getQuestionPostByIndex(currentPost.index + 1);
         if (currentPost.index < $scope.allQuestionPosts.length) {
@@ -263,26 +238,9 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
             });
         };
     };
-    
-    $scope.goToCourses = function () { 
-          $scope.goToElement("course");
+    $scope.goToCourses = function () {
+        $scope.goToElement("course");
     };
-
-//    $scope.gotoDivId = function (divId) {
-//        //var newHash = 'post-' + postId;
-//        if ($location.hash() !== divId) {
-//            // set the $location.hash to `newHash` and
-//            // $anchorScroll will automatically scroll to it
-//            $location.hash(divId);
-//        } else {
-//            // call $anchorScroll() explicitly,
-//            // since $location.hash hasn't changed
-//            $anchorScroll();
-//        }
-//    };
-    
-    
-
     $scope.getQuestionPostByIndex = function (postIndex) {
         var returnPost = null;
         angular.forEach($scope.allQuestionPosts, function (post) {
@@ -292,20 +250,15 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', '$location', '$timeout
         });
         return returnPost;
     };
-
     $scope.getAllTranslations();
     $scope.getAllQuestionPosts();
     $scope.getAllCourses();
     $scope.getFooterContent();
-
     $scope.goToElement = function (eID) {
         // set the location.hash to the id of
         // the element you wish to scroll to.
         $location.hash(eID);
         // call $anchorScroll()
-        startSvc.scrollTo(eID);
+        scrollSvc.scrollTo(eID);
     };
-
-
-
 }]);

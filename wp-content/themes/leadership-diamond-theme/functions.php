@@ -1,6 +1,6 @@
 <?php
 //Global script version for custom scripts
-$version = '0.91';
+$version = '0.92';
 
 function my_theme_enqueue_styles() {
     global $version;
@@ -32,12 +32,11 @@ function my_theme_enqueue_scripts() {
     /* MATERIALIZE JS */
      wp_enqueue_script('materialize_js', get_stylesheet_directory_uri() . '/js/assets/materialize.min.js', array(), null, true);
 
-    /* CUSTOM SCRIPTS */
     /* DIAMOND APP */
     wp_enqueue_script('diamond_app', get_stylesheet_directory_uri() . '/js/app/diamondApp.js', array(), $version, true);
     wp_enqueue_script('start_ctrl', get_stylesheet_directory_uri() . '/js/app/controllers/startCtrl.js', array(), $version, true);
     wp_enqueue_script('start_svc', get_stylesheet_directory_uri() . '/js/app/services/startSvc.js', array(), $version, true);
-//    wp_enqueue_script('group_by_filter', get_stylesheet_directory_uri() . '/js/app/filters/groupByFilter.js', array(), $version, true);
+    wp_enqueue_script('scroll_svc', get_stylesheet_directory_uri() . '/js/app/services/scrollSvc.js', array(), $version, true);
 
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_scripts' );

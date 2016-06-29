@@ -114,6 +114,9 @@ section#course {
     .row {
         display: flex;
         width: 100%;
+        .diamond-about-text {
+            text-align: justify;
+        }
         .course-title {
             text-transform: uppercase;
             font-size: 72px;
@@ -123,7 +126,7 @@ section#course {
         }
         .course-section {
             width: 720px;
-            margin: 30px auto;
+            margin: 50px auto;
         }
         .course-container {
             padding-bottom: 15px;
@@ -143,7 +146,7 @@ section#course {
         }
         .course-btn {
             display: inline-flex;
-            margin: 50px 0 250px;
+            margin: 50px 0 270px;
             width: 100%;
             .btn {
                 font-size: 36px;
@@ -170,7 +173,7 @@ section#course {
             margin-right: auto;
             left: 1000px;
             right: 0px;
-            top: 350px;
+            top: 400px;
             position: absolute;
             opacity: 0.5;
         }
@@ -180,7 +183,7 @@ section#course {
             margin-right: auto;
             left: 0px;
             right: 840px;
-            top: 660px;
+            top: 800px;
             position: absolute;
             opacity: 0.5;
         }
@@ -194,10 +197,10 @@ section#course {
                 top: 300px;
             }
             &.pos-2 {
-                top: 490px;
+                top: 550px;
             }
             &.pos-3 {
-                top: 710px;
+                top: 850px;
                 height: 10px;
             }
         }
@@ -461,5 +464,82 @@ footer {
         li {
             text-decoration: none;
         }
+    }
+}
+
+
+/* FLOATING */
+
+.floating {
+    float: left;
+    -webkit-animation-name: Floatingx;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -moz-animation-name: Floating;
+    -moz-animation-duration: 4s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+@-webkit-keyframes Floatingx {
+    from {
+        -webkit-transform: translate(0, 0px);
+    }
+    50% {
+        -webkit-transform: translate(0, 15px);
+    }
+    to {
+        -webkit-transform: translate(0, -0px);
+    }
+}
+
+@-moz-keyframes Floating {
+    from {
+        -moz-transform: translate(0, 0px);
+    }
+    50% {
+        -moz-transform: translate(0, 15px);
+    }
+    to {
+        -moz-transform: translate(0, -0px);
+    }
+}
+
+.scaling {
+    float: left;
+    -webkit-animation-name: scalex;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -moz-animation-name: scale;
+    -moz-animation-duration: 4s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes scalex {
+    from {
+        -webkit-transform: scale(1.0);
+    }
+    50% {
+        -webkit-transform: scale(0.5);
+    }
+    to {
+        -webkit-transform: scale(1.0);
+    }
+}
+
+@-moz-keyframes scale {
+    from {
+        -moz-transform: scale(1.0);
+    }
+    50% {
+        -moz-transform: scale(0.5);
+    }
+    to {
+        -moz-transform: scale(1.0);
     }
 }
