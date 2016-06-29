@@ -1,6 +1,6 @@
 <?php
 //Global script version for custom scripts
-$version = '0.92';
+$version = '0.93';
 
 function my_theme_enqueue_styles() {
     global $version;

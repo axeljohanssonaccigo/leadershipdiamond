@@ -39,9 +39,6 @@ if (location.href.search("/en") > -1) {
     };
 };
 
-//Adding controller
-jQuery("#page").attr("ng-controller", "startCtrl");
-
 //Bootstrapping the app
 jQuery(document).ready(function () {
     angular.bootstrap(document.getElementById("page"), ['diamondApp']);

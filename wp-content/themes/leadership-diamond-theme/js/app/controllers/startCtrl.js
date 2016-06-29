@@ -21,25 +21,27 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             , "url": baseUrl.concat("/en")
         }
     ];
+    //Loading handling
     $scope.isLoaded = {
         "translations": false
         , "questionPosts": false
         , "contacts": false
         , "partners": false
-        , "all": false
     };
+    $scope.allLoaded = false;
     $scope.$watch('isLoaded', function () {
         var allLoaded = true;
+        console.log($scope.isLoaded);
         angular.forEach($scope.isLoaded, function (value) {
             if (value === false) {
-                var allLoaded = false;
-            }
+                allLoaded = false;
+            };
         });
         if (allLoaded) {
-            $scope.isLoaded.all = true;
-            //jQuery(".panel-title").attr("ng-click", "registerQuestionClick(post)"); 
-        }
+            $scope.allLoaded = true;
+        };
     }, true);
+    
     // Sets custom strings from translation custom post type
     $scope.setCustomStrings = function () {
         $scope.leadershipOS = $scope.getTranslationByContent('leadershipOS');
@@ -101,7 +103,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             post["isRead"] = false;
             post.content = $scope.trimPostContent(post.content);
             if (count === $scope.allQuestionPosts.length) {
-                $scope.loading = false;
+                $scope.isLoaded.questionPosts = true;
             };
             count++;
         });
@@ -129,7 +131,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             $scope.allQuestionPosts = response.data.posts;
             console.log($scope.allQuestionPosts);
             $scope.defineQuestionPostObjects();
-            $scope.isLoaded.questionPosts = true;
+            
         }).catch(function () {
             $scope.isLoaded.questionPosts = true;
         });
@@ -216,14 +218,15 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
                         partner["group"] = $scope.getGroupName(partner.custom_fields['wpcf-group'][0]);
                     };
                 });
-                console.log($scope.groupNames);
                 console.log($scope.allPartners);
+                $scope.isLoaded.partners = true;
+            }).catch(function () {
+                console.log("Error in get all partners");
                 $scope.isLoaded.partners = true;
             });
         }).catch(function () {
             console.log("Error in get all contacts");
             $scope.isLoaded.contacts = true;
-            $scope.isLoaded.partners = true;
         });
     };
     $scope.registerQuestionClick = function (post) {
@@ -250,10 +253,12 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         });
         return returnPost;
     };
+    
     $scope.getAllTranslations();
     $scope.getAllQuestionPosts();
     $scope.getAllCourses();
     $scope.getFooterContent();
+    
     $scope.goToElement = function (eID) {
         // set the location.hash to the id of
         // the element you wish to scroll to.

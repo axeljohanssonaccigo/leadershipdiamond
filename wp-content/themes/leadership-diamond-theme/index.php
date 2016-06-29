@@ -12,13 +12,20 @@
  */
 
 get_header(); ?>
-    <div id="primary" class="content-area" ng-cloak>
-        <main id="main" class="site-main" role="main">
+    <div id="primary" class="content-area" ng-controller="startCtrl">
+        <main id="main" class="site-main" role="main" ng-cloak>
             <div class="">
-                <div ng-hide="loading">
+                <div  ng-class="{'is-loaded': allLoaded, 'is-not-loaded full-screen-cover': !allLoaded}" class="parent-valign">
+                    <div class="child-valign">
+                        <div class="shadow scaling pos-x"></div> <img class="diamond-loader floating" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                    </div>
+                </div>
+                <div >
                     <!-- Heading -->
-                    <section id="heading">
+                    
+                    <section id="heading" >
                         <div class="row">
+                           
                             <div class="heading-container">
                                 <div class="heading-title"> {{leadershipdiamond.title}} </div>
                                 <div class="heading-second"> {{leadershipOS.title}} - {{nothingButApps.title}}. </div>

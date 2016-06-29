@@ -15,6 +15,59 @@ h3 {
     font-size: 36px;
 }
 
+.full-screen-cover{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100000;
+
+}
+.is-loaded{
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s all; 
+}
+.is-not-loaded{
+    opacity: 1;
+    transition: 0.3s all;
+}
+.parent-valign{
+   position: relative;
+}
+.child-valign{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    left: 50%;
+}
+.shadow {
+    height: 20px;
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+    -webkit-transition-duration: .5s;
+    transition-duration: .5s;
+
+    &.pos-x {
+        width: 100%;
+        bottom: -45px; 
+        position: absolute;
+    }
+    &.pos-1 {
+       top: 300px;
+   }
+   &.pos-2 {
+       top: 550px;
+   }
+   &.pos-3 {
+       top: 850px;
+       height: 10px;
+   }
+            
+}
+  
 
 /* HOVER CUSTOM */
 
@@ -187,23 +240,7 @@ section#course {
             position: absolute;
             opacity: 0.5;
         }
-        .shadow {
-            height: 20px;
-            background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
-            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
-            -webkit-transition-duration: .5s;
-            transition-duration: .5s;
-            &.pos-1 {
-                top: 300px;
-            }
-            &.pos-2 {
-                top: 550px;
-            }
-            &.pos-3 {
-                top: 850px;
-                height: 10px;
-            }
-        }
+        
     }
 }
 
@@ -471,7 +508,7 @@ footer {
 /* FLOATING */
 
 .floating {
-    float: left;
+    float: left; 
     -webkit-animation-name: Floatingx;
     -webkit-animation-duration: 4s;
     -webkit-animation-iteration-count: infinite;
@@ -480,8 +517,8 @@ footer {
     -moz-animation-duration: 4s;
     -moz-animation-iteration-count: infinite;
     -moz-animation-timing-function: ease-in-out;
-    margin-left: 30px;
-    margin-top: 5px;
+//    margin-left: 30px;
+//    margin-top: 5px;
 }
 
 @-webkit-keyframes Floatingx {
