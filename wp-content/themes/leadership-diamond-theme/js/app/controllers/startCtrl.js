@@ -9,7 +9,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.hasViewedAboutDiamond = false;
     $scope.oneAtATime = true;
     $scope.currentLanguage = currentLanguage;
-    $scope.groupNames = ["none", "Sweden", "India"];
     $scope.languages = [
         {
             "name": "Svenska"
@@ -41,7 +40,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             $scope.allLoaded = true;
         };
     }, true);
-    
     // Sets custom strings from translation custom post type
     $scope.setCustomStrings = function () {
         $scope.leadershipOS = $scope.getTranslationByContent('leadershipOS');
@@ -58,6 +56,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.diamondAboutText = $scope.getTranslationByContent('diamondabouttext');
         $scope.sweden = $scope.getTranslationByContent('sweden');
         $scope.india = $scope.getTranslationByContent('india');
+        $scope.groupNames = ["none", $scope.sweden.title, $scope.india.title];
         $scope.goToDiamond = $scope.getTranslationByContent('gotodiamond');
     };
     //Scope functions on page load
@@ -131,7 +130,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             $scope.allQuestionPosts = response.data.posts;
             console.log($scope.allQuestionPosts);
             $scope.defineQuestionPostObjects();
-            
         }).catch(function () {
             $scope.isLoaded.questionPosts = true;
         });
@@ -253,12 +251,10 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         });
         return returnPost;
     };
-    
     $scope.getAllTranslations();
     $scope.getAllQuestionPosts();
     $scope.getAllCourses();
     $scope.getFooterContent();
-    
     $scope.goToElement = function (eID) {
         // set the location.hash to the id of
         // the element you wish to scroll to.

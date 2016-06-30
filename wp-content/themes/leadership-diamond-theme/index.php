@@ -12,114 +12,107 @@
  */
 
 get_header(); ?>
-    <div id="primary" class="content-area" ng-controller="startCtrl">
+    <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main" ng-cloak>
-            <div class="">
-                <div  ng-class="{'is-loaded': allLoaded, 'is-not-loaded full-screen-cover': !allLoaded}" class="parent-valign">
-                    <div class="child-valign">
-                        <div class="shadow scaling pos-x"></div> <img class="diamond-loader floating" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+            <!--<div ng-class="{'is-loaded': allLoaded, 'is-not-loaded full-screen-cover': !allLoaded}" class="parent-valign">
+                 <div class="child-valign">
+                    <div class="shadow scaling pos-x"></div> <img class="diamond-loader floating" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" /> </div>
+            </div> -->
+            <!-- Heading -->
+            <section id="heading">
+                <div class="row">
+                    <div class="heading-container">
+                        <div class="heading-title"> {{leadershipdiamond.title}} </div>
+                        <div class="heading-second"> {{leadershipOS.title}} - {{nothingButApps.title}}. </div>
+                    </div> <img class="diamond" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                    <div class="shadow pos-0"></div>
+                </div>
+            </section>
+            <section id="graph">
+                <!-- Graph section -->
+                <div class="row">
+                    <div class="col-md-4"> <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png"></div>
+                    <div class="col-md-4"> <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png"></div>
+                    <div class="col-md-4"> <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png"></div>
+                    <div class="col-md-12">
+                        <div style="width: 720px; margin: 50px auto 0px; text-align:justify;">
+                            <div class="number">1.</div>
+                            <div class="graph-text">Din organisation utvecklas men kommer förr eller senare dö ut.</div>
+                            <br>
+                            <br>
+                            <div class="number">2.</div>
+                            <div class="graph-text"> Som tur är lyckas man rädda företaget ett antal gånger men förr eller senare misslyckas man.</div>
+                            <br>
+                            <br>
+                            <div class="number">3.</div>
+                            <div class="graph-text"> Vad brukar hända i brytpunkten? Vi hoppas på utveckling enligt 1. Vanligast är 2 där vi lyckas rädda bolaget och ta det vidare. Tyvärr händer det att vi misslyckas och bolaget dör.</div>
+                        </div>
                     </div>
                 </div>
-                <div >
-                    <!-- Heading -->
-                    
-                    <section id="heading" >
-                        <div class="row">
-                           
-                            <div class="heading-container">
-                                <div class="heading-title"> {{leadershipdiamond.title}} </div>
-                                <div class="heading-second"> {{leadershipOS.title}} - {{nothingButApps.title}}. </div>
-                            </div> <img class="diamond" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
-                            <div class="shadow pos-0"></div>
-                        </div>
-                    </section>
-                    <section id="graph">
-                        <!-- Graph section -->
-                        <div class="row">
-                            <div class="col-md-4"> <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png"> </div>
-                            <div class="col-md-4"> <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png"> </div>
-                            <div class="col-md-4"> <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png"> </div>
-                            <div class="col-md-12">
-                                <div style="width: 720px; margin: 50px auto 0px; text-align:justify;"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam.
-                                    <br>
-                                    <br> In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit.
-                                    <br>
-                                    <br> Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. </div>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- Graph section -->
-                    <section>
-                        <!-- Post section -->
-                        <div class="row">
-                            <uib-accordion close-others="oneAtATime">
-                                <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}" class="page-scroll" ng-click="registerQuestionClick(post)"> {{post.solution}}
-                                    <div class="btns">
-                                        <div ng-show="post.index < allQuestionPosts.length" class="next-btn-cont col-md-6">
-                                            <button type="button" class="btn next-btn btn-success waves-effect waves-light" ng-click="$event.stopPropagation(); moveToNextPost(post)">{{goToNextPost.title}} ▼</button>
-                                        </div>
-                                        <div class="leader-btn-cont col-md-6">
-                                            <button type="button" class="btn leader-btn waves-effect waves-light" ng-click="$event.stopPropagation(); goToCourses()"> {{goToDiamond.title}}! ▼ </button>
-                                        </div>
-                                    </div>
-                                </uib-accordion-group>
-                            </uib-accordion>
-                        </div>
-                    </section>
-                    <!-- Post section -->
-                    <section id="course">
-                        <!-- Course offers section -->
-                        <div class="row">
-                            <div class="course-section clearfix col-xs-12">
-                                <div class="course-title"> {{leadershipdiamond.title}} </div>
-                                <div class="diamond-about-text col-md-12"> {{diamondAboutText.title}} </div>
-                                <div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-sm-6  col-xs-12">
-                                    <div class="course-title-container"> {{course.title}} </div>
-                                    <div class="course-level-container ng-hide"> {{course.level}} </div>
-                                    <div class="course-content-container"> {{course.content}} </div>
+            </section>
+            <!-- Graph section -->
+            <section>
+                <!-- Post section -->
+                <div class="row">
+                    <uib-accordion close-others="oneAtATime">
+                        <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index'" ng-attr-id="{{ 'post-' + post.index }}" class="page-scroll" ng-click="registerQuestionClick(post)"> {{post.solution}}
+                            <div class="btns">
+                                <div ng-show="post.index < allQuestionPosts.length" class="next-btn-cont col-md-6">
+                                    <button type="button" class="btn next-btn btn-success waves-effect waves-light" ng-click="$event.stopPropagation(); moveToNextPost(post)">{{goToNextPost.title}} ▼</button>
                                 </div>
-                                <div class="course-btn">
-                                    <button class="btn"> Kontakta oss! </button>
-                                </div>
-                            </div> <img class="diamond floating pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
-                            <div class="shadow scaling pos-1"></div> <img class="diamond floating pos-2" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
-                            <div class="shadow scaling pos-2"></div> <img class="diamond floating pos-3" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
-                            <div class="shadow scaling pos-3"></div>
-                        </div>
-                    </section>
-                    <!-- Course offers section -->
-                    <section>
-                        <!-- Leadership Diamond section -->
-                        <div class="row ng-hide">
-                            <div id="diamond-solver" ng-show="postInFocus !== null">
-                                <div class="question-post-container clearfix post-in-focus">
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="question-post-title-container">
-                                            <h4>{{postInFocus.title}}</h4> </div>
-                                        <div class="question-post-content-container"> {{postInFocus.content}} </div>
-                                    </div>
-                                    <div class="col-sm-6 col-xs-12">
-                                        <h4>Detta problem och dess lösning återfinns i Ledarskapsdiamanten!</h4> </div>
+                                <div class="leader-btn-cont col-md-6">
+                                    <button type="button" class="btn leader-btn waves-effect waves-light" ng-click="$event.stopPropagation(); goToCourses()"> {{goToDiamond.title}}! ▼ </button>
                                 </div>
                             </div>
+                        </uib-accordion-group>
+                    </uib-accordion>
+                </div>
+            </section>
+            <!-- Post section -->
+            <section id="course">
+                <!-- Course offers section -->
+                <div class="row">
+                    <div class="course-section clearfix col-xs-12">
+                        <div class="course-title"> {{leadershipdiamond.title}} </div>
+                        <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>
+                        <div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-sm-6  col-xs-12">
+                            <div class="course-title-container"> {{course.title}} </div>
+                            <div class="course-level-container ng-hide"> {{course.level}} </div>
+                            <div class="course-content-container"> {{course.content}} </div>
                         </div>
-                        <!-- <div class="container-fluid off-white-section">
-						<div class="container">
-							<div class="row">
-
-							</div>
-						</div>
-					</div> -->
-                    </section>
-                    <!-- Leadership Diamond section -->
+                        <div class="course-btn">
+                            <a href="mailto: lars.beck-friis@accigo.se">
+                                <button class="btn"> Kontakta oss! </button>
+                            </a>
+                        </div>
+                    </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                    <div class="shadow pos-1"></div> <img class="diamond pos-2" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                    <div class="shadow pos-2"></div> <img class="diamond pos-3" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                    <div class="shadow pos-3"></div>
                 </div>
-                <div class="lang-picker fixed-action-btn" style="bottom: 25px; right: 25px;">
-                    <div ng-repeat="lang in languages">
-                        <div ng-if="currentLanguage.name !== lang.name"> <a class="btn-floating btn-large red" href="{{lang.url}}">{{lang.name}}</a> </div>
-                        <!-- <div ng-if="currentLanguage.name === lang.name">
-                            {{lang.name}}
-                        </div> --></div>
+            </section>
+            <!-- Course offers section -->
+            <section>
+                <!-- Leadership Diamond section -->
+                <div class="row ng-hide">
+                    <div id="diamond-solver" ng-show="postInFocus !== null">
+                        <div class="question-post-container clearfix post-in-focus">
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="question-post-title-container">
+                                    <h4>{{postInFocus.title}}</h4> </div>
+                                <div class="question-post-content-container"> {{postInFocus.content}} </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Detta problem och dess lösning återfinns i Ledarskapsdiamanten!</h4> </div>
+                        </div>
+                    </div>
                 </div>
+            </section>
+            <!-- Leadership Diamond section -->
+            <div class="lang-picker fixed-action-btn" style="bottom: 25px; right: 25px;">
+                <div ng-repeat="lang in languages">
+                    <div ng-if="currentLanguage.name !== lang.name"> <a class="btn-floating btn-large red" href="{{lang.url}}">{{lang.name}}</a> </div>
+                    <!-- <div ng-if="currentLanguage.name === lang.name">{{lang.name}}</div> --></div>
             </div>
             <!-- startCtrl-->
         </main>

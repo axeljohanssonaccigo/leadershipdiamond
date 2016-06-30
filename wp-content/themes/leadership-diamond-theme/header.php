@@ -29,8 +29,7 @@
 	wp_head(); ?>
     </head>
 
-    <body <?php body_class(); ?>>
-
+    <body <?php body_class(); ?> >
         <?php 
 	/** 
 	 * studio_before_header hook
@@ -54,10 +53,8 @@
 	 * @hooked studio_header_end -  200s
 	 * 
 	 */
-        add_action( 'studio_header', 'studio_header_start', 10 );
-        add_action( 'studio_header', 'studio_header_menu', 80 );
-         add_action( 'studio_header', 'studio_primary_menu', 110 );
-         add_action( 'studio_header', 'studio_header_end', 200 );
+     //do_action( 'studio_header_menu' );
+ 
 
 
 	/** 

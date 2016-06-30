@@ -15,45 +15,37 @@
  */
 do_action( 'studio_after_content' ); 
 ?>
-    
     <?php get_sidebar( 'footer' ); ?>
-
-	<footer id="colophon" class="site-footer" role="contentinfo">
-        <div id="footerContainer">
-            <div class="site-info">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-6 col-md-5 col-md-offset-1">
-                            <h3>{{contact.title}}</h3>
-                            <ul>
-                                <li ng-repeat="contact in allContacts  | orderBy: 'index'">
-                                    <a href="{{contact.url}}" target="_blank">{{contact.title}}</a>
-                                </li>
-                            </ul>
-                            
-                        </div>
-                        <div class="col-xs-6 col-md-5">
-                            <h3>{{leadershipPartners.title}}</h3>
-                            <ul>
-                                <div ng-repeat="group in groupNames">
-                                    <div class="group-name-heading" ng-if="group !== 'none'">{{group}}</div>
-                                    
-                                    <li ng-repeat="partner in allPartners  | orderBy: 'index'">
-                                        <a ng-if="group === partner.group" href="{{partner.url}}" target="_blank">{{partner.title}}</a>
-                                    </li>
-                                </div>
-                                
-                            </ul>
+        <footer id="colophon" class="site-footer" role="contentinfo">
+            <div id="footerContainer">
+                <div class="site-info">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-6 col-md-5 col-md-offset-1">
+                                <h3>{{contact.title}}</h3>
+                                <ul>
+                                    <li ng-repeat="contact in allContacts  | orderBy: 'index'"> <a href="{{contact.url}}" target="_blank">{{contact.title}}</a> </li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-6 col-md-5">
+                                <h3>{{leadershipPartners.title}}</h3>
+                                <ul>
+                                    <div ng-repeat="group in groupNames">
+                                        <div class="group-name-heading" ng-if="group !== 'none'">{{group}}</div>
+                                        <li ng-repeat="partner in allPartners  | orderBy: 'index'"> <a ng-if="group == partner.group" href="{{partner.url}}" target="_blank">{{partner.title}}</a> </li>
+                                    </div>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-		      </div><!-- .site-info -->
+                <!-- .site-info -->
+            </div>
+        </footer>
+        <!-- #colophon -->
         </div>
-	</footer><!-- #colophon -->
-
-</div><!-- #page -->
-
-<?php 
+        <!-- #page -->
+        <?php 
 /** 
  * studio_after hook
  *
@@ -61,6 +53,6 @@ do_action( 'studio_after_content' );
 do_action( 'studio_after' );
 
 wp_footer(); ?>
+            </body>
 
-</body>
-</html>
+            </html>
