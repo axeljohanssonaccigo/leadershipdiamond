@@ -53,7 +53,7 @@
 	 * @hooked studio_header_end -  200s
 	 * 
 	 */
-     //do_action( 'studio_header_menu' );
+     do_action( 'studio_header' );
  
 
 

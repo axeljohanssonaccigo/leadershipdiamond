@@ -10,27 +10,10 @@ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
 Tags:         responsive-layout
 Text Domain:  leadership-diamond-theme
 */
-
 @import "/less/fonts";
 @import "/less/override";
 @import "/less/materialize-custom";
-@import "/less/panels";
-@import "/less/various";
+@import "/less/panels"; 
+@import "/less/various"; 
 
-/* Media tags */
-
-@media screen and (max-width: 768px) {
-    .site-subtitle {
-        font-size: large;
-        bottom: 10%;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .site-info,
-    .content-area,
-    .site-branding,
-    .footer-content {
-        padding: 0px;
-    }
-}
+@import "/less/responsive";

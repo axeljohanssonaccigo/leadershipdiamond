@@ -21,13 +21,13 @@ do_action( 'studio_after_content' );
                 <div class="site-info">
                     <div class="container">
                         <div class="row">
-                            <div class="col-xs-6 col-md-5 col-md-offset-1">
+                            <div class="col-xs-12 col-md-5 col-md-offset-1">
                                 <h3>{{contact.title}}</h3>
                                 <ul>
                                     <li ng-repeat="contact in allContacts  | orderBy: 'index'"> <a href="{{contact.url}}" target="_blank">{{contact.title}}</a> </li>
                                 </ul>
                             </div>
-                            <div class="col-xs-6 col-md-5">
+                            <div class="col-xs-12 col-md-5">
                                 <h3>{{leadershipPartners.title}}</h3>
                                 <ul>
                                     <div ng-repeat="group in groupNames">

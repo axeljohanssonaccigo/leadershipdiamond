@@ -239,8 +239,8 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             });
         };
     };
-    $scope.goToCourses = function () {
-        $scope.goToElement("course");
+    $scope.goToDiamondSection = function () {
+        $scope.goToElement("diamond");
     };
     $scope.getQuestionPostByIndex = function (postIndex) {
         var returnPost = null;

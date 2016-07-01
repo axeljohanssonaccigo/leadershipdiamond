@@ -46,6 +46,9 @@ Text Domain:  leadership-diamond-theme
   border-color: transparent;
   display: block;
 }
+.site-branding {
+  display: none !important;
+}
 /* MATERILIZE CSS */
 .z-depth-1,
 nav,
@@ -509,6 +512,11 @@ section#graph .row {
   max-width: 960px;
   margin: 80px auto;
 }
+section#graph .row .graphs-container {
+  width: 720px;
+  margin: 50px auto 0px;
+  text-align: justify;
+}
 section#course {
   position: relative;
   min-height: 1000px;
@@ -524,17 +532,6 @@ section#course {
 section#course .row {
   display: flex;
   width: 100%;
-}
-section#course .row .peter-image {
-  margin: 5px 25px 15px 0px;
-  height: auto;
-  /* -webkit-filter: sepia(75%); */
-  border-radius: 3px;
-  max-width: 330px;
-}
-section#course .row .diamond-about-text {
-  margin: 20px 0px;
-  text-align: justify;
 }
 section#course .row .course-title {
   text-transform: uppercase;
@@ -623,6 +620,92 @@ section#course .row .shadow.pos-2 {
 }
 section#course .row .shadow.pos-3 {
   top: 850px;
+  height: 10px;
+}
+section#diamond {
+  position: relative;
+  min-height: 730px;
+  color: white;
+  background: #12d0ff;
+  background: -moz-radial-gradient(center, ellipse cover, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #12d0ff), color-stop(14%, #12d0ff), color-stop(100%, #084cc2));
+  background: -webkit-radial-gradient(center, ellipse cover, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
+  background: -o-radial-gradient(center, ellipse cover, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
+  background: radial-gradient(ellipse at center, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
+}
+section#diamond .row {
+  display: flex;
+  width: 100%;
+  margin-bottom: 5px;
+}
+section#diamond .row .peter-image {
+  margin: 5px 25px 15px 0px;
+  height: auto;
+  /* -webkit-filter: sepia(75%); */
+  border-radius: 3px;
+  max-width: 330px;
+}
+section#diamond .row .diamond-title {
+  text-transform: uppercase;
+  font-size: 72px;
+  color: white;
+  font-family: 'TCCEB';
+  text-align: center;
+}
+section#diamond .row .diamond-section {
+  width: 720px;
+  margin: 50px auto 350px;
+}
+section#diamond .row .diamond-about-text {
+  margin: 20px 0px;
+  text-align: justify;
+}
+section#diamond .row .pos-1 {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0px;
+  right: 1000px;
+  top: 200px;
+  position: absolute;
+  opacity: 0.6;
+}
+section#diamond .row .pos-2 {
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 1000px;
+  right: 0px;
+  top: 400px;
+  position: absolute;
+  opacity: 0.5;
+}
+section#diamond .row .pos-3 {
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0px;
+  right: 840px;
+  top: 600px;
+  position: absolute;
+  opacity: 0.5;
+}
+section#diamond .row .shadow {
+  height: 20px;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+}
+section#diamond .row .shadow.pos-1 {
+  top: 300px;
+}
+section#diamond .row .shadow.pos-2 {
+  top: 550px;
+}
+section#diamond .row .shadow.pos-3 {
+  top: 650px;
   height: 10px;
 }
 footer.site-footer {
@@ -909,11 +992,60 @@ footer ul li {
     -moz-transform: scale(1);
   }
 }
-/* Media tags */
+/* responsive.less */
 @media screen and (max-width: 768px) {
+  #content {
+    padding: 0;
+  }
   .site-subtitle {
     font-size: large;
     bottom: 10%;
+  }
+  .panel-body {
+    width: 100%;
+  }
+  .panel-title {
+    line-height: 1em;
+  }
+  .panel-heading {
+    margin: 0 auto;
+    max-width: 960px;
+    text-align: center;
+  }
+  .panel-heading h4 {
+    font-family: 'TCCEB';
+    font-size: 45px;
+  }
+  .panel-heading h4 a {
+    transition: 0s all cubic-bezier(0.8, 0, 0.2, 1);
+    transition: 0s all cubic-bezier(0.55, -0.4, 0.45, 1.4);
+  }
+  .panel-open h4 {
+    font-size: 22px;
+  }
+  .panel-open h4 a {
+    transition: 0s all cubic-bezier(0.8, 0, 0.2, 1);
+    transition: 0s all cubic-bezier(0.55, -0.4, 0.45, 1.4);
+  }
+  .panel-open .panel-heading {
+    width: 100%;
+  }
+  .panel {
+    min-height: 600px;
+    height: auto;
+  }
+  section#question .next-btn {
+    margin-bottom: 5px;
+  }
+  section#graph {
+    min-height: 400px;
+  }
+  section#graph .row {
+    margin: 80px auto;
+  }
+  section#graph .row .graphs-container {
+    width: 100%;
+    margin: 50px auto 0px;
   }
 }
 @media screen and (min-width: 1024px) {
