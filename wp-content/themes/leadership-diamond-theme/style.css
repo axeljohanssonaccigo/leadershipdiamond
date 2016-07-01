@@ -375,7 +375,6 @@ h2 {
   font-size: 58px;
 }
 h3 {
-  text-align: left;
   font-family: 'TCCEB';
   font-size: 36px;
 }
@@ -384,7 +383,8 @@ h3 {
   font-family: 'TCCEB';
 }
 .graph-text {
-  font-size: 25px;
+  font-size: 24px;
+  line-height: 1.1em;
   font-family: 'TCCEB';
 }
 .full-screen-cover {
@@ -419,8 +419,7 @@ h3 {
   transition: 0.5s all;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%) translateX(-50%);
-  left: 50%;
+  transform: translateY(-50%);
 }
 .shadow {
   height: 20px;
