@@ -1014,7 +1014,7 @@ footer ul li {
   }
   .panel-heading h4 {
     font-family: 'TCCEB';
-    font-size: 45px;
+    font-size: 35px;
   }
   .panel-heading h4 a {
     transition: 0s all cubic-bezier(0.8, 0, 0.2, 1);

@@ -42,7 +42,7 @@ get_header(); ?>
                                     </div>
                                     <div class="col-md-8 col-xs-12">
                                         <span class="number">1.</span>
-                                        <span class="graph-text"> Din organisation utvecklas men kommer förr eller senare dö ut.</span>
+                                        <span class="graph-text"> {{graphTexts.graph1.title}}</span>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -52,7 +52,7 @@ get_header(); ?>
                                     </div>
                                     <div class="col-md-8 col-xs-12">
                                         <span class="number">2.</span>
-                                        <span class="graph-text"> Som tur är lyckas man rädda företaget ett antal gånger men förr eller senare misslyckas man.</span>
+                                        <span class="graph-text"> {{graphTexts.graph2.title}}</span>
                                     </div>
 
                                 </div>
@@ -63,7 +63,7 @@ get_header(); ?>
                                     </div>
                                     <div class="col-md-8 col-xs-12">
                                         <span class="number">3.</span>
-                                        <span class="graph-text"> Vad brukar hända i brytpunkten? Vi hoppas på utveckling enligt 1. Vanligast är 2 där vi lyckas rädda bolaget och ta det vidare. Tyvärr händer det att vi misslyckas och bolaget dör.</span>
+                                        <span class="graph-text"> {{graphTexts.graph3.title}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -78,10 +78,10 @@ get_header(); ?>
                     <!-- Post section -->
                     <div class="row">
                         <uib-accordion close-others="oneAtATime">
-                            <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index' " ng-attr-id="{{'post-' + post.index}}" class="page-scroll " ng-click="registerQuestionClick(post) "> {{post.solution}}
+                            <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index' " ng-attr-id="{{'post-' + post.index}}" class="page-scroll " ng-click="registerQuestionClick(post) "> {{post.content}}
                                 <div class="btns">
                                     <div ng-show="post.index < allQuestionPosts.length " class="next-btn-cont col-md-6 ">
-                                        <button type="button " class="btn next-btn btn-success waves-effect waves-light" ng-click="$event.stopPropagation(); moveToNextPost(post) ">{{goToNextPost.title}} ▼</button>                                        
+                                        <button type="button " class="btn next-btn btn-success waves-effect waves-light" ng-click="$event.stopPropagation(); moveToNextPost(post) ">{{goToNextPost.title}} ▼</button>
                                     </div>
                                     <div class="leader-btn-cont col-md-6 ">
                                         <button type="button " class="btn leader-btn waves-effect waves-light" ng-click="$event.stopPropagation(); goToDiamondSection()"> {{goToDiamond.title}}! ▼ </button>
@@ -98,8 +98,8 @@ get_header(); ?>
                         <div class="diamond-section clearfix col-xs-12">
                             <div class="diamond-title "> {{leadershipdiamond.title}} </div>
                             <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>
-                            
-                            
+
+
                         </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-1"></div> <img class="diamond pos-2 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-2"></div> <img class="diamond pos-3 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
@@ -111,7 +111,7 @@ get_header(); ?>
                     <div class="row">
                         <div class="course-section clearfix col-xs-12">
                             <div class="course-title "> {{leadershipdiamond.title}} </div>
-<!--                            <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>-->
+                            <!--                            <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>-->
                             <div ng-repeat="course in allCourses | orderBy: 'courseIndex' " class="course-container col-sm-6 col-xs-12 ">
                                 <div class="course-title-container"> {{course.title}} </div>
                                 <div class="course-level-container ng-hide"> {{course.level}} </div>
@@ -122,8 +122,8 @@ get_header(); ?>
                                     <button class="btn"> Kontakta oss! </button>
                                 </a>
                             </div>
-                        </div> 
-<!--
+                        </div>
+                        <!--
                         <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-1"></div> <img class="diamond pos-2 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-2"></div> <img class="diamond pos-3 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
@@ -132,7 +132,7 @@ get_header(); ?>
                     </div>
                 </section>
                 <!-- Course offers section -->
-                
+
                 <div class="lang-picker fixed-action-btn" style="bottom: 25px; right: 25px;">
                     <div ng-repeat="lang in languages">
                         <div ng-if="currentLanguage.name !== lang.name "> <a class="btn-floating btn-large red " href="{{lang.url}}">{{lang.name}}</a> </div>

@@ -3,29 +3,27 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.allQuestionPosts = [];
     $scope.allTranslations = [];
     $scope.allCourses = [];
-    $scope.allContacts = [];
-    $scope.allPartners = [];
     $scope.postInFocus = null;
     $scope.hasViewedAboutDiamond = false;
     $scope.oneAtATime = true;
+    $scope.footerContent = [];
     $scope.currentLanguage = currentLanguage;
     $scope.languages = [
         {
-            "name": "Svenska"
-            , "url": baseUrl.concat("/sv")
+            "name": "Svenska",
+            "url": baseUrl.concat("/sv")
         }
 
         , {
-            "name": "English"
-            , "url": baseUrl.concat("/en")
+            "name": "English",
+            "url": baseUrl.concat("/en")
         }
     ];
     //Loading handling
     $scope.isLoaded = {
-        "translations": false
-        , "questionPosts": false
-        , "contacts": false
-        , "partners": false
+        "translations": false,
+        "questionPosts": false,
+        "footer": false
     };
     $scope.allLoaded = false;
     $scope.$watch('isLoaded', function () {
@@ -58,6 +56,11 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.india = $scope.getTranslationByContent('india');
         $scope.groupNames = ["none", $scope.sweden.title, $scope.india.title];
         $scope.goToDiamond = $scope.getTranslationByContent('gotodiamond');
+        $scope.graphTexts = {
+            "graph1": $scope.getTranslationByContent('graph1'),
+            "graph2": $scope.getTranslationByContent('graph2'),
+            "graph3": $scope.getTranslationByContent('graph3')
+        };
     };
     //Scope functions on page load
     $scope.getTranslationByContent = function (content) {
@@ -92,6 +95,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.trimPostContent = function (content) {
         return content.replace(/<\/?[^>]+(>|$)/g, "").replace(/(\r\n|\n|\r)/gm, " ").trim();
     };
+
     $scope.defineQuestionPostObjects = function () {
         var count = 1;
         angular.forEach($scope.allQuestionPosts, function (post) {
@@ -107,7 +111,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             count++;
         });
     };
-    $scope.getGroupName = function (groupId) {
+    $scope.getFooterSubGroupName = function (groupId) {
         groupName = "";
         switch (groupId) {
         case "1":
@@ -120,7 +124,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             groupName = "none"
             break;
         default:
-            groupName = "";
+            groupName = "none";
             break;
         }
         return groupName;
@@ -137,9 +141,9 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.prettyfyTranslations = function (translations) {
         angular.forEach(translations, function (post) {
             var transObject = {
-                id: post.id
-                , content: $scope.trimPostContent(post.content)
-                , title: post.title
+                id: post.id,
+                content: $scope.trimPostContent(post.content),
+                title: post.title
             }
             if ('wpcf-extra-content' in post.custom_fields) {
                 transObject["extraContent"] = post.custom_fields['wpcf-extra-content'][0];
@@ -156,6 +160,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         startSvc.getPostsByType(postType).then(function (response) {
             $scope.prettyfyTranslations(response.data.posts);
             $scope.isLoaded.translations = true;
+            $scope.getFooterContent();
         }).catch(function () {
             console.log("Error in get all translations");
             $scope.isLoaded.translations = true;
@@ -183,54 +188,37 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             $scope.isLoaded.courses = true;
         });
     };
+
     $scope.getFooterContent = function () {
-        //Get contacts
-        var postType = 'contact';
+        var postType = 'footer-entry';
         startSvc.getPostsByType(postType).then(function (response) {
-            $scope.allContacts = response.data.posts;
-            angular.forEach($scope.allContacts, function (contact) {
-                if ('wpcf-url' in contact.custom_fields) {
-                    contact["url"] = contact.custom_fields['wpcf-url'][0];
+
+            $scope.footerContent = response.data.posts;
+            angular.forEach($scope.footerContent, function (entry) {
+                if ('wpcf-footer-group' in entry.custom_fields) {
+                    entry["footerGroup"] = parseInt(entry.custom_fields['wpcf-footer-group'][0]);
                 };
-                if ('wpcf-sort-index' in contact.custom_fields) {
-                    contact["index"] = parseInt(contact.custom_fields['wpcf-sort-index'][0]);
+                if ('wpcf-sub-group' in entry.custom_fields) {
+                    entry["subGroup"] = $scope.getFooterSubGroupName(entry.custom_fields['wpcf-sub-group'][0]);
                 };
-                if ('wpcf-group' in contact.custom_fields) {
-                    contact["group"] = $scope.getGroupName(contact.custom_fields['wpcf-group'][0]);
+                if ('wpcf-link' in entry.custom_fields) {
+                    entry["link"] = entry.custom_fields['wpcf-link'][0];
                 };
+                // entry.content = $scope.trimPostContent(entry.content);
             });
-            console.log($scope.allContacts);
-            $scope.isLoaded.contacts = true;
-            //Get leadership partners
-            var postType = 'partner';
-            startSvc.getPostsByType(postType).then(function (response) {
-                $scope.allPartners = response.data.posts;
-                angular.forEach($scope.allPartners, function (partner) {
-                    if ('wpcf-url' in partner.custom_fields) {
-                        partner["url"] = partner.custom_fields['wpcf-url'][0];
-                    };
-                    if ('wpcf-sort-index' in partner.custom_fields) {
-                        partner["index"] = parseInt(partner.custom_fields['wpcf-sort-index'][0]);
-                    };
-                    if ('wpcf-group' in partner.custom_fields) {
-                        partner["group"] = $scope.getGroupName(partner.custom_fields['wpcf-group'][0]);
-                    };
-                });
-                console.log($scope.allPartners);
-                $scope.isLoaded.partners = true;
-            }).catch(function () {
-                console.log("Error in get all partners");
-                $scope.isLoaded.partners = true;
-            });
+            console.log($scope.footerContent);
+            $scope.isLoaded.footer = true;
         }).catch(function () {
-            console.log("Error in get all contacts");
-            $scope.isLoaded.contacts = true;
+            console.log("Error in get all partners");
+            $scope.isLoaded.footer = true;
         });
     };
+
     $scope.registerQuestionClick = function (post) {
         post.isRead = true;
         $scope.goToElement("post-" + post.index);
     };
+
     $scope.moveToNextPost = function (currentPost) {
         var nextPost = $scope.getQuestionPostByIndex(currentPost.index + 1);
         if (currentPost.index < $scope.allQuestionPosts.length) {
@@ -239,9 +227,11 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             });
         };
     };
+
     $scope.goToDiamondSection = function () {
         $scope.goToElement("diamond");
     };
+
     $scope.getQuestionPostByIndex = function (postIndex) {
         var returnPost = null;
         angular.forEach($scope.allQuestionPosts, function (post) {
@@ -251,15 +241,13 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         });
         return returnPost;
     };
+
     $scope.getAllTranslations();
     $scope.getAllQuestionPosts();
     $scope.getAllCourses();
-    $scope.getFooterContent();
+
     $scope.goToElement = function (eID) {
-        // set the location.hash to the id of
-        // the element you wish to scroll to.
         $location.hash(eID);
-        // call $anchorScroll()
         scrollSvc.scrollTo(eID);
     };
 }]);
