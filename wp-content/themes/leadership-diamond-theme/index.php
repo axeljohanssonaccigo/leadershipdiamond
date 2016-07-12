@@ -11,7 +11,9 @@
  * @package Studio
  */
 
-get_header(); ?>
+
+ define( 'WP_USE_THEMES', false ); get_header(); ?>
+
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main" ng-cloak>
             <!--<div ng-class="{'is-loaded': allLoaded, 'is-not-loaded full-screen-cover': !allLoaded}" class="parent-valign">
@@ -78,16 +80,32 @@ get_header(); ?>
                     <!-- Post section -->
                     <div class="row">
                         <uib-accordion close-others="oneAtATime">
-                            <uib-accordion-group heading="{{post.title}}" ng-repeat="post in allQuestionPosts | orderBy: 'index' " ng-attr-id="{{'post-' + post.index}}" class="page-scroll " ng-click="registerQuestionClick(post) "> {{post.content}}
-                                <div class="btns">
-                                    <div ng-show="post.index < allQuestionPosts.length " class="next-btn-cont col-md-6 ">
-                                        <button type="button " class="btn next-btn btn-success waves-effect waves-light" ng-click="$event.stopPropagation(); moveToNextPost(post) ">{{goToNextPost.title}} ▼</button>
-                                    </div>
-                                    <div class="leader-btn-cont col-md-6 ">
-                                        <button type="button " class="btn leader-btn waves-effect waves-light" ng-click="$event.stopPropagation(); goToDiamondSection()"> {{goToDiamond.title}}! ▼ </button>
-                                    </div>
-                                </div>
-                            </uib-accordion-group>
+                            <?php 
+                            query_posts('&meta_key=wpcf-index&orderby=meta_value&order=ASC');
+                                if ( have_posts() ) {
+                                    while ( have_posts() ) {
+                                        the_post();
+                                        
+                                        ?>
+                                <script type="text/javascript">
+                                    <?php $post_index = get_post_meta($post->ID,'wpcf-index',true); ?>
+                                    <?php $posts_size = sizeof($posts); ?>;
+                                </script>
+                                <uib-accordion-group heading="<?php the_title(); ?>" id="post-<?php echo $post_index; ?>" class="page-scroll " ng-click="registerQuestionClick(<?php echo $post_index; ?>) ">
+                                    <?php the_content();?>
+
+                                        <div class="btns">
+                                            <div class="next-btn-cont col-md-6" ng-show="<?php echo $post_index; ?> < <?php echo $posts_size; ?>">
+                                                <button type="button " class="btn next-btn btn-success waves-effect waves-light" ng-click="$event.stopPropagation(); moveToNextPost(<?php echo $post_index; ?>) ">{{goToNextPost.title}} ▼</button>
+                                            </div>
+                                            <div class="leader-btn-cont col-md-6 ">
+                                                <button type="button " class="btn leader-btn waves-effect waves-light" ng-click="$event.stopPropagation(); goToDiamondSection()"> {{goToDiamond.title}}! ▼ </button>
+                                            </div>
+                                        </div>
+                                </uib-accordion-group>
+                                <?php } // end while
+                                } // end if
+                                ?>
                         </uib-accordion>
                     </div>
                 </section>
@@ -95,7 +113,7 @@ get_header(); ?>
                 <section id="diamond">
                     <!-- Leadership Diamond section -->
                     <div class="row">
-                        <div class="diamond-section clearfix col-xs-12">
+                        <div class="diamond-section clearfix">
                             <div class="diamond-title "> {{leadershipdiamond.title}} </div>
                             <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>
 
@@ -109,7 +127,7 @@ get_header(); ?>
                 <section id="course">
                     <!-- Course offers section -->
                     <div class="row">
-                        <div class="course-section clearfix col-xs-12">
+                        <div class="course-section clearfix">
                             <div class="course-title "> {{leadershipdiamond.title}} </div>
                             <!--                            <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>-->
                             <div ng-repeat="course in allCourses | orderBy: 'courseIndex' " class="course-container col-sm-6 col-xs-12 ">
@@ -144,5 +162,5 @@ get_header(); ?>
         <!-- #main -->
     </div>
     <!-- #primary -->
-    <?php //get_sidebar(); ?>
-        <?php get_footer(); ?>
+
+    <?php get_footer(); ?>

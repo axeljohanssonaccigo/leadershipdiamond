@@ -8,6 +8,10 @@
         font-size: large;
         bottom: 10%;
     }
+    .panel {
+        min-height: 300px;
+        height: auto;
+    }
     .panel-body {
         width: 100%;
     }
@@ -16,7 +20,7 @@
     }
     .panel-heading {
         margin: 0 auto;
-        max-width: 960px;
+        max-width: 700px;
         text-align: center;
         h4 {
             font-family: 'TCCEB';
@@ -28,6 +32,7 @@
         }
     }
     .panel-open {
+        min-height: 800px;
         h4 {
             font-size: 22px;
             //text-align: justify;
@@ -40,10 +45,6 @@
         .panel-heading {
             width: 100%;
         }
-    }
-    .panel {
-        min-height: 600px;
-        height: auto;
     }
     section#question {
         .next-btn {
@@ -59,6 +60,41 @@
                 margin: 50px auto 0px;
             }
         }
+    }
+    section#diamond {
+        .row {
+            .diamond-section {
+                width: 100%;
+                margin: 50px auto 100px;
+                .peter-image {
+                    width: 100%;
+                }
+                .diamond-title {
+                    font-size: 50px;
+                }
+            }
+        }
+    }
+    section#course {
+        .row {
+            .course-section {
+                width: 100%;
+                .course-title {
+                    font-size: 50px;
+                }
+                .course-btn {
+                    .btn {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    .site-info,
+    .content-area,
+    .site-branding,
+    .footer-content {
+        padding: 0px;
     }
 }
 
