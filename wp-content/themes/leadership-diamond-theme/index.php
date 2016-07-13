@@ -28,7 +28,8 @@
                             <div style="text-align: center;">{{leadershipOS.title}}</div>
                             <div class="heading-title"> {{leadershipdiamond.title}} </div>
                             <div style="text-align: center;" class="heading-second"> {{nothingButApps.title}}! </div>
-                        </div> <img class="diamond" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                        </div>
+                        <img class="diamond" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-0"></div>
                     </div>
                 </section>
@@ -118,10 +119,13 @@
                             <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>
 
 
-                        </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+
+                        </div>
+                        <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-1"></div> <img class="diamond pos-2 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-2"></div> <img class="diamond pos-3 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-3"></div>
+
                     </div>
                 </section>
                 <section id="course">
@@ -141,12 +145,11 @@
                                 </a>
                             </div>
                         </div>
-                        <!--
                         <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-1"></div> <img class="diamond pos-2 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-2"></div> <img class="diamond pos-3 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
-                        <div class="shadow pos-3"></div>
--->
+                        <div class="shadow pos-3">
+                        </div>
                     </div>
                 </section>
                 <!-- Course offers section -->

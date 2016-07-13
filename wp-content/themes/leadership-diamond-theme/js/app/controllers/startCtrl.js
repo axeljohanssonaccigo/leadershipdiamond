@@ -72,18 +72,26 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.trimPostContent = function (content) {
         return content.replace(/<\/?[^>]+(>|$)/g, "").replace(/(\r\n|\n|\r)/gm, " ").trim();
     };
-    $scope.defineQuestionPostObjects = function () {
-        var count = 1;
-        angular.forEach($scope.allQuestionPosts, function (post) {
-            post["showDescription"] = false;
-            post["inFocus"] = false;
-            post["index"] = parseInt(post['custom_fields']['wpcf-index'][0]);
-        });
-    };
+    //    $scope.defineQuestionPostObjects = function () {
+    //        var count = 1;
+    //        angular.forEach($scope.allQuestionPosts, function (post) {
+    //            post["showDescription"] = false;
+    //            post["inFocus"] = false;
+    //            post["index"] = parseInt(post['custom_fields']['wpcf-index'][0]);
+    //        });
+    //    };
     //On Document ready
     jQuery(document).ready(function () {
-        console.log("ready!");
+        jQuery("#sidr-main .sidr-inner ul li a").each(function (elem) {
+            console.log(this);
+            jQuery(this).attr("onclick", "closeMenu()");
+        });
+        jQuery("#sidr-main").removeClass("right");
+        jQuery("#sidr-main").addClass("left");
+
+
     });
+
     //Scope functions on page load
     $scope.getTranslationByContent = function (content) {
         var translation = $scope.allTranslations.filter(function (item) {
@@ -128,15 +136,15 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         }
         return groupName;
     };
-//    $scope.getAllQuestionPosts = function () {
-//        startSvc.getAllQuestionPosts().then(function (response) {
-//            $scope.allQuestionPosts = response.data.posts;
-//            console.log($scope.allQuestionPosts);
-//            $scope.defineQuestionPostObjects();
-//        }).catch(function () {
-//            $scope.isLoaded.questionPosts = true;
-//        });
-//    };
+    //    $scope.getAllQuestionPosts = function () {
+    //        startSvc.getAllQuestionPosts().then(function (response) {
+    //            $scope.allQuestionPosts = response.data.posts;
+    //            console.log($scope.allQuestionPosts);
+    //            $scope.defineQuestionPostObjects();
+    //        }).catch(function () {
+    //            $scope.isLoaded.questionPosts = true;
+    //        });
+    //    };
     $scope.prettyfyTranslations = function (translations) {
         angular.forEach(translations, function (post) {
             var transObject = {
@@ -232,15 +240,15 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.goToElement("diamond");
     };
 
-//    $scope.getQuestionPostByIndex = function (postIndex) {
-//        var returnPost = null;
-//        angular.forEach($scope.allQuestionPosts, function (post) {
-//            if (post.index == postIndex) {
-//                returnPost = post;
-//            }
-//        });
-//        return returnPost;
-//    };
+    //    $scope.getQuestionPostByIndex = function (postIndex) {
+    //        var returnPost = null;
+    //        angular.forEach($scope.allQuestionPosts, function (post) {
+    //            if (post.index == postIndex) {
+    //                returnPost = post;
+    //            }
+    //        });
+    //        return returnPost;
+    //    };
 
     $scope.getAllTranslations();
     //$scope.getAllQuestionPosts();

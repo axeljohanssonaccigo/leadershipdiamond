@@ -1,6 +1,22 @@
 /* responsive.less */
 
 @media screen and (max-width: 768px) {
+    header {
+        .menu-toggle.icon {
+            left: 0;
+            right: auto;
+        }
+    }
+    #sidr-main {
+        width: 200px;
+        &.sidr.left {
+            left: 0;
+        }
+        .sidr-inner {
+            padding: 55px 10px 0 20px;
+            /* padding-top: 55px; */
+        }
+    }
     #content {
         padding: 0;
     }
@@ -63,14 +79,60 @@
     }
     section#diamond {
         .row {
+            width: 100%;
+            margin: 50px auto 100px;
             .diamond-section {
-                width: 100%;
-                margin: 50px auto 100px;
                 .peter-image {
                     width: 100%;
                 }
                 .diamond-title {
                     font-size: 50px;
+                }
+            }
+            .pos-1 {
+                display: none;
+                width: 20x;
+                margin-left: auto;
+                margin-right: auto;
+                //                left: 0px;
+                //                right: 100px;
+                //                top: 20px;
+                position: absolute;
+                opacity: 0.6;
+            }
+            .pos-2 {
+                display: none;
+                width: 30px;
+                margin-left: auto;
+                margin-right: auto;
+                //                left: 100px;
+                //                right: 0px;
+                //                top: 40px;
+                position: absolute;
+                opacity: 0.5;
+            }
+            .pos-3 {
+                display: none;
+                width: 50px;
+                margin-left: auto;
+                margin-right: auto;
+                //                left: 0px;
+                //                right: 40px;
+                //                top: 80px;
+                position: absolute;
+                opacity: 0.5;
+            }
+            .shadow {
+                height: 10px;
+                &.pos-1 {
+                    top: 30px;
+                }
+                &.pos-2 {
+                    top: 60px;
+                }
+                &.pos-3 {
+                    top: 100px;
+                    height: 10px;
                 }
             }
         }

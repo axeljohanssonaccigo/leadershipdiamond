@@ -363,6 +363,10 @@ body {
   line-height: 1.4;
   color: #555;
 }
+html,
+body {
+  margin: 0;
+}
 a,
 .btn {
   outline: 0 !important;
@@ -994,6 +998,20 @@ footer ul li {
 }
 /* responsive.less */
 @media screen and (max-width: 768px) {
+  header .menu-toggle.icon {
+    left: 0;
+    right: auto;
+  }
+  #sidr-main {
+    width: 200px;
+  }
+  #sidr-main.sidr.left {
+    left: 0;
+  }
+  #sidr-main .sidr-inner {
+    padding: 55px 10px 0 20px;
+    /* padding-top: 55px; */
+  }
   #content {
     padding: 0;
   }
@@ -1050,7 +1068,7 @@ footer ul li {
     width: 100%;
     margin: 50px auto 0px;
   }
-  section#diamond .row .diamond-section {
+  section#diamond .row {
     width: 100%;
     margin: 50px auto 100px;
   }
@@ -1059,6 +1077,43 @@ footer ul li {
   }
   section#diamond .row .diamond-section .diamond-title {
     font-size: 50px;
+  }
+  section#diamond .row .pos-1 {
+    display: none;
+    width: 20x;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    opacity: 0.6;
+  }
+  section#diamond .row .pos-2 {
+    display: none;
+    width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    opacity: 0.5;
+  }
+  section#diamond .row .pos-3 {
+    display: none;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    opacity: 0.5;
+  }
+  section#diamond .row .shadow {
+    height: 10px;
+  }
+  section#diamond .row .shadow.pos-1 {
+    top: 30px;
+  }
+  section#diamond .row .shadow.pos-2 {
+    top: 60px;
+  }
+  section#diamond .row .shadow.pos-3 {
+    top: 100px;
+    height: 10px;
   }
   section#course .row .course-section {
     width: 100%;
