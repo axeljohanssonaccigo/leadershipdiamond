@@ -128,7 +128,7 @@ section#heading {
     background: -ms-radial-gradient(50% 75%, ellipse cover, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
     background: radial-gradient(ellipse at 50% 75%, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
     background-size: 100% 175%;
-    height: 600px;
+    height: 720px;
     .row {
         height: 100%;
         max-width: 960px;
@@ -137,15 +137,24 @@ section#heading {
         color: white;
         .heading-container {
             position: absolute;
-            bottom: 70px;
+            bottom: 33%;
+            z-index: 1002;
             .heading-title {
                 text-transform: uppercase;
-                font-size: 90px;
+                font-size: 102px;
                 line-height: 1.1;
+                span {
+                    font-size: 30px;
+                    vertical-align: super;
+                    top: 60px;
+                    position: absolute;
+                }
             }
             .heading-second {
-                font-size: 36px;
+                color: #555;
+                font-size: 40px;
                 line-height: 1;
+                text-align: center;
             }
         }
         .diamond {
@@ -164,11 +173,10 @@ section#heading {
             -webkit-transition-duration: .5s;
             transition-duration: .5s;
             &.pos-0 {
-                top: 680px;
+                top: 800px;
+                right: -10%;
                 position: absolute;
                 width: 750px;
-                right: -10%;
-                bottom: -8%;
                 position: absolute;
                 z-index: 1001;
             }
@@ -182,7 +190,7 @@ section#graph {
         max-width: 960px;
         margin: 80px auto;
         .graphs-container {
-            width: 720px;
+            //width: 720px;
             margin: 50px auto 0px;
             text-align: justify;
         }
@@ -531,7 +539,17 @@ button {
 }
 
 
-/* Custom CSS */
+/* CUSTOM CSS */
+
+.question-card {
+    padding: 60px 40px;
+    background: white;
+    border-radius: 5px;
+    min-height: 250px;
+    position: relative;
+    width: 960px;
+    margin: 0 auto;
+}
 
 .question-post-container {
     position: relative;

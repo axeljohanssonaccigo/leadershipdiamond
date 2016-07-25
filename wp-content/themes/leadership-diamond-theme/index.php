@@ -13,7 +13,6 @@
 
 
  define( 'WP_USE_THEMES', false ); get_header(); ?>
-
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main" ng-cloak>
             <!--<div ng-class="{'is-loaded': allLoaded, 'is-not-loaded full-screen-cover': !allLoaded}" class="parent-valign">
@@ -25,11 +24,10 @@
                 <section id="heading">
                     <div class="row">
                         <div class="heading-container">
-                            <div style="text-align: center;">{{leadershipOS.title}}</div>
-                            <div class="heading-title"> {{leadershipdiamond.title}} </div>
-                            <div style="text-align: center;" class="heading-second"> {{nothingButApps.title}}! </div>
-                        </div>
-                        <img class="diamond" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                            <div class="heading-second">{{leadershipOS.title}}</div>
+                            <div class="heading-title"> {{leadershipdiamond.title}}<span>®</span> </div>
+                            <div class="heading-second"> {{nothingButApps.title}}! </div>
+                        </div> <img class="diamond" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-0"></div>
                     </div>
                 </section>
@@ -39,35 +37,16 @@
                         <div class="col-md-12">
                             <div class="graphs-container">
                                 <div class="row">
-                                    <div class="col-md-4 col-xs-12">
-                                        <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png">
-
-                                    </div>
-                                    <div class="col-md-8 col-xs-12">
-                                        <span class="number">1.</span>
-                                        <span class="graph-text"> {{graphTexts.graph1.title}}</span>
-                                    </div>
+                                    <div class="col-md-4 col-xs-12"> <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png"> </div>
+                                    <div class="col-md-8 col-xs-12"> <span class="number">1.</span> <span class="graph-text"> {{graphTexts.graph1.title}}</span> </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4 col-xs-12">
-                                        <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png">
-
-                                    </div>
-                                    <div class="col-md-8 col-xs-12">
-                                        <span class="number">2.</span>
-                                        <span class="graph-text"> {{graphTexts.graph2.title}}</span>
-                                    </div>
-
+                                    <div class="col-md-4 col-xs-12"> <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png"> </div>
+                                    <div class="col-md-8 col-xs-12"> <span class="number">2.</span> <span class="graph-text"> {{graphTexts.graph2.title}}</span> </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4 col-xs-12">
-                                        <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png">
-
-                                    </div>
-                                    <div class="col-md-8 col-xs-12">
-                                        <span class="number">3.</span>
-                                        <span class="graph-text"> {{graphTexts.graph3.title}}</span>
-                                    </div>
+                                    <div class="col-md-4 col-xs-12"> <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png"> </div>
+                                    <div class="col-md-8 col-xs-12"> <span class="number">3.</span> <span class="graph-text"> {{graphTexts.graph3.title}}</span> </div>
                                 </div>
                             </div>
                             <div class="text-center">
@@ -94,7 +73,6 @@
                                 </script>
                                 <uib-accordion-group heading="<?php the_title(); ?>" id="post-<?php echo $post_index; ?>" class="page-scroll " ng-click="registerQuestionClick(<?php echo $post_index; ?>) ">
                                     <?php the_content();?>
-
                                         <div class="btns">
                                             <div class="next-btn-cont col-md-6" ng-show="<?php echo $post_index; ?> < <?php echo $posts_size; ?>">
                                                 <button type="button " class="btn next-btn btn-success waves-effect waves-light" ng-click="$event.stopPropagation(); moveToNextPost(<?php echo $post_index; ?>) ">{{goToNextPost.title}} ▼</button>
@@ -117,15 +95,10 @@
                         <div class="diamond-section clearfix">
                             <div class="diamond-title "> {{leadershipdiamond.title}} </div>
                             <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>
-
-
-
-                        </div>
-                        <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                        </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-1"></div> <img class="diamond pos-2 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-2"></div> <img class="diamond pos-3 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-3"></div>
-
                     </div>
                 </section>
                 <section id="course">
@@ -144,16 +117,13 @@
                                     <button class="btn"> Kontakta oss! </button>
                                 </a>
                             </div>
-                        </div>
-                        <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                        </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-1"></div> <img class="diamond pos-2 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
                         <div class="shadow pos-2"></div> <img class="diamond pos-3 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
-                        <div class="shadow pos-3">
-                        </div>
+                        <div class="shadow pos-3"> </div>
                     </div>
                 </section>
                 <!-- Course offers section -->
-
                 <div class="lang-picker fixed-action-btn" style="bottom: 25px; right: 25px;">
                     <div ng-repeat="lang in languages">
                         <div ng-if="currentLanguage.name !== lang.name "> <a class="btn-floating btn-large red " href="{{lang.url}}">{{lang.name}}</a> </div>
@@ -165,5 +135,4 @@
         <!-- #main -->
     </div>
     <!-- #primary -->
-
     <?php get_footer(); ?>

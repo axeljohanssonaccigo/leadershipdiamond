@@ -291,17 +291,19 @@ a.waves-effect .waves-ripple {
 }
 /* PANELS.LESS */
 .panel-inner {
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  padding: 10%;
+  margin: 0 auto;
+  /*width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);*/
 }
 .panel-title {
   line-height: 1em;
 }
 .panel-body {
   margin: 0 auto;
-  color: white;
+  color: #444;
   line-height: 1.5em;
   width: 720px;
   border-top: 0px solid #ddd !important;
@@ -342,13 +344,13 @@ a.waves-effect .waves-ripple {
 }
 .panel {
   position: relative;
-  min-height: 600px;
+  min-height: 720px;
   height: auto;
   background-color: #5397e3;
   border-radius: 0px;
 }
 .panel a {
-  color: white;
+  color: #444;
 }
 .panel-group {
   margin-bottom: 5px;
@@ -463,7 +465,7 @@ section#heading {
   background: -ms-radial-gradient(50% 75%, ellipse cover, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
   background: radial-gradient(ellipse at 50% 75%, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
   background-size: 100% 175%;
-  height: 600px;
+  height: 720px;
 }
 section#heading .row {
   height: 100%;
@@ -474,16 +476,25 @@ section#heading .row {
 }
 section#heading .row .heading-container {
   position: absolute;
-  bottom: 70px;
+  bottom: 33%;
+  z-index: 1002;
 }
 section#heading .row .heading-container .heading-title {
   text-transform: uppercase;
-  font-size: 90px;
+  font-size: 102px;
   line-height: 1.1;
 }
+section#heading .row .heading-container .heading-title span {
+  font-size: 30px;
+  vertical-align: super;
+  top: 60px;
+  position: absolute;
+}
 section#heading .row .heading-container .heading-second {
-  font-size: 36px;
+  color: #555;
+  font-size: 40px;
   line-height: 1;
+  text-align: center;
 }
 section#heading .row .diamond {
   width: 1000px;
@@ -502,10 +513,9 @@ section#heading .row .shadow {
   transition-duration: .5s;
 }
 section#heading .row .shadow.pos-0 {
-  top: 680px;
-  width: 750px;
+  top: 800px;
   right: -10%;
-  bottom: -8%;
+  width: 750px;
   position: absolute;
   z-index: 1001;
 }
@@ -517,7 +527,6 @@ section#graph .row {
   margin: 80px auto;
 }
 section#graph .row .graphs-container {
-  width: 720px;
   margin: 50px auto 0px;
   text-align: justify;
 }
@@ -835,7 +844,16 @@ button {
   background-color: rgba(255, 255, 255, 0.85);
   padding-bottom: 0px;
 }
-/* Custom CSS */
+/* CUSTOM CSS */
+.question-card {
+  padding: 60px 40px;
+  background: white;
+  border-radius: 5px;
+  min-height: 250px;
+  position: relative;
+  width: 960px;
+  margin: 0 auto;
+}
 .question-post-container {
   position: relative;
   /*background-color: rgb(240,240,240);*/
