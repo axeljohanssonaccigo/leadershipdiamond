@@ -34,14 +34,16 @@ h3 {
 }
 
 .number {
-    font-size: 75px;
+    font-size: 32px;
     font-family: 'TCCEB';
+    line-height: 1.1em;
+    margin-bottom: 15px;
 }
 
 .graph-text {
-    font-size: 24px;
+    font-size: 16px;
     line-height: 1.1em;
-    font-family: 'TCCEB';
+    //font-family: 'TCCEB';
 }
 
 .full-screen-cover {
@@ -83,6 +85,10 @@ h3 {
     transform: translateY(-50%);
     //transform: translateY(-50%) translateX(-50%);
     //left: 50%;
+}
+
+.float-right {
+    float: right;
 }
 
 
@@ -197,10 +203,10 @@ section#graph {
     min-height: 400px;
     .row {
         max-width: 960px;
-        margin: 80px auto;
+        margin: 100px auto;
         .graphs-container {
             //width: 720px;
-            margin: 50px auto 0px;
+            margin: 20px auto 0px;
             text-align: justify;
         }
     }
@@ -341,6 +347,7 @@ section#diamond {
             text-transform: uppercase;
             font-size: 72px;
             color: white;
+            font-weight: bold;
             color: #444;
             font-family: 'TCCEB';
             text-align: center;
@@ -405,12 +412,33 @@ section#diamond {
     }
 }
 
+.post-icon {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    z-index: 1000;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 50px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
 #post-1 {
     background-color: #f31e57;
     .btn {
         color: #f31e57;
         background-color: white;
         min-width: 250px;
+    }
+    .post-icon {
+        background: url("./img/meeting-white.svg");
+        .post-icon;
+        width: 180px;
+        height: 180px;
+        top: 72px;
     }
 }
 
@@ -420,6 +448,11 @@ section#diamond {
         color: #70c1b3;
         background-color: white;
         min-width: 250px;
+    }
+    .post-icon {
+        background: url("./img/training.svg");
+        .post-icon;
+        top: 40px;
     }
 }
 

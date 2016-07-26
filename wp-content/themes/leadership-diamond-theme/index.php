@@ -38,15 +38,20 @@
                             <div class="graphs-container">
                                 <div class="row">
                                     <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1.svg" /> </div>
-                                    <div class="col-md-6 col-xs-12"> <span class="number"></span> <span class="graph-text"> {{graphTexts.graph1.title}}</span> </div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="number">Din verksamhet kommer att dö!</div><span class="graph-text"> {{graphTexts.graph1.title}} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus vestibulum velit sed gravida. Aenean vulputate iaculis purus id aliquam. Duis porttitor vitae nunc vitae interdum. Pellentesque eu feugiat diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent hendrerit dui nec turpis sollicitudin consequat. Fusce commodo nunc odio, id suscipit ante tristique id. Duis blandit ante et imperdiet lacinia. In hac habitasse platea dictumst. Fusce imperdiet ultricies sapien eget tincidunt. Morbi lorem quam, porta vitae enim eu, consequat ultricies magna. Nullam quis nisi sem. Cras cursus eros sit amet magna consequat interdum.</span> </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 col-xs-12"> <span class="number"></span> <span class="graph-text"> {{graphTexts.graph2.title}}</span> </div>
-                                    <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2.svg"> </div>
+                                    <div class="col-md-6 col-xs-12 float-right no-float-mobile"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2.svg"> </div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="number">Du räddar företaget, för studen...</div><span class="graph-text">{{graphTexts.graph2.title}}
+                                    
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus vestibulum velit sed gravida. Aenean vulputate iaculis purus id aliquam. Duis porttitor vitae nunc vitae interdum. Pellentesque eu feugiat diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent hendrerit dui nec turpis sollicitudin consequat. Fusce commodo nunc odio, id suscipit ante tristique id. Duis blandit ante et imperdiet lacinia. In hac habitasse platea dictumst. Fusce imperdiet ultricies sapien eget tincidunt. Morbi lorem quam, porta vitae enim eu, consequat ultricies magna. Nullam quis nisi sem. Cras cursus eros sit amet magna consequat interdum.</span> </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3.svg"> </div>
-                                    <div class="col-md-6 col-xs-12"> <span class="number"></span> <span class="graph-text"> {{graphTexts.graph3.title}}</span> </div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="number">Gör rätt val vid brytpunkten!</div><span class="graph-text"> {{graphTexts.graph3.title}} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus vestibulum velit sed gravida. Aenean vulputate iaculis purus id aliquam. Duis porttitor vitae nunc vitae interdum. Pellentesque eu feugiat diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent hendrerit dui nec turpis sollicitudin consequat. Fusce commodo nunc odio, id suscipit ante tristique id. Duis blandit ante et imperdiet lacinia. In hac habitasse platea dictumst. Fusce imperdiet ultricies sapien eget tincidunt. Morbi lorem quam, porta vitae enim eu, consequat ultricies magna. Nullam quis nisi sem. Cras cursus eros sit amet magna consequat interdum.</span> </div>
                                 </div>
                             </div>
                             <div class="text-center">
@@ -65,7 +70,7 @@
                                 if ( have_posts() ) {
                                     while ( have_posts() ) {
                                         the_post();
-                                        
+
                                         ?>
                                 <script type="text/javascript">
                                     <?php $post_index = get_post_meta($post->ID,'wpcf-index',true); ?>
