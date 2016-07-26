@@ -430,6 +430,7 @@ h3 {
   top: 50%;
   transform: translateY(-50%);
 }
+/* LOADER DIAMOND */
 .shadow {
   height: 20px;
   background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
@@ -452,6 +453,10 @@ h3 {
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.12) 0, rgba(0, 0, 0, 0) 50%);
   -webkit-transition-duration: .5s;
   transition-duration: .5s;
+}
+/* NAVIGATION  */
+.main-navigation {
+  z-index: 2000;
 }
 /* SECTION & COLORS */
 section#heading {
@@ -540,7 +545,7 @@ section#course {
   background: -webkit-radial-gradient(center, ellipse cover, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
   background: -o-radial-gradient(center, ellipse cover, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
   background: -ms-radial-gradient(center, ellipse cover, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
-  background: radial-gradient(ellipse at center, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
+  background: radial-gradient(ellipse at bottom, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
 }
 section#course .row {
   display: flex;
@@ -639,6 +644,7 @@ section#diamond {
   position: relative;
   min-height: 730px;
   color: white;
+  color: #444;
   background: #12d0ff;
   background: -moz-radial-gradient(center, ellipse cover, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #12d0ff), color-stop(14%, #12d0ff), color-stop(100%, #084cc2));
@@ -653,9 +659,9 @@ section#diamond .row {
   margin-bottom: 5px;
 }
 section#diamond .row .peter-image {
-  margin: 5px 25px 15px 0px;
+  margin: 5px 20px 15px 25px;
   height: auto;
-  /* -webkit-filter: sepia(75%); */
+  /* -webkit-filter: sepia(30%); */
   border-radius: 3px;
   max-width: 330px;
 }
@@ -663,16 +669,19 @@ section#diamond .row .diamond-title {
   text-transform: uppercase;
   font-size: 72px;
   color: white;
+  color: #444;
   font-family: 'TCCEB';
   text-align: center;
 }
 section#diamond .row .diamond-section {
-  width: 720px;
-  margin: 50px auto 350px;
+  width: 960px;
+  margin: 50px auto;
 }
 section#diamond .row .diamond-about-text {
-  margin: 20px 0px;
+  margin: 20px auto;
+  width: 720px;
   text-align: justify;
+  float: none !important;
 }
 section#diamond .row .pos-1 {
   width: 100px;

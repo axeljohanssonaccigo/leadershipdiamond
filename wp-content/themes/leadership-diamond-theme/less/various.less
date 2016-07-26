@@ -85,7 +85,9 @@ h3 {
     //left: 50%;
 }
 
-// LOADER DIAMOND
+
+/* LOADER DIAMOND */
+
 .shadow {
     height: 20px;
     background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
@@ -111,6 +113,13 @@ h3 {
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.12) 0, rgba(0, 0, 0, 0) 50%);
     -webkit-transition-duration: .5s;
     transition-duration: .5s;
+}
+
+
+/* NAVIGATION  */
+
+.main-navigation {
+    z-index: 2000;
 }
 
 
@@ -208,7 +217,7 @@ section#course {
     background: -webkit-radial-gradient(center, ellipse cover, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
     background: -o-radial-gradient(center, ellipse cover, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
     background: -ms-radial-gradient(center, ellipse cover, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
-    background: radial-gradient(ellipse at center, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
+    background: radial-gradient(ellipse at bottom, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
     .row {
         display: flex;
         width: 100%;
@@ -308,6 +317,7 @@ section#diamond {
     position: relative;
     min-height: 730px;
     color: white;
+    color: #444;
     //background: url("../leadership-diamond-theme/img/gradient-blue.jpg") no-repeat 50% 50%;
     background: rgba(18, 208, 255, 1);
     background: -moz-radial-gradient(center, ellipse cover, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
@@ -321,9 +331,9 @@ section#diamond {
         width: 100%;
         margin-bottom: 5px;
         .peter-image {
-            margin: 5px 25px 15px 0px;
+            margin: 5px 20px 15px 25px;
             height: auto;
-            /* -webkit-filter: sepia(75%); */
+            /* -webkit-filter: sepia(30%); */
             border-radius: 3px;
             max-width: 330px;
         }
@@ -331,16 +341,19 @@ section#diamond {
             text-transform: uppercase;
             font-size: 72px;
             color: white;
+            color: #444;
             font-family: 'TCCEB';
             text-align: center;
         }
         .diamond-section {
-            width: 720px;
-            margin: 50px auto 350px;
+            width: 960px;
+            margin: 50px auto;
         }
         .diamond-about-text {
-            margin: 20px 0px;
+            margin: 20px auto;
+            width: 720px;
             text-align: justify;
+            float: none !important;
         }
         .pos-1 {
             width: 100px;

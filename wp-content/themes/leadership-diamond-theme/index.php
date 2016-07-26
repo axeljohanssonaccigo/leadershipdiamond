@@ -37,16 +37,16 @@
                         <div class="col-md-12">
                             <div class="graphs-container">
                                 <div class="row">
-                                    <div class="col-md-4 col-xs-12"> <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png"> </div>
-                                    <div class="col-md-8 col-xs-12"> <span class="number">1.</span> <span class="graph-text"> {{graphTexts.graph1.title}}</span> </div>
+                                    <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1.svg" /> </div>
+                                    <div class="col-md-6 col-xs-12"> <span class="number"></span> <span class="graph-text"> {{graphTexts.graph1.title}}</span> </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4 col-xs-12"> <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png"> </div>
-                                    <div class="col-md-8 col-xs-12"> <span class="number">2.</span> <span class="graph-text"> {{graphTexts.graph2.title}}</span> </div>
+                                    <div class="col-md-6 col-xs-12"> <span class="number"></span> <span class="graph-text"> {{graphTexts.graph2.title}}</span> </div>
+                                    <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2.svg"> </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4 col-xs-12"> <img src="https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder3.png"> </div>
-                                    <div class="col-md-8 col-xs-12"> <span class="number">3.</span> <span class="graph-text"> {{graphTexts.graph3.title}}</span> </div>
+                                    <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3.svg"> </div>
+                                    <div class="col-md-6 col-xs-12"> <span class="number"></span> <span class="graph-text"> {{graphTexts.graph3.title}}</span> </div>
                                 </div>
                             </div>
                             <div class="text-center">
@@ -93,12 +93,11 @@
                     <!-- Leadership Diamond section -->
                     <div class="row">
                         <div class="diamond-section clearfix">
-                            <div class="diamond-title "> {{leadershipdiamond.title}} </div>
-                            <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>
-                        </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
-                        <div class="shadow pos-1"></div> <img class="diamond pos-2 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
-                        <div class="shadow pos-2"></div> <img class="diamond pos-3 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
-                        <div class="shadow pos-3"></div>
+                            <div class="question-card">
+                                <div class="diamond-title "> {{leadershipdiamond.title}} </div>
+                                <div class="diamond-about-text col-md-12"> <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <section id="course">
