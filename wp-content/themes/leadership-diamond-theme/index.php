@@ -128,7 +128,7 @@
                     </div>
                 </section>
                 <!-- Course offers section -->
-                <div class="lang-picker fixed-action-btn" style="bottom: 25px; right: 25px;">
+                <div class="lang-picker fixed-action-btn">
                     <div ng-repeat="lang in languages">
                         <div ng-if="currentLanguage.name !== lang.name "> <a class="btn-floating btn-large red " href="{{lang.url}}">{{lang.name}}</a> </div>
                         <!-- <div ng-if="currentLanguage.name===l ang.name ">{{lang.name}}</div> --></div>
