@@ -21,6 +21,12 @@
             right: auto;
         }
     }
+    h1 {
+        font-size: 60px;
+    }
+    .display-none-mobile {
+        display: none;
+    }
     .fixed-action-btn {
         bottom: 25px;
         right: 25px;
@@ -34,6 +40,17 @@
             padding: 55px 10px 0 20px;
             /* padding-top: 55px; */
         }
+    }
+    .icon {
+        &:hover,
+        &:focus,
+        &:active {
+            color: white;
+        }
+        padding: 15px 25px;
+        width: 80px;
+        height: 70px;
+        border-radius: 0px 0px 5px 0px;
     }
     #content {
         padding: 0;
@@ -58,7 +75,7 @@
         text-align: center;
         h4 {
             font-family: 'TCCEB';
-            font-size: 34px;
+            font-size: 26px;
             a {
                 transition: 0s all cubic-bezier(.8, 0, .2, 1);
                 transition: 0s all cubic-bezier(.55, -0.4, .45, 1.4);
@@ -66,7 +83,7 @@
         }
     }
     .panel-inner {
-        padding: 20px 10px;
+        padding: 40px 10px;
     }
     .panel-open {
         min-height: 200px;
@@ -92,10 +109,10 @@
         }
     }
     .question-card {
-        padding: 10px 10px;
+        padding: 30px 10px;
         background: white;
         border-radius: 5px;
-        min-height: 150px;
+        min-height: 120px;
         position: relative;
         width: 100%;
         margin: 0 auto;
@@ -122,7 +139,7 @@
                     margin: 10px 0 20px 0px;
                 }
                 .diamond-title {
-                    font-size: 36px;
+                    font-size: 32px;
                     font-weight: bold;
                 }
             }
@@ -216,8 +233,8 @@
         position: relative;
         min-height: 300px;
         height: 500px;
-        background: radial-gradient(circle at 50% 75%, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
-        background-size: 100% 175%;
+        background: url(img/noise2.png), radial-gradient(circle at 50% 100%, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
+        //background-size: 100% 175%;
         .row {
             height: 100%;
             max-width: 960px;
@@ -296,13 +313,16 @@
                 margin: 30px auto;
                 display: block;
             }
+            .btn {
+                width: 100%;
+            }
         }
     }
     section#course {
         position: relative;
         min-height: 1000px;
         color: white;
-        background: radial-gradient(circle at 50% 75%, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
+        background: url(img/noise2.png), radial-gradient(circle at 50% 100%, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
         .row {
             display: flex;
             width: 100%;
@@ -402,14 +422,7 @@
         min-height: 730px;
         color: white;
         color: #444;
-        //background: url("../leadership-diamond-theme/img/gradient-blue.jpg") no-repeat 50% 50%;
-        background: rgba(18, 208, 255, 1);
-        background: -moz-radial-gradient(center, ellipse cover, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
-        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(18, 208, 255, 1)), color-stop(14%, rgba(18, 208, 255, 1)), color-stop(100%, rgba(8, 76, 194, 1)));
-        background: -webkit-radial-gradient(center, ellipse cover, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
-        background: -o-radial-gradient(center, ellipse cover, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
-        background: -ms-radial-gradient(center, ellipse cover, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
-        background: radial-gradient(ellipse at center, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
+        background: white;
         .row {
             display: flex;
             width: 100%;
@@ -430,7 +443,7 @@
                 text-align: center;
             }
             .diamond-section {
-                width: 960px;
+                width: 100%;
                 margin: 0px auto;
                 padding: 20px 10px;
             }

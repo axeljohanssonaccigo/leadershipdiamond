@@ -14,7 +14,7 @@
 
  define( 'WP_USE_THEMES', false ); get_header(); ?>
     <div id="primary" class="content-area">
-        <main id="main" class="site-main" role="main" ng-cloak>
+        <main id="main" class="site-main" role="main" ng-class="{'fadein': allLoaded}" ng-cloak>
             <!--<div ng-class="{'is-loaded': allLoaded, 'is-not-loaded full-screen-cover': !allLoaded}" class="parent-valign">
                  <div class="child-valign">
                     <div class="shadow scaling pos-x"></div> <img class="diamond-loader floating" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" /> </div>
@@ -27,35 +27,37 @@
                             <div class="heading-second">{{leadershipOS.title}}</div>
                             <div class="heading-title"> {{leadershipdiamond.title}}<span>®</span> </div>
                             <div class="heading-second"> {{nothingButApps.title}}! </div>
-                        </div> <img class="diamond" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
-                        <div class="shadow pos-0"></div>
+                        </div> <img class="diamond display-none-mobile" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
+                        <div class="shadow pos-0 display-none-mobile"></div>
                     </div>
+                    <button ng-click="goToElement('graph')" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</button>
                 </section>
                 <section id="graph">
                     <!-- Graph section -->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="graphs-container">
+                                <h1>Varför Diamanten?</h1>
                                 <div class="row">
-                                    <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1.svg" /> </div>
-                                    <div class="col-md-6 col-xs-12">
+                                    <div class="col-md-5 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1-NEW.svg" /> </div>
+                                    <div class="col-md-7 col-xs-12">
                                         <div class="number">Din verksamhet kommer att dö!</div><span class="graph-text"> {{graphTexts.graph1.title}} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus vestibulum velit sed gravida. Aenean vulputate iaculis purus id aliquam. Duis porttitor vitae nunc vitae interdum. Pellentesque eu feugiat diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent hendrerit dui nec turpis sollicitudin consequat. Fusce commodo nunc odio, id suscipit ante tristique id. Duis blandit ante et imperdiet lacinia. In hac habitasse platea dictumst. Fusce imperdiet ultricies sapien eget tincidunt. Morbi lorem quam, porta vitae enim eu, consequat ultricies magna. Nullam quis nisi sem. Cras cursus eros sit amet magna consequat interdum.</span> </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 col-xs-12 float-right no-float-mobile"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2.svg"> </div>
-                                    <div class="col-md-6 col-xs-12">
+                                    <div class="col-md-5 col-xs-12 float-right no-float-mobile"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2-NEW.svg"> </div>
+                                    <div class="col-md-7 col-xs-12">
                                         <div class="number">Du räddar företaget, för studen...</div><span class="graph-text">{{graphTexts.graph2.title}}
                                     
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus vestibulum velit sed gravida. Aenean vulputate iaculis purus id aliquam. Duis porttitor vitae nunc vitae interdum. Pellentesque eu feugiat diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent hendrerit dui nec turpis sollicitudin consequat. Fusce commodo nunc odio, id suscipit ante tristique id. Duis blandit ante et imperdiet lacinia. In hac habitasse platea dictumst. Fusce imperdiet ultricies sapien eget tincidunt. Morbi lorem quam, porta vitae enim eu, consequat ultricies magna. Nullam quis nisi sem. Cras cursus eros sit amet magna consequat interdum.</span> </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3.svg"> </div>
+                                    <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3-NEW.svg"> </div>
                                     <div class="col-md-6 col-xs-12">
                                         <div class="number">Gör rätt val vid brytpunkten!</div><span class="graph-text"> {{graphTexts.graph3.title}} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus vestibulum velit sed gravida. Aenean vulputate iaculis purus id aliquam. Duis porttitor vitae nunc vitae interdum. Pellentesque eu feugiat diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent hendrerit dui nec turpis sollicitudin consequat. Fusce commodo nunc odio, id suscipit ante tristique id. Duis blandit ante et imperdiet lacinia. In hac habitasse platea dictumst. Fusce imperdiet ultricies sapien eget tincidunt. Morbi lorem quam, porta vitae enim eu, consequat ultricies magna. Nullam quis nisi sem. Cras cursus eros sit amet magna consequat interdum.</span> </div>
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="button " class="btn leader-btn waves-effect waves-light" ng-click="goToElement('post-1')"> Se Exempel ▼ </button>
+                                <button type="button" class="btn leader-btn waves-effect waves-light" ng-click="goToElement('post-1')"> Till första Exempelet!</button>
                             </div>
                         </div>
                     </div>
@@ -76,14 +78,14 @@
                                     <?php $post_index = get_post_meta($post->ID,'wpcf-index',true); ?>
                                     <?php $posts_size = sizeof($posts); ?>;
                                 </script>
-                                <uib-accordion-group heading="<?php the_title(); ?>" id="post-<?php echo $post_index; ?>" class="page-scroll " ng-click="registerQuestionClick(<?php echo $post_index; ?>) ">
+                                <uib-accordion-group heading="<?php the_title(); ?>" id="post-<?php echo $post_index; ?>" class="page-scroll" ng-click="registerQuestionClick( <?php echo $post_index; ?>)">
                                     <?php the_content();?>
                                         <div class="btns">
                                             <div class="next-btn-cont col-md-6" ng-show="<?php echo $post_index; ?> < <?php echo $posts_size; ?>">
-                                                <button type="button " class="btn next-btn btn-success waves-effect waves-light" ng-click="$event.stopPropagation(); moveToNextPost(<?php echo $post_index; ?>) ">{{goToNextPost.title}} ▼</button>
+                                                <button type="button" class="btn next-btn btn-success waves-effect waves-light" ng-click="$event.stopPropagation(); moveToNextPost(<?php echo $post_index; ?>)">{{goToNextPost.title}} ▼</button>
                                             </div>
-                                            <div class="leader-btn-cont col-md-6 ">
-                                                <button type="button " class="btn leader-btn waves-effect waves-light" ng-click="$event.stopPropagation(); goToDiamondSection()"> {{goToDiamond.title}}! ▼ </button>
+                                            <div class="leader-btn-cont col-md-6">
+                                                <button type="button" class="btn leader-btn waves-effect waves-light" ng-click="$event.stopPropagation(); goToDiamondSection()"> {{goToDiamond.title}}! ▼ </button>
                                             </div>
                                         </div>
                                 </uib-accordion-group>
@@ -99,7 +101,7 @@
                     <div class="row">
                         <div class="diamond-section clearfix">
                             <div class="question-card">
-                                <div class="diamond-title "> {{leadershipdiamond.title}} </div>
+                                <div class="diamond-title"> {{leadershipdiamond.title}} </div>
                                 <div class="diamond-about-text col-md-12"> <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>
                             </div>
                         </div>
@@ -109,9 +111,9 @@
                     <!-- Course offers section -->
                     <div class="row">
                         <div class="course-section clearfix">
-                            <div class="course-title "> {{leadershipdiamond.title}} </div>
+                            <div class="course-title"> {{leadershipdiamond.title}} </div>
                             <!--                            <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>-->
-                            <div ng-repeat="course in allCourses | orderBy: 'courseIndex' " class="course-container col-sm-6 col-xs-12 ">
+                            <div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-sm-6 col-xs-12">
                                 <div class="course-title-container"> {{course.title}} </div>
                                 <div class="course-level-container ng-hide"> {{course.level}} </div>
                                 <div class="course-content-container"> {{course.content}} </div>
@@ -121,17 +123,17 @@
                                     <button class="btn"> Kontakta oss! </button>
                                 </a>
                             </div>
-                        </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
-                        <div class="shadow pos-1"></div> <img class="diamond pos-2 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
-                        <div class="shadow pos-2"></div> <img class="diamond pos-3 " src="../wp-content/themes/leadership-diamond-theme/img/diamond.svg" />
+                        </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
+                        <div class="shadow pos-1"></div> <img class="diamond pos-2" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
+                        <div class="shadow pos-2"></div> <img class="diamond pos-3" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
                         <div class="shadow pos-3"> </div>
                     </div>
                 </section>
                 <!-- Course offers section -->
                 <div class="lang-picker fixed-action-btn">
                     <div ng-repeat="lang in languages">
-                        <div ng-if="currentLanguage.name !== lang.name "> <a class="btn-floating btn-large red " href="{{lang.url}}">{{lang.name}}</a> </div>
-                        <!-- <div ng-if="currentLanguage.name===l ang.name ">{{lang.name}}</div> --></div>
+                        <div ng-if="currentLanguage.name !== lang.name"> <a class="btn-floating btn-large waves-effect waves-light lang-picker-btn" href="{{lang.url}}">{{lang.name}}</a> </div>
+                        <!-- <div ng-if="currentLanguage.name===l ang.name">{{lang.name}}</div> --></div>
                 </div>
             </div>
             <!-- startCtrl-->
