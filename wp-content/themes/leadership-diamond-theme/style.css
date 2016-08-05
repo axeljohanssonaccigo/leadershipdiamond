@@ -316,7 +316,7 @@ a.waves-effect .waves-ripple {
 }
 .panel-heading h4 {
   font-family: 'TCCEB';
-  font-size: 70px;
+  font-size: 58px;
 }
 .panel-heading h4 a {
   transition: 0s all cubic-bezier(0.8, 0, 0.2, 1);
@@ -378,7 +378,7 @@ a,
 h1 {
   text-align: center;
   font-family: 'TCCEB';
-  font-size: 70px;
+  font-size: 58px;
   margin-bottom: 20px;
   line-height: 0.9em;
 }
@@ -1044,7 +1044,7 @@ button {
   background: url(img/noise2.png), radial-gradient(circle 175px at 50% 0%, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
 }
 footer.site-footer {
-  min-height: 250px;
+  min-height: 290px;
   margin-top: -290px;
   position: absolute;
   background-color: rgba(54, 45, 57, 0.4);
