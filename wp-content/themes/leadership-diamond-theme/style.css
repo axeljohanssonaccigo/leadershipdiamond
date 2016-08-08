@@ -930,14 +930,8 @@ button {
   width: 100%;
   padding: 50px 0px 10px;
 }
-.next-btn-cont {
-  display: flex;
-}
 .next-btn-cont button {
   margin: 0 auto;
-}
-.leader-btn-cont {
-  display: flex;
 }
 .leader-btn-cont button {
   margin: 0 auto;

@@ -55,7 +55,7 @@
                         </div> <img class="diamond display-none-mobile" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
                         <div class="shadow pos-0 display-none-mobile"></div>
                     </div>
-                    <button ng-click="goToElement('graph')" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</button>
+                    <a href="#graph" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a>
                 </section>
                 <section id="graph">
                     <!-- Graph section -->
@@ -82,10 +82,12 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="button" class="btn leader-btn waves-effect waves-light" ng-click="goToElement('post-1')"> Till första Exempelet!</button>
+                                <a href="#post-1" class="btn leader-btn waves-effect waves-light">See första exemplet!</a>
+
                             </div>
                         </div>
                     </div>
+
                 </section>
                 <!-- Graph section -->
                 <section id="question">
@@ -103,14 +105,19 @@
                                     <?php $post_index = get_post_meta($post->ID,'wpcf-index',true); ?>
                                     <?php $posts_size = sizeof($posts); ?>;
                                 </script>
-                                <uib-accordion-group heading="<?php the_title(); ?>" id="post-<?php echo $post_index; ?>" class="page-scroll" ng-click="registerQuestionClick( <?php echo $post_index; ?>)">
+
+                                <uib-accordion-group id="post-<?php echo $post_index; ?>" class="page-scroll">
+                                    <uib-accordion-heading>
+                                        <?php the_title(); ?>
+                                    </uib-accordion-heading>
+
                                     <?php the_content();?>
                                         <div class="btns">
                                             <div class="next-btn-cont col-md-6" ng-show="<?php echo $post_index; ?> < <?php echo $posts_size; ?>">
-                                                <button type="button" class="btn next-btn btn-success waves-effect waves-light" ng-click="$event.stopPropagation(); moveToNextPost(<?php echo $post_index; ?>)">{{goToNextPost.title}} ▼</button>
+                                                <a class="btn next-btn btn-success waves-effect waves-light" href="#post-<?php echo $post_index+1; ?>" ng-click="openNextQuestionPost(<?php echo $post_index; ?>)">{{goToNextPost.title}} ▼</a>
                                             </div>
-                                            <div class="leader-btn-cont col-md-6">
-                                                <button type="button" class="btn leader-btn waves-effect waves-light" ng-click="$event.stopPropagation(); goToDiamondSection()"> {{goToDiamond.title}}! ▼ </button>
+                                            <div class="leader-btn-cont col-md-6" ng-class="{'col-md-offset-3': <?php echo $post_index; ?> == <?php echo $posts_size; ?>}">
+                                                <a class="btn leader-btn waves-effect waves-light" href="#diamond"> {{goToDiamond.title}}! ▼ </a>
                                             </div>
                                         </div>
                                 </uib-accordion-group>
