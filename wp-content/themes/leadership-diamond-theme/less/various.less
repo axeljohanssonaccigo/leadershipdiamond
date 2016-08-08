@@ -148,8 +148,11 @@ h3 {
     a:hover {
         color: white;
     }
-    ul li {
-        padding: 10px 5px;
+    ul {
+        cursor: default;
+        li {
+            padding: 10px 5px;
+        }
     }
 }
 
@@ -844,4 +847,41 @@ footer {
 
 .fadein {
     opacity: 1 !important;
+}
+
+//NAV ANIMATIONS
+#primary-menu a:hover::before {
+    -webkit-transform: scale(1) translateY(0);
+    -ms-transform: scale(1) translateY(0);
+    transform: scale(1) translateY(0);
+    background: rgba(255, 255, 255, .8);
+    -webkit-transition-duration: .2s;
+    transition-duration: .2s;
+}
+
+#primary-menu a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 85%;
+    margin: 0 auto;
+    bottom: -1px;
+    height: 3px;
+    border-radius: 5px;
+    -webkit-transform: scale(0.5) translateY(10px);
+    -ms-transform: scale(0.5) translateY(10px);
+    transform: scale(0.5) translateY(10px);
+    background: rgba(255, 255, 255, 0);
+    -webkit-transition: -webkit-transform 0.15s, background 0.15s;
+    transition: transform .15s, background .15s;
+}
+
+//DISPLAY NONE
+.menu-toggle {
+    display: none;
+}
+
+.display-none-desk {
+    display: none;
 }

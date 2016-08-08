@@ -1,0 +1,221 @@
+.navbar-1 {
+    width: 60px;
+    position: fixed;
+    height: 60px;
+    background: none;
+    z-index: 9000;
+    opacity: 0;
+    transition: 1s;
+}
+
+.nav-1 {
+    position: relative;
+    width: 100vmin;
+    height: 100vmin;
+    min-width: 240px;
+    min-height: 240px;
+    max-width: 480px;
+    max-height: 480px;
+    text-align: left;
+    transform-origin: 0 0;
+    transform: scale(1);
+    transition-property: all;
+    transition-duration: 350ms;
+    will-change: transform;
+    background: url(img/noise2.png), radial-gradient(circle 2200px at 50% -200%, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
+    //box-shadow: 0px 0px 0px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 0%;
+    margin: 0;
+}
+
+.nav-list {
+    width: calc(100%);
+    height: calc(100% - 20px);
+    padding: 30px;
+    margin: 0;
+    list-style-type: none;
+    transform: perspective(1px) scale(1);
+}
+
+.nav-1.is-close {
+    width: 320px;
+    height: 320px;
+}
+
+.nav-1.is-close .nav-list {
+    padding: 53px 100px;
+}
+
+.nav-item {
+    font-size: 1.6em;
+    height: 20%;
+    /*line-height: 50px;*/
+    margin: 10px 0;
+    transform-origin: 0 0;
+    transform: scale(0.5);
+    transition: transform 350ms;
+    transition-timing-function: cubic-bezier(0.5, 2, 0.5, 0.5);
+}
+
+.nav-item:nth-child(1) {
+    transition-delay: 0ms;
+}
+
+.nav-item:nth-child(2) {
+    transition-delay: 40ms;
+}
+
+.nav-item:nth-child(3) {
+    transition-delay: 80ms;
+}
+
+.nav-item:nth-child(4) {
+    transition-delay: 120ms;
+}
+
+.nav-item:nth-child(5) {
+    transition-delay: 160ms;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    letter-spacing: 2px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    transform-origin: 0 0;
+    transform: scale(2);
+    transition: transform 350ms;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    transition-duration: 100ms;
+    transform: scale(2) translate(5px);
+}
+
+.nav-text {
+    opacity: 1;
+    transition: opacity 50ms 0ms;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 4px;
+    background: #fff;
+    width: 100%;
+    opacity: 0;
+    transform-origin: 0 0;
+    transition: opacity 200ms 50ms;
+}
+
+.nav-action {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    transform-origin: 100% 0;
+    transform: scale(1);
+    transition: transform 350ms;
+    will-change: transform;
+}
+
+.nav-action button {
+    box-sizing: border-box;
+    background: rgba(26, 26, 26, 0.5);
+    border: none;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    font-family: put-what-you-want;
+    line-height: 30px;
+    border-radius: 50%;
+    color: #51bee8;
+    outline: none;
+    font-size: 2em;
+    transition: transform 350ms 200ms;
+    transform: translate(-20px, 22px);
+}
+
+.nav-action button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+.nav-action button:hover,
+.nav-action button:focus {
+    background: rgba(26, 26, 26, 0.8);
+}
+
+.nav-action button:active {
+    transition-duration: 50ms;
+    transition-delay: 0s;
+    transform: translate(-20px, 22px) scale(0.9);
+}
+
+.nav-1.is-close {
+    border-radius: 50%;
+    margin: 10px;
+    transform: scale(0.25);
+}
+
+.is-close .nav-item {
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transform: scale(0.333);
+}
+
+.is-close .nav-link {
+    transform: scale(3);
+}
+
+.is-close .nav-link::after {
+    opacity: 1;
+    transition: opacity 300ms 50ms;
+}
+
+.is-close .nav-text {
+    opacity: 0;
+    transition: opacity 50ms 300ms;
+}
+
+.is-close .nav-action {
+    transform: scale(8);
+}
+
+.is-close .nav-action button {
+    transition: transform 0ms 0ms;
+    transform: translate(-20px, -80px) rotate(-200deg);
+}
+
+
+/*html {
+  min-height: 100%;
+  background: linear-gradient(to bottom right, #fff, #ddd);
+  font: 1em catamaran, sans-serif;
+  text-align: center;
+  color: #333;
+}
+body {
+  margin: 0;
+}
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("images/background.jpg") bottom center / cover;
+  overflow: hidden;
+  cursor: url("images/cursor.png") 16 16, auto;
+}
+.screen * {
+  cursor: url("images/cursor.png") 16 16, auto;
+}*/

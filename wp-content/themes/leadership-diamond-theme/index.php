@@ -13,6 +13,31 @@
 
 
  define( 'WP_USE_THEMES', false ); get_header(); ?>
+    <style id="style"></style>
+    <div class="navbar-1 display-none-desk" ng-class="{'fadein': allLoaded}">
+        <nav class="nav-1 is-close">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> <span class="nav-text">Home</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> <span class="nav-text">Design</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> <span class="nav-text">Portfolio</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> <span class="nav-text">About</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> <span class="nav-text">Contact</span> </a>
+                </li>
+            </ul>
+            <div class="nav-action">
+                <button>×</button>
+            </div>
+        </nav>
+    </div>
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main" ng-class="{'fadein': allLoaded}" ng-cloak>
             <!--<div ng-class="{'is-loaded': allLoaded, 'is-not-loaded full-screen-cover': !allLoaded}" class="parent-valign">
@@ -130,7 +155,7 @@
                     </div>
                 </section>
                 <!-- Course offers section -->
-                <div class="lang-picker fixed-action-btn">
+                <div class="lang-picker fixed-action-btn display-none-mobile">
                     <div ng-repeat="lang in languages">
                         <div ng-if="currentLanguage.name !== lang.name"> <a class="btn-floating btn-large waves-effect waves-light lang-picker-btn" href="{{lang.url}}">{{lang.name}}</a> </div>
                         <!-- <div ng-if="currentLanguage.name===l ang.name">{{lang.name}}</div> --></div>

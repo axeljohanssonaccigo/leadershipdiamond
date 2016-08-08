@@ -40,6 +40,7 @@ function my_theme_enqueue_scripts() {
     
     /* JS VARIUOS */
     wp_enqueue_script('js_functions', get_stylesheet_directory_uri() . '/js/jsFunctions.js', array(), $version, true);
+    wp_enqueue_script('embed', get_stylesheet_directory_uri() . '/js/embed.js', array(), $version, true);
 
 
 }

@@ -19,18 +19,12 @@ do_action( 'studio_after_content' );
         <footer id="colophon" class="site-footer" role="contentinfo">
             <div id="footerContainer" class="container">
                 <div class="site-info">
-
                     <div class="row">
-                        <div>
-
-                        </div>
+                        <div> </div>
                         <div class="col-xs-12 col-md-5 col-md-offset-1">
                             <h3>{{contact.title}}</h3>
                             <ul>
-                                <li ng-repeat="entry in footerContent">
-                                    <a ng-if="entry.footerGroup == 1 && entry.link != '#'" href="{{entry.link}}" target="_blank">{{entry.title}}</a>
-                                    <span ng-if="entry.footerGroup == 1 && entry.link == '#'">{{entry.title}}</span>
-                                </li>
+                                <li ng-repeat="entry in footerContent"> <a ng-if="entry.footerGroup == 1 && entry.link != '#'" href="{{entry.link}}" target="_blank">{{entry.title}}</a> <span ng-if="entry.footerGroup == 1 && entry.link == '#'">{{entry.title}}</span> </li>
                             </ul>
                         </div>
                         <div class="col-xs-12 col-md-5">
@@ -38,15 +32,11 @@ do_action( 'studio_after_content' );
                             <ul>
                                 <div ng-repeat="group in groupNames">
                                     <div class="group-name-heading" ng-if="group !== 'none'">{{group}}</div>
-                                    <li ng-repeat="entry in footerContent">
-                                        <a ng-if="entry.footerGroup == 2 && entry.subGroup == group && entry.link != '#'" href="{{entry.link}}" target="_blank">{{entry.title}}</a>
-                                        <span ng-if="entry.footerGroup == 2 && entry.subGroup == group && entry.link == '#'">{{entry.title}}</span>
-                                    </li>
+                                    <li ng-repeat="entry in footerContent"> <a ng-if="entry.footerGroup == 2 && entry.subGroup == group && entry.link != '#'" href="{{entry.link}}" target="_blank">{{entry.title}}</a> <span ng-if="entry.footerGroup == 2 && entry.subGroup == group && entry.link == '#'">{{entry.title}}</span> </li>
                                 </div>
                             </ul>
                         </div>
                     </div>
-
                 </div>
                 <!-- .site-info -->
             </div>
