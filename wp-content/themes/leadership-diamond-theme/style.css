@@ -588,6 +588,7 @@ section#graph .row .btn {
   background: url(img/noise2.png), radial-gradient(circle 400px at 50% 10%, #777777 0%, #444444 50%, #333333 100%);
   width: 360px;
   height: 65px;
+  line-height: 65px;
 }
 section#course {
   position: relative;
@@ -849,6 +850,7 @@ section#diamond .row .shadow.pos-3 {
 }
 #post-2 {
   background-color: #70c1b3;
+  background-color: #00BCD4;
 }
 #post-2 .btn {
   background-color: #70c1b3;
@@ -902,6 +904,7 @@ section#diamond .row .shadow.pos-3 {
 }
 #post-4 {
   background-color: #7a80cb;
+  background-color: #FF5722;
 }
 #post-4 .btn {
   background-color: #7a80cb;
@@ -944,11 +947,15 @@ section#diamond .row .shadow.pos-3 {
 }
 #post-8 {
   background-color: #5397e3;
+  background-color: #009688;
 }
 #post-8 .btn {
   background-color: #5397e3;
   color: white;
   min-width: 250px;
+}
+#post-8:after {
+  content: none;
 }
 /* NEW DIAMOND STYLING */
 a {
@@ -972,18 +979,16 @@ button {
   font-family: 'TCCEB';
   background-color: white;
 }
+.btn {
+  font-family: 'TCCEB';
+  background-color: white;
+}
 .btns {
   width: 100%;
   padding: 50px 0px 10px;
 }
-.next-btn-cont {
-  display: flex;
-}
 .next-btn-cont button {
   margin: 0 auto;
-}
-.leader-btn-cont {
-  display: flex;
 }
 .leader-btn-cont button {
   margin: 0 auto;

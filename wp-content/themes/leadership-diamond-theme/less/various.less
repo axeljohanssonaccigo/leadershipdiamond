@@ -263,6 +263,7 @@ section#graph {
             background: url(img/noise2.png), radial-gradient(circle 400px at 50% 10%, #777 0%, #444 50%, #333 100%);
             width: 360px;
             height: 65px;
+            line-height: 65px;
         }
     }
 }
@@ -526,6 +527,7 @@ section#diamond {
 
 #post-2 {
     background-color: #70c1b3;
+    background-color: #00BCD4;
     //background: url(./img/post-2_1.jpg);
     .btn {
         background-color: #70c1b3;
@@ -562,6 +564,7 @@ section#diamond {
 
 #post-4 {
     background-color: #7a80cb;
+    background-color: #FF5722;
     .btn {
         background-color: #7a80cb;
         color: white;
@@ -608,10 +611,14 @@ section#diamond {
 
 #post-8 {
     background-color: #5397e3;
+    background-color: #009688;
     .btn {
         background-color: #5397e3;
         color: white;
         min-width: 250px;
+    }
+    &:after {
+        content: none;
     }
 }
 
@@ -644,20 +651,25 @@ button {
     background-color: white;
 }
 
+.btn {
+    font-family: 'TCCEB';
+    background-color: white;
+}
+
 .btns {
     width: 100%;
     padding: 50px 0px 10px;
 }
 
 .next-btn-cont {
-    display: flex;
+    // display: flex;
     button {
         margin: 0 auto;
     }
 }
 
 .leader-btn-cont {
-    display: flex;
+    //display: flex;
     button {
         margin: 0 auto;
     }

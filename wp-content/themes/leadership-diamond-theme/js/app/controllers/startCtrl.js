@@ -5,25 +5,25 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.allCourses = [];
     $scope.postInFocus = null;
     $scope.hasViewedAboutDiamond = false;
-    $scope.oneAtATime = true;
+    $scope.oneAtATime = false;
     $scope.footerContent = [];
     $scope.currentLanguage = currentLanguage;
     $scope.languages = [
         {
-            "name": "Svenska"
-            , "url": baseUrl.concat("/sv")
-        }
+            "name": "Svenska",
+            "url": baseUrl.concat("/sv")
+        },
 
-        , {
-            "name": "English"
-            , "url": baseUrl.concat("/en")
+        {
+            "name": "English",
+            "url": baseUrl.concat("/en")
         }
     ];
     //Loading handling
     $scope.isLoaded = {
-        "translations": false
-        , "questionPosts": true
-        , "footer": false
+        "translations": false,
+        "questionPosts": true,
+        "footer": false
     };
     $scope.allLoaded = false;
     $scope.$watch('isLoaded', function () {
@@ -38,6 +38,9 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             $scope.allLoaded = true;
         };
     }, true);
+
+
+
     // Sets custom strings from translation custom post type
     $scope.setCustomStrings = function () {
         $scope.leadershipOS = $scope.getTranslationByContent('leadershipOS');
@@ -57,12 +60,36 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.groupNames = ["none", $scope.sweden.title, $scope.india.title];
         $scope.goToDiamond = $scope.getTranslationByContent('gotodiamond');
         $scope.graphTexts = {
-            "graph1": $scope.getTranslationByContent('graph1')
-            , "graph2": $scope.getTranslationByContent('graph2')
-            , "graph3": $scope.getTranslationByContent('graph3')
+            "graph1": $scope.getTranslationByContent('graph1'),
+            "graph2": $scope.getTranslationByContent('graph2'),
+            "graph3": $scope.getTranslationByContent('graph3')
         };
     };
     //Scope functions on page load
+    $scope.getTranslationByContent = function (content) {
+        var translation = $scope.allTranslations.filter(function (item) {
+            return item.content === content;
+        });
+        return translation[0];
+    };
+
+    //On Document ready
+    jQuery(document).ready(function () {
+        jQuery("#sidr-main .sidr-inner ul li a").each(function (elem) {
+            console.log(this);
+            jQuery(this).attr("onclick", "closeMenu()");
+        });
+        jQuery("#sidr-main").removeClass("right");
+        jQuery("#sidr-main").addClass("left");
+        //Adding index to post ids
+        var list = jQuery(".question-card .panel-title a");
+        jQuery.each(list, function (index, value) {
+            postIndex = index + 1;
+            jQuery(value).attr("href", "#post-" + postIndex);
+        });
+
+    });
+
     $scope.getTranslationByContent = function (content) {
         var translation = $scope.allTranslations.filter(function (item) {
             return item.content === content;
@@ -78,42 +105,15 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     //            post["showDescription"] = false;
     //            post["inFocus"] = false;
     //            post["index"] = parseInt(post['custom_fields']['wpcf-index'][0]);
+    //            post["solution"] = (post['custom_fields']['wpcf-answer'][0]);
+    //            post["isRead"] = false;
+    //            post.content = $scope.trimPostContent(post.content);
+    //            if (count === $scope.allQuestionPosts.length) {
+    //                $scope.isLoaded.questionPosts = true;
+    //            };
+    //            count++;
     //        });
     //    };
-    //On Document ready
-    jQuery(document).ready(function () {
-        jQuery("#sidr-main .sidr-inner ul li a").each(function (elem) {
-            console.log(this);
-            jQuery(this).attr("onclick", "closeMenu()");
-        });
-        jQuery("#sidr-main").removeClass("right");
-        jQuery("#sidr-main").addClass("left");
-    });
-    //Scope functions on page load
-    $scope.getTranslationByContent = function (content) {
-        var translation = $scope.allTranslations.filter(function (item) {
-            return item.content === content;
-        });
-        return translation[0];
-    };
-    $scope.trimPostContent = function (content) {
-        return content.replace(/<\/?[^>]+(>|$)/g, "").replace(/(\r\n|\n|\r)/gm, " ").trim();
-    };
-    $scope.defineQuestionPostObjects = function () {
-        var count = 1;
-        angular.forEach($scope.allQuestionPosts, function (post) {
-            post["showDescription"] = false;
-            post["inFocus"] = false;
-            post["index"] = parseInt(post['custom_fields']['wpcf-index'][0]);
-            post["solution"] = (post['custom_fields']['wpcf-answer'][0]);
-            post["isRead"] = false;
-            post.content = $scope.trimPostContent(post.content);
-            if (count === $scope.allQuestionPosts.length) {
-                $scope.isLoaded.questionPosts = true;
-            };
-            count++;
-        });
-    };
     $scope.getFooterSubGroupName = function (groupId) {
         groupName = "";
         switch (groupId) {
@@ -132,21 +132,13 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         }
         return groupName;
     };
-    //    $scope.getAllQuestionPosts = function () {
-    //        startSvc.getAllQuestionPosts().then(function (response) {
-    //            $scope.allQuestionPosts = response.data.posts;
-    //            console.log($scope.allQuestionPosts);
-    //            $scope.defineQuestionPostObjects();
-    //        }).catch(function () {
-    //            $scope.isLoaded.questionPosts = true;
-    //        });
-    //    };
+
     $scope.prettyfyTranslations = function (translations) {
         angular.forEach(translations, function (post) {
             var transObject = {
-                id: post.id
-                , content: $scope.trimPostContent(post.content)
-                , title: post.title
+                id: post.id,
+                content: $scope.trimPostContent(post.content),
+                title: post.title
             }
             if ('wpcf-extra-content' in post.custom_fields) {
                 transObject["extraContent"] = post.custom_fields['wpcf-extra-content'][0];
@@ -205,7 +197,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
                 if ('wpcf-link' in entry.custom_fields) {
                     entry["link"] = entry.custom_fields['wpcf-link'][0];
                 };
-                // entry.content = $scope.trimPostContent(entry.content);
             });
             console.log($scope.footerContent);
             $scope.isLoaded.footer = true;
@@ -214,33 +205,20 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             $scope.isLoaded.footer = true;
         });
     };
-    $scope.registerQuestionClick = function (postIndex) {
-        //        post.isRead = true;
-        $scope.goToElement("post-" + postIndex);
+
+    $scope.openNextQuestionPost = function (postIndex) {
+        var nextPostIndex = postIndex + 1;
+        var nextIsOpen = jQuery("#post-" + nextPostIndex + " .question-card .collapse").hasClass("in");
+        //If the next question post is not open - open it. 
+        if (!nextIsOpen) {
+            $timeout(function () {
+                jQuery("#post-" + nextPostIndex + " .panel-title a").click();
+            }, 300);
+        }
+
     };
-    $scope.moveToNextPost = function (currentPostIndex) {
-        //        var nextPost = $scope.getQuestionPostByIndex(currentPostIndex + 1);
-        var nextPostIndex = currentPostIndex + 1;
-        //        if (currentPost.index < $scope.allQuestionPosts.length) {
-        $timeout(function () {
-            jQuery("#post-" + nextPostIndex + " a").click();
-        });
-        //        };
-    };
-    $scope.goToDiamondSection = function () {
-        $scope.goToElement("diamond");
-    };
-    //    $scope.getQuestionPostByIndex = function (postIndex) {
-    //        var returnPost = null;
-    //        angular.forEach($scope.allQuestionPosts, function (post) {
-    //            if (post.index == postIndex) {
-    //                returnPost = post;
-    //            }
-    //        });
-    //        return returnPost;
-    //    };
+
     $scope.getAllTranslations();
-    //$scope.getAllQuestionPosts();
     $scope.getAllCourses();
     $scope.goToElement = function (eID) {
         $location.hash(eID);
