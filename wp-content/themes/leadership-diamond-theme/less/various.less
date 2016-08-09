@@ -145,13 +145,16 @@ h3 {
     z-index: 2000;
     padding: 0px;
     background: url(img/noise2.png), radial-gradient(circle at 50% -200%, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
-    a:hover {
-        color: white;
-    }
     ul {
         cursor: default;
         li {
-            padding: 10px 5px;
+            padding: 0px;
+            a {
+                padding: 20px;
+                &:hover {
+                    color: white;
+                }
+            }
         }
     }
 }
@@ -473,8 +476,37 @@ section#diamond {
     background-size: contain;
 }
 
+.panel-default {
+    &:before {
+        content: "";
+        display: block;
+        height: calc(~"100% - 20px");
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0.80;
+        background-size: cover;
+    }
+    &:after {
+        content: "";
+        display: block;
+        height: 20px;
+        position: static;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 1;
+        background-color: white;
+        -webkit-filter: none;
+    }
+}
+
 #post-1 {
     background-color: #f31e57;
+    background: url(./img/post-1.jpg);
+    background-size: cover;
+    //-webkit-filter: grayscale();
     .btn {
         background-color: #f31e57;
         color: white;
@@ -487,10 +519,14 @@ section#diamond {
         height: 110px;
         top: 135px;
     }
+    &:before {
+        background: linear-gradient(135deg, #16ddb2 0%, #25a6d7 85%);
+    }
 }
 
 #post-2 {
     background-color: #70c1b3;
+    //background: url(./img/post-2_1.jpg);
     .btn {
         background-color: #70c1b3;
         color: white;
@@ -507,6 +543,8 @@ section#diamond {
 
 #post-3 {
     background-color: #5397e3;
+    background: url(./img/post-3.jpg);
+    background-size: cover;
     .btn {
         background-color: #5397e3;
         color: white;
@@ -516,6 +554,9 @@ section#diamond {
         background: url("./img/change-white.svg");
         .post-icon;
         top: 115px;
+    }
+    &:before {
+        background: linear-gradient(135deg, #FFEB3B 0%, #FF5722 85%);
     }
 }
 
@@ -530,17 +571,22 @@ section#diamond {
 
 #post-5 {
     background-color: #1daa63;
+    background: url(./img/post-5.jpg);
+    background-size: cover;
     .btn {
         background-color: #1daa63;
         color: white;
         min-width: 250px;
     }
+    &:before {
+        background: linear-gradient(135deg, #9C27B0 0%, #E91E63 85%);
+    }
 }
 
 #post-6 {
-    background-color: #f31e57;
+    background-color: #E91E63;
     .btn {
-        background-color: #f31e57;
+        background-color: #E91E63;
         color: white;
         min-width: 250px;
     }
@@ -548,10 +594,15 @@ section#diamond {
 
 #post-7 {
     background-color: #70c1b3;
+    background: url(./img/post-7.jpg);
+    background-size: cover;
     .btn {
         background-color: #70c1b3;
         color: white;
         min-width: 250px;
+    }
+    &:before {
+        background: linear-gradient(135deg, #009688 0%, #607D8B 85%);
     }
 }
 
@@ -739,7 +790,7 @@ button {
 footer {
     &.site-footer {
         min-height: 290px;
-        margin-top: -290px;
+        margin-top: -325px;
         position: absolute;
         background-color: rgba(54, 45, 57, 0.4);
         color: #fff;
@@ -885,3 +936,38 @@ footer {
 .display-none-desk {
     display: none;
 }
+
+//CUSTOM BG
+
+/*@color1: teal;
+.ss-style-slit {
+    padding-top: 5em;
+}
+
+.ss-style-slit:before,
+.ss-style-slit:after {
+    content: "";
+    width: 50.5%;
+    height: 50px;
+    display: block;
+    width: -webkit-calc(50% + 10px);
+    width: -moz-calc(50% + 10px);
+    width: calc(50% + 10px);
+    height: 160px;
+    background: @color1;
+    top: -160px;
+}
+
+.ss-style-slit:before {
+    left: -20px;
+    -webkit-transform: skewX(10deg);
+    transform: skewX(10deg);
+    box-shadow: -10px -20px darken(@color1, 8%);
+}
+
+.ss-style-slit:after {
+    right: -20px;
+    -webkit-transform: skewX(-10deg);
+    transform: skewX(-10deg);
+    box-shadow: 10px -20px darken(@color1, 8%);
+}*/

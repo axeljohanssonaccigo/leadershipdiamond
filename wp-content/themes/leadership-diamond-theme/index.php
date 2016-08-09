@@ -103,7 +103,7 @@
                                     <?php $post_index = get_post_meta($post->ID,'wpcf-index',true); ?>
                                     <?php $posts_size = sizeof($posts); ?>;
                                 </script>
-                                <uib-accordion-group heading="<?php the_title(); ?>" id="post-<?php echo $post_index; ?>" class="page-scroll" ng-click="registerQuestionClick( <?php echo $post_index; ?>)">
+                                <uib-accordion-group heading="<?php the_title(); ?>" id="post-<?php echo $post_index; ?>" class="page-scroll ss-style-slit" ng-click="registerQuestionClick( <?php echo $post_index; ?>)">
                                     <?php the_content();?>
                                         <div class="btns">
                                             <div class="next-btn-cont col-md-6" ng-show="<?php echo $post_index; ?> < <?php echo $posts_size; ?>">
