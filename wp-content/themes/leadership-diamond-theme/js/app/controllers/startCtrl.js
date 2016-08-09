@@ -10,20 +10,20 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.currentLanguage = currentLanguage;
     $scope.languages = [
         {
-            "name": "Svenska",
-            "url": baseUrl.concat("/sv")
+            "name": "Svenska"
+            , "url": baseUrl.concat("/sv")
         },
 
         {
-            "name": "English",
-            "url": baseUrl.concat("/en")
+            "name": "English"
+            , "url": baseUrl.concat("/en")
         }
     ];
     //Loading handling
     $scope.isLoaded = {
-        "translations": false,
-        "questionPosts": true,
-        "footer": false
+        "translations": false
+        , "questionPosts": true
+        , "footer": true
     };
     $scope.allLoaded = false;
     $scope.$watch('isLoaded', function () {
@@ -38,9 +38,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             $scope.allLoaded = true;
         };
     }, true);
-
-
-
     // Sets custom strings from translation custom post type
     $scope.setCustomStrings = function () {
         $scope.leadershipOS = $scope.getTranslationByContent('leadershipOS');
@@ -60,9 +57,9 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.groupNames = ["none", $scope.sweden.title, $scope.india.title];
         $scope.goToDiamond = $scope.getTranslationByContent('gotodiamond');
         $scope.graphTexts = {
-            "graph1": $scope.getTranslationByContent('graph1'),
-            "graph2": $scope.getTranslationByContent('graph2'),
-            "graph3": $scope.getTranslationByContent('graph3')
+            "graph1": $scope.getTranslationByContent('graph1')
+            , "graph2": $scope.getTranslationByContent('graph2')
+            , "graph3": $scope.getTranslationByContent('graph3')
         };
     };
     //Scope functions on page load
@@ -72,7 +69,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         });
         return translation[0];
     };
-
     //On Document ready
     jQuery(document).ready(function () {
         jQuery("#sidr-main .sidr-inner ul li a").each(function (elem) {
@@ -87,9 +83,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             postIndex = index + 1;
             jQuery(value).attr("href", "#post-" + postIndex);
         });
-
     });
-
     $scope.getTranslationByContent = function (content) {
         var translation = $scope.allTranslations.filter(function (item) {
             return item.content === content;
@@ -132,13 +126,12 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         }
         return groupName;
     };
-
     $scope.prettyfyTranslations = function (translations) {
         angular.forEach(translations, function (post) {
             var transObject = {
-                id: post.id,
-                content: $scope.trimPostContent(post.content),
-                title: post.title
+                id: post.id
+                , content: $scope.trimPostContent(post.content)
+                , title: post.title
             }
             if ('wpcf-extra-content' in post.custom_fields) {
                 transObject["extraContent"] = post.custom_fields['wpcf-extra-content'][0];
@@ -205,7 +198,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             $scope.isLoaded.footer = true;
         });
     };
-
     $scope.openNextQuestionPost = function (postIndex) {
         var nextPostIndex = postIndex + 1;
         var nextIsOpen = jQuery("#post-" + nextPostIndex + " .question-card .collapse").hasClass("in");
@@ -215,9 +207,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
                 jQuery("#post-" + nextPostIndex + " .panel-title a").click();
             }, 300);
         }
-
     };
-
     $scope.getAllTranslations();
     $scope.getAllCourses();
     $scope.goToElement = function (eID) {

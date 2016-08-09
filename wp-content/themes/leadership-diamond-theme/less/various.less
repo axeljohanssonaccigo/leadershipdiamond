@@ -1,3 +1,8 @@
+html {
+    overflow-x: hidden;
+    height: auto;
+}
+
 body {
     font-family: Roboto;
     font-size: 15px;
@@ -5,12 +10,16 @@ body {
     font-style: normal;
     line-height: 1.4;
     color: #555;
-    overflow-x: hidden;
+    overflow: visible;
 }
 
 html,
 body {
     margin: 0;
+}
+
+.admin-bar .main-navigation {
+    margin-top: 0px;
 }
 
 a,
@@ -792,10 +801,34 @@ button {
 
 .lang-picker {
     position: fixed;
+    top: 13px;
+    right: 35px;
+    z-index: 9999;
+    img {
+        height: 20px;
+        width: 20px;
+        display: block;
+        margin: 0 auto;
+    }
+    .lang-name {
+        margin-top: 3px;
+        font-size: 10px;
+        font-family: 'TCCEB';
+        text-transform: uppercase;
+        color: white;
+    }
+}
+
+.to-diamond {
+    position: fixed;
     bottom: 20px;
     right: 20px;
-    .lang-picker-btn {
+    z-index: 9999;
+    .to-diamond-btn {
         background: url(img/noise2.png), radial-gradient(circle 175px at 50% 0%, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
+        img {
+            width: 60%;
+        }
     }
 }
 
@@ -948,38 +981,3 @@ footer {
 .display-none-desk {
     display: none;
 }
-
-//CUSTOM BG
-
-/*@color1: teal;
-.ss-style-slit {
-    padding-top: 5em;
-}
-
-.ss-style-slit:before,
-.ss-style-slit:after {
-    content: "";
-    width: 50.5%;
-    height: 50px;
-    display: block;
-    width: -webkit-calc(50% + 10px);
-    width: -moz-calc(50% + 10px);
-    width: calc(50% + 10px);
-    height: 160px;
-    background: @color1;
-    top: -160px;
-}
-
-.ss-style-slit:before {
-    left: -20px;
-    -webkit-transform: skewX(10deg);
-    transform: skewX(10deg);
-    box-shadow: -10px -20px darken(@color1, 8%);
-}
-
-.ss-style-slit:after {
-    right: -20px;
-    -webkit-transform: skewX(-10deg);
-    transform: skewX(-10deg);
-    box-shadow: 10px -20px darken(@color1, 8%);
-}*/

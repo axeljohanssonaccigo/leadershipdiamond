@@ -53,7 +53,12 @@
     }
     var action = document.querySelector('.nav-action');
     action.addEventListener('click', toggleNav);
-
+    //START CUSTOM CODE A LA LARS
+    var actionNavLink = document.querySelectorAll('.nav-link');
+    actionNavLink.forEach(function (NavLink) {
+        NavLink.addEventListener('click', toggleNav);
+    });
+    //END
     function toggleNav(ev) {
         nav.classList.toggle('is-close');
         updateScales();

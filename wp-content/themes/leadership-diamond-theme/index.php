@@ -17,22 +17,7 @@
     <div class="navbar-1 display-none-desk" ng-class="{'fadein': allLoaded}">
         <nav class="nav-1 is-close">
             <ul class="nav-list">
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> <span class="nav-text">Home</span> </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> <span class="nav-text">Design</span> </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> <span class="nav-text">Portfolio</span> </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> <span class="nav-text">About</span> </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> <span class="nav-text">Contact</span> </a>
-                </li>
-            </ul>
+                <?php wp_nav_menu( array( 'items_wrap' => '%3$s', 'container' => '', 'link_before' => '<span class="nav-text">', 'link_after' => '</span>', 'walker' => new Custom_Walker_Nav_Menu() ) ); ?> </ul>
             <div class="nav-action">
                 <button>×</button>
             </div>
@@ -150,10 +135,19 @@
                     </div>
                 </section>
                 <!-- Course offers section -->
-                <div class="lang-picker fixed-action-btn display-none-mobile">
-                    <div ng-repeat="lang in languages">
-                        <div ng-if="currentLanguage.name !== lang.name"> <a class="btn-floating btn-large waves-effect waves-light lang-picker-btn" href="{{lang.url}}">{{lang.name}}</a> </div>
+                <div class="lang-picker display-none-mobile">
+                    <div ng-repeat="lang in languages" ng-animate=" 'animate' ">
+                        <div ng-if="currentLanguage.name !== lang.name">
+                            <a href="{{lang.url}}"> <img src="../wp-content/themes/leadership-diamond-theme/img/planet-earth2.svg" />
+                                <div class="lang-name">{{lang.name}}</div>
+                            </a>
+                        </div>
                         <!-- <div ng-if="currentLanguage.name===l ang.name">{{lang.name}}</div> --></div>
+                </div>
+                <div class="to-diamond display-none-mobile">
+                    <div class="btn-floating btn-large waves-effect waves-light to-diamond-btn">
+                        <a href="#diamond"><img src="../wp-content/themes/leadership-diamond-theme/img/diamond-new-outline.svg" /></a>
+                    </div>
                 </div>
             </div>
             <!-- startCtrl-->

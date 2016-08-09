@@ -24,8 +24,8 @@ Text Domain:  leadership-diamond-theme
 }
 @font-face {
   font-family: 'Roboto';
-  src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fontsRoboto-Bold.eot');
-  src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fontsRoboto-Bold.eot?#iefix') format('embedded-opentype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fontsRoboto-Bold.woff2') format('woff2'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fontsRoboto-Bold.woff') format('woff'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fontsRoboto-Bold.ttf') format('truetype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fontsRoboto-Bold.svg#Roboto-Bold') format('svg');
+  src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.eot');
+  src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.eot?#iefix') format('embedded-opentype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.woff2') format('woff2'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.woff') format('woff'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.ttf') format('truetype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.svg#Roboto-Bold') format('svg');
   font-weight: bold;
   font-style: normal;
 }
@@ -358,6 +358,10 @@ a.waves-effect .waves-ripple {
 .panel-group .panel {
   border-radius: 0px;
 }
+html {
+  overflow-x: hidden;
+  height: auto;
+}
 body {
   font-family: Roboto;
   font-size: 15px;
@@ -365,11 +369,14 @@ body {
   font-style: normal;
   line-height: 1.4;
   color: #555;
-  overflow-x: hidden;
+  overflow: visible;
 }
 html,
 body {
   margin: 0;
+}
+.admin-bar .main-navigation {
+  margin-top: 0px;
 }
 a,
 .btn {
@@ -1091,11 +1098,34 @@ button {
 }
 .lang-picker {
   position: fixed;
+  top: 13px;
+  right: 35px;
+  z-index: 9999;
+}
+.lang-picker img {
+  height: 20px;
+  width: 20px;
+  display: block;
+  margin: 0 auto;
+}
+.lang-picker .lang-name {
+  margin-top: 3px;
+  font-size: 10px;
+  font-family: 'TCCEB';
+  text-transform: uppercase;
+  color: white;
+}
+.to-diamond {
+  position: fixed;
   bottom: 20px;
   right: 20px;
+  z-index: 9999;
 }
-.lang-picker .lang-picker-btn {
+.to-diamond .to-diamond-btn {
   background: url(img/noise2.png), radial-gradient(circle 175px at 50% 0%, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
+}
+.to-diamond .to-diamond-btn img {
+  width: 60%;
 }
 footer.site-footer {
   min-height: 290px;
@@ -1225,38 +1255,6 @@ footer ul li {
 .display-none-desk {
   display: none;
 }
-/*@color1: teal;
-.ss-style-slit {
-    padding-top: 5em;
-}
-
-.ss-style-slit:before,
-.ss-style-slit:after {
-    content: "";
-    width: 50.5%;
-    height: 50px;
-    display: block;
-    width: -webkit-calc(50% + 10px);
-    width: -moz-calc(50% + 10px);
-    width: calc(50% + 10px);
-    height: 160px;
-    background: @color1;
-    top: -160px;
-}
-
-.ss-style-slit:before {
-    left: -20px;
-    -webkit-transform: skewX(10deg);
-    transform: skewX(10deg);
-    box-shadow: -10px -20px darken(@color1, 8%);
-}
-
-.ss-style-slit:after {
-    right: -20px;
-    -webkit-transform: skewX(-10deg);
-    transform: skewX(-10deg);
-    box-shadow: 10px -20px darken(@color1, 8%);
-}*/
 /* responsive.less */
 @media screen and (max-width: 768px) {
   .display-none-desk {
@@ -1266,14 +1264,13 @@ footer ul li {
 @media screen and (max-width: 990px) {
   html {
     width: 100%;
-    height: 100%;
+    height: auto;
     margin: 0px;
     padding: 0px;
-    overflow: hidden;
   }
   body {
     width: 100%;
-    height: 100%;
+    height: auto;
     margin: 0px;
     padding: 0px;
   }
@@ -1555,7 +1552,7 @@ footer ul li {
   }
   section#course {
     position: relative;
-    min-height: 1000px;
+    min-height: 1300px;
     color: white;
     background: url(img/noise2.png), radial-gradient(circle at 50% 100%, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
   }
@@ -1850,7 +1847,7 @@ footer ul li {
     position: relative;
   }
   footer {
-    bottom: 90px;
+    bottom: 0px;
     position: absolute;
   }
 }
@@ -1885,7 +1882,7 @@ footer ul li {
 .nav-list {
   width: calc(100%);
   height: calc(80%);
-  padding: 30px;
+  padding: 25px;
   margin: 0;
   list-style-type: none;
   transform: perspective(1px) scale(1);
