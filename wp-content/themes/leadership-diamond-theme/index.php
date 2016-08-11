@@ -14,6 +14,19 @@
 
  define( 'WP_USE_THEMES', false ); get_header(); ?>
     <style id="style"></style>
+    <!-- lang-picker -->
+    <div class="lang-picker waves-effect waves-light display-none-mobile faded-out" ng-class="{'fadein': allLoaded}">
+        <div ng-repeat="lang in languages" ng-animate=" 'animate' ">
+            <div ng-if="currentLanguage.name !== lang.name">
+                <a href="{{lang.url}}"> <img src="../wp-content/themes/leadership-diamond-theme/img/planet-earth2.svg" />
+                    <div class="lang-name">{{lang.name}}</div>
+                </a>
+            </div>
+            <!-- <div ng-if="currentLanguage.name===l ang.name">{{lang.name}}</div> --></div>
+    </div>
+    <!-- Kostenbaum Institue --->
+    <div class="koestenbaum waves-effect waves-light display-none-mobile faded-out" ng-class="{'fadein': allLoaded}"> <a href="#">Koestenbaum<br> <span>Institute</span></a> </div>
+    <!-- hamburger nav -->
     <div class="navbar-1 display-none-desk" ng-class="{'fadein': allLoaded}">
         <nav class="nav-1 is-close">
             <ul class="nav-list">
@@ -145,23 +158,12 @@
                     </div>
                 </section>
                 <!-- Course offers section -->
-                <div class="lang-picker waves-effect waves-light display-none-mobile">
-                    <div ng-repeat="lang in languages" ng-animate=" 'animate' ">
-                        <div ng-if="currentLanguage.name !== lang.name">
-                            <a href="{{lang.url}}"> <img src="../wp-content/themes/leadership-diamond-theme/img/planet-earth2.svg" />
-                                <div class="lang-name">{{lang.name}}</div>
-                            </a>
-                        </div>
-                        <!-- <div ng-if="currentLanguage.name===l ang.name">{{lang.name}}</div> --></div>
-                </div>
                 <!-- To diamond -->
                 <div class="to-diamond display-none-mobile">
                     <div class="btn-floating btn-large waves-effect waves-light to-diamond-btn">
                         <a href="#diamond"><img src="../wp-content/themes/leadership-diamond-theme/img/diamond-new-outline.svg" /></a>
                     </div>
                 </div>
-                <!-- Kostenbaum Institue --->
-                <div class="koestenbaum waves-effect waves-light display-none-mobile"> <a href="#">Koestenbaum<br> <span>Institute</span></a> </div>
             </div>
             <!-- startCtrl-->
         </main>
