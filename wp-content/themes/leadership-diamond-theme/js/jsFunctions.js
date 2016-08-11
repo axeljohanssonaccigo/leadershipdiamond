@@ -9,3 +9,15 @@ var closeMenu = function () {
 
 //jQuery( "div:contains('Ledarskapsdiamanten')").after("<span style='font-size: 0.5em; vertical-align: super;'>®</span>" );
 
+//STOPS SCROLL WEH ACTION IS MADE
+
+var page = jQuery("html, body");
+
+jQuery( "section" ).click(function(e) {
+
+   page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+       page.stop();
+   });
+
+   return false; 
+});
