@@ -824,6 +824,9 @@ section#diamond .row .shadow.pos-3 {
   background-color: white;
   -webkit-filter: none;
 }
+.panel-default .btn {
+  background: url(img/noise2.png), radial-gradient(circle 400px at 50% 10%, #777777 0%, #444444 50%, #333333 100%) !important;
+}
 #post-1 {
   background-color: #f31e57;
   background: url(img/post-1.jpg);
@@ -915,6 +918,7 @@ section#diamond .row .shadow.pos-3 {
 }
 #post-4 .btn {
   background-color: #7a80cb;
+  background-color: #FF5722;
   color: white;
   min-width: 250px;
 }
@@ -925,6 +929,7 @@ section#diamond .row .shadow.pos-3 {
 }
 #post-5 .btn {
   background-color: #1daa63;
+  background: linear-gradient(135deg, #9c27b0 0%, #e91e63 150%);
   color: white;
   min-width: 250px;
 }
@@ -946,6 +951,7 @@ section#diamond .row .shadow.pos-3 {
 }
 #post-7 .btn {
   background-color: #70c1b3;
+  background: linear-gradient(135deg, #009688 0%, #607d8b 100%);
   color: white;
   min-width: 250px;
 }
@@ -958,6 +964,7 @@ section#diamond .row .shadow.pos-3 {
 }
 #post-8 .btn {
   background-color: #5397e3;
+  background-color: #009688;
   color: white;
   min-width: 250px;
 }
@@ -1098,8 +1105,9 @@ button {
 }
 .lang-picker {
   position: fixed;
-  top: 13px;
-  right: 35px;
+  top: 0px;
+  right: 18px;
+  padding: 12px;
   z-index: 9999;
 }
 .lang-picker img {
@@ -1254,6 +1262,54 @@ footer ul li {
 }
 .display-none-desk {
   display: none;
+}
+.hvr-outline-in {
+  display: block;
+}
+.hvr-outline-in:before,
+.panel-open .hvr-outline-in:hover:before,
+.panel-open .hvr-outline-in:active:before,
+.panel-open .hvr-outline-in:focus:before,
+.hvr-outline-in:active:before,
+.hvr-outline-in:focus:before {
+  content: '';
+  position: absolute;
+  height: calc(100% + 150px);
+  width: calc(100% + 125px);
+  border: white solid 4px;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: 0.4s all cubic-bezier(0.7, -1.1, 0.3, 1.9);
+  pointer-events: none;
+  opacity: 0;
+}
+.hvr-outline-in:hover:before {
+  height: calc(100% + 30px);
+  width: calc(100% + 30px);
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.koestenbaum {
+  line-height: 19px;
+  position: fixed;
+  letter-spacing: -0.5px;
+  padding: 12px;
+  font-family: 'TCCEB';
+  top: 0px;
+  color: white;
+  left: 18px;
+  font-size: 25px;
+  text-transform: uppercase;
+  z-index: 9999;
+}
+.koestenbaum a {
+  color: white !important;
 }
 /* responsive.less */
 @media screen and (max-width: 768px) {

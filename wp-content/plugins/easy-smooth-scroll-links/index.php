@@ -193,8 +193,12 @@ define('ESSLPluginOptions_NICK', 'ESSL Settings');
 					   }else{
 						   var target = location.hash;
 					   }
+		var mobOffset = 0;
+if(jQuery( window ).width() < 768){
+mobOffset=62;
+}
 					   
-						var scrollToPosition = $(target).offset().top - <?php if (get_option('essl_offset')!='') {echo get_option('essl_offset');} else {echo '20';} ?>;
+					var scrollToPosition = $(target).offset().top - <?php if (get_option('essl_offset')!='') {echo get_option('essl_offset');} else {echo '20';} ?> + mobOffset;
 					
 					   $('html,body').animate({scrollTop: scrollToPosition },<?php if (get_option('essl_speed')!='') {echo get_option('essl_speed');} else {echo '900';} ?> ,'<?php echo  get_option('essl_easing','easeInQuint');?>' );
 
