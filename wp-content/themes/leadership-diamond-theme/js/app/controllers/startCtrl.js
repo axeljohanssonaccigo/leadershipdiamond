@@ -10,20 +10,20 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.currentLanguage = currentLanguage;
     $scope.languages = [
         {
-            "name": "Svenska"
-            , "url": baseUrl.concat("/sv")
+            "name": "Svenska",
+            "url": baseUrl.concat("/sv")
         },
 
         {
-            "name": "English"
-            , "url": baseUrl.concat("/en")
+            "name": "English",
+            "url": baseUrl.concat("/en")
         }
     ];
     //Loading handling
     $scope.isLoaded = {
-        "translations": false
-        , "questionPosts": true
-        , "footer": true
+        "translations": false,
+        "questionPosts": true,
+        "footer": true
     };
     $scope.allLoaded = false;
     $scope.$watch('isLoaded', function () {
@@ -56,10 +56,11 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.india = $scope.getTranslationByContent('india');
         $scope.groupNames = ["none", $scope.sweden.title, $scope.india.title];
         $scope.goToDiamond = $scope.getTranslationByContent('gotodiamond');
+        $scope.firstExample = $scope.getTranslationByContent('firstexample');
         $scope.graphTexts = {
-            "graph1": $scope.getTranslationByContent('graph1')
-            , "graph2": $scope.getTranslationByContent('graph2')
-            , "graph3": $scope.getTranslationByContent('graph3')
+            "graph1": $scope.getTranslationByContent('graph1'),
+            "graph2": $scope.getTranslationByContent('graph2'),
+            "graph3": $scope.getTranslationByContent('graph3')
         };
     };
     //Scope functions on page load
@@ -129,9 +130,9 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.prettyfyTranslations = function (translations) {
         angular.forEach(translations, function (post) {
             var transObject = {
-                id: post.id
-                , content: $scope.trimPostContent(post.content)
-                , title: post.title
+                id: post.id,
+                content: $scope.trimPostContent(post.content),
+                title: post.title
             }
             if ('wpcf-extra-content' in post.custom_fields) {
                 transObject["extraContent"] = post.custom_fields['wpcf-extra-content'][0];
