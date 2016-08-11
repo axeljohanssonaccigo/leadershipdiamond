@@ -677,17 +677,13 @@ button {
     padding: 50px 0px 10px;
 }
 
-.next-btn-cont {
-    // display: flex;
+.next-btn-cont,
+.leader-btn-cont {
     button {
         margin: 0 auto;
     }
-}
-
-.leader-btn-cont {
-    //display: flex;
-    button {
-        margin: 0 auto;
+    .btn {
+        width: 100%;
     }
 }
 
@@ -995,12 +991,15 @@ footer {
     display: block;
 }
 
-.hvr-outline-in:before,
+
+/*,
 .panel-open .hvr-outline-in:hover:before,
 .panel-open .hvr-outline-in:active:before,
 .panel-open .hvr-outline-in:focus:before,
 .hvr-outline-in:active:before,
-.hvr-outline-in:focus:before {
+.hvr-outline-in:focus:before */
+
+.hvr-outline-in:before {
     content: '';
     position: absolute;
     height: calc(~"100% + 150px");

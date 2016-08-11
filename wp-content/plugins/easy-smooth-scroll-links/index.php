@@ -181,69 +181,71 @@ define('ESSLPluginOptions_NICK', 'ESSL Settings');
 			$essl_exclude_begin= $essl_exclude_begin_1. $essl_exclude_begin_2. $essl_exclude_begin_3. $essl_exclude_begin_4. $essl_exclude_begin_5;
 			$essl_exclude_match= $essl_exclude_match_1. $essl_exclude_match_2. $essl_exclude_match_3. $essl_exclude_match_4. $essl_exclude_match_5;		
 
-			if(get_option('enable_essl_aggressive')=='1'){ ?>	
-			<script type="text/javascript">
-				jQuery.noConflict();
-				(function($){
-				  
-					var jump=function(e)
-					{
-					   if (e){
-						   var target = $(this).attr("href");
-					   }else{
-						   var target = location.hash;
-					   }
-		var mobOffset = 0;
-if(jQuery( window ).width() < 768){
-mobOffset=62;
-}
-					   
-					var scrollToPosition = $(target).offset().top - <?php if (get_option('essl_offset')!='') {echo get_option('essl_offset');} else {echo '20';} ?> + mobOffset;
-					
-					   $('html,body').animate({scrollTop: scrollToPosition },<?php if (get_option('essl_speed')!='') {echo get_option('essl_speed');} else {echo '900';} ?> ,'<?php echo  get_option('essl_easing','easeInQuint');?>' );
-
-					}
-
-					$('html, body').hide()
-
-					$(document).ready(function()
-					{
-						$("area[href*=\\#],a[href*=\\#]:not([href=\\#]):not([href^='\\#tab']):not([href^='\\#quicktab']):not([href^='\\#pane'])<?php if($essl_exclude_begin) echo $essl_exclude_begin; ?><?php if($essl_exclude_match) echo $essl_exclude_match; ?>").bind("click", jump);
-
-						if (location.hash){
-							setTimeout(function(){
-								$('html, body').scrollTop(0).show()
-								jump()
-							}, 0);
-						}else{
-						  $('html, body').show()
-						}
-					});
-				  
-				})(jQuery)
-			</script>
-				<?php  } else {  ?>
-			<script type="text/javascript">
-				jQuery.noConflict();
-				(function( $ ) {
-					$(function() {
-						// More code using $ as alias to jQuery
-						$("area[href*=\\#],a[href*=\\#]:not([href=\\#]):not([href^='\\#tab']):not([href^='\\#quicktab']):not([href^='\\#pane'])<?php if($essl_exclude_begin) echo $essl_exclude_begin; ?><?php if($essl_exclude_match) echo $essl_exclude_match; ?>").click(function() {
-							if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-								var target = $(this.hash);
-								target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-								if (target.length) {
-								$('html,body').animate({
-								scrollTop: target.offset().top - <?php if (get_option('essl_offset')!='') {echo get_option('essl_offset');} else {echo '20';} ?>  
-								},<?php if (get_option('essl_speed')!='') {echo get_option('essl_speed');} else {echo '900';} ?> ,'<?php echo  get_option('essl_easing','easeInQuint');?>');
-								return false;
-								}
-							}
-						});
-					});
-				})(jQuery);	
-			</script>				
-				<?php }	
+			if(get_option('enable_essl_aggressive')=='1'){ ?>
+    <script type="text/javascript">
+        jQuery.noConflict();
+        (function ($) {
+            var jump = function (e) {
+                if (e) {
+                    var target = $(this).attr("href");
+                }
+                else {
+                    var target = location.hash;
+                }
+                var mobOffset = 0;
+                if (jQuery(window).width() < 768) {
+                    mobOffset = 60;
+                }
+                var scrollToPosition = $(target).offset().top - <?php if(get_option('essl_offset')!='') {echo get_option('essl_offset');} else {echo '20';} ?> + mobOffset;
+                $('html,body').animate({
+                        scrollTop: scrollToPosition
+                    }, <?php if (get_option('essl_speed')!='') {echo get_option('essl_speed');} else {echo '900';} ?>, '<?php echo  get_option('
+                    essl_easing ','
+                    easeInQuint ');?>');
+            }
+            $('html, body').hide()
+            $(document).ready(function () {
+                $("area[href*=\\#],a[href*=\\#]:not([href=\\#]):not([href^='\\#tab']):not([href^='\\#quicktab']):not([href^='\\#pane'])<?php if($essl_exclude_begin) echo $essl_exclude_begin; ?><?php if($essl_exclude_match) echo $essl_exclude_match; ?>").bind("click", jump);
+                if (location.hash) {
+                    setTimeout(function () {
+                        $('html, body').scrollTop(0).show()
+                        jump()
+                    }, 0);
+                }
+                else {
+                    $('html, body').show()
+                }
+            });
+        })(jQuery)
+    </script>
+    <?php  } else {  ?>
+        <script type="text/javascript">
+            jQuery.noConflict();
+            (function ($) {
+                $(function () {
+                    // More code using $ as alias to jQuery
+                    $("area[href*=\\#],a[href*=\\#]:not([href=\\#]):not([href^='\\#tab']):not([href^='\\#quicktab']):not([href^='\\#pane'])<?php if($essl_exclude_begin) echo $essl_exclude_begin; ?><?php if($essl_exclude_match) echo $essl_exclude_match; ?>").click(function () {
+                        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                            var target = $(this.hash);
+                            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                            var mobOffset = 0;
+                            if (jQuery(window).width() < 768) {
+                                mobOffset = 60;
+                            }
+                            if (target.length) {
+                                $('html,body').animate({
+                                        scrollTop: target.offset().top - <?php if (get_option('essl_offset')!='') {echo get_option('essl_offset');} else {echo '20';} ?> + mobOffset
+                                    }, <?php if (get_option('essl_speed')!='') {echo get_option('essl_speed');} else {echo '900';} ?>, '<?php echo  get_option('
+                                    essl_easing ','
+                                    easeInQuint ');?>');
+                                return false;
+                            }
+                        }
+                    });
+                });
+            })(jQuery);
+        </script>
+        <?php }	
 		}					
 	}	
 endif;

@@ -27,6 +27,22 @@
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     border-radius: 0%;
     margin: 0;
+    .koestenbaum {
+        padding: 20px;
+        bottom: 0px;
+        left: 0px;
+        top: initial;
+        opacity: 1;
+        transition-delay: 240ms;
+    }
+    .lang-picker {
+        top: initial;
+        bottom: 0px;
+        right: 0px;
+        padding: 20px;
+        opacity: 1;
+        transition-delay: 280ms;
+    }
 }
 
 .nav-list {
@@ -41,6 +57,11 @@
 .nav-1.is-close {
     width: 320px;
     height: 320px;
+    .koestenbaum,
+    .lang-picker {
+        transition-delay: 0ms;
+        opacity: 0;
+    }
 }
 
 .nav-1.is-close .nav-list {
@@ -51,11 +72,30 @@
     font-size: 1.6em;
     height: 20%;
     /*line-height: 50px;*/
-    margin: 10px 0;
+    margin: -5px 0px;
     transform-origin: 0 0;
     transform: scale(0.5);
     transition: transform 350ms;
     transition-timing-function: cubic-bezier(0.5, 2, 0.5, 0.5);
+    a:hover {
+        color: white;
+    }
+}
+
+.is-close .nav-item {
+    margin: 10px 0px;
+}
+
+.nav-lang {
+    position: absolute;
+    bottom: -60px;
+    opacity: 1;
+    img {
+        display: inline-block;
+        float: none;
+        width: 25px;
+        margin-left: 10px;
+    }
 }
 
 .nav-item:nth-child(1) {
@@ -76,6 +116,10 @@
 
 .nav-item:nth-child(5) {
     transition-delay: 160ms;
+}
+
+.nav-item:nth-child(6) {
+    transition-delay: 200ms;
 }
 
 .nav-link {
@@ -193,6 +237,12 @@
 .is-close .nav-action button {
     transition: transform 0ms 0ms;
     transform: translate(-20px, -80px) rotate(-200deg);
+}
+
+.is-close {
+    .nav-lang {
+        opacity: 0;
+    }
 }
 
 
