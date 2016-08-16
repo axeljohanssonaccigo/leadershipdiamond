@@ -45,8 +45,7 @@
             //nav.style.transform = 'scale(' + ratio + ')';
             nav.style.transform = 'perspective(0px) scale(0.2)';
             navAction.style.transform = 'scale(' + size / 30 + ')';
-        }
-        else {
+        } else {
             nav.style.transform = 'scale(1)';
             navAction.style.transform = 'scale(1)';
         }
@@ -55,9 +54,11 @@
     action.addEventListener('click', toggleNav);
     //START CUSTOM CODE A LA LARS
     var actionNavLink = document.querySelectorAll('.nav-link');
-    actionNavLink.forEach(function (NavLink) {
-        NavLink.addEventListener('click', toggleNav);
-    });
+    for (i = 0; i < actionNavLink.length; i++) {
+        actionNavLink[i].addEventListener('click', toggleNav);
+
+    }
+//    actionNavLink.forEach(function (NavLink) {});
     //END
     function toggleNav(ev) {
         nav.classList.toggle('is-close');
