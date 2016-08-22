@@ -8,6 +8,8 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.oneAtATime = false;
     $scope.footerContent = [];
     $scope.currentLanguage = currentLanguage;
+    $scope.latestClickedPostId = "post-1"; //default is 1
+    $scope.aQuestionWasClicked = false;
     $scope.languages = [
         {
             "name": "Svenska",
@@ -199,16 +201,23 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             $scope.isLoaded.footer = true;
         });
     };
-    $scope.openNextQuestionPost = function (postIndex) {
-        var nextPostIndex = postIndex + 1;
-        var nextIsOpen = jQuery("#post-" + nextPostIndex + " .question-card .collapse").hasClass("in");
-        //If the next question post is not open - open it. 
-        if (!nextIsOpen) {
-            $timeout(function () {
-                jQuery("#post-" + nextPostIndex + " .panel-title a").click();
-            }, 300);
-        }
+
+    $scope.setLatestClickedPostId = function (postId) {
+        $scope.aQuestionWasClicked = true;
+        $scope.latestClickedPostId = postId;
+        console.log($scope.latestClickedPostId);
     };
+
+//    $scope.openNextQuestionPost = function (postIndex) {
+//        var nextPostIndex = postIndex + 1;
+//        var nextIsOpen = jQuery("#post-" + nextPostIndex + " .question-card .collapse").hasClass("in");
+//        //If the next question post is not open - open it. 
+//        if (!nextIsOpen) {
+//            $timeout(function () {
+//                jQuery("#post-" + nextPostIndex + " .panel-title a").click();
+//            }, 300);
+//        }
+//    };
     $scope.getAllTranslations();
     $scope.getAllCourses();
     $scope.goToElement = function (eID) {

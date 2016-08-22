@@ -4,10 +4,10 @@ var diamondApp = angular.module('diamondApp', ['ngAnimate', 'ngTouch', 'ui.boots
 }]);
 // Global variabels
 var environments = {
-    "dev": "http://localhost:81"
-    , "dev2": "http://localhost"
-    , "dev3": "http://localhost:8080"
-    , "prod": "http://www.leadershipdiamond.com"
+    "dev": "http://localhost:81",
+    "dev2": "http://localhost",
+    "dev3": "http://localhost:8080",
+    "prod": "http://www.leadershipdiamond.com"
 };
 //Setting the current environment
 var currentEnvironment = "";
@@ -19,19 +19,18 @@ angular.forEach(environments, function (env) {
 //Adding a baseUrl, used in Angular services
 if (currentEnvironment === environments.dev || currentEnvironment === environments.dev2 || currentEnvironment === environments.dev3) {
     var baseUrl = currentEnvironment.concat('/leadershipdiamond');
-}
-else {
+} else {
     baseUrl = currentEnvironment;
-}
+};
 //Setting current language depending on url (Default = Swedish)
 var currentLanguage = {
-    "name": "Svenska"
-    , "url": baseUrl.concat("/sv")
+    "name": "Svenska",
+    "url": baseUrl.concat("/sv")
 };
 if (location.href.search("/en") > -1) {
     var currentLanguage = {
-        "name": "English"
-        , "url": baseUrl.concat("/en")
+        "name": "English",
+        "url": baseUrl.concat("/en")
     };
 };
 jQuery("#page").attr("ng-controller", "startCtrl");
