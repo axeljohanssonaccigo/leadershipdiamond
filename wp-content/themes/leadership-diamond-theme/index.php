@@ -87,7 +87,11 @@
                                         <div class="number">Gör rätt val vid brytpunkten!</div><span class="graph-text"> {{graphTexts.graph3.title}} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus vestibulum velit sed gravida. Aenean vulputate iaculis purus id aliquam. Duis porttitor vitae nunc vitae interdum. Pellentesque eu feugiat diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent hendrerit dui nec turpis sollicitudin consequat. Fusce commodo nunc odio, id suscipit ante tristique id. Duis blandit ante et imperdiet lacinia. In hac habitasse platea dictumst. Fusce imperdiet ultricies sapien eget tincidunt. Morbi lorem quam, porta vitae enim eu, consequat ultricies magna. Nullam quis nisi sem. Cras cursus eros sit amet magna consequat interdum.</span> </div>
                                 </div>
                             </div>
-                            <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.title}}</a> </div>
+                            
+                             <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW.svg"> </div> 
+                             <!--
+                            <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.title}}</a> </div>-->
+                            <a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> 
                         </div>
                     </div>
                 </section>
@@ -95,6 +99,9 @@
                 <section id="question">
                     <!-- Post section -->
                     <div class="row">
+                      <div class="heading">
+                       <h1>De vanligaste problemen!</h1>
+                       </div>
                         <uib-accordion close-others="oneAtATime">
                             <?php 
                             query_posts('&meta_key=wpcf-index&orderby=meta_value&order=ASC');
