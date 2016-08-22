@@ -68,7 +68,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="graphs-container">
-                                <h1>Varför Diamanten?</h1>
+                                <h1>{{whyTheDiamond.title}}</h1>
                                 <div class="row">
                                     <div class="col-md-5 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1-NEW.svg" /> </div>
                                     <div class="col-md-7 col-xs-12">
@@ -117,6 +117,10 @@
                                 <uib-accordion-group id="post-<?php echo $post_index; ?>" class="page-scroll">
                                     <uib-accordion-heading>
                                         <?php the_title(); ?>
+                                            <button class="btn read-more-button" type="button">
+                                                {{readMore.title}}
+                                                <img src="../wp-content/themes/leadership-diamond-theme/img/magnifier-book.svg" />
+                                            </button>
                                     </uib-accordion-heading>
                                     <?php the_content();?>
                                         <div class="btns">
@@ -142,22 +146,35 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                    <a href="#course" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a></section>
                 <section id="course">
                     <!-- Course offers section -->
                     <div class="row">
                         <div class="course-section clearfix">
-                            <div class="course-title"> {{leadershipdiamond.title}} </div>
+                            <div class="course-title"> {{coursesPrograms.title}} </div>
                             <!--                            <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>-->
                             <div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-sm-6 col-xs-12">
-                                <div class="course-title-container"> {{course.title}} </div>
-                                <div class="course-level-container ng-hide"> {{course.level}} </div>
-                                <div class="course-content-container"> {{course.content}} </div>
+                                <div class="course-card">
+                                    <div class="course-title-container"> {{course.title}} </div>
+                                    <div class="course-level-container ng-hide"> {{course.level}} </div>
+                                    <div class="course-content-container"> {{course.content}} </div>
+                                </div>
                             </div>
-                            <div class="course-btn">
-                                <a href="mailto: lars.beck-friis@accigo.se">
-                                    <button class="btn"> Kontakta oss! </button>
-                                </a>
+                            <div class="contact-form-placeholder">
+                                <div class="contact-form-title">
+                                    Är du intresserad? Fyll i formuläret nedan så återkommer vi!
+                                </div>
+                                <div ng-if="currentLanguage.name === 'English'">
+                                    <?php echo do_shortcode( '[contact-form-7 id="213" title="Contact form - English"]' );  ?>
+                                </div>
+                                <div ng-if="currentLanguage.name === 'Svenska'">
+                                    <?php echo do_shortcode( '[contact-form-7 id="214" title="Contact form - Svenska"]' );  ?>
+                                </div>
+                                <!--
+                                   <a href="mailto: lars.beck-friis@accigo.se">
+    <button class="btn"> Kontakta oss! </button>
+</a>
+-->
                             </div>
                         </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
                         <div class="shadow pos-1"></div> <img class="diamond pos-2" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />

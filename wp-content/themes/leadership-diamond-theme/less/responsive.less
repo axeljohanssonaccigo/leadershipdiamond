@@ -208,27 +208,6 @@
             }
         }
     }
-    section#course {
-        .row {
-            .course-section {
-                width: 100%;
-                .course-title {
-                    font-size: 34px;
-                    font-weight: bold;
-                }
-                .course-btn {
-                    .btn {
-                        width: 100%;
-                    }
-                }
-            }
-            .pos-1,
-            .pos-2,
-            .pos-3 {
-                display: none;
-            }
-        }
-    }
     .site-info,
     .content-area,
     .site-branding,
@@ -335,6 +314,18 @@
             }
         }
     }
+    //    section#course {
+    //        .row {
+    //            .course-section {
+    //                .course-title {}
+    //                .course-btn {
+    //                    .btn {
+    //                        width: 100%;
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
     section#course {
         position: relative;
         min-height: 1300px;
@@ -345,8 +336,8 @@
             width: 100%;
             .course-title {
                 text-transform: uppercase;
-                font-size: 72px;
-                color: white;
+                font-size: 34px;
+                font-weight: bold;
                 font-family: 'TCCEB';
                 text-align: center;
             }
@@ -357,18 +348,19 @@
             .course-container {
                 padding-bottom: 15px;
                 padding-top: 15px;
-                margin: 15px 0;
+                margin: 0;
+                .course-card {
+                    min-height: 100px;
+                }
             }
             .course-title-container {
                 text-transform: uppercase;
-                font-size: 36px;
-                color: white;
+                font-size: 22px;
                 font-family: 'TCCEB';
                 text-align: center;
             }
             .course-content-container {
                 text-align: justify;
-                color: white;
             }
             .course-btn {
                 display: inline-flex;
@@ -385,36 +377,41 @@
                     }
                 }
             }
-            .pos-1 {
-                width: 100px;
-                margin-left: auto;
-                margin-right: auto;
-                left: 0px;
-                right: 1000px;
-                top: 200px;
-                position: absolute;
-                opacity: 0.6;
-            }
-            .pos-2 {
-                width: 150px;
-                margin-left: auto;
-                margin-right: auto;
-                left: 1000px;
-                right: 0px;
-                top: 400px;
-                position: absolute;
-                opacity: 0.5;
-            }
+            .pos-1,
+            .pos-2,
             .pos-3 {
-                width: 50px;
-                margin-left: auto;
-                margin-right: auto;
-                left: 0px;
-                right: 840px;
-                top: 800px;
-                position: absolute;
-                opacity: 0.5;
+                display: none;
             }
+            //            .pos-1 {
+            //                width: 100px;
+            //                margin-left: auto;
+            //                margin-right: auto;
+            //                left: 0px;
+            //                right: 1000px;
+            //                top: 200px;
+            //                position: absolute;
+            //                opacity: 0.6;
+            //            }
+            //            .pos-2 {
+            //                width: 150px;
+            //                margin-left: auto;
+            //                margin-right: auto;
+            //                left: 1000px;
+            //                right: 0px;
+            //                top: 400px;
+            //                position: absolute;
+            //                opacity: 0.5;
+            //            }
+            //            .pos-3 {
+            //                width: 50px;
+            //                margin-left: auto;
+            //                margin-right: auto;
+            //                left: 0px;
+            //                right: 840px;
+            //                top: 800px;
+            //                position: absolute;
+            //                opacity: 0.5;
+            //            }
             .shadow {
                 height: 20px;
                 background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
@@ -462,7 +459,7 @@
             .diamond-section {
                 width: 100%;
                 margin: 0px auto;
-                padding: 20px 10px;
+                padding: 20px 0;
             }
             .diamond-about-text {
                 margin: 20px auto;

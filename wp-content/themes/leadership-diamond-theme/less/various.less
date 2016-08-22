@@ -169,6 +169,20 @@ h3 {
     }
 }
 
+.heading-btn {
+    background: url(img/noise2.png), radial-gradient(circle 175px at 50% 0%, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
+    position: absolute;
+    width: 80px !important;
+    height: 80px !important;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -40px;
+    vertical-align: initial;
+    line-height: 85px;
+    font-size: 40px;
+}
+
 
 /* SECTION & COLORS */
 
@@ -241,19 +255,6 @@ section#heading {
             }
         }
     }
-    .heading-btn {
-        background: url(img/noise2.png), radial-gradient(circle 175px at 50% 0%, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
-        position: absolute;
-        width: 80px;
-        height: 80px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        bottom: -40px;
-        vertical-align: initial;
-        line-height: 85px;
-        font-size: 40px;
-    }
 }
 
 section#graph {
@@ -325,7 +326,6 @@ section#course {
         .course-title {
             text-transform: uppercase;
             font-size: 72px;
-            color: white;
             font-family: 'TCCEB';
             text-align: center;
         }
@@ -336,18 +336,23 @@ section#course {
         .course-container {
             padding-bottom: 15px;
             padding-top: 15px;
-            margin: 15px 0;
+            margin: 0;
+            .course-card {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                color: #555;
+                min-height: 165px;
+            }
         }
         .course-title-container {
             text-transform: uppercase;
             font-size: 36px;
-            color: white;
             font-family: 'TCCEB';
             text-align: center;
         }
         .course-content-container {
             text-align: justify;
-            color: white;
         }
         .course-btn {
             display: inline-flex;
@@ -361,6 +366,21 @@ section#course {
                     background-color: white;
                     width: 360px;
                     height: 65px;
+                }
+            }
+        }
+        .contact-form-placeholder {
+            padding: 15px;
+            margin-top: 10px;
+            .contact-form-title {
+                margin-top: 100px;
+            }
+            form {
+                label {
+                    width: 100%;
+                }
+                input {
+                    width: 100%;
                 }
             }
         }
@@ -498,6 +518,12 @@ section#diamond {
                 height: 10px;
             }
         }
+    }
+}
+
+.read-more-button {
+    img {
+        max-height: 100%;
     }
 }
 

@@ -45,7 +45,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.leadershipOS = $scope.getTranslationByContent('leadershipOS');
         $scope.leadershipdiamond = $scope.getTranslationByContent('leadershipdiamond');
         $scope.nothingButApps = $scope.getTranslationByContent('nothingbutapps');
-        $scope.readMore = "Läs mer"; // $scope.getTranslationByContent('nothingbutapps');
+        $scope.readMore = $scope.getTranslationByContent('readmore');
         $scope.howToHandle = $scope.getTranslationByContent('howtohandle');
         $scope.close = $scope.getTranslationByContent('close');
         $scope.goToNextPost = $scope.getTranslationByContent('gotonextpost');
@@ -59,6 +59,8 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.groupNames = ["none", $scope.sweden.title, $scope.india.title];
         $scope.goToDiamond = $scope.getTranslationByContent('gotodiamond');
         $scope.firstExample = $scope.getTranslationByContent('firstexample');
+        $scope.coursesPrograms = $scope.getTranslationByContent('coursesprograms');
+        $scope.whyTheDiamond = $scope.getTranslationByContent('whythediamond');
         $scope.graphTexts = {
             "graph1": $scope.getTranslationByContent('graph1'),
             "graph2": $scope.getTranslationByContent('graph2'),
@@ -208,16 +210,17 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         console.log($scope.latestClickedPostId);
     };
 
-//    $scope.openNextQuestionPost = function (postIndex) {
-//        var nextPostIndex = postIndex + 1;
-//        var nextIsOpen = jQuery("#post-" + nextPostIndex + " .question-card .collapse").hasClass("in");
-//        //If the next question post is not open - open it. 
-//        if (!nextIsOpen) {
-//            $timeout(function () {
-//                jQuery("#post-" + nextPostIndex + " .panel-title a").click();
-//            }, 300);
-//        }
-//    };
+    $scope.openOrCloseQuestion = function (postIndex) {
+        //var postIsOpen = jQuery("#post-" + postIndex + " .question-card .collapse").hasClass("in");
+        jQuery("#post-" + nextPostIndex + " .panel-title a").click();
+        //If the next question post is not open - open it. 
+        //        if (!postIsOpen) {
+        //            $timeout(function () {
+        //                jQuery("#post-" + nextPostIndex + " .panel-title a").click();
+        //            }, 300);
+
+        //        }
+    };
     $scope.getAllTranslations();
     $scope.getAllCourses();
     $scope.goToElement = function (eID) {

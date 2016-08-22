@@ -496,6 +496,19 @@ h3 {
 .main-navigation ul li a:hover {
   color: white;
 }
+.heading-btn {
+  background: url(img/noise2.png), radial-gradient(circle 175px at 50% 0%, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
+  position: absolute;
+  width: 80px !important;
+  height: 80px !important;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: -40px;
+  vertical-align: initial;
+  line-height: 85px;
+  font-size: 40px;
+}
 /* SECTION & COLORS */
 section#heading {
   position: relative;
@@ -565,19 +578,6 @@ section#heading .row .shadow.pos-0 {
   width: 750px;
   z-index: 1001;
 }
-section#heading .heading-btn {
-  background: url(img/noise2.png), radial-gradient(circle 175px at 50% 0%, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  bottom: -40px;
-  vertical-align: initial;
-  line-height: 85px;
-  font-size: 40px;
-}
 section#graph {
   min-height: 400px;
 }
@@ -641,7 +641,6 @@ section#course .row {
 section#course .row .course-title {
   text-transform: uppercase;
   font-size: 72px;
-  color: white;
   font-family: 'TCCEB';
   text-align: center;
 }
@@ -652,18 +651,23 @@ section#course .row .course-section {
 section#course .row .course-container {
   padding-bottom: 15px;
   padding-top: 15px;
-  margin: 15px 0;
+  margin: 0;
+}
+section#course .row .course-container .course-card {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  color: #555;
+  min-height: 165px;
 }
 section#course .row .course-title-container {
   text-transform: uppercase;
   font-size: 36px;
-  color: white;
   font-family: 'TCCEB';
   text-align: center;
 }
 section#course .row .course-content-container {
   text-align: justify;
-  color: white;
 }
 section#course .row .course-btn {
   display: inline-flex;
@@ -679,6 +683,19 @@ section#course .row .course-btn a .btn {
   background-color: white;
   width: 360px;
   height: 65px;
+}
+section#course .row .contact-form-placeholder {
+  padding: 15px;
+  margin-top: 10px;
+}
+section#course .row .contact-form-placeholder .contact-form-title {
+  margin-top: 100px;
+}
+section#course .row .contact-form-placeholder form label {
+  width: 100%;
+}
+section#course .row .contact-form-placeholder form input {
+  width: 100%;
 }
 section#course .row .pos-1 {
   width: 100px;
@@ -811,6 +828,9 @@ section#diamond .row .shadow.pos-2 {
 section#diamond .row .shadow.pos-3 {
   top: 650px;
   height: 10px;
+}
+.read-more-button img {
+  max-height: 100%;
 }
 .post-icon {
   display: none;
@@ -1529,21 +1549,6 @@ footer ul li {
     top: 100px;
     height: 10px;
   }
-  section#course .row .course-section {
-    width: 100%;
-  }
-  section#course .row .course-section .course-title {
-    font-size: 34px;
-    font-weight: bold;
-  }
-  section#course .row .course-section .course-btn .btn {
-    width: 100%;
-  }
-  section#course .row .pos-1,
-  section#course .row .pos-2,
-  section#course .row .pos-3 {
-    display: none;
-  }
   .site-info,
   .content-area,
   .site-branding,
@@ -1660,8 +1665,8 @@ footer ul li {
   }
   section#course .row .course-title {
     text-transform: uppercase;
-    font-size: 72px;
-    color: white;
+    font-size: 34px;
+    font-weight: bold;
     font-family: 'TCCEB';
     text-align: center;
   }
@@ -1672,18 +1677,19 @@ footer ul li {
   section#course .row .course-container {
     padding-bottom: 15px;
     padding-top: 15px;
-    margin: 15px 0;
+    margin: 0;
+  }
+  section#course .row .course-container .course-card {
+    min-height: 100px;
   }
   section#course .row .course-title-container {
     text-transform: uppercase;
-    font-size: 36px;
-    color: white;
+    font-size: 22px;
     font-family: 'TCCEB';
     text-align: center;
   }
   section#course .row .course-content-container {
     text-align: justify;
-    color: white;
   }
   section#course .row .course-btn {
     display: inline-flex;
@@ -1700,35 +1706,10 @@ footer ul li {
     width: 350px;
     height: 65px;
   }
-  section#course .row .pos-1 {
-    width: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0px;
-    right: 1000px;
-    top: 200px;
-    position: absolute;
-    opacity: 0.6;
-  }
-  section#course .row .pos-2 {
-    width: 150px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 1000px;
-    right: 0px;
-    top: 400px;
-    position: absolute;
-    opacity: 0.5;
-  }
+  section#course .row .pos-1,
+  section#course .row .pos-2,
   section#course .row .pos-3 {
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0px;
-    right: 840px;
-    top: 800px;
-    position: absolute;
-    opacity: 0.5;
+    display: none;
   }
   section#course .row .shadow {
     height: 20px;
@@ -1777,7 +1758,7 @@ footer ul li {
   section#diamond .row .diamond-section {
     width: 100%;
     margin: 0px auto;
-    padding: 20px 10px;
+    padding: 20px 0;
   }
   section#diamond .row .diamond-about-text {
     margin: 20px auto;
