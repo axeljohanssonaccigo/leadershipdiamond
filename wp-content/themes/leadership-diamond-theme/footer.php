@@ -22,7 +22,7 @@ do_action( 'studio_after_content' );
                     <div class="row">
                         <div> </div>
                         <div class="col-xs-12 col-md-5 col-md-offset-1">
-                            <h3>{{contact.title}}</h3>
+                            <h3>Koestenbaum Institute</h3>
                             <ul>
                                 <li ng-repeat="entry in footerContent"> <a ng-if="entry.footerGroup == 1 && entry.link != '#'" href="{{entry.link}}" target="_blank">{{entry.title}}</a> <span ng-if="entry.footerGroup == 1 && entry.link == '#'">{{entry.title}}</span> </li>
                             </ul>
