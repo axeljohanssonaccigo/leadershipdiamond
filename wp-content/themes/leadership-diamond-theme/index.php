@@ -113,8 +113,8 @@
                                     </uib-accordion-heading>
                                     <?php the_content();?>
                                         <div class="btns">
-                                            <div class="next-btn-cont col-md-6" ng-show="<?php echo $post_index; ?> < <?php echo $posts_size; ?>"> <a class="btn next-btn btn-success waves-effect waves-light" href="#post-<?php echo $post_index+1; ?>" ng-click="openNextQuestionPost(<?php echo $post_index; ?>)">{{goToNextPost.title}} ▼</a> </div>
-                                            <div class="leader-btn-cont col-md-6" ng-class="{'col-md-offset-3': <?php echo $post_index; ?> == <?php echo $posts_size; ?>}"> <a class="btn leader-btn waves-effect waves-light" href="#diamond"> {{goToDiamond.title}}! ▼ </a> </div>
+                                            <div class="next-btn-cont col-md-6" ng-show="<?php echo $post_index; ?> < <?php echo $posts_size; ?>"> <a class="btn next-btn btn-success waves-effect waves-light" href="#post-<?php echo $post_index+1; ?>">{{goToNextPost.title}} ▼</a> </div>
+                                            <div class="leader-btn-cont col-md-6" ng-class="{'col-md-offset-3': <?php echo $post_index; ?> == <?php echo $posts_size; ?>}"> <a class="btn leader-btn waves-effect waves-light" href="#diamond" ng-click="setLatestClickedPostId('post-<?php echo $post_index; ?>')"> {{goToDiamond.title}}! ▼ </a> </div>
                                         </div>
                                 </uib-accordion-group>
                                 <?php } // end while
@@ -131,6 +131,7 @@
                             <div class="question-card ">
                                 <div class="diamond-title"> {{leadershipdiamond.title}} </div>
                                 <div class="diamond-about-text col-md-12"> <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>
+                                <div class="leader-btn-cont col-xs-12 col-md-offset-3 col-md-6" ng-show="aQuestionWasClicked"> <a class="btn leader-btn waves-effect waves-light" href="#{{latestClickedPostId}}"> Tillbaka till senaste frågan </a> </div>
                             </div>
                         </div>
                     </div>
