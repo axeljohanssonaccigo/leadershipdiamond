@@ -629,6 +629,9 @@ section#course .row .course-container {
   padding-top: 15px;
   margin: 0;
 }
+section#course .row .course-container .push-down {
+  margin-bottom: 20px;
+}
 section#course .row .course-container .course-card {
   background-color: #fff;
   border-radius: 5px;
@@ -665,7 +668,9 @@ section#course .row .contact-form-placeholder {
   margin-top: 10px;
 }
 section#course .row .contact-form-placeholder .contact-form-title {
-  margin-top: 100px;
+  font-size: 20px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 section#course .row .contact-form-placeholder form label {
   width: 100%;
