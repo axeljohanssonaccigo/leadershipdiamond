@@ -598,6 +598,30 @@ section#graph .row .btn {
   height: 65px;
   line-height: 65px;
 }
+section#graph .row .graph-wheel {
+  display: block;
+  margin: auto;
+}
+section#graph .row .heading-btn {
+  background: url(img/noise2.png), radial-gradient(circle 175px at 50% -10%, #757575 0%, #707070 14%, #000000 100%);
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: -95px;
+  vertical-align: initial;
+  line-height: 85px;
+  font-size: 40px;
+}
+section#question .heading {
+  height: auto;
+  padding: 80px;
+}
+section#question .heading h1 {
+  margin: 0;
+}
 section#course {
   position: relative;
   min-height: 1000px;
