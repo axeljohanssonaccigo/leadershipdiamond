@@ -293,7 +293,8 @@ section#graph {
             line-height: 85px;
             font-size: 40px;
         }
-        .col-md-7, .col-md-6 {
+        .col-md-7,
+        .col-md-6 {
             height: 245px;
             display: flex;
             flex-direction: column;
@@ -347,58 +348,115 @@ section#diamond {
         .diamond-section {
             width: 960px;
             margin: 50px auto;
-        }
-        .diamond-about-text {
-            margin: 20px auto;
-            width: 720px;
-            text-align: justify;
-            float: none !important;
-        }
-        .pos-1 {
-            width: 100px;
-            margin-left: auto;
-            margin-right: auto;
-            left: 0px;
-            right: 1000px;
-            top: 200px;
-            position: absolute;
-            opacity: 0.6;
-        }
-        .pos-2 {
-            width: 150px;
-            margin-left: auto;
-            margin-right: auto;
-            left: 1000px;
-            right: 0px;
-            top: 400px;
-            position: absolute;
-            opacity: 0.5;
-        }
-        .pos-3 {
-            width: 50px;
-            margin-left: auto;
-            margin-right: auto;
-            left: 0px;
-            right: 840px;
-            top: 600px;
-            position: absolute;
-            opacity: 0.5;
-        }
-        .shadow {
-            height: 20px;
-            background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
-            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
-            -webkit-transition-duration: .5s;
-            transition-duration: .5s;
-            &.pos-1 {
-                top: 300px;
+            .course-section {
+                width: 720px;
+                margin: 50px auto 350px;
             }
-            &.pos-2 {
-                top: 550px;
+            .course-container {
+                padding-bottom: 15px;
+                padding-top: 15px;
+                margin: 0;
+                .push-down {
+                    margin-bottom: 20px;
+                }
+                .course-card {
+                    background-color: #fff;
+                    border-radius: 5px;
+                    padding: 15px;
+                    color: #555;
+                    min-height: 165px;
+                }
             }
-            &.pos-3 {
-                top: 650px;
-                height: 10px;
+            .course-title-container {
+                text-transform: uppercase;
+                font-size: 36px;
+                font-family: 'TCCEB';
+                text-align: center;
+            }
+            .diamond-about-text {
+                margin: 20px auto;
+                width: 720px;
+                text-align: justify;
+                float: none !important;
+            }
+            .course-btn {
+                display: inline-flex;
+                margin: 50px 0 50px;
+                width: 100%;
+                a {
+                    margin: 0 auto;
+                    .btn {
+                        font-size: 30px;
+                        color: #0fb3f2;
+                        background-color: white;
+                        width: 360px;
+                        height: 65px;
+                    }
+                }
+            }
+            .contact-form-placeholder {
+                padding: 15px;
+                margin-top: 10px;
+                .contact-form-title {
+                    font-size: 20px;
+                    margin-bottom: 15px;
+                    text-align: center;
+                }
+                form {
+                    label {
+                        width: 100%;
+                    }
+                    input {
+                        width: 100%;
+                    }
+                }
+            }
+            .pos-1 {
+                width: 100px;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0px;
+                right: 1000px;
+                top: 200px;
+                position: absolute;
+                opacity: 0.6;
+            }
+            .pos-2 {
+                width: 150px;
+                margin-left: auto;
+                margin-right: auto;
+                left: 1000px;
+                right: 0px;
+                top: 400px;
+                position: absolute;
+                opacity: 0.5;
+            }
+            .pos-3 {
+                width: 50px;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0px;
+                right: 840px;
+                top: 600px;
+                position: absolute;
+                opacity: 0.5;
+            }
+            .shadow {
+                height: 20px;
+                background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+                background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
+                -webkit-transition-duration: .5s;
+                transition-duration: .5s;
+                &.pos-1 {
+                    top: 300px;
+                }
+                &.pos-2 {
+                    top: 550px;
+                }
+                &.pos-3 {
+                    top: 650px;
+                    height: 10px;
+                }
             }
         }
     }

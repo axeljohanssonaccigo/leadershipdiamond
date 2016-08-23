@@ -672,13 +672,68 @@ section#diamond .row .diamond-section {
   width: 960px;
   margin: 50px auto;
 }
-section#diamond .row .diamond-about-text {
+section#diamond .row .diamond-section .course-section {
+  width: 720px;
+  margin: 50px auto 350px;
+}
+section#diamond .row .diamond-section .course-container {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  margin: 0;
+}
+section#diamond .row .diamond-section .course-container .push-down {
+  margin-bottom: 20px;
+}
+section#diamond .row .diamond-section .course-container .course-card {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  color: #555;
+  min-height: 165px;
+}
+section#diamond .row .diamond-section .course-title-container {
+  text-transform: uppercase;
+  font-size: 36px;
+  font-family: 'TCCEB';
+  text-align: center;
+}
+section#diamond .row .diamond-section .diamond-about-text {
   margin: 20px auto;
   width: 720px;
   text-align: justify;
   float: none !important;
 }
-section#diamond .row .pos-1 {
+section#diamond .row .diamond-section .course-btn {
+  display: inline-flex;
+  margin: 50px 0 50px;
+  width: 100%;
+}
+section#diamond .row .diamond-section .course-btn a {
+  margin: 0 auto;
+}
+section#diamond .row .diamond-section .course-btn a .btn {
+  font-size: 30px;
+  color: #0fb3f2;
+  background-color: white;
+  width: 360px;
+  height: 65px;
+}
+section#diamond .row .diamond-section .contact-form-placeholder {
+  padding: 15px;
+  margin-top: 10px;
+}
+section#diamond .row .diamond-section .contact-form-placeholder .contact-form-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+section#diamond .row .diamond-section .contact-form-placeholder form label {
+  width: 100%;
+}
+section#diamond .row .diamond-section .contact-form-placeholder form input {
+  width: 100%;
+}
+section#diamond .row .diamond-section .pos-1 {
   width: 100px;
   margin-left: auto;
   margin-right: auto;
@@ -688,7 +743,7 @@ section#diamond .row .pos-1 {
   position: absolute;
   opacity: 0.6;
 }
-section#diamond .row .pos-2 {
+section#diamond .row .diamond-section .pos-2 {
   width: 150px;
   margin-left: auto;
   margin-right: auto;
@@ -698,7 +753,7 @@ section#diamond .row .pos-2 {
   position: absolute;
   opacity: 0.5;
 }
-section#diamond .row .pos-3 {
+section#diamond .row .diamond-section .pos-3 {
   width: 50px;
   margin-left: auto;
   margin-right: auto;
@@ -708,20 +763,20 @@ section#diamond .row .pos-3 {
   position: absolute;
   opacity: 0.5;
 }
-section#diamond .row .shadow {
+section#diamond .row .diamond-section .shadow {
   height: 20px;
   background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0, rgba(0, 0, 0, 0) 80%);
   -webkit-transition-duration: .5s;
   transition-duration: .5s;
 }
-section#diamond .row .shadow.pos-1 {
+section#diamond .row .diamond-section .shadow.pos-1 {
   top: 300px;
 }
-section#diamond .row .shadow.pos-2 {
+section#diamond .row .diamond-section .shadow.pos-2 {
   top: 550px;
 }
-section#diamond .row .shadow.pos-3 {
+section#diamond .row .diamond-section .shadow.pos-3 {
   top: 650px;
   height: 10px;
 }

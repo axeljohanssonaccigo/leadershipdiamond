@@ -148,7 +148,7 @@
                             <div class="course-title"> {{coursesPrograms.title}} </div>
                             <!--                            <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>-->
                             <div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-sm-6 col-xs-12">
-                                <div class="course-card">
+                                <div class="course-card" ng-class="{'push-down': $last}">
                                     <div class="course-title-container"> {{course.title}} </div>
                                     <div class="course-level-container ng-hide"> {{course.level}} </div>
                                     <div class="course-content-container"> {{course.content}} </div>
