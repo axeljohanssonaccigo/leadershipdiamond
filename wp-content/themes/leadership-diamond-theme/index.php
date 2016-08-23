@@ -72,36 +72,33 @@
                                 <div class="row">
                                     <div class="col-md-5 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1-NEW.svg" /> </div>
                                     <div class="col-md-7 col-xs-12">
-                                        <div class="number">Din verksamhet kommer att dö!</div><span class="graph-text"> {{graphTexts.graph1.title}} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus vestibulum velit sed gravida. Aenean vulputate iaculis purus id aliquam. Duis porttitor vitae nunc vitae interdum. Pellentesque eu feugiat diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent hendrerit dui nec turpis sollicitudin consequat. Fusce commodo nunc odio, id suscipit ante tristique id. Duis blandit ante et imperdiet lacinia. In hac habitasse platea dictumst. Fusce imperdiet ultricies sapien eget tincidunt. Morbi lorem quam, porta vitae enim eu, consequat ultricies magna. Nullam quis nisi sem. Cras cursus eros sit amet magna consequat interdum.</span> </div>
+                                        <div class="number"> {{graphTexts.graph1.title}}</div>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-5 col-xs-12 float-right no-float-mobile"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2-NEW.svg"> </div>
                                     <div class="col-md-7 col-xs-12">
-                                        <div class="number">Du räddar företaget, för studen...</div><span class="graph-text">{{graphTexts.graph2.title}}
-                                    
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus vestibulum velit sed gravida. Aenean vulputate iaculis purus id aliquam. Duis porttitor vitae nunc vitae interdum. Pellentesque eu feugiat diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent hendrerit dui nec turpis sollicitudin consequat. Fusce commodo nunc odio, id suscipit ante tristique id. Duis blandit ante et imperdiet lacinia. In hac habitasse platea dictumst. Fusce imperdiet ultricies sapien eget tincidunt. Morbi lorem quam, porta vitae enim eu, consequat ultricies magna. Nullam quis nisi sem. Cras cursus eros sit amet magna consequat interdum.</span> </div>
+                                        <div class="number">{{graphTexts.graph2.title}}</div>
+                                    </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3-NEW.svg"> </div>
+                                    <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3-NEW2.svg"> </div>
                                     <div class="col-md-6 col-xs-12">
-                                        <div class="number">Gör rätt val vid brytpunkten!</div><span class="graph-text"> {{graphTexts.graph3.title}} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus vestibulum velit sed gravida. Aenean vulputate iaculis purus id aliquam. Duis porttitor vitae nunc vitae interdum. Pellentesque eu feugiat diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent hendrerit dui nec turpis sollicitudin consequat. Fusce commodo nunc odio, id suscipit ante tristique id. Duis blandit ante et imperdiet lacinia. In hac habitasse platea dictumst. Fusce imperdiet ultricies sapien eget tincidunt. Morbi lorem quam, porta vitae enim eu, consequat ultricies magna. Nullam quis nisi sem. Cras cursus eros sit amet magna consequat interdum.</span> </div>
+                                        <div class="number">{{graphTexts.graph3.title}}</div>
+                                    </div>
                                 </div>
                             </div>
-                            
-                             <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW.svg"> </div> 
-                             <!--
-                            <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.title}}</a> </div>-->
-                            <a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> 
-                        </div>
+                            <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW.svg"> </div>
+                            <!--
+                            <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.title}}</a> </div>--><a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
                     </div>
                 </section>
                 <!-- Graph section -->
                 <section id="question">
                     <!-- Post section -->
                     <div class="row">
-                      <div class="heading">
-                       <h1>De vanligaste problemen!</h1>
-                       </div>
+                        <div class="heading">
+                            <h1>De vanligaste problemen!</h1> </div>
                         <uib-accordion close-others="oneAtATime">
                             <?php 
                             query_posts('&meta_key=wpcf-index&orderby=meta_value&order=ASC');
@@ -116,12 +113,10 @@
                                 </script>
                                 <uib-accordion-group id="post-<?php echo $post_index; ?>" class="page-scroll">
                                     <uib-accordion-heading>
-                                        <?php the_title(); ?>
-                                            <button class="btn read-more-button" type="button">
+                                        <?php the_title(); ?> <a class="read-more-button" type="button">
                                                 {{readMore.title}}
                                                 <img src="../wp-content/themes/leadership-diamond-theme/img/magnifier-book.svg" />
-                                            </button>
-                                    </uib-accordion-heading>
+                                            </a> </uib-accordion-heading>
                                     <?php the_content();?>
                                         <div class="btns">
                                             <div class="next-btn-cont col-md-6" ng-show="<?php echo $post_index; ?> < <?php echo $posts_size; ?>"> <a class="btn next-btn btn-success waves-effect waves-light" href="#post-<?php echo $post_index+1; ?>">{{goToNextPost.title}} ▼</a> </div>
@@ -145,8 +140,7 @@
                                 <div class="leader-btn-cont col-xs-12 col-md-offset-3 col-md-6" ng-show="aQuestionWasClicked"> <a class="btn leader-btn waves-effect waves-light" href="#{{latestClickedPostId}}"> Tillbaka till senaste frågan </a> </div>
                             </div>
                         </div>
-                    </div>
-                    <a href="#course" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a></section>
+                    </div> <a href="#course" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a></section>
                 <section id="course">
                     <!-- Course offers section -->
                     <div class="row">
@@ -161,9 +155,7 @@
                                 </div>
                             </div>
                             <div class="contact-form-placeholder">
-                                <div class="contact-form-title">
-                                    Är du intresserad? Fyll i formuläret nedan så återkommer vi!
-                                </div>
+                                <div class="contact-form-title"> Är du intresserad? Fyll i formuläret nedan så återkommer vi! </div>
                                 <div ng-if="currentLanguage.name === 'English'">
                                     <?php echo do_shortcode( '[contact-form-7 id="213" title="Contact form - English"]' );  ?>
                                 </div>
@@ -174,8 +166,7 @@
                                    <a href="mailto: lars.beck-friis@accigo.se">
     <button class="btn"> Kontakta oss! </button>
 </a>
--->
-                            </div>
+--></div>
                         </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
                         <div class="shadow pos-1"></div> <img class="diamond pos-2" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
                         <div class="shadow pos-2"></div> <img class="diamond pos-3" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
