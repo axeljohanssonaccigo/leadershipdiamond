@@ -57,10 +57,11 @@ h3 {
 }
 
 .number {
-    font-size: 32px;
+    font-size: 40px;
     font-family: 'TCCEB';
-    line-height: 1.1em;
+    line-height: 1.0em;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .graph-text {
@@ -215,7 +216,7 @@ section#heading {
                 font-size: 102px;
                 line-height: 1.1;
                 span {
-                    font-size: 30px;
+                    font-size: 40px;
                     vertical-align: super;
                     top: 60px;
                     position: absolute;
@@ -267,6 +268,9 @@ section#graph {
             //width: 720px;
             margin: 20px auto 0px;
             text-align: justify;
+            h1 {
+                margin: 60px 0px;
+            }
         }
         .btn {
             font-size: 30px;
@@ -348,69 +352,17 @@ section#diamond {
         }
         .diamond-section {
             width: 960px;
-            margin: 50px auto;
-            .course-section {
-                width: 720px;
-                margin: 50px auto 350px;
-            }
-            .course-container {
-                padding-bottom: 15px;
-                padding-top: 15px;
-                margin: 0;
-                .push-down {
-                    margin-bottom: 20px;
-                }
-                .course-card {
-                    background-color: #fff;
-                    border-radius: 5px;
-                    padding: 15px;
-                    color: #555;
-                    min-height: 165px;
-                }
-            }
-            .course-title-container {
-                text-transform: uppercase;
-                font-size: 36px;
-                font-family: 'TCCEB';
-                text-align: center;
+            margin: 50px auto 80px;
+            .leader-btn {
+                background: url(img/noise2.png), radial-gradient(circle 400px at 50% 10%, #777777 0%, #444444 50%, #333333 100%) !important;
+                font-size: 19px;
+                color: white;
             }
             .diamond-about-text {
                 margin: 20px auto;
-                width: 720px;
+                max-width: 720px;
                 text-align: justify;
                 float: none !important;
-            }
-            .course-btn {
-                display: inline-flex;
-                margin: 50px 0 50px;
-                width: 100%;
-                a {
-                    margin: 0 auto;
-                    .btn {
-                        font-size: 30px;
-                        color: #0fb3f2;
-                        background-color: white;
-                        width: 360px;
-                        height: 65px;
-                    }
-                }
-            }
-            .contact-form-placeholder {
-                padding: 15px;
-                margin-top: 10px;
-                .contact-form-title {
-                    font-size: 20px;
-                    margin-bottom: 15px;
-                    text-align: center;
-                }
-                form {
-                    label {
-                        width: 100%;
-                    }
-                    input {
-                        width: 100%;
-                    }
-                }
             }
             .pos-1 {
                 width: 100px;
@@ -478,37 +430,20 @@ section#course {
     .row {
         display: flex;
         width: 100%;
-        .course-title {
-            text-transform: uppercase;
-            font-size: 72px;
-            font-family: 'TCCEB';
-            text-align: center;
-            margin: 10px 0px;
-        }
-        .course-section {
-            width: 720px;
-            margin: 50px auto 350px;
-        }
         .course-container {
             padding-bottom: 15px;
             padding-top: 15px;
             margin: 0;
+            .push-down {
+                margin-bottom: 20px;
+            }
             .course-card {
                 background-color: #fff;
                 border-radius: 5px;
                 padding: 30px;
                 color: #555;
-                min-height: 255px;
+                min-height: 250px;
             }
-        }
-        .course-title-container {
-            text-transform: uppercase;
-            font-size: 36px;
-            font-family: 'TCCEB';
-            text-align: center;
-        }
-        .course-content-container {
-            text-align: justify;
         }
         .course-btn {
             display: inline-flex;
@@ -525,11 +460,34 @@ section#course {
                 }
             }
         }
+        .course-title {
+            text-transform: uppercase;
+            font-size: 72px;
+            font-family: 'TCCEB';
+            text-align: center;
+            margin: 10px 0px;
+        }
+        .course-section {
+            width: 720px;
+            margin: 80px auto 350px;
+        }
+        .course-title-container {
+            text-transform: uppercase;
+            font-size: 36px;
+            font-family: 'TCCEB';
+            text-align: center;
+        }
+        .course-content-container {
+            text-align: justify;
+        }
         .contact-form-placeholder {
             padding: 15px;
             margin-top: 10px;
             .contact-form-title {
                 margin-top: 100px;
+                text-align: center;
+                padding: 40px 0px;
+                font-weight: 100;
             }
             form {
                 label {
@@ -537,8 +495,54 @@ section#course {
                 }
                 input {
                     width: 100%;
+                    margin: 0px 0px 15px;
+                }
+                p {
+                    margin-bottom: 15px;
+                }
+                .wpcf7-submit {
+                    background: url(img/noise2.png), radial-gradient(circle 600px at 50% 0%, #36a6f9 0%, #1298ff 14%, #002b76 100%);
+                    width: 100%;
+                    height: auto;
+                    font-size: 24px;
+                    font-weight: 100;
+                    .waves-button-input {
+                        margin: 0;
+                        font-weight: 100;
+                    }
+                }
+                div.wpcf7-mail-sent-ng {
+                    border: 3px solid #E91E63;
+                    border-radius: 3px;
+                    padding: 20px;
+                    text-align: center;
+                    margin: 15px;
+                    color: #E91E63;
+                    font-weight: bold;
+                }
+                span.wpcf7-not-valid-tip {
+                    border: 3px solid #E91E63;
+                    border-radius: 3px;
+                    padding: 5px;
+                    text-align: center;
+                    margin: -5px 0 30px;
+                    color: #E91E63;
+                    font-weight: bold;
+                }
+                div.wpcf7-validation-errors {
+                    border: 3px solid #FFEB3B;
+                    color: #FFEB3B;
+                    border-radius: 3px;
+                    padding: 20px;
+                    text-align: center;
+                    margin: 15px;
+                    font-weight: bold;
                 }
             }
+        }
+        .wpcf7-form-control {
+            border: 0px solid rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
         }
         .pos-1 {
             width: 100px;
@@ -976,8 +980,8 @@ button {
 
 footer {
     &.site-footer {
-        min-height: 290px;
-        margin-top: -325px;
+        min-height: 360px;
+        margin-top: -360px;
         position: absolute;
         background-color: rgba(54, 45, 57, 0.4);
         color: #fff;
@@ -1183,4 +1187,8 @@ footer {
     a {
         color: white !important;
     }
+}
+
+.nav-active{
+    color: red !important;
 }

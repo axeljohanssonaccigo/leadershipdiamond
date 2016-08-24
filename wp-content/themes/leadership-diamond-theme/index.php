@@ -115,7 +115,7 @@
                                     <uib-accordion-heading>
                                         <?php the_title(); ?>
 
-                                            <a class="read-more-button" type="button">
+                                            <a class="read-more-button display-none-mobile" type="button">
                                                 {{readMore.content}}
                                                 <img src="../wp-content/themes/leadership-diamond-theme/img/magnifier-book.svg" />
                                             </a>
@@ -159,18 +159,14 @@
                                 </div>
                             </div>
                             <div class="contact-form-placeholder">
-                                <div class="contact-form-title"> Är du intresserad? Fyll i formuläret nedan så återkommer vi! </div>
+                                <h3 class="contact-form-title"> Är du intresserad? <br>Fyll i formuläret nedan så återkommer vi! </h3>
                                 <div ng-if="currentLanguage.name === 'English'">
                                     <?php echo do_shortcode( '[contact-form-7 id="213" title="Contact form - English"]' );  ?>
                                 </div>
                                 <div ng-if="currentLanguage.name === 'Svenska'">
                                     <?php echo do_shortcode( '[contact-form-7 id="214" title="Contact form - Svenska"]' );  ?>
                                 </div>
-                                <!--
-                                   <a href="mailto: lars.beck-friis@accigo.se">
-    <button class="btn"> Kontakta oss! </button>
-</a>
---></div>
+                                </div>
                         </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
                         <div class="shadow pos-1"></div> <img class="diamond pos-2" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
                         <div class="shadow pos-2"></div> <img class="diamond pos-3" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
