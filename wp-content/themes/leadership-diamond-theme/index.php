@@ -98,7 +98,7 @@
                     <!-- Post section -->
                     <div class="row">
                         <div class="heading">
-                            <h1>De vanligaste problemen!</h1> </div>
+                            <h1>{{commonProblems.content}}</h1> </div>
                         <uib-accordion close-others="oneAtATime">
                             <?php 
                             query_posts('&meta_key=wpcf-index&orderby=meta_value&order=ASC');
@@ -112,19 +112,10 @@
                                 <uib-accordion-group id="post-<?php echo $post_index; ?>" class="page-scroll">
                                     <uib-accordion-heading>
                                         <?php the_title(); ?>
-
                                             <div class="read-more-button display-none-mobile">
                                                 {{readMore.content}}
                                                 <img src="../wp-content/themes/leadership-diamond-theme/img/magnifier-book.svg" />
                                             </div>
-                                            <!--
-                                            <a class="read-more-button display-none-mobile" type="button">
-                                                {{readMore.content}}
-                                                <img src="../wp-content/themes/leadership-diamond-theme/img/magnifier-book.svg" />
-                                            </a>
--->
-
-
                                     </uib-accordion-heading>
                                     <?php the_content();?>
                                         <div class="btns">

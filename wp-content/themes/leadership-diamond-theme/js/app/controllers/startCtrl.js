@@ -61,6 +61,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.firstExample = $scope.getTranslationByTitle('firstexample');
         $scope.coursesPrograms = $scope.getTranslationByTitle('coursesprograms');
         $scope.whyTheDiamond = $scope.getTranslationByTitle('whythediamond');
+        $scope.commonProblems = $scope.getTranslationByTitle('commonproblems');
         $scope.graphTexts = {
             "graph1": $scope.getTranslationByTitle('graph1'),
             "graph2": $scope.getTranslationByTitle('graph2'),
@@ -117,10 +118,15 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     };
     $scope.prettyfyTranslations = function (translations) {
         angular.forEach(translations, function (post) {
+
             var transObject = {
-                id: post.id,
-                content: $scope.trimPostContent(post.content),
-                title: post.title
+                    id: post.id,
+                    content: post.content,
+                    title: post.title
+                }
+                //Special case for content about diamond - needs html tags
+            if (transObject.title !== "diamondabouttext") {
+                transObject.content = $scope.trimPostContent(transObject.content)
             }
 
             if ('wpcf-extra-content' in post.custom_fields) {
