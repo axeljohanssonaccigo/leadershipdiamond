@@ -27,6 +27,7 @@
 	do_action( 'studio_before_wp_head' );
 
 	wp_head(); ?>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
     </head>
 
     <body <?php body_class(); ?> >

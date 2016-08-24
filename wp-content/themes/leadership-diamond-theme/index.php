@@ -114,20 +114,25 @@ Aliquam et euismod elit. Ut arcu mi, malesuada sed ullamcorper ac, sodales in ma
                                 if ( have_posts() ) {
                                     while ( have_posts() ) {
                                         the_post();
-
+                                        $post_index = get_post_meta($post->ID,'wpcf-index',true);
+                                        $posts_size = sizeof($posts);
                                         ?>
-                                <script type="text/javascript">
-                                    <?php $post_index = get_post_meta($post->ID,'wpcf-index',true); ?>
-                                    <?php $posts_size = sizeof($posts); ?>;
-                                </script>
+
                                 <uib-accordion-group id="post-<?php echo $post_index; ?>" class="page-scroll">
                                     <uib-accordion-heading>
                                         <?php the_title(); ?>
 
+                                            <div class="read-more-button display-none-mobile">
+                                                {{readMore.content}}
+                                                <img src="../wp-content/themes/leadership-diamond-theme/img/magnifier-book.svg" />
+                                            </div>
+                                            <!--
                                             <a class="read-more-button display-none-mobile" type="button">
                                                 {{readMore.content}}
                                                 <img src="../wp-content/themes/leadership-diamond-theme/img/magnifier-book.svg" />
                                             </a>
+-->
+
 
                                     </uib-accordion-heading>
                                     <?php the_content();?>
@@ -175,7 +180,7 @@ Aliquam et euismod elit. Ut arcu mi, malesuada sed ullamcorper ac, sodales in ma
                                 <div ng-if="currentLanguage.name === 'Svenska'">
                                     <?php echo do_shortcode( '[contact-form-7 id="214" title="Contact form - Svenska"]' );  ?>
                                 </div>
-                                </div>
+                            </div>
                         </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
                         <div class="shadow pos-1"></div> <img class="diamond pos-2" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
                         <div class="shadow pos-2"></div> <img class="diamond pos-3" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />

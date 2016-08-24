@@ -96,21 +96,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.trimPostContent = function (content) {
         return content.replace(/<\/?[^>]+(>|$)/g, "").replace(/(\r\n|\n|\r)/gm, " ").replace("&#038;", "\u0026").trim();
     };
-    //    $scope.defineQuestionPostObjects = function () {
-    //        var count = 1;
-    //        angular.forEach($scope.allQuestionPosts, function (post) {
-    //            post["showDescription"] = false;
-    //            post["inFocus"] = false;
-    //            post["index"] = parseInt(post['custom_fields']['wpcf-index'][0]);
-    //            post["solution"] = (post['custom_fields']['wpcf-answer'][0]);
-    //            post["isRead"] = false;
-    //            post.content = $scope.trimPostContent(post.content);
-    //            if (count === $scope.allQuestionPosts.length) {
-    //                $scope.isLoaded.questionPosts = true;
-    //            };
-    //            count++;
-    //        });
-    //    };
+
     $scope.getFooterSubGroupName = function (groupId) {
         groupName = "";
         switch (groupId) {
@@ -136,7 +122,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
                 content: $scope.trimPostContent(post.content),
                 title: post.title
             }
-            
+
             if ('wpcf-extra-content' in post.custom_fields) {
                 transObject["extraContent"] = post.custom_fields['wpcf-extra-content'][0];
             };
@@ -206,22 +192,20 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     };
 
     $scope.setLatestClickedPostId = function (postId) {
-        $scope.aQuestionWasClicked = true;
-        $scope.latestClickedPostId = postId;
-        console.log($scope.latestClickedPostId);
+        //Don't show the go back to latest question button in ie - because that browser only understands about 50% of the code u write 
+        if (document.documentMode === undefined) {
+            $scope.aQuestionWasClicked = true;
+            $scope.latestClickedPostId = postId;
+        }
+
     };
 
-    $scope.openOrCloseQuestion = function (postIndex) {
-        //var postIsOpen = jQuery("#post-" + postIndex + " .question-card .collapse").hasClass("in");
-        jQuery("#post-" + nextPostIndex + " .panel-title a").click();
-        //If the next question post is not open - open it. 
-        //        if (!postIsOpen) {
-        //            $timeout(function () {
-        //                jQuery("#post-" + nextPostIndex + " .panel-title a").click();
-        //            }, 300);
-
-        //        }
-    };
+    //    $scope.openOrCloseQuestion = function (postIndex) {
+    //        //var postIsOpen = jQuery("#post-" + postIndex + " .question-card .collapse").hasClass("in");
+    //        $timeout(function () {
+    //            jQuery("#post-" + postIndex + " .panel-title a").click();
+    //        }, 10);
+    //    };
     $scope.getAllTranslations();
     $scope.getAllCourses();
     $scope.goToElement = function (eID) {

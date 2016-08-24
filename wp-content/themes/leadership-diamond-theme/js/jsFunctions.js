@@ -9,44 +9,48 @@ var closeMenu = function () {
 //jQuery( "div:contains('Ledarskapsdiamanten')").after("<span style='font-size: 0.5em; vertical-align: super;'>®</span>" );
 //STOPS SCROLL WEH ACTION IS MADE
 var page = jQuery("html, body");
+
 page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function () {
-    page.stop();
+    if (document.documentMode === undefined) {
+        page.stop();
+    }
 });
 
-    /**
-     * This part handles the highlighting functionality.
-     * We use the scroll functionality again, some array creation and 
-     * manipulation, class adding and class removing, and conditional testing
-     */
-    var aChildren = jQuery("nav#site-navigation li").children(); // find the a children of the list items
-    var aArray = []; // create the empty aArray
-    for (var i=0; i < aChildren.length; i++) {    
-        var aChild = aChildren[i];
-        var ahref = jQuery(aChild).attr('href');
-        aArray.push(ahref);
-    } // this for loop fills the aArray with attribute href values
 
-    jQuery(window).scroll(function(){
-        var windowPos = jQuery(window).scrollTop(); // get the offset of the window from the top of page
-        var windowHeight = jQuery(window).height(); // get the height of the window
-        var docHeight = jQuery(document).height();
+/**
+ * This part handles the highlighting functionality.
+ * We use the scroll functionality again, some array creation and 
+ * manipulation, class adding and class removing, and conditional testing
+ */
+var aChildren = jQuery("nav li").children(); // find the a children of the list items
+var aArray = []; // create the empty aArray
+for (var i = 0; i < aChildren.length; i++) {
+    var aChild = aChildren[i];
+    var ahref = jQuery(aChild).attr('href');
+    aArray.push(ahref);
+} // this for loop fills the aArray with attribute href values
 
-        for (var i=0; i < aArray.length; i++) {
-            var theID = aArray[i];
-            var divPos = jQuery(theID).offset().top; // get the offset of the div from the top of page
-            var divHeight = jQuery(theID).height(); // get the height of the div in question
-            if ((windowPos +60) >= divPos && (windowPos + 60) < (divPos + divHeight)) {
-                jQuery("nav#site-navigation a[href='" + theID + "']").addClass("nav-active");
-            } else {
-                jQuery("nav#site-navigation a[href='" + theID + "']").removeClass("nav-active");
-            }
+jQuery(window).scroll(function () {
+    var windowPos = jQuery(window).scrollTop(); // get the offset of the window from the top of page
+    var windowHeight = jQuery(window).height(); // get the height of the window
+    var docHeight = jQuery(document).height();
+
+    for (var i = 0; i < aArray.length; i++) {
+        var theID = aArray[i];
+        var divPos = jQuery(theID).offset().top; // get the offset of the div from the top of page
+        var divHeight = jQuery(theID).height(); // get the height of the div in question
+        if (windowPos >= divPos && windowPos < (divPos + divHeight)) {
+            jQuery("a[href='" + theID + "']").addClass("nav-active");
+        } else {
+            jQuery("a[href='" + theID + "']").removeClass("nav-active");
         }
+    }
 
-        if(windowPos + windowHeight == docHeight) {
-            if (!jQuery("nav#site-navigation li:last-child a").hasClass("nav-active")) {
-                var navActiveCurrent = jQuery(".nav-active").attr("href");
-                jQuery("nav#site-navigation a[href='" + navActiveCurrent + "']").removeClass("nav-active");
-                jQuery("nav#site-navigation li:last-child a").addClass("nav-active");
-            }
+    if (windowPos + windowHeight == docHeight) {
+        if (!jQuery("nav li:last-child a").hasClass("nav-active")) {
+            var navActiveCurrent = jQuery(".nav-active").attr("href");
+            jQuery("a[href='" + navActiveCurrent + "']").removeClass("nav-active");
+            jQuery("nav li:last-child a").addClass("nav-active");
         }
-    });
+    }
+});
