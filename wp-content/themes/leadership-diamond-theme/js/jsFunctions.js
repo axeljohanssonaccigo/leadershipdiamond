@@ -18,35 +18,35 @@ page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", func
      * We use the scroll functionality again, some array creation and 
      * manipulation, class adding and class removing, and conditional testing
      */
-    var aChildren = $("nav li").children(); // find the a children of the list items
+    var aChildren = jQuery("nav#site-navigation li").children(); // find the a children of the list items
     var aArray = []; // create the empty aArray
     for (var i=0; i < aChildren.length; i++) {    
         var aChild = aChildren[i];
-        var ahref = $(aChild).attr('href');
+        var ahref = jQuery(aChild).attr('href');
         aArray.push(ahref);
     } // this for loop fills the aArray with attribute href values
 
-    $(window).scroll(function(){
-        var windowPos = $(window).scrollTop(); // get the offset of the window from the top of page
-        var windowHeight = $(window).height(); // get the height of the window
-        var docHeight = $(document).height();
+    jQuery(window).scroll(function(){
+        var windowPos = jQuery(window).scrollTop(); // get the offset of the window from the top of page
+        var windowHeight = jQuery(window).height(); // get the height of the window
+        var docHeight = jQuery(document).height();
 
         for (var i=0; i < aArray.length; i++) {
             var theID = aArray[i];
-            var divPos = $(theID).offset().top; // get the offset of the div from the top of page
-            var divHeight = $(theID).height(); // get the height of the div in question
-            if (windowPos >= divPos && windowPos < (divPos + divHeight)) {
-                $("a[href='" + theID + "']").addClass("nav-active");
+            var divPos = jQuery(theID).offset().top; // get the offset of the div from the top of page
+            var divHeight = jQuery(theID).height(); // get the height of the div in question
+            if ((windowPos +60) >= divPos && (windowPos + 60) < (divPos + divHeight)) {
+                jQuery("nav#site-navigation a[href='" + theID + "']").addClass("nav-active");
             } else {
-                $("a[href='" + theID + "']").removeClass("nav-active");
+                jQuery("nav#site-navigation a[href='" + theID + "']").removeClass("nav-active");
             }
         }
 
         if(windowPos + windowHeight == docHeight) {
-            if (!$("nav li:last-child a").hasClass("nav-active")) {
-                var navActiveCurrent = $(".nav-active").attr("href");
-                $("a[href='" + navActiveCurrent + "']").removeClass("nav-active");
-                $("nav li:last-child a").addClass("nav-active");
+            if (!jQuery("nav#site-navigation li:last-child a").hasClass("nav-active")) {
+                var navActiveCurrent = jQuery(".nav-active").attr("href");
+                jQuery("nav#site-navigation a[href='" + navActiveCurrent + "']").removeClass("nav-active");
+                jQuery("nav#site-navigation li:last-child a").addClass("nav-active");
             }
         }
     });

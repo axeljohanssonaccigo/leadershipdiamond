@@ -1459,8 +1459,13 @@ footer ul li {
 .koestenbaum a {
   color: white !important;
 }
-.nav-active {
-  color: red !important;
+.nav-active:before {
+  -webkit-transform: scale(1) translateY(0) !important;
+  -ms-transform: scale(1) translateY(0) !important;
+  transform: scale(1) translateY(0) !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  -webkit-transition-duration: .2s !important;
+  transition-duration: .2s !important;
 }
 /* responsive.less */
 @media screen and (max-width: 768px) {
@@ -1584,7 +1589,7 @@ footer ul li {
     padding: 30px 10px;
     background: white;
     border-radius: 5px;
-    min-height: 100px;
+    min-height: 200px;
     position: relative;
     width: 100%;
     margin: 0 auto;
