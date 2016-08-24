@@ -57,10 +57,18 @@ h3 {
 }
 
 .number {
-    font-size: 40px;
+    font-size: 24px;
     font-family: 'TCCEB';
-    line-height: 1.0em;
+    line-height: 1.1em;
     margin-bottom: 15px;
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
     text-align: center;
 }
 
@@ -262,7 +270,7 @@ section#heading {
 section#graph {
     min-height: 400px;
     .row {
-        max-width: 960px;
+        max-width: 720px;
         margin: 60px auto 100px;
         .graphs-container {
             //width: 720px;
@@ -285,6 +293,11 @@ section#graph {
             display: block;
             margin: auto;
         }
+        .wheel-text {
+            text-align: justify;
+            margin: 40px 0px 0px;
+            display: inline-block;
+        }
         .heading-btn {
             background: url(img/noise2.png), radial-gradient(circle 175px at 50% -10%, #757575 0%, #707070 14%, #000000 100%);
             position: absolute;
@@ -293,14 +306,14 @@ section#graph {
             left: 0;
             right: 0;
             margin: 0 auto;
-            bottom: -95px;
+            bottom: -140px;
             vertical-align: initial;
             line-height: 85px;
             font-size: 40px;
         }
         .col-md-7,
         .col-md-6 {
-            height: 245px;
+            height: 180px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -311,11 +324,22 @@ section#graph {
 section#question {
     .heading {
         height: auto;
-        padding: 80px;
-        //background: url(img/noise2.png), radial-gradient(circle 900px at 50% 100%, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
-        //color: white;
+        background: #eee;
         h1 {
             margin: 0;
+            padding: 80px;
+        }
+        &:after {
+            content: "";
+            display: block;
+            height: 20px;
+            position: static;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 1;
+            background-color: white;
+            -webkit-filter: none;
         }
     }
 }

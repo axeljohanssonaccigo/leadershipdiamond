@@ -46,6 +46,7 @@
             </div>
         </nav>
     </div>
+<!-- hamburger nav END-->
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main" ng-class="{'fadein': allLoaded}" ng-cloak>
             <!--<div ng-class="{'is-loaded': allLoaded, 'is-not-loaded full-screen-cover': !allLoaded}" class="parent-valign">
@@ -78,19 +79,27 @@
                                 <div class="row">
                                     <div class="col-md-5 col-xs-12 float-right no-float-mobile"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2-NEW.svg"> </div>
                                     <div class="col-md-7 col-xs-12">
-                                        <div class="number">{{graphTexts.graph2.content}}</div>
+                                        <div class="number right">{{graphTexts.graph2.content}}</div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3-NEW2.svg"> </div>
-                                    <div class="col-md-6 col-xs-12">
+                                    <div class="col-md-5 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3-NEW2.svg"> </div>
+                                    <div class="col-md-7 col-xs-12">
                                         <div class="number">{{graphTexts.graph3.content}}</div>
                                     </div>
                                 </div>
                             </div>
+                            <h3 class="center">Ledarskapshjulet</h3>
                             <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW.svg"> </div>
                             <!--
-                            <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.content}}</a> </div>--><a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
+                            <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.content}}</a> </div>-->
+                            <div class="wheel-text">Sed dignissim mi eget quam porttitor, ut cursus ex pretium. Duis pretium elementum finibus. Vestibulum pharetra, ipsum ut congue faucibus, enim neque eleifend lorem, eget ornare nisl ipsum eget odio. Nam hendrerit pharetra pharetra. Sed magna sem, ullamcorper id ligula ut, malesuada mollis mauris. Fusce dictum et sem vitae vehicula. Proin id ultrices mi.
+<br><br>
+Aliquam et euismod elit. Ut arcu mi, malesuada sed ullamcorper ac, sodales in magna. Proin hendrerit, lectus at tempus sollicitudin, ante nibh vulputate arcu, in rhoncus libero enim id odio. Donec venenatis pretium porta. Vestibulum id purus imperdiet, elementum velit ac, laoreet nisi. 
+                           
+<br><br> In ac eros sit amet nisl ultrices fermentum. Aliquam erat volutpat. Duis magna lorem, vestibulum quis massa ac, efficitur pretium quam. Nullam mattis purus id turpis sagittis sodales. Vivamus ac tempor quam, nec euismod nisi. Aenean viverra ipsum sit amet ipsum rhoncus varius. Nunc tincidunt erat id dolor sodales, nec pharetra velit porttitor.</div>
+                            
+                            <a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
                     </div>
                 </section>
                 <!-- Graph section -->

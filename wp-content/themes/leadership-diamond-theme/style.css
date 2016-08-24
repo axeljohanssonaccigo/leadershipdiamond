@@ -415,10 +415,16 @@ h3 {
   color: white;
 }
 .number {
-  font-size: 40px;
+  font-size: 24px;
   font-family: 'TCCEB';
-  line-height: 1.0em;
+  line-height: 1.1em;
   margin-bottom: 15px;
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
   text-align: center;
 }
 .graph-text {
@@ -593,7 +599,7 @@ section#graph {
   min-height: 400px;
 }
 section#graph .row {
-  max-width: 960px;
+  max-width: 720px;
   margin: 60px auto 100px;
 }
 section#graph .row .graphs-container {
@@ -616,6 +622,11 @@ section#graph .row .graph-wheel {
   display: block;
   margin: auto;
 }
+section#graph .row .wheel-text {
+  text-align: justify;
+  margin: 40px 0px 0px;
+  display: inline-block;
+}
 section#graph .row .heading-btn {
   background: url(img/noise2.png), radial-gradient(circle 175px at 50% -10%, #757575 0%, #707070 14%, #000000 100%);
   position: absolute;
@@ -624,24 +635,37 @@ section#graph .row .heading-btn {
   left: 0;
   right: 0;
   margin: 0 auto;
-  bottom: -95px;
+  bottom: -140px;
   vertical-align: initial;
   line-height: 85px;
   font-size: 40px;
 }
 section#graph .row .col-md-7,
 section#graph .row .col-md-6 {
-  height: 245px;
+  height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 section#question .heading {
   height: auto;
-  padding: 80px;
+  background: #eee;
 }
 section#question .heading h1 {
   margin: 0;
+  padding: 80px;
+}
+section#question .heading:after {
+  content: "";
+  display: block;
+  height: 20px;
+  position: static;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 1;
+  background-color: white;
+  -webkit-filter: none;
 }
 section#diamond {
   position: relative;
@@ -1589,7 +1613,7 @@ footer ul li {
     padding: 30px 10px;
     background: white;
     border-radius: 5px;
-    min-height: 200px;
+    min-height: 100px;
     position: relative;
     width: 100%;
     margin: 0 auto;
@@ -1776,7 +1800,7 @@ footer ul li {
     font-family: 'TCCEB';
     text-align: center;
   }
-  section#course .row .course-section {
+  section#course .row .course-200section {
     width: 100%;
     margin: 50px auto 550px;
   }
@@ -1786,7 +1810,7 @@ footer ul li {
     margin: 0;
   }
   section#course .row .course-container .course-card {
-    min-height: 100px;
+    min-height: 200px;
   }
   section#course .row .course-title-container {
     text-transform: uppercase;
