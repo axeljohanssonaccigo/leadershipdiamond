@@ -96,21 +96,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.trimPostContent = function (content) {
         return content.replace(/<\/?[^>]+(>|$)/g, "").replace(/(\r\n|\n|\r)/gm, " ").replace("&#038;", "\u0026").trim();
     };
-    //    $scope.defineQuestionPostObjects = function () {
-    //        var count = 1;
-    //        angular.forEach($scope.allQuestionPosts, function (post) {
-    //            post["showDescription"] = false;
-    //            post["inFocus"] = false;
-    //            post["index"] = parseInt(post['custom_fields']['wpcf-index'][0]);
-    //            post["solution"] = (post['custom_fields']['wpcf-answer'][0]);
-    //            post["isRead"] = false;
-    //            post.content = $scope.trimPostContent(post.content);
-    //            if (count === $scope.allQuestionPosts.length) {
-    //                $scope.isLoaded.questionPosts = true;
-    //            };
-    //            count++;
-    //        });
-    //    };
+
     $scope.getFooterSubGroupName = function (groupId) {
         groupName = "";
         switch (groupId) {
@@ -204,23 +190,24 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         });
     };
 
+    $scope.removeHash = function () {
+        if (window.location.hash !== "") {
+            window.history.back(1);
+        }
+    };
+
     $scope.setLatestClickedPostId = function (postId) {
         $scope.aQuestionWasClicked = true;
         $scope.latestClickedPostId = postId;
         console.log($scope.latestClickedPostId);
     };
 
-    $scope.openOrCloseQuestion = function (postIndex) {
-        //var postIsOpen = jQuery("#post-" + postIndex + " .question-card .collapse").hasClass("in");
-        jQuery("#post-" + nextPostIndex + " .panel-title a").click();
-        //If the next question post is not open - open it. 
-        //        if (!postIsOpen) {
-        //            $timeout(function () {
-        //                jQuery("#post-" + nextPostIndex + " .panel-title a").click();
-        //            }, 300);
-
-        //        }
-    };
+    //    $scope.openOrCloseQuestion = function (postIndex) {
+    //        //var postIsOpen = jQuery("#post-" + postIndex + " .question-card .collapse").hasClass("in");
+    //        $timeout(function () {
+    //            jQuery("#post-" + postIndex + " .panel-title a").click();
+    //        }, 10);
+    //    };
     $scope.getAllTranslations();
     $scope.getAllCourses();
     $scope.goToElement = function (eID) {
