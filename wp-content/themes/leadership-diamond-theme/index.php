@@ -57,9 +57,9 @@
                 <section id="heading">
                     <div class="row">
                         <div class="heading-container">
-                            <div class="heading-second">{{leadershipOS.title}}</div>
-                            <div class="heading-title"> {{leadershipdiamond.title}}<span>®</span> </div>
-                            <div class="heading-second"> {{nothingButApps.title}}! </div>
+                            <div class="heading-second">{{leadershipOS.content}}</div>
+                            <div class="heading-title"> {{leadershipdiamond.content}}<span>®</span> </div>
+                            <div class="heading-second"> {{nothingButApps.content}}! </div>
                         </div> <img class="diamond display-none-mobile" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
                         <div class="shadow pos-0 display-none-mobile"></div>
                     </div> <a href="#graph" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </section>
@@ -68,29 +68,29 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="graphs-container">
-                                <h1>{{whyTheDiamond.title}}</h1>
+                                <h1>{{whyTheDiamond.content}}</h1>
                                 <div class="row">
                                     <div class="col-md-5 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1-NEW.svg" /> </div>
                                     <div class="col-md-7 col-xs-12">
-                                        <div class="number"> {{graphTexts.graph1.title}}</div>
+                                        <div class="number"> {{graphTexts.graph1.content}}</div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-5 col-xs-12 float-right no-float-mobile"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2-NEW.svg"> </div>
                                     <div class="col-md-7 col-xs-12">
-                                        <div class="number">{{graphTexts.graph2.title}}</div>
+                                        <div class="number">{{graphTexts.graph2.content}}</div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3-NEW2.svg"> </div>
                                     <div class="col-md-6 col-xs-12">
-                                        <div class="number">{{graphTexts.graph3.title}}</div>
+                                        <div class="number">{{graphTexts.graph3.content}}</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW.svg"> </div>
                             <!--
-                            <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.title}}</a> </div>--><a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
+                            <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.content}}</a> </div>--><a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
                     </div>
                 </section>
                 <!-- Graph section -->
@@ -113,14 +113,18 @@
                                 </script>
                                 <uib-accordion-group id="post-<?php echo $post_index; ?>" class="page-scroll">
                                     <uib-accordion-heading>
-                                        <?php the_title(); ?> <a class="read-more-button" type="button">
-                                                {{readMore.title}}
+                                        <?php the_title(); ?>
+
+                                            <a class="read-more-button" type="button">
+                                                {{readMore.content}}
                                                 <img src="../wp-content/themes/leadership-diamond-theme/img/magnifier-book.svg" />
-                                            </a> </uib-accordion-heading>
+                                            </a>
+
+                                    </uib-accordion-heading>
                                     <?php the_content();?>
                                         <div class="btns">
-                                            <div class="next-btn-cont col-md-6" ng-show="<?php echo $post_index; ?> < <?php echo $posts_size; ?>"> <a class="btn next-btn btn-success waves-effect waves-light" href="#post-<?php echo $post_index+1; ?>">{{goToNextPost.title}} ▼</a> </div>
-                                            <div class="leader-btn-cont col-md-6" ng-class="{'col-md-offset-3': <?php echo $post_index; ?> == <?php echo $posts_size; ?>}"> <a class="btn leader-btn waves-effect waves-light" href="#diamond" ng-click="setLatestClickedPostId('post-<?php echo $post_index; ?>')"> {{goToDiamond.title}}! ▼ </a> </div>
+                                            <div class="next-btn-cont col-md-6" ng-show="<?php echo $post_index; ?> < <?php echo $posts_size; ?>"> <a class="btn next-btn btn-success waves-effect waves-light" href="#post-<?php echo $post_index+1; ?>">{{goToNextPost.content}} ▼</a> </div>
+                                            <div class="leader-btn-cont col-md-6" ng-class="{'col-md-offset-3': <?php echo $post_index; ?> == <?php echo $posts_size; ?>}"> <a class="btn leader-btn waves-effect waves-light" href="#diamond" ng-click="setLatestClickedPostId('post-<?php echo $post_index; ?>')"> {{goToDiamond.content}}! ▼ </a> </div>
                                         </div>
                                 </uib-accordion-group>
                                 <?php } // end while
@@ -135,8 +139,8 @@
                     <div class="row">
                         <div class="diamond-section clearfix">
                             <div class="question-card ">
-                                <div class="diamond-title"> {{leadershipdiamond.title}} </div>
-                                <div class="diamond-about-text col-md-12"> <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>
+                                <div class="diamond-title"> {{leadershipdiamond.content}} </div>
+                                <div class="diamond-about-text col-md-12"> <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.content}} </div>
                                 <div class="leader-btn-cont col-xs-12 col-md-offset-3 col-md-6" ng-show="aQuestionWasClicked"> <a class="btn leader-btn waves-effect waves-light" href="#{{latestClickedPostId}}"> Tillbaka till senaste frågan </a> </div>
                             </div>
                         </div>
@@ -145,8 +149,8 @@
                     <!-- Course offers section -->
                     <div class="row">
                         <div class="course-section clearfix">
-                            <div class="course-title"> {{coursesPrograms.title}} </div>
-                            <!--                            <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.title}} </div>-->
+                            <div class="course-title"> {{coursesPrograms.content}} </div>
+                            <!--                            <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.content}} </div>-->
                             <div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-sm-6 col-xs-12">
                                 <div class="course-card" ng-class="{'push-down': $last}">
                                     <div class="course-title-container"> {{course.title}} </div>

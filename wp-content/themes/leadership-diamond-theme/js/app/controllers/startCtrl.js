@@ -42,38 +42,33 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     }, true);
     // Sets custom strings from translation custom post type
     $scope.setCustomStrings = function () {
-        $scope.leadershipOS = $scope.getTranslationByContent('leadershipOS');
-        $scope.leadershipdiamond = $scope.getTranslationByContent('leadershipdiamond');
-        $scope.nothingButApps = $scope.getTranslationByContent('nothingbutapps');
-        $scope.readMore = $scope.getTranslationByContent('readmore');
-        $scope.howToHandle = $scope.getTranslationByContent('howtohandle');
-        $scope.close = $scope.getTranslationByContent('close');
-        $scope.goToNextPost = $scope.getTranslationByContent('gotonextpost');
-        $scope.aboutDiamond = $scope.getTranslationByContent('aboutdiamond');
-        $scope.contact = $scope.getTranslationByContent('contact');
-        $scope.leadershipPartners = $scope.getTranslationByContent('leadershippartners');
-        $scope.courseIntro = $scope.getTranslationByContent('courseintro');
-        $scope.diamondAboutText = $scope.getTranslationByContent('diamondabouttext');
-        $scope.sweden = $scope.getTranslationByContent('sweden');
-        $scope.india = $scope.getTranslationByContent('india');
+        $scope.leadershipOS = $scope.getTranslationByTitle('leadershipOS');
+        $scope.leadershipdiamond = $scope.getTranslationByTitle('leadershipdiamond');
+        $scope.nothingButApps = $scope.getTranslationByTitle('nothingbutapps');
+        $scope.readMore = $scope.getTranslationByTitle('readmore');
+        $scope.howToHandle = $scope.getTranslationByTitle('howtohandle');
+        $scope.close = $scope.getTranslationByTitle('close');
+        $scope.goToNextPost = $scope.getTranslationByTitle('gotonextpost');
+        $scope.aboutDiamond = $scope.getTranslationByTitle('aboutdiamond');
+        $scope.contact = $scope.getTranslationByTitle('contact');
+        $scope.leadershipPartners = $scope.getTranslationByTitle('leadershippartners');
+        $scope.courseIntro = $scope.getTranslationByTitle('courseintro');
+        $scope.diamondAboutText = $scope.getTranslationByTitle('diamondabouttext');
+        $scope.sweden = $scope.getTranslationByTitle('sweden');
+        $scope.india = $scope.getTranslationByTitle('india');
         $scope.groupNames = ["none", $scope.sweden.title, $scope.india.title];
-        $scope.goToDiamond = $scope.getTranslationByContent('gotodiamond');
-        $scope.firstExample = $scope.getTranslationByContent('firstexample');
-        $scope.coursesPrograms = $scope.getTranslationByContent('coursesprograms');
-        $scope.whyTheDiamond = $scope.getTranslationByContent('whythediamond');
+        $scope.goToDiamond = $scope.getTranslationByTitle('gotodiamond');
+        $scope.firstExample = $scope.getTranslationByTitle('firstexample');
+        $scope.coursesPrograms = $scope.getTranslationByTitle('coursesprograms');
+        $scope.whyTheDiamond = $scope.getTranslationByTitle('whythediamond');
         $scope.graphTexts = {
-            "graph1": $scope.getTranslationByContent('graph1'),
-            "graph2": $scope.getTranslationByContent('graph2'),
-            "graph3": $scope.getTranslationByContent('graph3')
+            "graph1": $scope.getTranslationByTitle('graph1'),
+            "graph2": $scope.getTranslationByTitle('graph2'),
+            "graph3": $scope.getTranslationByTitle('graph3')
         };
     };
     //Scope functions on page load
-    $scope.getTranslationByContent = function (content) {
-        var translation = $scope.allTranslations.filter(function (item) {
-            return item.content === content;
-        });
-        return translation[0];
-    };
+
     //On Document ready
     jQuery(document).ready(function () {
         jQuery("#sidr-main .sidr-inner ul li a").each(function (elem) {
@@ -89,14 +84,17 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             jQuery(value).attr("href", "#post-" + postIndex);
         });
     });
-    $scope.getTranslationByContent = function (content) {
+
+    $scope.getTranslationByTitle = function (title) {
         var translation = $scope.allTranslations.filter(function (item) {
-            return item.content === content;
+            return item.title === title;
         });
         return translation[0];
     };
+
+
     $scope.trimPostContent = function (content) {
-        return content.replace(/<\/?[^>]+(>|$)/g, "").replace(/(\r\n|\n|\r)/gm, " ").trim();
+        return content.replace(/<\/?[^>]+(>|$)/g, "").replace(/(\r\n|\n|\r)/gm, " ").replace("&#038;", "\u0026").trim();
     };
     //    $scope.defineQuestionPostObjects = function () {
     //        var count = 1;
@@ -153,10 +151,12 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         startSvc.getPostsByType(postType).then(function (response) {
             $scope.prettyfyTranslations(response.data.posts);
             $scope.isLoaded.translations = true;
+            console.log($scope.getTranslationByTitle("readmore"));
             $scope.getFooterContent();
         }).catch(function () {
             console.log("Error in get all translations");
             $scope.isLoaded.translations = true;
+
         });
     };
     $scope.getAllCourses = function () {
