@@ -122,7 +122,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
                 content: $scope.trimPostContent(post.content),
                 title: post.title
             }
-            
+
             if ('wpcf-extra-content' in post.custom_fields) {
                 transObject["extraContent"] = post.custom_fields['wpcf-extra-content'][0];
             };
@@ -191,16 +191,13 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         });
     };
 
-    $scope.removeHash = function () {
-        if (window.location.hash !== "") {
-            window.history.back(1);
-        }
-    };
-
     $scope.setLatestClickedPostId = function (postId) {
-        $scope.aQuestionWasClicked = true;
-        $scope.latestClickedPostId = postId;
-        console.log($scope.latestClickedPostId);
+        //Don't show the go back to latest question button in ie - because that browser only understands about 50% of the code u write 
+        if (document.documentMode === undefined) {
+            $scope.aQuestionWasClicked = true;
+            $scope.latestClickedPostId = postId;
+        }
+
     };
 
     //    $scope.openOrCloseQuestion = function (postIndex) {
