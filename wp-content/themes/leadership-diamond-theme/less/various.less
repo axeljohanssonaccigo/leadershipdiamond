@@ -57,9 +57,9 @@ h3 {
 }
 
 .number {
-    font-size: 24px;
-    font-family: 'TCCEB';
-    line-height: 1.1em;
+    font-size: 19px;
+    //font-family: 'TCCEB';
+    //line-height: 1.4em;
     margin-bottom: 15px;
     text-align: left;
 }
@@ -209,6 +209,18 @@ section#heading {
     background: url(img/noise2.png), radial-gradient(circle at 50% 100%, rgba(18, 208, 255, 1) 0%, rgba(18, 208, 255, 1) 14%, rgba(8, 76, 194, 1) 100%);
     //background-size: 100% 175%;
     height: 720px;
+    &:after {
+        content: "";
+        display: block;
+        height: 40px;
+        position: static;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 1;
+        //background-color: #eee;
+        -webkit-filter: none;
+    }
     .row {
         height: 100%;
         max-width: 960px;
@@ -269,15 +281,34 @@ section#heading {
 
 section#graph {
     min-height: 400px;
+    &:after {
+        content: "";
+        display: block;
+        height: 40px;
+        position: static;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 1;
+        //background-color: #eee;
+        -webkit-filter: none;
+    }
     .row {
-        max-width: 720px;
-        margin: 60px auto 100px;
-        .graphs-container {
-            //width: 720px;
-            margin: 20px auto 0px;
-            text-align: justify;
-            h1 {
-                margin: 60px 0px;
+        position: relative;
+        margin: 40px 0px;
+        &.wheel-row {
+            background: #eee !important;
+            margin: 40px 0px 20px;
+        }
+        .row-container {
+            max-width: 720px;
+            margin: 60px auto 100px;
+            .graphs-container {
+                margin: 20px auto 0px;
+                text-align: justify;
+                h1 {
+                    margin: 20px 0px 60px;
+                }
             }
         }
         .btn {
@@ -292,11 +323,13 @@ section#graph {
         .graph-wheel {
             display: block;
             margin: auto;
+            width: 75%;
         }
         .wheel-text {
             text-align: justify;
             margin: 40px 0px 0px;
             display: inline-block;
+            padding: 20px;
         }
         .heading-btn {
             background: url(img/noise2.png), radial-gradient(circle 175px at 50% -10%, #757575 0%, #707070 14%, #000000 100%);
@@ -306,7 +339,7 @@ section#graph {
             left: 0;
             right: 0;
             margin: 0 auto;
-            bottom: -140px;
+            bottom: -40px;
             vertical-align: initial;
             line-height: 85px;
             font-size: 40px;
@@ -324,7 +357,7 @@ section#graph {
 section#question {
     .heading {
         height: auto;
-        background: #eee;
+        //background: #eee;
         h1 {
             margin: 0;
             padding: 80px;
@@ -433,6 +466,21 @@ section#diamond {
                 &.pos-3 {
                     top: 650px;
                     height: 10px;
+                }
+            }
+            .koestenbaum {
+                display: block;
+                position: static;
+                font-size: 25px;
+                line-height: 19px;
+                padding: 10px;
+                margin: 0 auto;
+                font-family: 'TCCEB';
+                color: #333;
+                text-transform: uppercase;
+                letter-spacing: -0.5px;
+                a {
+                    color: #333 !important;
                 }
             }
         }
@@ -1200,7 +1248,7 @@ footer {
     line-height: 19px;
     position: fixed;
     letter-spacing: -0.5px;
-    padding: 12px;
+    padding: 11px;
     font-family: 'TCCEB';
     top: 0px;
     color: white;
