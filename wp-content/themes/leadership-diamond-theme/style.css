@@ -302,7 +302,7 @@ a.waves-effect .waves-ripple {
   line-height: 1em;
 }
 .panel-body {
-  padding: 15px !important;
+  padding: 10px !important;
   margin: 0 auto;
   color: #444;
   line-height: 1.5em;
@@ -677,6 +677,9 @@ section#graph .row .col-md-6 {
   flex-direction: column;
   justify-content: center;
 }
+section#question {
+  position: relative;
+}
 section#question .heading {
   height: auto;
 }
@@ -695,6 +698,20 @@ section#question .heading:after {
   opacity: 1;
   background-color: white;
   -webkit-filter: none;
+}
+section#question .heading-btn {
+  background: url(img/noise2.png), radial-gradient(circle 800px at 50% 0%, #1fbf95 0%, #0c8b7f 10%, #00554d 100%);
+  position: absolute;
+  width: 80px !important;
+  height: 80px !important;
+  left: 0;
+  color: white !important;
+  right: 0;
+  margin: 0 auto;
+  bottom: -40px;
+  vertical-align: initial;
+  line-height: 85px;
+  font-size: 40px;
 }
 section#diamond {
   position: relative;
@@ -1562,6 +1579,12 @@ footer ul li {
   h1 {
     font-size: 50px;
   }
+  h2 {
+    font-size: 38px;
+  }
+  .col-md-6 {
+    padding: 0;
+  }
   .display-none-mobile {
     display: none;
   }
@@ -1833,6 +1856,9 @@ footer ul li {
   }
   section#graph .row .btn {
     width: 100%;
+  }
+  section#course .row .course-section {
+    margin: 80px auto 480px;
   }
   section#course {
     position: relative;

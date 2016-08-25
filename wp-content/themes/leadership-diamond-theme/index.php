@@ -136,6 +136,7 @@
                                 } // end if
                                 ?>
                         </uib-accordion>
+                        <a href="#diamond" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a>
                     </div>
                 </section>
                 <!-- Post section -->
