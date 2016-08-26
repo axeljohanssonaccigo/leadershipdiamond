@@ -46,7 +46,7 @@
             </div>
         </nav>
     </div>
-<!-- hamburger nav END-->
+    <!-- hamburger nav END-->
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main" ng-class="{'fadein': allLoaded}" ng-cloak>
             <!--<div ng-class="{'is-loaded': allLoaded, 'is-not-loaded full-screen-cover': !allLoaded}" class="parent-valign">
@@ -67,39 +67,43 @@
                 <section id="graph">
                     <!-- Graph section -->
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="graphs-container">
-                                <h1>{{whyTheDiamond.content}}</h1>
-                                <div class="row">
-                                    <div class="col-md-5 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1-NEW.svg" /> </div>
-                                    <div class="col-md-7 col-xs-12">
-                                        <div class="number"> {{graphTexts.graph1.content}}</div>
+                        <div class="row-container">
+                            <div class="col-md-12">
+                                <div class="graphs-container">
+                                    <h1>{{whyTheDiamond.content}}</h1>
+                                    <div class="row">
+                                        <div class="col-md-5 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1-NEW.svg" /> </div>
+                                        <div class="col-md-7 col-xs-12">
+                                            <div class="number"> {{graphTexts.graph1.content}}</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5 col-xs-12 float-right no-float-mobile"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2-NEW.svg"> </div>
-                                    <div class="col-md-7 col-xs-12">
-                                        <div class="number right">{{graphTexts.graph2.content}}</div>
+                                    <div class="row">
+                                        <div class="col-md-5 col-xs-12 float-right no-float-mobile"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2-NEW.svg"> </div>
+                                        <div class="col-md-7 col-xs-12">
+                                            <div class="number right">{{graphTexts.graph2.content}}</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3-NEW2.svg"> </div>
-                                    <div class="col-md-7 col-xs-12">
-                                        <div class="number">{{graphTexts.graph3.content}}</div>
+                                    <div class="row">
+                                        <div class="col-md-5 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3-NEW2.svg"> </div>
+                                        <div class="col-md-7 col-xs-12">
+                                            <div class="number">{{graphTexts.graph3.content}}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <h3 class="center">Ledarskapshjulet</h3>
+                        </div>
+                    </div>
+                    <div class="row wheel-row">
+                        <div class="row-container">
+                            <h2 class="center">Ledarskapshjulet</h2>
                             <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW.svg"> </div>
                             <!--
                             <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.content}}</a> </div>-->
                             <div class="wheel-text">Sed dignissim mi eget quam porttitor, ut cursus ex pretium. Duis pretium elementum finibus. Vestibulum pharetra, ipsum ut congue faucibus, enim neque eleifend lorem, eget ornare nisl ipsum eget odio. Nam hendrerit pharetra pharetra. Sed magna sem, ullamcorper id ligula ut, malesuada mollis mauris. Fusce dictum et sem vitae vehicula. Proin id ultrices mi.
-<br><br>
-Aliquam et euismod elit. Ut arcu mi, malesuada sed ullamcorper ac, sodales in magna. Proin hendrerit, lectus at tempus sollicitudin, ante nibh vulputate arcu, in rhoncus libero enim id odio. Donec venenatis pretium porta. Vestibulum id purus imperdiet, elementum velit ac, laoreet nisi. 
-                           
-<br><br> In ac eros sit amet nisl ultrices fermentum. Aliquam erat volutpat. Duis magna lorem, vestibulum quis massa ac, efficitur pretium quam. Nullam mattis purus id turpis sagittis sodales. Vivamus ac tempor quam, nec euismod nisi. Aenean viverra ipsum sit amet ipsum rhoncus varius. Nunc tincidunt erat id dolor sodales, nec pharetra velit porttitor.</div>
-                            
-                            <a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
+                                <br>
+                                <br> Aliquam et euismod elit. Ut arcu mi, malesuada sed ullamcorper ac, sodales in magna. Proin hendrerit, lectus at tempus sollicitudin, ante nibh vulputate arcu, in rhoncus libero enim id odio. Donec venenatis pretium porta. Vestibulum id purus imperdiet, elementum velit ac, laoreet nisi.
+                                <br>
+                                <br> In ac eros sit amet nisl ultrices fermentum. Aliquam erat volutpat. Duis magna lorem, vestibulum quis massa ac, efficitur pretium quam. Nullam mattis purus id turpis sagittis sodales. Vivamus ac tempor quam, nec euismod nisi. Aenean viverra ipsum sit amet ipsum rhoncus varius. Nunc tincidunt erat id dolor sodales, nec pharetra velit porttitor. </div> <a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
                     </div>
                 </section>
                 <!-- Graph section -->
@@ -117,14 +121,10 @@ Aliquam et euismod elit. Ut arcu mi, malesuada sed ullamcorper ac, sodales in ma
                                         $post_index = get_post_meta($post->ID,'wpcf-index',true);
                                         $posts_size = sizeof($posts);
                                         ?>
-
                                 <uib-accordion-group id="post-<?php echo $post_index; ?>" class="page-scroll">
                                     <uib-accordion-heading>
                                         <?php the_title(); ?>
-                                            <div class="read-more-button display-none-mobile">
-                                                {{readMore.content}}
-                                                <img src="../wp-content/themes/leadership-diamond-theme/img/magnifier-book.svg" />
-                                            </div>
+                                            <div class="read-more-button display-none-mobile"> {{readMore.content}} <img src="../wp-content/themes/leadership-diamond-theme/img/magnifier-book.svg" /> </div>
                                     </uib-accordion-heading>
                                     <?php the_content();?>
                                         <div class="btns">
@@ -136,6 +136,7 @@ Aliquam et euismod elit. Ut arcu mi, malesuada sed ullamcorper ac, sodales in ma
                                 } // end if
                                 ?>
                         </uib-accordion>
+                        <a href="#diamond" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a>
                     </div>
                 </section>
                 <!-- Post section -->
@@ -145,8 +146,10 @@ Aliquam et euismod elit. Ut arcu mi, malesuada sed ullamcorper ac, sodales in ma
                         <div class="diamond-section clearfix">
                             <div class="question-card ">
                                 <div class="diamond-title"> {{leadershipdiamond.content}} </div>
-                                <div class="diamond-about-text col-md-12"> <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.content}} </div>
+                                <div class="diamond-about-text col-md-12"> <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image">
+                                {{diamondAboutText.content}} </div>
                                 <div class="leader-btn-cont col-xs-12 col-md-offset-3 col-md-6" ng-show="aQuestionWasClicked"> <a class="btn leader-btn waves-effect waves-light" href="#{{latestClickedPostId}}"> Tillbaka till senaste frågan </a> </div>
+                                <div class="koestenbaum waves-effect waves-light"> <a href="#">Koestenbaum<br> <span>Institute</span></a> </div>
                             </div>
                         </div>
                     </div> <a href="#course" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a></section>

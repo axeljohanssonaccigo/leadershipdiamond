@@ -31,6 +31,12 @@
     h1 {
         font-size: 50px;
     }
+    h2{
+        font-size: 38px;
+    }
+    .col-md-6{
+        padding: 0;
+    }
     .display-none-mobile {
         display: none;
     }
@@ -141,7 +147,14 @@
             margin: 80px auto;
             .graphs-container {
                 width: 100%;
-                margin: 50px auto 0px;
+                margin: 40px auto 0px;
+            }
+            .col-md-7,
+            .col-md-6 {
+                height: auto;
+                display: flex;
+                flex-direction: initial;
+                justify-content: initial;
             }
         }
     }
@@ -219,7 +232,7 @@
         float: none;
     }
     .number {
-        font-size: 32px;
+        font-size: 24px;
         font-family: 'TCCEB';
         line-height: 1.1em;
         margin-bottom: 15px;
@@ -315,18 +328,13 @@
             }
         }
     }
-    //    section#course {
-    //        .row {
-    //            .course-section {
-    //                .course-title {}
-    //                .course-btn {
-    //                    .btn {
-    //                        width: 100%;
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
+    section#course {
+        .row {
+            .course-section {
+                margin: 80px auto 480px;
+            }
+        }
+    }
     section#course {
         position: relative;
         min-height: 1300px;

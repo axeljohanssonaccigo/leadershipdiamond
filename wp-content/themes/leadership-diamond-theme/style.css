@@ -302,7 +302,7 @@ a.waves-effect .waves-ripple {
   line-height: 1em;
 }
 .panel-body {
-  padding: 15px !important;
+  padding: 10px !important;
   margin: 0 auto;
   color: #444;
   line-height: 1.5em;
@@ -415,9 +415,7 @@ h3 {
   color: white;
 }
 .number {
-  font-size: 24px;
-  font-family: 'TCCEB';
-  line-height: 1.1em;
+  font-size: 19px;
   margin-bottom: 15px;
   text-align: left;
 }
@@ -539,6 +537,17 @@ section#heading {
   background: url(img/noise2.png), radial-gradient(circle at 50% 100%, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
   height: 720px;
 }
+section#heading:after {
+  content: "";
+  display: block;
+  height: 40px;
+  position: static;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 1;
+  -webkit-filter: none;
+}
 section#heading .row {
   height: 100%;
   max-width: 960px;
@@ -598,16 +607,35 @@ section#heading .row .shadow.pos-0 {
 section#graph {
   min-height: 400px;
 }
+section#graph:after {
+  content: "";
+  display: block;
+  height: 40px;
+  position: static;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 1;
+  -webkit-filter: none;
+}
 section#graph .row {
+  position: relative;
+  margin: 40px 0px;
+}
+section#graph .row.wheel-row {
+  background: #eee !important;
+  margin: 40px 0px 20px;
+}
+section#graph .row .row-container {
   max-width: 720px;
   margin: 60px auto 100px;
 }
-section#graph .row .graphs-container {
+section#graph .row .row-container .graphs-container {
   margin: 20px auto 0px;
   text-align: justify;
 }
-section#graph .row .graphs-container h1 {
-  margin: 60px 0px;
+section#graph .row .row-container .graphs-container h1 {
+  margin: 20px 0px 60px;
 }
 section#graph .row .btn {
   font-size: 30px;
@@ -621,11 +649,13 @@ section#graph .row .btn {
 section#graph .row .graph-wheel {
   display: block;
   margin: auto;
+  width: 75%;
 }
 section#graph .row .wheel-text {
   text-align: justify;
   margin: 40px 0px 0px;
   display: inline-block;
+  padding: 20px;
 }
 section#graph .row .heading-btn {
   background: url(img/noise2.png), radial-gradient(circle 175px at 50% -10%, #757575 0%, #707070 14%, #000000 100%);
@@ -635,7 +665,7 @@ section#graph .row .heading-btn {
   left: 0;
   right: 0;
   margin: 0 auto;
-  bottom: -140px;
+  bottom: -40px;
   vertical-align: initial;
   line-height: 85px;
   font-size: 40px;
@@ -647,9 +677,11 @@ section#graph .row .col-md-6 {
   flex-direction: column;
   justify-content: center;
 }
+section#question {
+  position: relative;
+}
 section#question .heading {
   height: auto;
-  background: #eee;
 }
 section#question .heading h1 {
   margin: 0;
@@ -666,6 +698,20 @@ section#question .heading:after {
   opacity: 1;
   background-color: white;
   -webkit-filter: none;
+}
+section#question .heading-btn {
+  background: url(img/noise2.png), radial-gradient(circle 800px at 50% 0%, #1fbf95 0%, #0c8b7f 10%, #00554d 100%);
+  position: absolute;
+  width: 80px !important;
+  height: 80px !important;
+  left: 0;
+  color: white !important;
+  right: 0;
+  margin: 0 auto;
+  bottom: -40px;
+  vertical-align: initial;
+  line-height: 85px;
+  font-size: 40px;
 }
 section#diamond {
   position: relative;
@@ -759,6 +805,21 @@ section#diamond .row .diamond-section .shadow.pos-2 {
 section#diamond .row .diamond-section .shadow.pos-3 {
   top: 650px;
   height: 10px;
+}
+section#diamond .row .diamond-section .koestenbaum {
+  display: block;
+  position: static;
+  font-size: 25px;
+  line-height: 19px;
+  padding: 10px;
+  margin: 0 auto;
+  font-family: 'TCCEB';
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+section#diamond .row .diamond-section .koestenbaum a {
+  color: #333 !important;
 }
 section#course {
   position: relative;
@@ -1471,7 +1532,7 @@ footer ul li {
   line-height: 19px;
   position: fixed;
   letter-spacing: -0.5px;
-  padding: 12px;
+  padding: 11px;
   font-family: 'TCCEB';
   top: 0px;
   color: white;
@@ -1517,6 +1578,12 @@ footer ul li {
   }
   h1 {
     font-size: 50px;
+  }
+  h2 {
+    font-size: 38px;
+  }
+  .col-md-6 {
+    padding: 0;
   }
   .display-none-mobile {
     display: none;
@@ -1626,7 +1693,14 @@ footer ul li {
   }
   section#graph .row .graphs-container {
     width: 100%;
-    margin: 50px auto 0px;
+    margin: 40px auto 0px;
+  }
+  section#graph .row .col-md-7,
+  section#graph .row .col-md-6 {
+    height: auto;
+    display: flex;
+    flex-direction: initial;
+    justify-content: initial;
   }
   section#diamond .row {
     width: 100%;
@@ -1689,7 +1763,7 @@ footer ul li {
     float: none;
   }
   .number {
-    font-size: 32px;
+    font-size: 24px;
     font-family: 'TCCEB';
     line-height: 1.1em;
     margin-bottom: 15px;
@@ -1782,6 +1856,9 @@ footer ul li {
   }
   section#graph .row .btn {
     width: 100%;
+  }
+  section#course .row .course-section {
+    margin: 80px auto 480px;
   }
   section#course {
     position: relative;
