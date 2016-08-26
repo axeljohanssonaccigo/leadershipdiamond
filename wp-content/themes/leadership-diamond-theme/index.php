@@ -22,10 +22,10 @@
                     <div class="lang-name">{{lang.name}}</div>
                 </a>
             </div>
-            <!-- <div ng-if="currentLanguage.name===l ang.name">{{lang.name}}</div> --></div>
+        </div>
     </div>
     <!-- Kostenbaum Institue --->
-    <div class="koestenbaum waves-effect waves-light display-none-mobile faded-out" ng-class="{'fadein': allLoaded}"> <a href="#">Koestenbaum<br> <span>Institute</span></a> </div>
+    <div class="koestenbaum waves-effect waves-light display-none-mobile faded-out" ng-class="{'fadein': allLoaded}"> <a href="http://www.pib.net" target="_blank">Koestenbaum<br> <span>Institute</span></a> </div>
     <!-- hamburger nav -->
     <div class="navbar-1 display-none-desk" ng-class="{'fadein': allLoaded}">
         <nav class="nav-1 is-close">
@@ -59,7 +59,7 @@
                     <div class="row">
                         <div class="heading-container">
                             <div class="heading-second">{{leadershipOS.content}}</div>
-                            <div class="heading-title"> {{leadershipdiamond.content}}<span>®</span> </div>
+                            <div class="heading-title"> {{leadershipdiamond.content}}<span class="copyright">®</span> </div>
                             <div class="heading-second"> {{nothingButApps.content}}! </div>
                         </div> <img class="diamond display-none-mobile" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
                         <div class="shadow pos-0 display-none-mobile"></div>
@@ -99,11 +99,8 @@
                             <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW.svg"> </div>
                             <!--
                             <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.content}}</a> </div>-->
-                            <div class="wheel-text">Sed dignissim mi eget quam porttitor, ut cursus ex pretium. Duis pretium elementum finibus. Vestibulum pharetra, ipsum ut congue faucibus, enim neque eleifend lorem, eget ornare nisl ipsum eget odio. Nam hendrerit pharetra pharetra. Sed magna sem, ullamcorper id ligula ut, malesuada mollis mauris. Fusce dictum et sem vitae vehicula. Proin id ultrices mi.
-                                <br>
-                                <br> Aliquam et euismod elit. Ut arcu mi, malesuada sed ullamcorper ac, sodales in magna. Proin hendrerit, lectus at tempus sollicitudin, ante nibh vulputate arcu, in rhoncus libero enim id odio. Donec venenatis pretium porta. Vestibulum id purus imperdiet, elementum velit ac, laoreet nisi.
-                                <br>
-                                <br> In ac eros sit amet nisl ultrices fermentum. Aliquam erat volutpat. Duis magna lorem, vestibulum quis massa ac, efficitur pretium quam. Nullam mattis purus id turpis sagittis sodales. Vivamus ac tempor quam, nec euismod nisi. Aenean viverra ipsum sit amet ipsum rhoncus varius. Nunc tincidunt erat id dolor sodales, nec pharetra velit porttitor. </div> <a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
+                            <div class="wheel-text">{{wheelText.content}}</div>
+                            <a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
                     </div>
                 </section>
                 <!-- Graph section -->
@@ -145,11 +142,24 @@
                     <div class="row">
                         <div class="diamond-section clearfix">
                             <div class="question-card ">
-                                <div class="diamond-title"> {{leadershipdiamond.content}} </div>
-                                <div class="diamond-about-text col-md-12"> <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image">
-                                {{diamondAboutText.content}} </div>
-                                <div class="leader-btn-cont col-xs-12 col-md-offset-3 col-md-6" ng-show="aQuestionWasClicked"> <a class="btn leader-btn waves-effect waves-light" href="#{{latestClickedPostId}}"> Tillbaka till senaste frågan </a> </div>
-                                <div class="koestenbaum waves-effect waves-light"> <a href="#">Koestenbaum<br> <span>Institute</span></a> </div>
+                                <div class="diamond-title"> {{leadershipdiamond.content}}<span class="copyright">®</span> </div>
+                                <div class="diamond-about-text col-md-12">
+                                    <div class="peter-image-caption">
+                                        <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image">
+                                        <p>Prof. Peter Koestenbaum</p>
+                                    </div>
+                                    {{diamondAboutText.content}}
+
+                                </div>
+                                <div class="about-buttons-cont ">
+                                    <div class="waves-effect waves-light col-md-6 col-xs-12 leader-btn-cont">
+                                        <a href="http://www.pib.net" class="btn leader-btn waves-effect waves-light" target="_blank">Koestenbaum&nbsp;Institute</a>
+                                    </div>
+                                    <div class="leader-btn-cont col-xs-12 col-md-6" ng-show="aQuestionWasClicked">
+                                        <a class="btn leader-btn waves-effect waves-light" href="#{{latestClickedPostId}}"> {{backToLatestProblem.content}} ▲</a>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div> <a href="#course" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a></section>
@@ -158,16 +168,15 @@
                     <div class="row">
                         <div class="course-section clearfix">
                             <div class="course-title"> {{coursesPrograms.content}} </div>
-                            <!--                            <div class="diamond-about-text col-md-12"> <img align="left" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image"> {{diamondAboutText.content}} </div>-->
+
                             <div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-sm-6 col-xs-12">
                                 <div class="course-card" ng-class="{'push-down': $last}">
                                     <div class="course-title-container"> {{course.title}} </div>
-                                    <div class="course-level-container ng-hide"> {{course.level}} </div>
                                     <div class="course-content-container"> {{course.content}} </div>
                                 </div>
                             </div>
                             <div class="contact-form-placeholder">
-                                <h3 class="contact-form-title"> Är du intresserad? <br>Fyll i formuläret nedan så återkommer vi! </h3>
+                                <h3 class="contact-form-title"> {{formHeading1.content}}<br>{{formHeading2.content}}</h3>
                                 <div ng-if="currentLanguage.name === 'English'">
                                     <?php echo do_shortcode( '[contact-form-7 id="213" title="Contact form - English"]' );  ?>
                                 </div>

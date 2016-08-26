@@ -469,6 +469,12 @@ h3 {
   bottom: 25px;
   right: 25px;
 }
+span.copyright {
+  font-size: 40px;
+  vertical-align: super;
+  top: 60px;
+  position: absolute;
+}
 /* LOADER DIAMOND */
 .shadow {
   height: 20px;
@@ -565,12 +571,6 @@ section#heading .row .heading-container .heading-title {
   font-size: 102px;
   line-height: 1.1;
 }
-section#heading .row .heading-container .heading-title span {
-  font-size: 40px;
-  vertical-align: super;
-  top: 60px;
-  position: absolute;
-}
 section#heading .row .heading-container .heading-second {
   color: #444;
   font-size: 40px;
@@ -656,6 +656,7 @@ section#graph .row .wheel-text {
   margin: 40px 0px 0px;
   display: inline-block;
   padding: 20px;
+  white-space: pre-line;
 }
 section#graph .row .heading-btn {
   background: url(img/noise2.png), radial-gradient(circle 175px at 50% -10%, #757575 0%, #707070 14%, #000000 100%);
@@ -729,11 +730,20 @@ section#diamond .row {
   margin-bottom: 5px;
 }
 section#diamond .row .peter-image {
-  margin: 5px 20px 15px 25px;
+  margin: 5px 20px 5px 25px;
   height: auto;
   /* -webkit-filter: sepia(30%); */
   border-radius: 3px;
   max-width: 300px;
+}
+section#diamond .row .peter-image-caption {
+  float: right;
+  margin-bottom: -20px;
+}
+section#diamond .row .peter-image-caption p {
+  margin: 0 0 0 25px;
+  font-style: italic;
+  font-size: 16px;
 }
 section#diamond .row .diamond-title {
   text-transform: uppercase;
@@ -758,6 +768,12 @@ section#diamond .row .diamond-section .diamond-about-text {
   max-width: 720px;
   text-align: justify;
   float: none !important;
+  white-space: pre-line;
+}
+section#diamond .row .diamond-section .about-buttons-cont {
+  max-width: 720px;
+  margin: 20px auto;
+  width: 100%;
 }
 section#diamond .row .diamond-section .pos-1 {
   width: 100px;
@@ -1588,6 +1604,12 @@ footer ul li {
   .display-none-mobile {
     display: none;
   }
+  span.copyright {
+    font-size: 18px;
+    vertical-align: super;
+    top: 30px;
+    position: absolute;
+  }
   .fixed-action-btn {
     bottom: 25px;
     right: 25px;
@@ -1710,7 +1732,7 @@ footer ul li {
   section#diamond .row .diamond-section .peter-image {
     width: 100%;
     max-width: 100%;
-    margin: 10px 0 20px 0px;
+    margin: 10px 0 5px 0px;
   }
   section#diamond .row .diamond-section .diamond-title {
     font-size: 32px;
@@ -1798,12 +1820,6 @@ footer ul li {
     text-align: center;
     line-height: 1.1;
   }
-  section#heading .row .heading-container .heading-title span {
-    font-size: 18px;
-    vertical-align: super;
-    top: 30px;
-    position: absolute;
-  }
   section#heading .row .heading-container .heading-second {
     color: #555;
     font-size: 24px;
@@ -1889,6 +1905,9 @@ footer ul li {
   section#course .row .course-container .course-card {
     min-height: 200px;
   }
+  section#course .row .contact-form-placeholder .contact-form-title {
+    font-size: 24px;
+  }
   section#course .row .course-title-container {
     text-transform: uppercase;
     font-size: 28px;
@@ -1954,6 +1973,11 @@ footer ul li {
     border-radius: 3px;
     max-width: 330px;
   }
+  section#diamond .row .peter-image-caption p {
+    margin: -22px 0 10px 3px;
+    font-style: italic;
+    font-size: 13px;
+  }
   section#diamond .row .diamond-title {
     text-transform: uppercase;
     font-size: 72px;
@@ -1972,6 +1996,15 @@ footer ul li {
     width: 100%;
     text-align: justify;
     float: none !important;
+    white-space: pre-line;
+  }
+  section#diamond .row .about-buttons-cont {
+    margin: 20px auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  section#diamond .row .about-buttons-cont .col-xs-12 {
+    margin-top: 10px;
   }
   section#diamond .row .pos-1 {
     width: 100px;

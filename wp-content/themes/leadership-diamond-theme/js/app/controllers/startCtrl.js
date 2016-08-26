@@ -56,12 +56,16 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.diamondAboutText = $scope.getTranslationByTitle('diamondabouttext');
         $scope.sweden = $scope.getTranslationByTitle('sweden');
         $scope.india = $scope.getTranslationByTitle('india');
-        $scope.groupNames = ["none", $scope.sweden.title, $scope.india.title];
+        $scope.groupNames = ["none", $scope.sweden.content, $scope.india.content];
         $scope.goToDiamond = $scope.getTranslationByTitle('gotodiamond');
         $scope.firstExample = $scope.getTranslationByTitle('firstexample');
         $scope.coursesPrograms = $scope.getTranslationByTitle('coursesprograms');
         $scope.whyTheDiamond = $scope.getTranslationByTitle('whythediamond');
         $scope.commonProblems = $scope.getTranslationByTitle('commonproblems');
+        $scope.backToLatestProblem = $scope.getTranslationByTitle('backtolatestproblem');
+        $scope.formHeading1 = $scope.getTranslationByTitle('formheading1');
+        $scope.formHeading2 = $scope.getTranslationByTitle('formheading2');
+        $scope.wheelText = $scope.getTranslationByTitle('wheeltext');
         $scope.graphTexts = {
             "graph1": $scope.getTranslationByTitle('graph1'),
             "graph2": $scope.getTranslationByTitle('graph2'),
@@ -102,10 +106,10 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         groupName = "";
         switch (groupId) {
         case "1":
-            groupName = $scope.sweden.title;
+            groupName = $scope.sweden.content;
             break;
         case "2":
-            groupName = $scope.india.title;
+            groupName = $scope.india.content;
             break;
         case "3":
             groupName = "none"
@@ -120,15 +124,11 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         angular.forEach(translations, function (post) {
 
             var transObject = {
-                    id: post.id,
-                    content: post.content,
-                    title: post.title
-                }
-                //Special case for content about diamond - needs html tags
-            if (transObject.title !== "diamondabouttext") {
-                transObject.content = $scope.trimPostContent(transObject.content)
+                id: post.id,
+                content: post.content,
+                title: post.title
             }
-
+            transObject.content = $scope.trimPostContent(transObject.content).replace(/NEWPARA/g, "\n\n");
             if ('wpcf-extra-content' in post.custom_fields) {
                 transObject["extraContent"] = post.custom_fields['wpcf-extra-content'][0];
             };
