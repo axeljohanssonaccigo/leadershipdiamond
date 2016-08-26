@@ -8,7 +8,7 @@ var environments = {
     "dev2": "http://localhost",
     "dev3": "http://localhost:8080",
     "prod": "http://www.leadershipdiamond.com",
-    "test": "bt25-php-dev.cloudapp.net"
+    "test": "http://bt25-php-dev.cloudapp.net"
 };
 //Setting the current environment
 var currentEnvironment = "";
