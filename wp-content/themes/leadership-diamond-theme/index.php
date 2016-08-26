@@ -126,7 +126,7 @@
                                     <?php the_content();?>
                                         <div class="btns">
                                             <div class="next-btn-cont col-md-6" ng-show="<?php echo $post_index; ?> < <?php echo $posts_size; ?>"> <a class="btn next-btn btn-success waves-effect waves-light" href="#post-<?php echo $post_index+1; ?>">{{goToNextPost.content}} ▼</a> </div>
-                                            <div ng-click="setLatestClickedPostId('post-<?php echo $post_index; ?>')" class="leader-btn-cont col-md-6" ng-class="{'col-md-offset-3': <?php echo $post_index; ?> == <?php echo $posts_size; ?>}"> <a class="btn leader-btn waves-effect waves-light" href="#diamond"> {{goToDiamond.content}}! ▼ </a> </div>
+                                            <div ng-click="setLatestClickedPostId('post-<?php echo $post_index; ?>')" class="leader-btn-cont col-md-6" ng-class="{'col-md-offset-3': <?php echo $post_index; ?> == <?php echo $posts_size; ?>}"> <a class="btn leader-btn waves-effect waves-light" href="#diamond"> {{goToDiamond.content}} ▼ </a> </div>
                                         </div>
                                 </uib-accordion-group>
                                 <?php } // end while
