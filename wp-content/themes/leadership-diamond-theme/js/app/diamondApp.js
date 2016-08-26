@@ -7,7 +7,8 @@ var environments = {
     "dev": "http://localhost:81",
     "dev2": "http://localhost",
     "dev3": "http://localhost:8080",
-    "prod": "http://www.leadershipdiamond.com"
+    "prod": "http://www.leadershipdiamond.com",
+    "test": "bt25-php-dev.cloudapp.net"
 };
 //Setting the current environment
 var currentEnvironment = "";
@@ -17,7 +18,7 @@ angular.forEach(environments, function (env) {
     };
 });
 //Adding a baseUrl, used in Angular services
-if (currentEnvironment === environments.dev || currentEnvironment === environments.dev2 || currentEnvironment === environments.dev3) {
+if (currentEnvironment === environments.dev || currentEnvironment === environments.dev2 || currentEnvironment === environments.dev3 || currentEnvironment === environments.test) {
     var baseUrl = currentEnvironment.concat('/leadershipdiamond');
 } else {
     baseUrl = currentEnvironment;
