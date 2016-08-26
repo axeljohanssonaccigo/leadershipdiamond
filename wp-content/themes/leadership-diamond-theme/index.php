@@ -61,7 +61,7 @@
                             <div class="heading-second">{{leadershipOS.content}}</div>
                             <div class="heading-title"> {{leadershipdiamond.content}}<span class="copyright">®</span> </div>
                             <div class="heading-second"> {{nothingButApps.content}}! </div>
-                        </div> <img class="diamond display-none-mobile" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
+                        </div> <img class="diamond display-none-mobile" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new.svg" />
                         <div class="shadow pos-0 display-none-mobile"></div>
                     </div> <a href="#graph" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </section>
                 <section id="graph">
@@ -145,7 +145,7 @@
                                 <div class="diamond-title"> {{leadershipdiamond.content}}<span class="copyright">®</span> </div>
                                 <div class="diamond-about-text col-md-12">
                                     <div class="peter-image-caption">
-                                        <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.jpg" class="peter-image">
+                                        <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.JPG" class="peter-image">
                                         <p>Prof. Peter Koestenbaum</p>
                                     </div>
                                     {{diamondAboutText.content}}
@@ -184,9 +184,9 @@
                                     <?php echo do_shortcode( '[contact-form-7 id="214" title="Contact form - Svenska"]' );  ?>
                                 </div>
                             </div>
-                        </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
-                        <div class="shadow pos-1"></div> <img class="diamond pos-2" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
-                        <div class="shadow pos-2"></div> <img class="diamond pos-3" src="../wp-content/themes/leadership-diamond-theme/img/diamond-new.svg" />
+                        </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new.svg" />
+                        <div class="shadow pos-1"></div> <img class="diamond pos-2" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new.svg" />
+                        <div class="shadow pos-2"></div> <img class="diamond pos-3" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new.svg" />
                         <div class="shadow pos-3"> </div>
                     </div>
                 </section>
@@ -194,7 +194,7 @@
                 <!-- To diamond -->
                 <div class="to-diamond display-none-mobile">
                     <div class="btn-floating btn-large waves-effect waves-light to-diamond-btn">
-                        <a href="#diamond"><img src="../wp-content/themes/leadership-diamond-theme/img/diamond-new-outline.svg" /></a>
+                        <a href="#diamond"><img src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new-outline.svg" /></a>
                     </div>
                 </div>
             </div>
