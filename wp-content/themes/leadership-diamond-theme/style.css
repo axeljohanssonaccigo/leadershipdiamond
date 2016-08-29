@@ -1574,11 +1574,6 @@ footer ul li {
   transition-duration: .2s !important;
 }
 /* responsive.less */
-@media screen and (max-width: 768px) {
-  .display-none-desk {
-    display: block;
-  }
-}
 @media screen and (max-width: 990px) {
   html {
     width: 100%;
@@ -2166,6 +2161,17 @@ footer ul li {
   footer {
     bottom: 0px;
     position: absolute;
+  }
+}
+@media screen and (max-width: 1040px) {
+  #site-navigation {
+    display: none;
+  }
+  .display-none-desk {
+    display: block;
+  }
+  .display-none-mobile {
+    display: none;
   }
 }
 .navbar-1 {
