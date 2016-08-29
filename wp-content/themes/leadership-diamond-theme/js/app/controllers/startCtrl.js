@@ -89,14 +89,14 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             postIndex = index + 1;
             jQuery(value).attr("href", "#post-" + postIndex);
         });
-
+        //Send mail on form submit
         jQuery("form.wpcf7-form").on("submit", function (event) {
             $scope.sendingMail = true;
             event.preventDefault();
             var name = jQuery("form.wpcf7-form .your-name input").val();
             var email = jQuery("form.wpcf7-form .your-email input").val();
             var message = jQuery("form.wpcf7-form .your-message textarea").val();
-            message = message.concat("\n\n").concat("Meddelandet skickades av: ").concat("\n").concat(name).concat("\n").concat(email);
+            message = message.concat("<br><br>").concat("Meddelandet skickades av: ").concat("<br>").concat(name).concat("<br>").concat(email).replace(/(?:\r\n|\r|\n)/g, '<br />');;
             startSvc.sendMail("", message).then(function (response) {
                 console.log("Mail was sent! Response: \n");
                 $scope.sendingMail = false;
