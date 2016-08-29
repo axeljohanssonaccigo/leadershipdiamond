@@ -156,7 +156,7 @@
 
                                 </div>
                                 <div class="about-buttons-cont ">
-                                    <div class="waves-effect waves-light col-md-6 col-xs-12 leader-btn-cont">
+                                    <div class="col-md-6 col-xs-12 leader-btn-cont">
                                         <a href="http://www.pib.net" class="btn leader-btn waves-effect waves-light" target="_blank">Koestenbaum&nbsp;Institute</a>
                                     </div>
                                     <div class="leader-btn-cont col-xs-12 col-md-6" ng-show="aQuestionWasClicked">

@@ -45,7 +45,7 @@ jQuery(window).scroll(function () {
         var theID = aArray[i];
         var divPos = jQuery(theID).offset().top; // get the offset of the div from the top of page
         var divHeight = jQuery(theID).height(); // get the height of the div in question
-        if ((windowPos + 60) >= divPos && (windowPos + 60) < (divPos + divHeight)) {
+        if ((windowPos + 62) >= divPos && (windowPos + 62) < (divPos + divHeight)) {
             jQuery("a[href='" + theID + "']").addClass("nav-active");
         } else {
             jQuery("a[href='" + theID + "']").removeClass("nav-active");

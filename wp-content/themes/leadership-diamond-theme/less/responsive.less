@@ -1,10 +1,6 @@
 /* responsive.less */
 
-@media screen and (max-width: 768px) {
-    .display-none-desk {
-        display: block;
-    }
-}
+@media screen and (max-width: 768px) {}
 
 @media screen and (max-width: 990px) {
     html {
@@ -464,9 +460,10 @@
             }
             .peter-image-caption {
                 p {
-                    margin: -22px 0 10px 3px;
+                    margin: 0px;
                     font-style: italic;
                     font-size: 13px;
+                    bottom: 25px;
                 }
             }
             .diamond-title {
@@ -641,5 +638,17 @@
     footer {
         bottom: 0px;
         position: absolute;
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    #site-navigation {
+        display: none;
+    }
+    .display-none-desk {
+        display: block;
+    }
+    .display-none-mobile {
+        display: none;
     }
 }
