@@ -95,7 +95,10 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             event.preventDefault();
             //$scope.formSubmitUrl = jQuery(this).serialize();
             //console.log($scope.formSubmitUrl);
-            startSvc.sendMail().then(function (response) {
+            var name = jQuery("form.wpcf7-form .your-name input").val();
+            var email = jQuery("form.wpcf7-form .your-email input").val();
+            var message = jQuery("form.wpcf7-form .your-message textarea").val();
+            startSvc.sendMail("axeljohansson88@gmail.com", "diamond message from " + name, message).then(function (response) {
                 console.log("Mail was sent! Response: \n");
                 $scope.sendingMail = false;
                 $scope.mailSuccess = true;
