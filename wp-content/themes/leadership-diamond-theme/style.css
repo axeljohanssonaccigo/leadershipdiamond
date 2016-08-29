@@ -395,7 +395,7 @@ a,
 h1 {
   text-align: center;
   font-family: 'TCCEB';
-  font-size: 58px;
+  font-size: 72px;
   margin-bottom: 20px;
   line-height: 0.9em;
 }
@@ -512,7 +512,7 @@ span.copyright {
   padding: 0px;
 }
 .main-navigation ul li a {
-  padding: 20px;
+  padding: 20px 15px;
 }
 .main-navigation ul li a:hover {
   color: white;
@@ -738,12 +738,17 @@ section#diamond .row .peter-image {
 }
 section#diamond .row .peter-image-caption {
   float: right;
+  position: relative;
   margin-bottom: -20px;
 }
 section#diamond .row .peter-image-caption p {
-  margin: 0 0 0 25px;
+  margin: 0px;
+  text-align: center;
   font-style: italic;
-  font-size: 16px;
+  bottom: -20px;
+  font-size: 15px;
+  width: 100%;
+  position: absolute;
 }
 section#diamond .row .diamond-title {
   text-transform: uppercase;
@@ -866,7 +871,7 @@ section#course .row .course-container .course-card {
   border-radius: 5px;
   padding: 30px;
   color: #555;
-  min-height: 250px;
+  min-height: 255px;
 }
 section#course .row .course-btn {
   display: inline-flex;
@@ -1974,9 +1979,10 @@ footer ul li {
     max-width: 330px;
   }
   section#diamond .row .peter-image-caption p {
-    margin: -22px 0 10px 3px;
+    margin: 0px;
     font-style: italic;
     font-size: 13px;
+    bottom: 25px;
   }
   section#diamond .row .diamond-title {
     text-transform: uppercase;
