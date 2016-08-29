@@ -2191,6 +2191,9 @@ footer ul li {
   .display-none-mobile {
     display: none;
   }
+  .heading-container {
+    margin-left: 15px;
+  }
 }
 .navbar-1 {
   width: 60px;
