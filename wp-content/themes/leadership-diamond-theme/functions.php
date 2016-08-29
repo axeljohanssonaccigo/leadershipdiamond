@@ -164,5 +164,48 @@ function mytheme_admin_bar_render() {
 }
 add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
 
+  //Setting from address (lost your password mail)
+add_filter( 'wp_mail_from', 'wpse_new_mail_from' );
+function wpse_new_mail_from( $old ) {
+  return 'noreply@leadershipdiamond.com'; // Edit it with your email address
+}
+
+//Setting from nam (lost password mail)
+add_filter('wp_mail_from_name', 'wpse_new_mail_from_name');
+function wpse_new_mail_from_name( $old ) {
+  return 'Leadership Diamond'; // Edit it with your/company name
+}
+
+function do_send_message() {
+	//enabling html in mail
+	add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+	//Send the mail
+	if ( isset($_REQUEST['email']) && isset($_REQUEST['message']) && isset($_REQUEST['subject'])) {
+		$email = $_REQUEST['email'];
+		$message = $_REQUEST['message'];
+		$message = stripallslashes($message);
+		$subject = $_REQUEST['subject'];
+		$headers = 'From: OddCv <noreply@oddcv.com>;' .  "\r\n";
+   	wp_mail( $email, $subject, $message, $headers ); //mail($email, $subject, $message);
+    // Reset content-type to avoid conflicts -- http://core.trac.wordpress.org/ticket/23578
+		remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+		} else{
+			echo 'parameter missing in headers';
+			return false;
+		}
+}
+add_action( 'wp_ajax_send_message', 'do_send_message' );
+add_action( 'wp_ajax_nopriv_send_message', 'do_send_message' );
+
+function set_html_content_type() {
+	return 'text/html';
+}
+
+function stripallslashes($string) {
+    while(strchr($string,'\\')) {
+        $string = stripslashes($string);
+    }
+    return $string;
+}
 
 ?>
