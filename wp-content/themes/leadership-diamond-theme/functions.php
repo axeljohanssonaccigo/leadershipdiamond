@@ -1,6 +1,6 @@
 <?php
 //Global script version for custom scripts
-$version = '0.93';
+$version = '0.94';
 
 function my_theme_enqueue_styles() {
     global $version;
@@ -144,7 +144,7 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 
 
-<?php
+    <?php
 // Removes from admin menu
 add_action( 'admin_menu', 'my_remove_admin_menus' );
 function my_remove_admin_menus() {
