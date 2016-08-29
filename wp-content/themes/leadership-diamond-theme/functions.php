@@ -162,10 +162,7 @@ function mytheme_admin_bar_render() {
 add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
 
   //Setting from address (lost your password mail)
-add_filter( 'wp_mail_from', 'wpse_new_mail_from' );
-function wpse_new_mail_from( $old ) {
-  return 'noreply@leadershipdiamond.com'; // Edit it with your email address
-}
+//add_filter( 'wp_mail_from', 'wpse_new_mail_from' ); //function wpse_new_mail_from( $old ) { // return 'noreply@leadershipdiamond.com'; //}
 
 //Setting from nam (lost password mail)
 add_filter('wp_mail_from_name', 'wpse_new_mail_from_name');
@@ -185,7 +182,7 @@ function do_send_message() {
 		$message = $_REQUEST['message'];
 		$message = stripallslashes($message);
 		$subject = $mail_subject . $_REQUEST['subject'];
-		$headers = 'From: Ledarskapsdiamanten <noreply@leadershipdiamond.com>;' .  "\r\n";
+		$headers = 'From: <massareplies@leadershipdiamond.com>;' .  "\r\n";
    	wp_mail( $email, $subject, $message, $headers ); //mail($email, $subject, $message);
     // Reset content-type to avoid conflicts -- http://core.trac.wordpress.org/ticket/23578
 		remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
