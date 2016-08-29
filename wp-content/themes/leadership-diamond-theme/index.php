@@ -126,8 +126,8 @@
                                     <?php the_content();?>
                                         <div class="btns">
                                             <div class="next-btn-cont col-md-6" ng-show="<?php echo $post_index; ?> < <?php echo $posts_size; ?>"> <a class="btn next-btn btn-success waves-effect waves-light" href="#post-<?php echo $post_index+1; ?>">{{goToNextPost.content}} ▼</a> </div>
-                                            <div ng-click="setLatestClickedPostId('post-<?php echo $post_index; ?>')" class="leader-btn-cont col-md-6" ng-class="{'col-md-offset-3': <?php echo $post_index; ?> == <?php echo $posts_size; ?>}">
-                                                <a class="btn leader-btn waves-effect waves-light" href="#diamond"> 
+                                            <div class="leader-btn-cont col-md-6" ng-class="{'col-md-offset-3': <?php echo $post_index; ?> == <?php echo $posts_size; ?>}">
+                                                <a ng-click="setLatestClickedPostId('post-<?php echo $post_index; ?>'); $event.stopPropagation()" class="btn leader-btn waves-effect waves-light" href="#diamond"> 
                                                     {{goToDiamond.content}} ▼ 
                                                 </a>
                                             </div>
@@ -187,14 +187,17 @@
                                 <div ng-if="currentLanguage.name === 'Svenska'">
                                     <?php echo do_shortcode( '[contact-form-7 id="214" title="Contact form - Svenska"]' );  ?>
                                 </div>
-                                <div ng-show="sendingMail" class="mail-feedback">
-                                    {{sendingMailText.content+"..."}}
-                                </div>
-                                <div ng-show="mailSuccess" class="mail-feedback">
-                                    {{mailSuccessText.content}}
-                                </div>
-                                <div ng-show="mailFail" class="mail-feedback">
-                                    {{mailFailText.content}}
+                                <div class="mail-feedback">
+                                    <div></div>
+                                    <div ng-show="sendingMail">
+                                        {{sendingMailText.content+"..."}}
+                                    </div>
+                                    <div ng-show="mailSuccess">
+                                        {{mailSuccessText.content}}
+                                    </div>
+                                    <div ng-show="mailFail">
+                                        {{mailFailText.content}}
+                                    </div>
                                 </div>
                             </div>
                         </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new.svg" />
