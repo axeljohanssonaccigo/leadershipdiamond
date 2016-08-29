@@ -96,7 +96,8 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             var name = jQuery("form.wpcf7-form .your-name input").val();
             var email = jQuery("form.wpcf7-form .your-email input").val();
             var message = jQuery("form.wpcf7-form .your-message textarea").val();
-            startSvc.sendMail(name + ":" + email, message).then(function (response) {
+            message = message.concat("\n\n").concat("Meddelandet skickades av: ").concat("\n").concat(name).concat("\n").concat(email);
+            startSvc.sendMail("", message).then(function (response) {
                 console.log("Mail was sent! Response: \n");
                 $scope.sendingMail = false;
                 $scope.mailSuccess = true;

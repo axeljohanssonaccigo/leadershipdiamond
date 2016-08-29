@@ -181,8 +181,8 @@ function do_send_message() {
 		$email = $mail_recipient;
 		$message = $_REQUEST['message'];
 		$message = stripallslashes($message);
-		$subject = $mail_subject . $_REQUEST['subject'];
-		$headers = 'From: <massareplies@leadershipdiamond.com>;' .  "\r\n";
+		$subject = $mail_subject;
+		$headers = 'From: <noreply@leadershipdiamond.com>;' .  "\r\n";
    	wp_mail( $email, $subject, $message, $headers ); //mail($email, $subject, $message);
     // Reset content-type to avoid conflicts -- http://core.trac.wordpress.org/ticket/23578
 		remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
