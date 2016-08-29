@@ -10,6 +10,11 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.currentLanguage = currentLanguage;
     $scope.latestClickedPostId = "post-1"; //default is 1
     $scope.aQuestionWasClicked = false;
+    $scope.allInputsValid = false;
+    $scope.sendingMail = false;
+    $scope.mailSuccess = false;
+    $scope.mailFail = false;
+    $scope.showInputError = false;
     $scope.languages = [
         {
             "name": "Svenska",
@@ -66,13 +71,69 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.formHeading1 = $scope.getTranslationByTitle('formheading1');
         $scope.formHeading2 = $scope.getTranslationByTitle('formheading2');
         $scope.wheelText = $scope.getTranslationByTitle('wheeltext');
+        $scope.sendingMailText = $scope.getTranslationByTitle('sendingmail');
+        $scope.mailSuccessText = $scope.getTranslationByTitle('mailsuccess');
+        $scope.mailFailText = $scope.getTranslationByTitle('mailfail');
         $scope.graphTexts = {
             "graph1": $scope.getTranslationByTitle('graph1'),
             "graph2": $scope.getTranslationByTitle('graph2'),
             "graph3": $scope.getTranslationByTitle('graph3')
         };
     };
-    //Scope functions on page load
+
+    var isNullEmptyOrUndefined = function (value) {
+        return value === null || value === undefined || value === "";
+    };
+
+    $scope.confAndSendMail = function () {
+        //Prevent the default submit behavior
+        event.preventDefault();
+        //Check input values
+        // $scope.showInputError = false;
+        var allInputsValid = false;
+
+        //Get input values
+        var name = jQuery("form.wpcf7-form .your-name input").val();
+        var email = jQuery("form.wpcf7-form .your-email input").val();
+        var message = jQuery("form.wpcf7-form .your-message textarea").val();
+        if (!isNullEmptyOrUndefined(name) || !isNullEmptyOrUndefined(email) || !isNullEmptyOrUndefined(message)) {
+            allInputsValid = true;
+        };
+        if (allInputsValid) {
+            $scope.sendingMail = true;
+            $scope.mailSuccess = false;
+            $scope.mailFail = false;
+            message = message.
+            concat("<br><br>").
+            concat("<b>Meddelandet skickades av: </b>").
+            concat("<br>").
+            concat(name).
+            concat("<br>").
+            concat(email).
+            concat("<br>").
+            concat("via leadershipdiamond.com.").
+            replace(/(?:\r\n|\r|\n)/g, '<br />');
+
+            startSvc.sendMail("", message).then(function (response) {
+                console.log("Mail was sent! Response: \n");
+                $scope.sendingMail = false;
+                $scope.mailSuccess = true;
+                $scope.mailFail = false;
+                console.log(response);
+            }).catch(function () {
+                console.log("Error in send mail. Response: \n");
+                console.log(response);
+                $scope.sendingMail = false;
+                $scope.mailSuccess = false;
+                $scope.mailFail = true;
+
+            });
+        } else {
+            $scope.showInputError = true;
+        };
+
+
+    };
 
     //On Document ready
     jQuery(document).ready(function () {
@@ -91,36 +152,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         });
         //Send mail on form submit
         jQuery("form.wpcf7-form").on("submit", function (event) {
-            $scope.sendingMail = true;
-            event.preventDefault();
-            var name = jQuery("form.wpcf7-form .your-name input").val();
-            var email = jQuery("form.wpcf7-form .your-email input").val();
-            var message = jQuery("form.wpcf7-form .your-message textarea").val();
-            message = message.
-            concat("<br><br>").
-            concat("<b>Meddelandet skickades av: </b>").
-            concat("<br>").
-            concat(name).
-            concat("<br>").
-            concat(email).
-            concat("<br>").
-            concat("via leadershipdiamond.com.").
-            replace(/(?:\r\n|\r|\n)/g, '<br />');
-            startSvc.sendMail("", message).then(function (response) {
-                console.log("Mail was sent! Response: \n");
-                $scope.sendingMail = false;
-                $scope.mailSuccess = true;
-                console.log(response);
-            }).catch(function () {
-                console.log("Error in send mail. Response: \n");
-                console.log(response);
-                $scope.sendingMail = false;
-                $scope.mailSuccess = false;
-
-            });
-
-
-
+            $scope.confAndSendMail();
         });
     });
 

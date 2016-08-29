@@ -187,6 +187,15 @@
                                 <div ng-if="currentLanguage.name === 'Svenska'">
                                     <?php echo do_shortcode( '[contact-form-7 id="214" title="Contact form - Svenska"]' );  ?>
                                 </div>
+                                <div ng-show="sendingMail" class="mail-feedback">
+                                    {{sendingMailText.content+"..."}}
+                                </div>
+                                <div ng-show="mailSuccess" class="mail-feedback">
+                                    {{mailSuccessText.content}}
+                                </div>
+                                <div ng-show="mailFail" class="mail-feedback">
+                                    {{mailFailText.content}}
+                                </div>
                             </div>
                         </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new.svg" />
                         <div class="shadow pos-1"></div> <img class="diamond pos-2" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new.svg" />
