@@ -1648,6 +1648,9 @@ footer ul li {
     font-size: large;
     bottom: 10%;
   }
+  .btns {
+    padding-top: 10px;
+  }
   .panel {
     min-height: 200px;
     height: auto;
