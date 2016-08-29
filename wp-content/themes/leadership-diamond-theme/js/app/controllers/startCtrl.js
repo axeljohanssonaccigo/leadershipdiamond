@@ -91,12 +91,21 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         });
 
         jQuery("form.wpcf7-form").on("submit", function (event) {
+            $scope.sendingMail = true;
             event.preventDefault();
-            $scope.formSubmitUrl = jQuery(this).serialize();
-            console.log($scope.formSubmitUrl);
-            startSvc.sendForm($scope.formSubmitUrl).then(function (response) {
-                console.log("SENT");
+            //$scope.formSubmitUrl = jQuery(this).serialize();
+            //console.log($scope.formSubmitUrl);
+            startSvc.sendMail().then(function (response) {
+                console.log("Mail was sent! Response: \n");
+                $scope.sendingMail = false;
+                $scope.mailSuccess = true;
                 console.log(response);
+            }).catch(function () {
+                console.log("Error in send mail. Response: \n");
+                console.log(response);
+                $scope.sendingMail = false;
+                $scope.mailSuccess = false;
+
             });
 
 

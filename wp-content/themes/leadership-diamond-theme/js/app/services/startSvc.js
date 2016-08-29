@@ -12,19 +12,21 @@ diamondApp.service('startSvc', function ($http) {
         });
     };
 
-    this.sendForm = function (url) {
+    this.sendMail = function (recipient, subject, body) {
         return $http({
             method: "POST",
-            url: baseUrl.concat("/en?").concat(url),
+            url: baseUrl.concat('/wp-admin/admin-ajax.php'),
+            params: {
+                action: 'send_message',
+                email: recipient,
+                subject: subject,
+                message: body
+            }
         }).success(function (data, status, headers, config) {
-            //var json = jQuery.parseJSON(data);
+            var json = jQuery.parseJSON(data);
             console.log('Success :\n' + data + '\n' + status + '\n' + JSON.stringify(config));
         }).error(function (data, status, headers, config) {
             console.log('Error :\n' + data + '\n' + status + '\n' + JSON.stringify(config));
         });
     };
-
-
-
-
 });
