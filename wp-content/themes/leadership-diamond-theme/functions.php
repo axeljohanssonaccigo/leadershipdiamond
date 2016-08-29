@@ -1,6 +1,6 @@
 <?php
 //Global script version for custom scripts
-$version = '0.94';
+$version = '0.95';
 //Global mail settings
 $mail_recipient = 'axeljohansson88@gmail.com';
 $mail_subject = 'Ledarskapsdiamanten - Nytt meddelande!';
