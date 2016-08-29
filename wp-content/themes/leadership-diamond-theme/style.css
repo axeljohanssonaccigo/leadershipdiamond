@@ -1989,6 +1989,9 @@ footer ul li {
     border-radius: 3px;
     max-width: 330px;
   }
+  section#diamond .row .peter-image-caption {
+    width: 100%;
+  }
   section#diamond .row .peter-image-caption p {
     margin: 0px;
     font-style: italic;
