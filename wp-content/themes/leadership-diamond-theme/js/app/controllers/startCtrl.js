@@ -192,7 +192,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             console.log($scope.footerContent);
             $scope.isLoaded.footer = true;
         }).catch(function () {
-            console.log("Error in get all partners");
+            console.log("Error in get footer content");
             $scope.isLoaded.footer = true;
         });
     };

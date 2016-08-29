@@ -10,11 +10,17 @@ var closeMenu = function () {
 //STOPS SCROLL WEH ACTION IS MADE
 var page = jQuery("html, body");
 
-page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function () {
-    if (document.documentMode === undefined) {
-        page.stop();
-    }
-});
+//page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function () {
+//    //If mousedown on scroll
+//    console.log("first page on");
+//    page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function () {
+//        //    if (document.documentMode === undefined) {
+//        console.log("2nd page on");
+//
+//        //page.stop();
+//        //    }
+//    });
+//});
 
 
 /**
