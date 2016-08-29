@@ -96,7 +96,16 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             var name = jQuery("form.wpcf7-form .your-name input").val();
             var email = jQuery("form.wpcf7-form .your-email input").val();
             var message = jQuery("form.wpcf7-form .your-message textarea").val();
-            message = message.concat("<br><br>").concat("Meddelandet skickades av: ").concat("<br>").concat(name).concat("<br>").concat(email).replace(/(?:\r\n|\r|\n)/g, '<br />');;
+            message = message.
+            concat("<br><br>").
+            concat("<b>Meddelandet skickades av: </b>").
+            concat("<br>").
+            concat(name).
+            concat("<br>").
+            concat(email).
+            concat("<br>").
+            concat("via leadershipdiamond.com.").
+            replace(/(?:\r\n|\r|\n)/g, '<br />');
             startSvc.sendMail("", message).then(function (response) {
                 console.log("Mail was sent! Response: \n");
                 $scope.sendingMail = false;
