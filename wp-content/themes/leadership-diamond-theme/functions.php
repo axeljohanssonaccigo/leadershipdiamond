@@ -162,7 +162,7 @@ function mytheme_admin_bar_render() {
 add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
 
   //Setting from address (lost your password mail)
-//add_filter( 'wp_mail_from', 'wpse_new_mail_from' ); //function wpse_new_mail_from( $old ) { // return 'noreply@leadershipdiamond.com'; //}
+add_filter( 'wp_mail_from', 'wpse_new_mail_from' ); function wpse_new_mail_from( $old ) { return 'noreply@leadershipdiamond.com'; }
 
 //Setting from nam (lost password mail)
 add_filter('wp_mail_from_name', 'wpse_new_mail_from_name');
