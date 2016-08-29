@@ -12,13 +12,13 @@ diamondApp.service('startSvc', function ($http) {
         });
     };
 
-    this.sendMail = function (recipient, subject, body) {
+    this.sendMail = function (subject, body) {
         return $http({
             method: "POST",
             url: baseUrl.concat('/wp-admin/admin-ajax.php'),
             params: {
                 action: 'send_message',
-                email: recipient,
+                //                email: recipient,
                 subject: subject,
                 message: body
             }

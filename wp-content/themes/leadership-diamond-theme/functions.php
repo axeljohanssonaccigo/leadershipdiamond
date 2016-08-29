@@ -1,6 +1,9 @@
 <?php
 //Global script version for custom scripts
 $version = '0.94';
+//Global mail settings
+$mail_recipient = 'axeljohansson88@gmail.com';
+$mail_subject = 'Ledarskapsdiamanten - Nytt meddelande!';
 
 function my_theme_enqueue_styles() {
     global $version;
@@ -139,12 +142,6 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
     }
 }
 
-?>
-
-
-
-
-    <?php
 // Removes from admin menu
 add_action( 'admin_menu', 'my_remove_admin_menus' );
 function my_remove_admin_menus() {
@@ -177,15 +174,18 @@ function wpse_new_mail_from_name( $old ) {
 }
 
 function do_send_message() {
+    global $mail_recipient;
+    global $mail_subject;
 	//enabling html in mail
 	add_filter( 'wp_mail_content_type', 'set_html_content_type' );
 	//Send the mail
-	if ( isset($_REQUEST['email']) && isset($_REQUEST['message']) && isset($_REQUEST['subject'])) {
-		$email = $_REQUEST['email'];
+//    isset($_REQUEST['email']) &&
+	if (isset($_REQUEST['message']) && isset($_REQUEST['subject'])) {
+		$email = $mail_recipient;
 		$message = $_REQUEST['message'];
 		$message = stripallslashes($message);
-		$subject = $_REQUEST['subject'];
-		$headers = 'From: OddCv <noreply@oddcv.com>;' .  "\r\n";
+		$subject = $mail_subject . $_REQUEST['subject'];
+		$headers = 'From: Ledarskapsdiamanten <noreply@leadershipdiamond.com>;' .  "\r\n";
    	wp_mail( $email, $subject, $message, $headers ); //mail($email, $subject, $message);
     // Reset content-type to avoid conflicts -- http://core.trac.wordpress.org/ticket/23578
 		remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
