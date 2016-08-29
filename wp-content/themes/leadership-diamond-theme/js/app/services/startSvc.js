@@ -11,4 +11,20 @@ diamondApp.service('startSvc', function ($http) {
             }
         });
     };
+
+    this.sendForm = function (url) {
+        return $http({
+            method: "POST",
+            url: baseUrl.concat("/en?").concat(url),
+        }).success(function (data, status, headers, config) {
+            //var json = jQuery.parseJSON(data);
+            console.log('Success :\n' + data + '\n' + status + '\n' + JSON.stringify(config));
+        }).error(function (data, status, headers, config) {
+            console.log('Error :\n' + data + '\n' + status + '\n' + JSON.stringify(config));
+        });
+    };
+
+
+
+
 });

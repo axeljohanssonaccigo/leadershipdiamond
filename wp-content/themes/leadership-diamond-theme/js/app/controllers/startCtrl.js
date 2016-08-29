@@ -76,6 +76,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
 
     //On Document ready
     jQuery(document).ready(function () {
+
         jQuery("#sidr-main .sidr-inner ul li a").each(function (elem) {
             console.log(this);
             jQuery(this).attr("onclick", "closeMenu()");
@@ -87,6 +88,19 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         jQuery.each(list, function (index, value) {
             postIndex = index + 1;
             jQuery(value).attr("href", "#post-" + postIndex);
+        });
+
+        jQuery("form.wpcf7-form").on("submit", function (event) {
+            event.preventDefault();
+            $scope.formSubmitUrl = jQuery(this).serialize();
+            console.log($scope.formSubmitUrl);
+            startSvc.sendForm($scope.formSubmitUrl).then(function (response) {
+                console.log("SENT");
+                console.log(response);
+            });
+
+
+
         });
     });
 
