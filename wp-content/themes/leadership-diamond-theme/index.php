@@ -72,20 +72,20 @@
                                 <div class="graphs-container">
                                     <h1>{{whyTheDiamond.content}}</h1>
                                     <div class="row">
-                                        <div class="col-md-5 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1-NEW.svg" /> </div>
-                                        <div class="col-md-7 col-xs-12">
+                                        <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1-NEW2.svg" /> </div>
+                                        <div class="col-md-6 col-xs-12">
                                             <div class="number"> {{graphTexts.graph1.content}}</div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-5 col-xs-12 float-right no-float-mobile"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2-NEW.svg"> </div>
-                                        <div class="col-md-7 col-xs-12">
+                                        <div class="col-md-6 col-xs-12 float-right no-float-mobile"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2-NEW2.svg"> </div>
+                                        <div class="col-md-6 col-xs-12">
                                             <div class="number right">{{graphTexts.graph2.content}}</div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-5 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3-NEW2.svg"> </div>
-                                        <div class="col-md-7 col-xs-12">
+                                        <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3-NEW3.svg"> </div>
+                                        <div class="col-md-6 col-xs-12">
                                             <div class="number">{{graphTexts.graph3.content}}</div>
                                         </div>
                                     </div>
@@ -96,7 +96,7 @@
                     <div class="row wheel-row">
                         <div class="row-container">
                             <h2 class="center">Ledarskapshjulet</h2>
-                            <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW.svg"> </div>
+                            <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW2.svg"> </div>
                             <!--
                             <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.content}}</a> </div>-->
                             <div class="wheel-text">{{wheelText.content}}</div>
@@ -121,7 +121,7 @@
                                 <uib-accordion-group id="post-<?php echo $post_index; ?>" class="page-scroll">
                                     <uib-accordion-heading>
                                         <?php the_title(); ?>
-                                            <div class="read-more-button display-none-mobile"> {{readMore.content}} <img src="../wp-content/themes/leadership-diamond-theme/img/magnifier-book.svg" /> </div>
+                                            <div class="read-more-button"> {{readMore.content}} <img src="../wp-content/themes/leadership-diamond-theme/img/magnifier-book.svg" /> </div>
                                     </uib-accordion-heading>
                                     <?php the_content();?>
                                         <div class="btns">
@@ -156,11 +156,13 @@
 
                                 </div>
                                 <div class="about-buttons-cont ">
-                                    <div class="col-md-6 col-xs-12 leader-btn-cont">
-                                        <a href="http://www.pib.net" class="btn leader-btn waves-effect waves-light" target="_blank">Koestenbaum&nbsp;Institute</a>
+                                    <div class="col-md-7 col-xs-12 leader-btn-cont">
+                                        <a href="http://www.pib.net" class="btn leader-btn koestenbaum-link waves-effect waves-light" target="_blank">Koestenbaum&nbsp;Institute
+                                        <img class="external-link" src="../wp-content/themes/leadership-diamond-theme/img/external-link-symbol.svg">
+                                        </a>
                                     </div>
-                                    <div class="leader-btn-cont col-xs-12 col-md-6" ng-show="aQuestionWasClicked">
-                                        <a class="btn leader-btn waves-effect waves-light" href="#{{latestClickedPostId}}"> {{backToLatestProblem.content}} ▲</a>
+                                    <div class="leader-btn-cont col-xs-12 col-md-5" ng-show="aQuestionWasClicked">
+                                        <a class="btn leader-btn problem-btn waves-effect waves-light" href="#{{latestClickedPostId}}"> {{backToLatestProblem.content}} ▲</a>
                                     </div>
 
                                 </div>

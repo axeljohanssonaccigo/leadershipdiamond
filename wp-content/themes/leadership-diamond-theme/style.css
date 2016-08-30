@@ -291,7 +291,7 @@ a.waves-effect .waves-ripple {
 }
 /* PANELS.LESS */
 .panel-inner {
-  padding: 200px 0%;
+  padding: 150px 0%;
   margin: 0 auto;
   /*width: 100%;
     position: absolute;
@@ -678,7 +678,7 @@ section#graph .row .heading-btn {
 }
 section#graph .row .col-md-7,
 section#graph .row .col-md-6 {
-  height: 180px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -772,6 +772,22 @@ section#diamond .row .diamond-section .leader-btn {
   background: url(img/noise2.png), radial-gradient(circle 400px at 50% 10%, #777777 0%, #444444 50%, #333333 100%) !important;
   font-size: 18px;
   color: white;
+}
+section#diamond .row .diamond-section .problem-btn {
+  color: #555;
+  font-weight: 100;
+  font-size: 15px;
+  background: white !important;
+}
+section#diamond .row .diamond-section .koestenbaum-link {
+  background: url(img/noise2.png), radial-gradient(circle 600px at 50% 0%, #36a6f9 0%, #1298ff 14%, #002b76 100%) !important;
+}
+section#diamond .row .diamond-section .external-link {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 20px;
+  transform: translateY(-50%);
 }
 section#diamond .row .diamond-section .diamond-about-text {
   margin: 20px auto;
@@ -1027,18 +1043,20 @@ section#course .row .shadow.pos-3 {
   opacity: 1;
   transition: 0.4s all !important;
   position: absolute;
-  right: 0;
-  bottom: 0;
-  font-size: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5px;
+  font-size: 18px;
   width: 125px;
   display: inline-block;
   float: left;
   font-weight: normal;
-  padding-right: 10px;
+  padding-right: 0px;
 }
 .read-more-button img {
+  display: inline-block;
   max-height: 100%;
-  width: 25px;
+  width: 30px;
   margin-left: 5px;
 }
 .post-icon {
@@ -1670,7 +1688,7 @@ footer ul li {
   }
   .panel-heading h4 {
     font-family: 'TCCEB';
-    font-size: 22px;
+    font-size: 24px;
   }
   .panel-heading h4 a {
     transition: 0s all cubic-bezier(0.8, 0, 0.2, 1);
@@ -1711,13 +1729,19 @@ footer ul li {
     padding: 50px;
   }
   .question-card {
-    padding: 30px 10px;
+    padding: 30px 10px 60px;
     background: white;
     border-radius: 5px;
     min-height: 100px;
     position: relative;
     width: 100%;
     margin: 0 auto;
+  }
+  .question-card .read-more-button {
+    bottom: 10px;
+  }
+  .panel-open .question-card {
+    padding: 30px 10px 10px;
   }
   section#graph {
     min-height: 400px;

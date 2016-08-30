@@ -354,7 +354,7 @@ section#graph {
         }
         .col-md-7,
         .col-md-6 {
-            height: 180px;
+            height: 250px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -451,6 +451,22 @@ section#diamond {
                 background: url(img/noise2.png), radial-gradient(circle 400px at 50% 10%, #777777 0%, #444444 50%, #333333 100%) !important;
                 font-size: 18px;
                 color: white;
+            }
+            .problem-btn {
+                color: #555;
+                font-weight: 100;
+                font-size: 15px;
+                background: white !important;
+            }
+            .koestenbaum-link {
+                background: url(img/noise2.png), radial-gradient(circle 600px at 50% 0%, #36a6f9 0%, #1298ff 14%, #002b76 100%) !important;
+            }
+            .external-link {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                width: 20px;
+                transform: translateY(-50%);
             }
             .diamond-about-text {
                 margin: 20px auto;
@@ -714,17 +730,19 @@ section#course {
     opacity: 1;
     transition: 0.4s all !important;
     position: absolute;
-    right: 0;
-    bottom: 0;
-    font-size: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5px;
+    font-size: 18px;
     width: 125px;
     display: inline-block;
     float: left;
     font-weight: normal;
-    padding-right: 10px;
+    padding-right: 0px;
     img {
+        display: inline-block;
         max-height: 100%;
-        width: 25px;
+        width: 30px;
         margin-left: 5px;
     }
 }
