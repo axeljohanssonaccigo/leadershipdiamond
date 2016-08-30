@@ -32,7 +32,14 @@ do_action( 'studio_after_content' );
                             <ul>
                                 <div ng-repeat="group in groupNames">
                                     <div class="group-name-heading" ng-if="group !== 'none'">{{group}}</div>
-                                    <li ng-repeat="entry in footerContent"> <a ng-if="entry.footerGroup == 2 && entry.subGroup == group && entry.link != '#'" href="{{entry.link}}" target="_blank">{{entry.title}}</a> <span ng-if="entry.footerGroup == 2 && entry.subGroup == group && entry.link == '#'">{{entry.title}}</span> </li>
+                                    <li ng-repeat="entry in footerContent">
+                                        <a ng-if="entry.footerGroup == 2 && entry.subGroup == group && entry.link != '#'" href="{{entry.link}}" target="_blank">
+                                            {{entry.title}}
+                                        </a>
+                                        <span ng-if="entry.footerGroup == 2 && entry.subGroup == group && entry.link == '#'">
+                                            {{entry.title}}
+                                        </span>
+                                    </li>
                                 </div>
                             </ul>
                         </div>

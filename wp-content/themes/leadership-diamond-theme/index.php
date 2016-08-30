@@ -15,15 +15,17 @@
  define( 'WP_USE_THEMES', false ); get_header(); ?>
     <style id="style"></style>
     <!-- lang-picker -->
-    <div class="lang-picker waves-effect waves-light display-none-mobile faded-out" ng-class="{'fadein': allLoaded}">
-        <div ng-repeat="lang in languages" ng-animate=" 'animate' ">
-            <div ng-if="currentLanguage.name !== lang.name">
-                <a href="{{lang.url}}"> <img src="../wp-content/themes/leadership-diamond-theme/img/planet-earth2.svg" />
-                    <div class="lang-name">{{lang.name}}</div>
-                </a>
-            </div>
+    <!--
+<div class="lang-picker waves-effect waves-light display-none-mobile faded-out" ng-class="{'fadein': allLoaded}">
+    <div ng-repeat="lang in languages" ng-animate=" 'animate' ">
+        <div ng-if="currentLanguage.name !== lang.name">
+            <a href="{{lang.url}}"> <img src="../wp-content/themes/leadership-diamond-theme/img/planet-earth2.svg" />
+                <div class="lang-name">{{lang.name}}</div>
+            </a>
         </div>
     </div>
+</div>
+-->
     <!-- Kostenbaum Institue --->
     <div class="koestenbaum waves-effect waves-light display-none-mobile faded-out" ng-class="{'fadein': allLoaded}"> <a href="http://www.pib.net" target="_blank">Koestenbaum<br> <span>Institute</span></a> </div>
     <!-- hamburger nav -->
@@ -160,7 +162,7 @@
                                         <a href="http://www.pib.net" class="btn leader-btn waves-effect waves-light" target="_blank">Koestenbaum&nbsp;Institute</a>
                                     </div>
                                     <div class="leader-btn-cont col-xs-12 col-md-6" ng-show="aQuestionWasClicked">
-                                        <a class="btn leader-btn waves-effect waves-light" href="#{{latestClickedPostId}}"> {{backToLatestProblem.content}} ▲</a>
+                                        <a class="btn leader-btn waves-effect waves-light" ng-click="$event.stopPropagation()" href="#{{latestClickedPostId}}"> {{backToLatestProblem.content}} ▲</a>
                                     </div>
 
                                 </div>

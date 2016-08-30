@@ -61,7 +61,8 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.diamondAboutText = $scope.getTranslationByTitle('diamondabouttext');
         $scope.sweden = $scope.getTranslationByTitle('sweden');
         $scope.india = $scope.getTranslationByTitle('india');
-        $scope.groupNames = ["none", $scope.sweden.content, $scope.india.content];
+        $scope.usa = $scope.getTranslationByTitle('usa');
+        $scope.groupNames = ["none", $scope.sweden.content, $scope.india.content, $scope.usa.content];
         $scope.goToDiamond = $scope.getTranslationByTitle('gotodiamond');
         $scope.firstExample = $scope.getTranslationByTitle('firstexample');
         $scope.coursesPrograms = $scope.getTranslationByTitle('coursesprograms');
@@ -178,7 +179,10 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             groupName = $scope.india.content;
             break;
         case "3":
-            groupName = "none"
+            groupName = $scope.usa.content;
+            break;
+        case "4":
+            groupName = "none";
             break;
         default:
             groupName = "none";
@@ -250,11 +254,14 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
                 };
                 if ('wpcf-sub-group' in entry.custom_fields) {
                     entry["subGroup"] = $scope.getFooterSubGroupName(entry.custom_fields['wpcf-sub-group'][0]);
+
                 };
                 if ('wpcf-link' in entry.custom_fields) {
                     entry["link"] = entry.custom_fields['wpcf-link'][0];
                 };
+                console.log(entry.title + " " + entry.subGroup + " " + entry.footerGroup + " " + entry.link);
             });
+            console.log("footer content");
             console.log($scope.footerContent);
             $scope.isLoaded.footer = true;
         }).catch(function () {
@@ -269,6 +276,8 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             $scope.aQuestionWasClicked = true;
             $scope.latestClickedPostId = postId;
         }
+        $scope.aQuestionWasClicked = true;
+        $scope.latestClickedPostId = postId;
 
     };
 
