@@ -95,7 +95,7 @@
         padding: 0px;
         h4 {
             font-family: 'TCCEB';
-            font-size: 22px;
+            font-size: 24px;
             a {
                 transition: 0s all cubic-bezier(.8, 0, .2, 1);
                 transition: 0s all cubic-bezier(.55, -0.4, .45, 1.4);
@@ -144,13 +144,21 @@
         }
     }
     .question-card {
-        padding: 30px 10px;
+        padding: 30px 10px 60px;
         background: white;
         border-radius: 5px;
         min-height: 100px;
         position: relative;
         width: 100%;
         margin: 0 auto;
+        .read-more-button {
+            bottom: 10px;
+        }
+    }
+    .panel-open {
+        .question-card {
+            padding: 30px 10px 10px;
+        }
     }
     section#graph {
         min-height: 400px;
