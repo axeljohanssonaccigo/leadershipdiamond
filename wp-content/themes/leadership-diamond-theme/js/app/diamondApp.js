@@ -2,6 +2,11 @@
 var diamondApp = angular.module('diamondApp', ['ngAnimate', 'ngTouch', 'ui.bootstrap']).run(['$anchorScroll', function ($anchorScroll) {
     $anchorScroll.yOffset = 250; // always scroll by 50 extra pixels
 }]);
+var redirectToSwedish = function () {
+    //Redirect to /sv for now
+    location.href = baseUrl.concat("/sv");
+}
+
 // Global variabels
 var environments = {
     "dev": "http://localhost:81",
@@ -28,12 +33,19 @@ var currentLanguage = {
     "name": "Svenska",
     "url": baseUrl.concat("/sv")
 };
+//If English
 if (location.href.search("/en") > -1) {
     var currentLanguage = {
         "name": "English",
         "url": baseUrl.concat("/en")
     };
+    redirectToSwedish();
+    //If no lang is auto set
+} else if (location.pathname === "/leadershipdiamond/") {
+    redirectToSwedish();
 };
+
+
 jQuery("#page").attr("ng-controller", "startCtrl");
 //Bootstrapping the app
 jQuery(document).ready(function () {

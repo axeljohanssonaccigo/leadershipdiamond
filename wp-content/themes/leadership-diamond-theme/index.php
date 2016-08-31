@@ -33,7 +33,7 @@
         <nav class="nav-1 is-close">
             <ul class="nav-list">
                 <?php wp_nav_menu( array( 'items_wrap' => '%3$s', 'container' => '', 'link_before' => '<span class="nav-text">', 'link_after' => '</span>', 'walker' => new Custom_Walker_Nav_Menu() ) ); ?> </ul>
-<!--
+            <!--
            <div class="lang-picker waves-effect waves-light">
     <div ng-repeat="lang in languages" ng-animate=" 'animate' ">
         <div ng-if="currentLanguage.name !== lang.name">
@@ -161,7 +161,7 @@
                                 </div>
                                 <div class="about-buttons-cont ">
                                     <div class="col-md-7 col-xs-12 leader-btn-cont">
-                                        <a href="http://www.pib.net" class="btn leader-btn koestenbaum-link waves-effect waves-light" target="_blank">Koestenbaum&nbsp;Institute
+                                        <a href="http://www.pib.net" class="btn leader-btn koestenbaum-link waves-effect waves-light" target="_blank">{{testTheTools.content}}
                                         <img class="external-link" src="../wp-content/themes/leadership-diamond-theme/img/external-link-symbol.svg">
                                         </a>
                                     </div>
