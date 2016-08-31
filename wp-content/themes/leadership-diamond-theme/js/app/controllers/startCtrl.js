@@ -71,10 +71,12 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.backToLatestProblem = $scope.getTranslationByTitle('backtolatestproblem');
         $scope.formHeading1 = $scope.getTranslationByTitle('formheading1');
         $scope.formHeading2 = $scope.getTranslationByTitle('formheading2');
-        $scope.wheelText = $scope.getTranslationByTitle('wheeltext');
+        $scope.wheelText = $scope.getTranslationByTitle('wheeltext ');
         $scope.sendingMailText = $scope.getTranslationByTitle('sendingmail');
         $scope.mailSuccessText = $scope.getTranslationByTitle('mailsuccess');
         $scope.mailFailText = $scope.getTranslationByTitle('mailfail');
+        $scope.testTheTools = $scope.getTranslationByTitle('testthetools');
+
         $scope.graphTexts = {
             "graph1": $scope.getTranslationByTitle('graph1'),
             "graph2": $scope.getTranslationByTitle('graph2'),
