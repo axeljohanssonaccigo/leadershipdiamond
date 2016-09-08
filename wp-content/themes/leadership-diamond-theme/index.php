@@ -100,7 +100,7 @@
                     <div class="row wheel-row">
                         <div class="row-container">
                             <h2 class="center">Ledarskapshjulet</h2>
-                            <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW2.svg"> </div>
+                            <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW3.svg"> </div>
                             <!--
                             <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.content}}</a> </div>-->
                             <div class="wheel-text">{{wheelText.content}}</div>
