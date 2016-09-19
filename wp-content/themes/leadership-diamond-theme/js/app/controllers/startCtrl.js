@@ -62,7 +62,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.sweden = $scope.getTranslationByTitle('sweden');
         $scope.india = $scope.getTranslationByTitle('india');
         $scope.usa = $scope.getTranslationByTitle('usa');
-        $scope.groupNames = ["none", $scope.sweden.content, $scope.india.content, $scope.usa.content];
+        $scope.groupNames = ["none", $scope.sweden.content, $scope.india.content];
         $scope.goToDiamond = $scope.getTranslationByTitle('gotodiamond');
         $scope.firstExample = $scope.getTranslationByTitle('firstexample');
         $scope.coursesPrograms = $scope.getTranslationByTitle('coursesprograms');
@@ -71,7 +71,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.backToLatestProblem = $scope.getTranslationByTitle('backtolatestproblem');
         $scope.formHeading1 = $scope.getTranslationByTitle('formheading1');
         $scope.formHeading2 = $scope.getTranslationByTitle('formheading2');
-        $scope.wheelText = $scope.getTranslationByTitle('wheeltext ');
+        $scope.wheelText = $scope.getTranslationByTitle('wheeltext');
         $scope.sendingMailText = $scope.getTranslationByTitle('sendingmail');
         $scope.mailSuccessText = $scope.getTranslationByTitle('mailsuccess');
         $scope.mailFailText = $scope.getTranslationByTitle('mailfail');
@@ -261,6 +261,10 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
                 if ('wpcf-link' in entry.custom_fields) {
                     entry["link"] = entry.custom_fields['wpcf-link'][0];
                 };
+                if ('wpcf-index' in entry.custom_fields) {
+                    entry["index"] = entry.custom_fields['wpcf-index'][0];
+                };
+                entry.title = entry.title.replace("&#038;", "\u0026");
                 console.log(entry.title + " " + entry.subGroup + " " + entry.footerGroup + " " + entry.link);
             });
             console.log("footer content");
