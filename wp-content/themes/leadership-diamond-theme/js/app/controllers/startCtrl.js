@@ -71,6 +71,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.backToLatestProblem = $scope.getTranslationByTitle('backtolatestproblem');
         $scope.formHeading1 = $scope.getTranslationByTitle('formheading1');
         $scope.formHeading2 = $scope.getTranslationByTitle('formheading2');
+        $scope.wheelHeading = $scope.getTranslationByTitle('wheelheading');
         $scope.wheelText = $scope.getTranslationByTitle('wheeltext');
         $scope.sendingMailText = $scope.getTranslationByTitle('sendingmail');
         $scope.mailSuccessText = $scope.getTranslationByTitle('mailsuccess');
