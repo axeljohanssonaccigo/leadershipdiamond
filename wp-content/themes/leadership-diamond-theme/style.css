@@ -892,7 +892,7 @@ section#course .row .course-container .course-card {
   border-radius: 5px;
   padding: 30px;
   color: #555;
-  min-height: 255px;
+  min-height: 298px;
 }
 section#course .row .course-btn {
   display: inline-flex;
@@ -1602,6 +1602,9 @@ footer ul li {
   section#heading .row .heading-container .heading-title {
     font-size: 96px;
   }
+  .course-container .course-card {
+    min-height: 200px;
+  }
 }
 @media screen and (max-width: 990px) {
   html {
@@ -2222,6 +2225,11 @@ footer ul li {
   }
   .heading-container {
     margin-left: 15px;
+  }
+}
+@media screen and (max-width: 990px) and (min-width: 769px) {
+  .course-container .course-card {
+    min-height: 235px !important;
   }
 }
 .navbar-1 {
