@@ -780,7 +780,6 @@ section#diamond .row .diamond-section .leader-btn {
 section#diamond .row .diamond-section .problem-btn {
   color: #555;
   font-weight: 100;
-  font-size: 15px;
   background: white !important;
 }
 section#diamond .row .diamond-section .koestenbaum-link {
@@ -1605,6 +1604,15 @@ footer ul li {
 @media screen and (max-width: 768px) {
   section#diamond .row .peter-image-caption {
     float: none;
+  }
+  section#diamond .row .diamond-section .koestenbaum-link,
+  section#diamond .row .diamond-section .problem-btn {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 350px) {
+  section#diamond .row .diamond-section .koestenbaum-link {
+    text-align: left;
   }
 }
 @media screen and (max-width: 1040px) and (min-width: 990px) {
