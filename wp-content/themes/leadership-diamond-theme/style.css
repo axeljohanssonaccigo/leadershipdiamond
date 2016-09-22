@@ -1609,6 +1609,15 @@ footer ul li {
   section#diamond .row .diamond-section .problem-btn {
     font-size: 15px;
   }
+  .site-info {
+    font-size: 15px;
+  }
+  .site-info h3 {
+    font-size: 28px;
+  }
+  footer .group-name-heading {
+    font-size: 16px;
+  }
 }
 @media screen and (max-width: 350px) {
   section#diamond .row .diamond-section .koestenbaum-link {
