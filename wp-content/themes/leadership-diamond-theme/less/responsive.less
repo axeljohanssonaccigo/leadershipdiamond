@@ -1,6 +1,14 @@
 /* responsive.less */
 
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+    section#diamond {
+        .row {
+            .peter-image-caption {
+                float: none;
+            }
+        }
+    }
+}
 
 @media screen and (max-width: 1040px) and (min-width: 990px) {
     section#heading .row .heading-container .heading-title {
@@ -530,6 +538,8 @@
                 padding-right: 15px;
                 .col-xs-12 {
                     margin-top: 10px;
+                    padding-left: 0;
+                    padding-right: 0;
                 }
             }
             .pos-1 {
