@@ -895,7 +895,7 @@ section#course .row .course-container .course-card {
   border-radius: 5px;
   padding: 30px;
   color: #555;
-  min-height: 298px;
+  min-height: 338px;
 }
 section#course .row .course-btn {
   display: inline-flex;
@@ -2264,7 +2264,7 @@ footer ul li {
 }
 @media screen and (max-width: 990px) and (min-width: 769px) {
   .course-container .course-card {
-    min-height: 235px !important;
+    min-height: 256px !important;
   }
   section#diamond .row .peter-image-caption {
     float: none;
