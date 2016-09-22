@@ -2272,7 +2272,7 @@ footer ul li {
   max-height: 480px;
   text-align: left;
   transform-origin: 0 0;
-  transform: scale(1);
+  transform: perspective(0px) scale(0.2);
   background: url(img/noise2.png), radial-gradient(circle 2200px at 50% -200%, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 0%;
@@ -2307,6 +2307,9 @@ footer ul li {
 .nav-1.is-close {
   width: 320px;
   height: 320px;
+  -moz-transform: scale(0.2) !important;
+  -webkit-transform: scale(0.2) !important;
+  transform: scale(0.2) !important;
 }
 .nav-1.is-close .koestenbaum,
 .nav-1.is-close .lang-picker {
