@@ -679,9 +679,13 @@ section#graph .row .heading-btn {
 section#graph .row .col-md-7,
 section#graph .row .col-md-6 {
   height: 250px;
-  display: flex;
+  display: -ms-flex;
   flex-direction: column;
   justify-content: center;
+}
+section#graph .row .col-md-7 .number,
+section#graph .row .col-md-6 .number {
+  margin-top: 15%;
 }
 section#question {
   position: relative;
@@ -1764,9 +1768,14 @@ footer ul li {
   section#graph .row .col-md-7,
   section#graph .row .col-md-6 {
     height: auto;
-    display: flex;
+    display: -ms-flex;
     flex-direction: initial;
     justify-content: initial;
+  }
+  section#graph .row .col-md-7 .number,
+  section#graph .row .col-md-6 .number {
+    margin-top: 0;
+    text-align: center;
   }
   section#diamond .row {
     width: 100%;
@@ -1777,6 +1786,8 @@ footer ul li {
     width: 100%;
     max-width: 100%;
     margin: 10px 0 5px 0px;
+    display: block;
+    float: none;
   }
   section#diamond .row .diamond-section .diamond-title {
     font-size: 28px;
@@ -2230,6 +2241,9 @@ footer ul li {
 @media screen and (max-width: 990px) and (min-width: 769px) {
   .course-container .course-card {
     min-height: 235px !important;
+  }
+  section#diamond .row .peter-image-caption {
+    float: none;
   }
 }
 .navbar-1 {

@@ -182,9 +182,13 @@
             .col-md-7,
             .col-md-6 {
                 height: auto;
-                display: flex;
+                display: -ms-flex;
                 flex-direction: initial;
                 justify-content: initial;
+                .number {
+                    margin-top: 0;
+                    text-align: center;
+                }
             }
         }
     }
@@ -198,6 +202,8 @@
                     width: 100%;
                     max-width: 100%;
                     margin: 10px 0 5px 0px;
+                    display: block;
+                    float: none;
                 }
                 .diamond-title {
                     font-size: 28px;
@@ -692,6 +698,13 @@
     .course-container {
         .course-card {
             min-height: 235px !important;
+        }
+    }
+    section#diamond {
+        .row {
+            .peter-image-caption {
+                float: none;
+            }
         }
     }
 }
