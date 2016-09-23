@@ -100,11 +100,10 @@
                     <div class="row wheel-row">
                         <div class="row-container">
                             <h2 class="center">{{wheelHeading.content}}</h2>
-                            <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW3.svg"> </div>
+                            <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW5.svg"> </div>
                             <!--
                             <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.content}}</a> </div>-->
-                            <div class="wheel-text">{{wheelText.content}}</div>
-                            <a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
+                            <div class="wheel-text">{{wheelText.content}}</div> <a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
                     </div>
                 </section>
                 <!-- Graph section -->
@@ -130,19 +129,15 @@
                                     <?php the_content();?>
                                         <div class="btns">
                                             <div class="next-btn-cont col-md-6" ng-show="<?php echo $post_index; ?> < <?php echo $posts_size; ?>"> <a class="btn next-btn btn-success waves-effect waves-light" href="#post-<?php echo $post_index+1; ?>">{{goToNextPost.content}} ▼</a> </div>
-                                            <div class="leader-btn-cont col-md-6" ng-class="{'col-md-offset-3': <?php echo $post_index; ?> == <?php echo $posts_size; ?>}">
-                                                <a ng-click="setLatestClickedPostId('post-<?php echo $post_index; ?>'); $event.stopPropagation()" class="btn leader-btn waves-effect waves-light" href="#diamond"> 
+                                            <div class="leader-btn-cont col-md-6" ng-class="{'col-md-offset-3': <?php echo $post_index; ?> == <?php echo $posts_size; ?>}"> <a ng-click="setLatestClickedPostId('post-<?php echo $post_index; ?>'); $event.stopPropagation()" class="btn leader-btn waves-effect waves-light" href="#diamond"> 
                                                     {{goToDiamond.content}} ▼ 
-                                                </a>
-                                            </div>
+                                                </a> </div>
                                         </div>
                                 </uib-accordion-group>
                                 <?php } // end while
                                 } // end if
                                 ?>
-                        </uib-accordion>
-                        <a href="#diamond" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a>
-                    </div>
+                        </uib-accordion> <a href="#diamond" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
                 </section>
                 <!-- Post section -->
                 <section id="diamond">
@@ -152,22 +147,14 @@
                             <div class="question-card ">
                                 <div class="diamond-title"> {{leadershipdiamond.content}}<span class="copyright">®</span> </div>
                                 <div class="diamond-about-text col-md-12">
-                                    <div class="peter-image-caption">
-                                        <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.JPG" class="peter-image">
+                                    <div class="peter-image-caption"> <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.JPG" class="peter-image">
                                         <p>Prof. Peter Koestenbaum</p>
-                                    </div>
-                                    {{diamondAboutText.content}}
-
-                                </div>
+                                    </div> {{diamondAboutText.content}} </div>
                                 <div class="about-buttons-cont ">
-                                    <div class="col-md-7 col-xs-12 leader-btn-cont">
-                                        <a href="http://www.pib.net" class="btn leader-btn koestenbaum-link waves-effect waves-light" target="_blank">{{testTheTools.content}}
+                                    <div class="col-md-7 col-xs-12 leader-btn-cont"> <a href="http://www.pib.net" class="btn leader-btn koestenbaum-link waves-effect waves-light" target="_blank">{{testTheTools.content}}
                                         <img class="external-link" src="../wp-content/themes/leadership-diamond-theme/img/external-link-symbol.svg">
-                                        </a>
-                                    </div>
-                                    <div class="leader-btn-cont col-xs-12 col-md-5" ng-show="aQuestionWasClicked">
-                                        <a class="btn leader-btn problem-btn waves-effect waves-light" ng-click="$event.stopPropagation()" href="#{{latestClickedPostId}}"> {{backToLatestProblem.content}} ▲</a>
-                                    </div>
+                                        </a> </div>
+                                    <div class="leader-btn-cont col-xs-12 col-md-5" ng-show="aQuestionWasClicked"> <a class="btn leader-btn problem-btn waves-effect waves-light" ng-click="$event.stopPropagation()" href="#{{latestClickedPostId}}"> {{backToLatestProblem.content}} ▲</a> </div>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +164,6 @@
                     <div class="row">
                         <div class="course-section clearfix">
                             <div class="course-title"> {{coursesPrograms.content}} </div>
-
                             <div ng-repeat="course in allCourses | orderBy: 'courseIndex'" class="course-container col-sm-6 col-xs-12">
                                 <div class="course-card" ng-class="{'push-down': $last}">
                                     <div class="course-title-container"> {{course.title}} </div>
@@ -194,15 +180,9 @@
                                 </div>
                                 <div class="mail-feedback">
                                     <div></div>
-                                    <div ng-show="sendingMail">
-                                        {{sendingMailText.content+"..."}}
-                                    </div>
-                                    <div ng-show="mailSuccess">
-                                        {{mailSuccessText.content}}
-                                    </div>
-                                    <div ng-show="mailFail">
-                                        {{mailFailText.content}}
-                                    </div>
+                                    <div ng-show="sendingMail"> {{sendingMailText.content+"..."}} </div>
+                                    <div ng-show="mailSuccess"> {{mailSuccessText.content}} </div>
+                                    <div ng-show="mailFail"> {{mailFailText.content}} </div>
                                 </div>
                             </div>
                         </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new.svg" />
