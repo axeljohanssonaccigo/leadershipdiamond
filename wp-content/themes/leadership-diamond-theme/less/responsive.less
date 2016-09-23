@@ -1,10 +1,52 @@
 /* responsive.less */
 
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+    section#diamond {
+        .row {
+            .peter-image-caption {
+                float: none;
+            }
+            .diamond-section {
+                .koestenbaum-link,
+                .problem-btn {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+    .site-info {
+        h3 {
+            font-size: 28px;
+        }
+        font-size: 15px;
+    }
+    footer {
+        .group-name-heading {
+            font-size: 16px;
+        }
+    }
+}
+
+@media screen and (max-width: 350px) {
+    section#diamond {
+        .row {
+            .diamond-section {
+                .koestenbaum-link {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
 
 @media screen and (max-width: 1040px) and (min-width: 990px) {
     section#heading .row .heading-container .heading-title {
-            font-size: 96px;
+        font-size: 96px;
+    }
+    .course-container {
+        .course-card {
+            min-height: 200px;
+        }
     }
 }
 
@@ -177,9 +219,13 @@
             .col-md-7,
             .col-md-6 {
                 height: auto;
-                display: flex;
+                display: -ms-flex;
                 flex-direction: initial;
                 justify-content: initial;
+                .number {
+                    margin-top: 0;
+                    text-align: center;
+                }
             }
         }
     }
@@ -193,6 +239,8 @@
                     width: 100%;
                     max-width: 100%;
                     margin: 10px 0 5px 0px;
+                    display: block;
+                    float: none;
                 }
                 .diamond-title {
                     font-size: 28px;
@@ -519,6 +567,8 @@
                 padding-right: 15px;
                 .col-xs-12 {
                     margin-top: 10px;
+                    padding-left: 0;
+                    padding-right: 0;
                 }
             }
             .pos-1 {
@@ -680,5 +730,20 @@
     }
     .heading-container {
         margin-left: 15px;
+    }
+}
+
+@media screen and (max-width: 990px) and (min-width: 769px) {
+    .course-container {
+        .course-card {
+            min-height: 256px !important;
+        }
+    }
+    section#diamond {
+        .row {
+            .peter-image-caption {
+                float: none;
+            }
+        }
     }
 }

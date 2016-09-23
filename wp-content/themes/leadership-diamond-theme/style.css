@@ -679,9 +679,13 @@ section#graph .row .heading-btn {
 section#graph .row .col-md-7,
 section#graph .row .col-md-6 {
   height: 250px;
-  display: flex;
+  display: -ms-flex;
   flex-direction: column;
   justify-content: center;
+}
+section#graph .row .col-md-7 .number,
+section#graph .row .col-md-6 .number {
+  margin-top: 15%;
 }
 section#question {
   position: relative;
@@ -776,7 +780,6 @@ section#diamond .row .diamond-section .leader-btn {
 section#diamond .row .diamond-section .problem-btn {
   color: #555;
   font-weight: 100;
-  font-size: 15px;
   background: white !important;
 }
 section#diamond .row .diamond-section .koestenbaum-link {
@@ -892,7 +895,7 @@ section#course .row .course-container .course-card {
   border-radius: 5px;
   padding: 30px;
   color: #555;
-  min-height: 255px;
+  min-height: 338px;
 }
 section#course .row .course-btn {
   display: inline-flex;
@@ -1598,9 +1601,35 @@ footer ul li {
   transition-duration: .2s !important;
 }
 /* responsive.less */
+@media screen and (max-width: 768px) {
+  section#diamond .row .peter-image-caption {
+    float: none;
+  }
+  section#diamond .row .diamond-section .koestenbaum-link,
+  section#diamond .row .diamond-section .problem-btn {
+    font-size: 15px;
+  }
+  .site-info {
+    font-size: 15px;
+  }
+  .site-info h3 {
+    font-size: 28px;
+  }
+  footer .group-name-heading {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 350px) {
+  section#diamond .row .diamond-section .koestenbaum-link {
+    text-align: left;
+  }
+}
 @media screen and (max-width: 1040px) and (min-width: 990px) {
   section#heading .row .heading-container .heading-title {
     font-size: 96px;
+  }
+  .course-container .course-card {
+    min-height: 200px;
   }
 }
 @media screen and (max-width: 990px) {
@@ -1761,9 +1790,14 @@ footer ul li {
   section#graph .row .col-md-7,
   section#graph .row .col-md-6 {
     height: auto;
-    display: flex;
+    display: -ms-flex;
     flex-direction: initial;
     justify-content: initial;
+  }
+  section#graph .row .col-md-7 .number,
+  section#graph .row .col-md-6 .number {
+    margin-top: 0;
+    text-align: center;
   }
   section#diamond .row {
     width: 100%;
@@ -1774,6 +1808,8 @@ footer ul li {
     width: 100%;
     max-width: 100%;
     margin: 10px 0 5px 0px;
+    display: block;
+    float: none;
   }
   section#diamond .row .diamond-section .diamond-title {
     font-size: 28px;
@@ -2053,6 +2089,8 @@ footer ul li {
   }
   section#diamond .row .about-buttons-cont .col-xs-12 {
     margin-top: 10px;
+    padding-left: 0;
+    padding-right: 0;
   }
   section#diamond .row .pos-1 {
     width: 100px;
@@ -2224,6 +2262,14 @@ footer ul li {
     margin-left: 15px;
   }
 }
+@media screen and (max-width: 990px) and (min-width: 769px) {
+  .course-container .course-card {
+    min-height: 256px !important;
+  }
+  section#diamond .row .peter-image-caption {
+    float: none;
+  }
+}
 .navbar-1 {
   width: 60px;
   position: fixed;
@@ -2243,8 +2289,7 @@ footer ul li {
   max-height: 480px;
   text-align: left;
   transform-origin: 0 0;
-  transform: scale(1);
-  will-change: transform;
+  transform: perspective(0px) scale(0.2);
   background: url(img/noise2.png), radial-gradient(circle 2200px at 50% -200%, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 0%;
@@ -2254,7 +2299,9 @@ footer ul li {
   padding: 20px;
   bottom: 0px;
   left: 0px;
-  top: initial;
+  bottom: 0;
+  top: inherit;
+  position: absolute;
   opacity: 1;
   transition-delay: 240ms;
 }
@@ -2277,6 +2324,9 @@ footer ul li {
 .nav-1.is-close {
   width: 320px;
   height: 320px;
+  -moz-transform: scale(0.2) !important;
+  -webkit-transform: scale(0.2) !important;
+  transform: scale(0.2) !important;
 }
 .nav-1.is-close .koestenbaum,
 .nav-1.is-close .lang-picker {
@@ -2346,7 +2396,7 @@ footer ul li {
 .nav-link:hover,
 .nav-link:focus {
   transition-duration: 100ms;
-  transform: scale(2) translate(5px);
+  padding-left: 5px;
 }
 .nav-text {
   opacity: 1;

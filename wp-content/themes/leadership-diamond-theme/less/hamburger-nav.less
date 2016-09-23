@@ -18,10 +18,10 @@
     max-height: 480px;
     text-align: left;
     transform-origin: 0 0;
-    transform: scale(1);
+    transform: perspective(0px) scale(0.2);
     //transition-property: all;
     //transition-duration: 350ms;
-    will-change: transform;
+    //    will-change: transform;
     background: url(img/noise2.png), radial-gradient(circle 2200px at 50% -200%, #12d0ff 0%, #12d0ff 14%, #084cc2 100%);
     //box-shadow: 0px 0px 0px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -31,7 +31,9 @@
         padding: 20px;
         bottom: 0px;
         left: 0px;
-        top: initial;
+        bottom: 0;
+        top: inherit;
+        position: absolute;
         opacity: 1;
         transition-delay: 240ms;
     }
@@ -57,6 +59,9 @@
 .nav-1.is-close {
     width: 320px;
     height: 320px;
+    -moz-transform: scale(0.2) !important;
+    -webkit-transform: scale(0.2) !important;
+    transform: scale(0.2) !important;
     .koestenbaum,
     .lang-picker {
         transition-delay: 0ms;
@@ -138,7 +143,8 @@
 .nav-link:hover,
 .nav-link:focus {
     transition-duration: 100ms;
-    transform: scale(2) translate(5px);
+    //    transform: scale(2) translate(5px);
+    padding-left: 5px;
 }
 
 .nav-text {
