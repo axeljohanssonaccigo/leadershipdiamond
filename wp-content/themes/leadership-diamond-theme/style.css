@@ -768,6 +768,13 @@ section#diamond .row .diamond-title {
   font-family: 'TCCEB';
   text-align: center;
 }
+section#diamond .row .diamond-values {
+  margin: 20px auto 20px;
+  display: block;
+}
+section#diamond .row .diamond-values-caption {
+  text-align: center;
+}
 section#diamond .row .diamond-section {
   width: 960px;
   margin: 50px auto 80px;
