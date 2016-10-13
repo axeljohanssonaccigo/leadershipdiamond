@@ -77,6 +77,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         $scope.mailSuccessText = $scope.getTranslationByTitle('mailsuccess');
         $scope.mailFailText = $scope.getTranslationByTitle('mailfail');
         $scope.testTheTools = $scope.getTranslationByTitle('testthetools');
+        $scope.diamondImageText = $scope.getTranslationByTitle('diamondimagetext');
 
         $scope.graphTexts = {
             "graph1": $scope.getTranslationByTitle('graph1'),

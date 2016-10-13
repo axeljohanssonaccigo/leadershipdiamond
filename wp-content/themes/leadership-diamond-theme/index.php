@@ -151,9 +151,10 @@
                                         <p>Prof. Peter Koestenbaum</p>
                                     </div> {{diamondAboutText.content}} </div>
                                 <div class="col-md-12"> <img class="diamond-values" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-words-new.svg">
-                                <div class="diamond-values-caption">{{diamond-values-caption}}</div> </div>
+                                    <div class="diamond-values-caption">{{diamondImageText.content}}</div>
+                                </div>
                                 <div class="about-buttons-cont ">
-                                    <div class="col-md-7 col-xs-12 leader-btn-cont"> <a href="http://www.pib.net" class="btn leader-btn koestenbaum-link waves-effect waves-light" target="_blank">{{testTheTools.content}}
+                                    <div class=" col-xs-12 leader-btn-cont" ng-class="{'col-md-offset-2 col-md-8': !aQuestionWasClicked, 'col-md-7': aQuestionWasClicked}"> <a href="http://www.pib.net" class="btn leader-btn koestenbaum-link waves-effect waves-light" target="_blank">{{testTheTools.content}}
                                         <img class="external-link" src="../wp-content/themes/leadership-diamond-theme/img/external-link-symbol.svg">
                                         </a> </div>
                                     <div class="leader-btn-cont col-xs-12 col-md-5" ng-show="aQuestionWasClicked"> <a class="btn leader-btn problem-btn waves-effect waves-light" ng-click="$event.stopPropagation()" href="#{{latestClickedPostId}}"> {{backToLatestProblem.content}} ▲</a> </div>

@@ -769,11 +769,14 @@ section#diamond .row .diamond-title {
   text-align: center;
 }
 section#diamond .row .diamond-values {
-  margin: 20px auto 20px;
+  margin: 20px auto 10px;
   display: block;
 }
 section#diamond .row .diamond-values-caption {
   text-align: center;
+  font-style: italic;
+  font-size: 15px;
+  margin-bottom: 30px;
 }
 section#diamond .row .diamond-section {
   width: 960px;
