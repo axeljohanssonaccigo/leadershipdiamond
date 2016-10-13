@@ -35,7 +35,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     $scope.allLoaded = false;
     $scope.$watch('isLoaded', function () {
         var allLoaded = true;
-        console.log($scope.isLoaded);
         angular.forEach($scope.isLoaded, function (value) {
             if (value === false) {
                 allLoaded = false;
@@ -124,10 +123,8 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
                 $scope.sendingMail = false;
                 $scope.mailSuccess = true;
                 $scope.mailFail = false;
-                console.log(response);
             }).catch(function () {
                 console.log("Error in send mail. Response: \n");
-                console.log(response);
                 $scope.sendingMail = false;
                 $scope.mailSuccess = false;
                 $scope.mailFail = true;
@@ -144,7 +141,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
     jQuery(document).ready(function () {
 
         jQuery("#sidr-main .sidr-inner ul li a").each(function (elem) {
-            console.log(this);
             jQuery(this).attr("onclick", "closeMenu()");
         });
         jQuery("#sidr-main").removeClass("right");
@@ -208,8 +204,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             };
             $scope.allTranslations.push(transObject);
         });
-        console.log("all translations");
-        console.log($scope.allTranslations);
         //Set the custom strings
         $scope.setCustomStrings();
     };
@@ -218,7 +212,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         startSvc.getPostsByType(postType).then(function (response) {
             $scope.prettyfyTranslations(response.data.posts);
             $scope.isLoaded.translations = true;
-            console.log($scope.getTranslationByTitle("readmore"));
             $scope.getFooterContent();
         }).catch(function () {
             console.log("Error in get all translations");
@@ -240,8 +233,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
                 };
                 course["isRead"] = false;
             });
-            console.log("all courses");
-            console.log($scope.allCourses);
             $scope.isLoaded.courses = true;
         }).catch(function () {
             console.log("Error in get all courses");
@@ -267,10 +258,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
                     entry["index"] = entry.custom_fields['wpcf-index'][0];
                 };
                 entry.title = entry.title.replace("&#038;", "\u0026");
-                console.log(entry.title + " " + entry.subGroup + " " + entry.footerGroup + " " + entry.link);
             });
-            console.log("footer content");
-            console.log($scope.footerContent);
             $scope.isLoaded.footer = true;
         }).catch(function () {
             console.log("Error in get footer content");
@@ -289,12 +277,6 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
 
     };
 
-    //    $scope.openOrCloseQuestion = function (postIndex) {
-    //        //var postIsOpen = jQuery("#post-" + postIndex + " .question-card .collapse").hasClass("in");
-    //        $timeout(function () {
-    //            jQuery("#post-" + postIndex + " .panel-title a").click();
-    //        }, 10);
-    //    };
     $scope.getAllTranslations();
     $scope.getAllCourses();
     $scope.goToElement = function (eID) {
