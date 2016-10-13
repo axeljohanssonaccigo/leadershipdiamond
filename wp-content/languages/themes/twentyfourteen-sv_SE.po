@@ -77,13 +77,13 @@ msgstr "Gallerier"
 msgid "More links"
 msgstr "Fler länkar"
 
-#: inc/widgets.php:91 taxonomy-post_format.php:45
-msgid "Links"
-msgstr "Länkar"
-
 #: inc/widgets.php:88
 msgid "More quotes"
 msgstr "Fler citat"
+
+#: inc/widgets.php:91 taxonomy-post_format.php:45
+msgid "Links"
+msgstr "Länkar"
 
 #: inc/widgets.php:87 taxonomy-post_format.php:42
 msgid "Quotes"
@@ -205,13 +205,13 @@ msgstr "Använd en <a href=\"%1$s\">tagg</a> för att markera dina inlägg som u
 msgid "Featured Content"
 msgstr "Utvalt innehåll"
 
-#: inc/customizer.php:47 inc/customizer.php:48
-msgid "Background may only be visible on wide screens."
-msgstr "Bakgrunder är kanske bara synlig för bredare skärmar."
-
 #: inc/customizer.php:44 inc/customizer.php:45
 msgid "May only be visible on wide screens."
 msgstr "Är endast synlig på bredare skärmar."
+
+#: inc/customizer.php:47 inc/customizer.php:48
+msgid "Background may only be visible on wide screens."
+msgstr "Bakgrunder är kanske bara synlig för bredare skärmar."
 
 #: inc/customizer.php:40
 msgid "Display Site Title &amp; Tagline"

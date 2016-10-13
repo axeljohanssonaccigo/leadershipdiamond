@@ -68,15 +68,15 @@ msgctxt "Used before post author name."
 msgid "Author"
 msgstr "Författare"
 
-#: inc/template-tags.php:76
-msgctxt "Used before publish date."
-msgid "Posted on"
-msgstr "Postat"
-
 #: inc/template-tags.php:55
 msgctxt "Used before post format."
 msgid "Format"
 msgstr "Format"
+
+#: inc/template-tags.php:76
+msgctxt "Used before publish date."
+msgid "Posted on"
+msgstr "Postat"
 
 #: inc/template-tags.php:49
 msgid "Featured"
@@ -122,26 +122,26 @@ msgstr "Förvald"
 msgid "Header and Sidebar Background Color"
 msgstr "Bakgrundsfärg för sidhuvud och sidofält"
 
-#: inc/customizer.php:60 inc/customizer.php:76 inc/customizer.php:81
-msgid "Applied to the header on small screens and the sidebar on wide screens."
-msgstr "Anges som sidhuvud på små skärmar och sidofält på större skärmar."
-
 #: inc/customizer.php:59
 msgid "Header and Sidebar Text Color"
 msgstr "Textfärg för sidhuvud och sidofält"
+
+#: inc/customizer.php:60 inc/customizer.php:76 inc/customizer.php:81
+msgid "Applied to the header on small screens and the sidebar on wide screens."
+msgstr "Anges som sidhuvud på små skärmar och sidofält på större skärmar."
 
 #: inc/customizer.php:44
 msgid "Base Color Scheme"
 msgstr "Huvudfärgschema"
 
-#: inc/back-compat.php:37 inc/back-compat.php:47 inc/back-compat.php:60
-msgid "Twenty Fifteen requires at least WordPress version 4.1. You are running version %s. Please upgrade and try again."
-msgstr "Twenty Fifteen kräver minst WordPress version 4.1. Du använder version %s. Uppdatera och försök igen."
-
 #: image.php:84
 msgctxt "Parent post link"
 msgid "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%title</span>"
 msgstr "<span class=\"meta-nav\">Publicerat i</span><span class=\"post-title\">%title</span>"
+
+#: inc/back-compat.php:37 inc/back-compat.php:47 inc/back-compat.php:60
+msgid "Twenty Fifteen requires at least WordPress version 4.1. You are running version %s. Please upgrade and try again."
+msgstr "Twenty Fifteen kräver minst WordPress version 4.1. Du använder version %s. Uppdatera och försök igen."
 
 #: image.php:24
 msgid "Next Image"
@@ -159,21 +159,13 @@ msgstr "Meny och widgets"
 msgid "Skip to content"
 msgstr "Gå till innehåll"
 
-#: functions.php:270
-msgid "collapse child menu"
-msgstr "minimera undermeny"
-
 #: functions.php:269
 msgid "expand child menu"
 msgstr "expandera undermeny"
 
-#. Translators: To add an additional character subset specific to your
-#. language, translate this to 'greek', 'cyrillic', 'devanagari' or
-#. 'vietnamese'. Do not translate into your own language.
-#: functions.php:199
-msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
-msgid "no-subset"
-msgstr "no-subset"
+#: functions.php:270
+msgid "collapse child menu"
+msgstr "minimera undermeny"
 
 #. Translators: If there are characters in your language that are not supported
 #. by Inconsolata, translate this to 'off'. Do not translate into your own
@@ -182,6 +174,14 @@ msgstr "no-subset"
 msgctxt "Inconsolata font: on or off"
 msgid "on"
 msgstr "på"
+
+#. Translators: To add an additional character subset specific to your
+#. language, translate this to 'greek', 'cyrillic', 'devanagari' or
+#. 'vietnamese'. Do not translate into your own language.
+#: functions.php:199
+msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
+msgid "no-subset"
+msgstr "no-subset"
 
 #. Translators: If there are characters in your language that are not supported
 #. by Noto Serif, translate this to 'off'. Do not translate into your own
