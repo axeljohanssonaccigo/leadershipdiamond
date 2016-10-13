@@ -44,7 +44,7 @@
     </div>
 </div>
 -->
-            <div class="koestenbaum waves-effect waves-light"> <a href="#">Koestenbaum<br> <span>Institute</span></a> </div>
+            <div class="koestenbaum waves-effect waves-light"> <a href="http://www.pib.net" target="_blank">Koestenbaum<br> <span>Institute</span></a> </div>
             <div class="nav-action">
                 <button>×</button>
             </div>
