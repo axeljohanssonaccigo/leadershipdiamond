@@ -100,7 +100,7 @@
                     <div class="row wheel-row">
                         <div class="row-container">
                             <h2 class="center">{{wheelHeading.content}}</h2>
-                            <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW5.svg"> </div>
+                            <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW6.svg"> </div>
                             <!--
                             <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.content}}</a> </div>-->
                             <div class="wheel-text">{{wheelText.content}}</div> <a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
@@ -150,6 +150,8 @@
                                     <div class="peter-image-caption"> <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.JPG" class="peter-image">
                                         <p>Prof. Peter Koestenbaum</p>
                                     </div> {{diamondAboutText.content}} </div>
+                                <div class="col-md-12"> <img class="diamond-values" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-words-new.svg">
+                                <div class="diamond-values-caption">{{diamond-values-caption}}</div> </div>
                                 <div class="about-buttons-cont ">
                                     <div class="col-md-7 col-xs-12 leader-btn-cont"> <a href="http://www.pib.net" class="btn leader-btn koestenbaum-link waves-effect waves-light" target="_blank">{{testTheTools.content}}
                                         <img class="external-link" src="../wp-content/themes/leadership-diamond-theme/img/external-link-symbol.svg">
