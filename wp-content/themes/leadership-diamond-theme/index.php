@@ -15,7 +15,7 @@
  define( 'WP_USE_THEMES', false ); get_header(); ?>
     <style id="style"></style>
     <!-- lang-picker -->
-    <!--
+    
 <div class="lang-picker waves-effect waves-light display-none-mobile faded-out" ng-class="{'fadein': allLoaded}">
     <div ng-repeat="lang in languages" ng-animate=" 'animate' ">
         <div ng-if="currentLanguage.name !== lang.name">
@@ -25,7 +25,7 @@
         </div>
     </div>
 </div>
--->
+
     <!-- Kostenbaum Institue --->
     <div class="koestenbaum waves-effect waves-light display-none-mobile faded-out" ng-class="{'fadein': allLoaded}"> <a href="http://www.pib.net" target="_blank">Koestenbaum<br> <span>Institute</span></a> </div>
     <!-- hamburger nav -->
@@ -33,7 +33,7 @@
         <nav class="nav-1 is-close">
             <ul class="nav-list">
                 <?php wp_nav_menu( array( 'items_wrap' => '%3$s', 'container' => '', 'link_before' => '<span class="nav-text">', 'link_after' => '</span>', 'walker' => new Custom_Walker_Nav_Menu() ) ); ?> </ul>
-            <!--
+            
            <div class="lang-picker waves-effect waves-light">
     <div ng-repeat="lang in languages" ng-animate=" 'animate' ">
         <div ng-if="currentLanguage.name !== lang.name">
@@ -43,7 +43,7 @@
         </div>
     </div>
 </div>
--->
+
             <div class="koestenbaum waves-effect waves-light"> <a href="http://www.pib.net" target="_blank">Koestenbaum<br> <span>Institute</span></a> </div>
             <div class="nav-action">
                 <button>×</button>
@@ -63,7 +63,8 @@
                     <div class="row">
                         <div class="heading-container">
                             <div class="heading-second">{{leadershipOS.content}}</div>
-                            <div class="heading-title"> {{leadershipdiamond.content}}<span class="copyright">®</span> </div>
+                            <h1 class="heading-title" ng-if="currentLanguage.name === 'Svenska'">LEDARSKAPSDIAMANTEN<span class="copyright">®</span> </h1>
+                            <h1 class="heading-title" ng-if="currentLanguage.name === 'English'">LEADERSHIP DIAMOND<span class="copyright">®</span> </h1>
                             <div class="heading-second"> {{nothingButApps.content}}! </div>
                         </div> <img class="diamond display-none-mobile" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new.svg" />
                         <div class="shadow pos-0 display-none-mobile"></div>
@@ -76,19 +77,28 @@
                                 <div class="graphs-container">
                                     <h1>{{whyTheDiamond.content}}</h1>
                                     <div class="row">
-                                        <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1-NEW2.svg" /> </div>
+                                        <div class="col-md-6 col-xs-12"> 
+                                            <img ng-if="currentLanguage.name === 'Svenska'" class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1-NEW2.svg" />
+                                            <img ng-if="currentLanguage.name === 'English'" class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graphs_1_en.svg" />
+                                        </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="number"> {{graphTexts.graph1.content}}</div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6 col-xs-12 float-right no-float-mobile"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2-NEW2.svg"> </div>
+                                        <div class="col-md-6 col-xs-12 float-right no-float-mobile"> 
+                                            <img ng-if="currentLanguage.name === 'Svenska'" class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-2-NEW2.svg"> 
+                                            <img ng-if="currentLanguage.name === 'English'" class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graphs_2_en.svg"> 
+                                        </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="number right">{{graphTexts.graph2.content}}</div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6 col-xs-12"> <img class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3-NEW3.svg"> </div>
+                                        <div class="col-md-6 col-xs-12"> 
+                                            <img ng-if="currentLanguage.name === 'Svenska'" class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3-NEW3.svg"> 
+                                            <img ng-if="currentLanguage.name === 'English'" class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graphs_3_en.svg"> 
+                                        </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="number">{{graphTexts.graph3.content}}</div>
                                         </div>
@@ -100,7 +110,10 @@
                     <div class="row wheel-row">
                         <div class="row-container">
                             <h2 class="center">{{wheelHeading.content}}</h2>
-                            <div class="col-md-12 col-xs-12"> <img class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW6.svg"> </div>
+                            <div class="col-md-12 col-xs-12"> 
+                                <img ng-if="currentLanguage.name === 'Svenska'" class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW6.svg"> 
+                                <img ng-if="currentLanguage.name === 'English'" class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/wheel_en.svg"> 
+                            </div>
                             <!--
                             <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.content}}</a> </div>-->
                             <div class="wheel-text">{{wheelText.content}}</div> <a href="#question" class="btn-floating btn-large waves-effect waves-light heading-btn">▼</a> </div>
@@ -150,14 +163,16 @@
                                     <div class="peter-image-caption"> <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.JPG" class="peter-image">
                                         <p>Prof. Peter Koestenbaum</p>
                                     </div> {{diamondAboutText.content}} </div>
-                                <div class="col-md-12"> <img class="diamond-values" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-words-new.svg">
+                                <div class="col-md-12"> 
+                                    <img ng-if="currentLanguage.name === 'Svenska'" class="diamond-values" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-words-new.svg">
+                                    <img ng-if="currentLanguage.name === 'English'" class="diamond-values" src="../wp-content/themes/leadership-diamond-theme/img/diamon_en.svg">
                                     <div class="diamond-values-caption">{{diamondImageText.content}}</div>
                                 </div>
                                 <div class="about-buttons-cont ">
-                                    <div class=" col-xs-12 leader-btn-cont" ng-class="{'col-md-offset-2 col-md-8': !aQuestionWasClicked, 'col-md-7': aQuestionWasClicked}"> <a href="http://www.pib.net" class="btn leader-btn koestenbaum-link waves-effect waves-light" target="_blank">{{testTheTools.content}}
+                                    <div class=" col-xs-12 leader-btn-cont" ng-class="{'col-md-offset-2 col-md-8': !aQuestionWasClicked, 'col-md-8': aQuestionWasClicked}"> <a href="http://www.pib.net" class="btn leader-btn koestenbaum-link waves-effect waves-light" target="_blank">{{testTheTools.content}}
                                         <img class="external-link" src="../wp-content/themes/leadership-diamond-theme/img/external-link-symbol.svg">
                                         </a> </div>
-                                    <div class="leader-btn-cont col-xs-12 col-md-5" ng-show="aQuestionWasClicked"> <a class="btn leader-btn problem-btn waves-effect waves-light" ng-click="$event.stopPropagation()" href="#{{latestClickedPostId}}"> {{backToLatestProblem.content}} ▲</a> </div>
+                                    <div class="leader-btn-cont col-xs-12 col-md-4" ng-show="aQuestionWasClicked"> <a class="btn leader-btn problem-btn waves-effect waves-light" ng-click="$event.stopPropagation()" href="#{{latestClickedPostId}}"> {{backToLatestProblem.content}} ▲</a> </div>
                                 </div>
                             </div>
                         </div>

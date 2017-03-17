@@ -40,7 +40,7 @@ if (location.href.search("/en") > -1) {
         "name": "English",
         "url": baseUrl.concat("/en")
     };
-    redirectToSwedish();
+    //redirectToSwedish();
     //If no lang is auto set
 } else if (location.pathname === "/leadershipdiamond/") {
     redirectToSwedish();

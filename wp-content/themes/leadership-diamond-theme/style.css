@@ -15,18 +15,18 @@ Text Domain:  leadership-diamond-theme
 @font-face {
   font-family: 'TCCEB';
   src: url('/TCCEB.eot');
-  src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.eot') format('embedded-opentype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.woff2') format('woff2'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.woff') format('woff'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.ttf') format('truetype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.svg#TCCEB') format('svg');
+  src: url('/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.eot') format('embedded-opentype'), url('/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.woff2') format('woff2'), url('/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.woff') format('woff'), url('/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.ttf') format('truetype'), url('/wp-content/themes/leadership-diamond-theme/fonts/TCCEB.svg#TCCEB') format('svg');
 }
 @font-face {
   font-family: 'Roboto';
-  src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/roboto-regular-webfont.woff2') format('woff2'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/roboto-regular-webfont.woff') format('woff');
+  src: url('/wp-content/themes/leadership-diamond-theme/fonts/roboto-regular-webfont.woff2') format('woff2'), url('/wp-content/themes/leadership-diamond-theme/fonts/roboto-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Roboto';
-  src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.eot');
-  src: url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.eot?#iefix') format('embedded-opentype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.woff2') format('woff2'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.woff') format('woff'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.ttf') format('truetype'), url('/leadershipdiamond/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.svg#Roboto-Bold') format('svg');
+  src: url('/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.eot');
+  src: url('/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.eot?#iefix') format('embedded-opentype'), url('/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.woff2') format('woff2'), url('/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.woff') format('woff'), url('/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.ttf') format('truetype'), url('/wp-content/themes/leadership-diamond-theme/fonts/Roboto-Bold.svg#Roboto-Bold') format('svg');
   font-weight: bold;
   font-style: normal;
 }
@@ -577,6 +577,8 @@ section#heading .row .heading-container .heading-title {
   text-transform: uppercase;
   font-size: 102px;
   line-height: 1.1;
+  margin: 0;
+  font-weight: normal;
 }
 section#heading .row .heading-container .heading-second {
   color: #444;
@@ -773,6 +775,7 @@ section#diamond .row .diamond-title {
 section#diamond .row .diamond-values {
   margin: 20px auto 10px;
   display: block;
+  max-height: 311px;
 }
 section#diamond .row .diamond-values-caption {
   text-align: center;
@@ -788,6 +791,12 @@ section#diamond .row .diamond-section .leader-btn {
   background: url(img/noise2.png), radial-gradient(circle 400px at 50% 10%, #777777 0%, #444444 50%, #333333 100%) !important;
   font-size: 18px;
   color: white;
+  white-space: inherit;
+   text-align: center;
+   line-height: 15px;
+   padding: 10px 30px;
+   height: auto;
+   min-height: 36px;
 }
 section#diamond .row .diamond-section .problem-btn {
   color: #555;
@@ -2060,7 +2069,7 @@ footer ul li {
     margin-bottom: 5px;
   }
   section#diamond .row .peter-image {
-    margin: 5px 20px 15px 25px;
+    margin: 5px 5px 15px 10px;
     height: auto;
     /* -webkit-filter: sepia(30%); */
     border-radius: 3px;
