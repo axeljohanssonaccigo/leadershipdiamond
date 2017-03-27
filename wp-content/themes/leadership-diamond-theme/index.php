@@ -79,7 +79,7 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xs-12"> 
                                             <img ng-if="currentLanguage.name === 'Svenska'" class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-1-NEW2.svg" />
-                                            <img ng-if="currentLanguage.name === 'English'" class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graphs_1_en.svg" />
+                                            <img ng-if="currentLanguage.name === 'English'" class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graphs_3_en.svg" />
                                         </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="number"> {{graphTexts.graph1.content}}</div>
@@ -97,7 +97,7 @@
                                     <div class="row">
                                         <div class="col-md-6 col-xs-12"> 
                                             <img ng-if="currentLanguage.name === 'Svenska'" class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graph-3-NEW3.svg"> 
-                                            <img ng-if="currentLanguage.name === 'English'" class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graphs_3_en.svg"> 
+                                            <img ng-if="currentLanguage.name === 'English'" class="graph" src="../wp-content/themes/leadership-diamond-theme/img/Graphs_1_en.svg"> 
                                         </div>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="number">{{graphTexts.graph3.content}}</div>
