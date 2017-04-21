@@ -112,7 +112,7 @@
                             <h2 class="center">{{wheelHeading.content}}</h2>
                             <div class="col-md-12 col-xs-12"> 
                                 <img ng-if="currentLanguage.name === 'Svenska'" class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/Hjulet-NEW6.svg"> 
-                                <img ng-if="currentLanguage.name === 'English'" class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/wheel_en.svg"> 
+                                <img ng-if="currentLanguage.name === 'English'" class="graph-wheel" src="../wp-content/themes/leadership-diamond-theme/img/hjulet_en.svg"> 
                             </div>
                             <!--
                             <div class="text-center"> <a href="#post-1" class="btn leader-btn waves-effect waves-light">{{firstExample.content}}</a> </div>-->
@@ -161,7 +161,7 @@
                                 <div class="diamond-title"> {{leadershipdiamond.content}}<span class="copyright">®</span> </div>
                                 <div class="diamond-about-text col-md-12">
                                     <div class="peter-image-caption"> <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.JPG" class="peter-image">
-                                        <p>Prof. Peter Koestenbaum</p>
+                                        <p>Peter Koestenbaum, PhD</p>
                                     </div> {{diamondAboutText.content}} </div>
                                 <div class="col-md-12"> 
                                     <img ng-if="currentLanguage.name === 'Svenska'" class="diamond-values" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-words-new.svg">
