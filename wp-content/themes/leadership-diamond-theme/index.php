@@ -158,7 +158,7 @@
                     <div class="row">
                         <div class="diamond-section clearfix">
                             <div class="question-card ">
-                                <div class="diamond-title"> {{leadershipdiamond.content}}<span class="copyright">®</span> </div>
+                                <div class="diamond-title"> {{leadershipdiamond.content}}<span class="copyright-not-in-heading">®</span> </div>
                                 <div class="diamond-about-text col-md-12">
                                     <div class="peter-image-caption"> <img align="right" src="../wp-content/themes/leadership-diamond-theme/img/PeterK.JPG" class="peter-image">
                                         <p>Peter Koestenbaum, PhD</p>
