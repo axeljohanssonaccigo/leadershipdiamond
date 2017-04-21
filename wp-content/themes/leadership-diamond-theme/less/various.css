@@ -375,6 +375,7 @@ section#diamond .row .peter-image {
   /* -webkit-filter: sepia(30%); */
   border-radius: 3px;
   max-width: 300px;
+  padding-bottom: 25px;
 }
 section#diamond .row .peter-image-caption {
   float: right;
@@ -385,7 +386,7 @@ section#diamond .row .peter-image-caption p {
   margin: 0px;
   text-align: center;
   font-style: italic;
-  bottom: -20px;
+  bottom: 10px;
   font-size: 15px;
   width: 100%;
   position: absolute;
@@ -574,8 +575,10 @@ section#course .row .course-section {
 section#course .row .course-title-container {
   text-transform: uppercase;
   font-size: 36px;
+  line-height: 28px;
   font-family: 'TCCEB';
   text-align: center;
+  margin-bottom: 20px;
 }
 section#course .row .course-content-container {
   text-align: justify;
