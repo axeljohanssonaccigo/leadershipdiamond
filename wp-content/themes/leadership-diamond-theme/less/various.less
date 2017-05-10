@@ -25,7 +25,7 @@ body {
 
 a,
 .btn {
-    outline: 0 !important;
+    outline: 0 !important; 
 }
 
 h1 {
@@ -574,7 +574,17 @@ section#diamond {
         }
     }
 }
-
+ .wpcf7-submit {
+                    background: url(img/noise2.png), radial-gradient(circle 600px at 50% 0%, #36a6f9 0%, #1298ff 14%, #002b76 100%);
+                    width: 100%;
+                    height: auto;
+                    font-size: 24px;
+                    font-weight: 100;
+                    .waves-button-input { 
+                        margin: 0;
+                        font-weight: 100;
+                    }
+                }
 section#course {
     position: relative;
     min-height: 1000px;
@@ -663,17 +673,7 @@ section#course {
                 p {
                     margin-bottom: 15px;
                 }
-                .wpcf7-submit {
-                    background: url(img/noise2.png), radial-gradient(circle 600px at 50% 0%, #36a6f9 0%, #1298ff 14%, #002b76 100%);
-                    width: 100%;
-                    height: auto;
-                    font-size: 24px;
-                    font-weight: 100;
-                    .waves-button-input {
-                        margin: 0;
-                        font-weight: 100;
-                    }
-                }
+               
                 div.wpcf7-mail-sent-ng {
                     border: 3px solid #E91E63;
                     border-radius: 3px;
@@ -746,13 +746,38 @@ section#course {
             &.pos-1 {
                 top: 300px;
             }
-            &.pos-2 {
+            &.pos-2 { 
                 top: 550px;
             }
             &.pos-3 {
                 top: 850px;
                 height: 10px;
             }
+        }
+    }
+}
+
+#send-link{
+    background-color: transparent;
+    padding-bottom: 50px; 
+    form{
+        .wpcf7-submit{
+            width: auto;
+        }
+        p{
+            margin: 0;
+        }
+        .wpcf7-response-output{
+            display: none;
+        }
+        span.wpcf7-not-valid-tip {
+            display: none;
+        }
+        div.wpcf7-validation-errors{
+            display: none;
+        }
+        div.wpcf7-mail-sent-ng{
+            display: none;
         }
     }
 }

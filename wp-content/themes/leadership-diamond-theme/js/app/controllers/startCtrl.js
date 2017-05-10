@@ -97,10 +97,10 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
         var allInputsValid = false;
 
         //Get input values
-        var name = jQuery("form.wpcf7-form .your-name input").val();
-        var email = jQuery("form.wpcf7-form .your-email input").val();
-        var message = jQuery("form.wpcf7-form .your-message textarea").val();
-        if (!isNullEmptyOrUndefined(name) || !isNullEmptyOrUndefined(email) || !isNullEmptyOrUndefined(message)) {
+        var name = jQuery("#course form.wpcf7-form .your-name input").val();
+        var email = jQuery("#course form.wpcf7-form .your-email input").val();
+        var message = jQuery("#course form.wpcf7-form .your-message textarea").val();
+        if (!isNullEmptyOrUndefined(name) && !isNullEmptyOrUndefined(email) && !isNullEmptyOrUndefined(message)) {
             allInputsValid = true;
         };
         if (allInputsValid) {
@@ -152,7 +152,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             jQuery(value).attr("href", "#post-" + postIndex);
         });
         //Send mail on form submit
-        jQuery("form.wpcf7-form").on("submit", function (event) {
+        jQuery("#course .contact-form-placeholder form.wpcf7-form").on("submit", function (event) {
             $scope.confAndSendMail();
         });
     });

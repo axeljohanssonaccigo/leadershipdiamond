@@ -11,7 +11,7 @@ var redirectToSwedish = function () {
 var environments = {
     "dev": "http://localhost:81",
     "dev2": "http://localhost",
-    "dev3": "http://localhost:8080",
+    "dev3": "http://localhost:8888",
     "prod": "http://www.leadershipdiamond.com",
     "test": "http://bt25-php-dev.cloudapp.net",
     "testProd": "http://leadershipdiamond.com.loopiadns.com"

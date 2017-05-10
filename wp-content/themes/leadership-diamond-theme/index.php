@@ -203,12 +203,21 @@
                                     <div ng-show="mailFail"> {{mailFailText.content}} </div>
                                 </div>
                             </div>
+                            <div class="text-center col-xs-12" id="send-link">
+                                <div ng-if="currentLanguage.name === 'Svenska'">
+                                    <?php echo do_shortcode( '[contact-form-7 id="346" title="Dela - Svenska"]' );  ?>
+                                </div>
+                                <div ng-if="currentLanguage.name === 'English'">
+                                    <?php echo do_shortcode( '[contact-form-7 id="348" title="Dela - English"]' );  ?>
+                                </div>
+                            </div>
                         </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new.svg" />
                         <div class="shadow pos-1"></div> <img class="diamond pos-2" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new.svg" />
                         <div class="shadow pos-2"></div> <img class="diamond pos-3" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new.svg" />
                         <div class="shadow pos-3"> </div>
                     </div>
                 </section>
+              
                 <!-- Course offers section -->
                 <!-- To diamond -->
                 <div class="to-diamond display-none-mobile">
