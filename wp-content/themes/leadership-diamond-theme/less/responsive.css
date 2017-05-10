@@ -675,3 +675,8 @@
     float: none;
   }
 }
+@media screen and (max-width: 400px) {
+  section#heading .row .heading-container .heading-title {
+    font-size: 26px;
+  }
+}

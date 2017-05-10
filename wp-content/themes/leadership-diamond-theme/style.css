@@ -957,7 +957,8 @@ section#course .row .course-title {
   margin: 10px 0px;
 }
 section#course .row .course-section {
-  width: 720px;
+  max-width: 720px;
+  width: 100%;
   margin: 80px auto 350px;
 }
 section#course .row .course-title-container {
@@ -1076,6 +1077,9 @@ section#course .row .shadow.pos-3 {
 }
 #send-link form .wpcf7-submit {
   width: auto;
+}
+#send-link form input {
+  width: 100%;
 }
 #send-link form p {
   margin: 0;
@@ -2322,6 +2326,11 @@ footer ul li {
   }
   section#diamond .row .peter-image-caption {
     float: none;
+  }
+}
+@media screen and (max-width: 400px) {
+  section#heading .row .heading-container .heading-title {
+    font-size: 26px;
   }
 }
 .navbar-1 {
