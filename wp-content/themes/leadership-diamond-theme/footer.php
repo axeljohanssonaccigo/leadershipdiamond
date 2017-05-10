@@ -28,7 +28,8 @@ do_action( 'studio_after_content' );
                             </ul>
                         </div>
                         <div class="col-xs-12 col-md-5">
-                            <h3>{{leadershipPartners.content}}</h3>
+                            <h3 ng-if="currentLanguage.name === 'Svenska'">{{leadershipPartners.content}}</h3>
+                            <h3 ng-if="currentLanguage.name === 'English'">Leadership Diamond<span style="vertical-align: super; font-size: 0.5em;">®</span> partners</h3>
                             <ul>
                                 <div ng-repeat="group in groupNames">
                                     <div class="group-name-heading" ng-if="group !== 'none'">{{group}}</div>

@@ -1,8 +1,8 @@
 <?php
 //Global script version for custom scripts
-$version = '0.99';
+$version = '0.991';
 //Global mail settings
-$mail_recipient = 'axeljohansson88@gmail.com';
+$mail_recipient = 'rmgfalkenberg@gmail.com';
 $mail_subject = 'Ledarskapsdiamanten - Nytt meddelande!';
 
 function my_theme_enqueue_styles() {
