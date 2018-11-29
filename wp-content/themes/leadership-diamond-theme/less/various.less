@@ -25,7 +25,7 @@ body {
 
 a,
 .btn {
-    outline: 0 !important; 
+    outline: 0 !important;
 }
 
 h1 {
@@ -129,13 +129,6 @@ h3 {
 }
 
 span.copyright {
-    font-size: 40px;
-    vertical-align: super;
-    top: 110px;
-    position: absolute;
-}
-
-span.copyright-not-in-heading {
     font-size: 40px;
     vertical-align: super;
     top: 60px;
@@ -474,11 +467,11 @@ section#diamond {
                 font-size: 18px;
                 color: white;
                 white-space: inherit;
-                text-align: center;
-                line-height: 15px;
-                padding: 10px 30px;
-                height: auto;
-                min-height: 36px;
+   text-align: center;
+   line-height: 15px;
+   padding: 10px 30px;
+   height: auto;
+   min-height: 36px;
             }
             .problem-btn {
                 color: #555;
@@ -574,17 +567,7 @@ section#diamond {
         }
     }
 }
- .wpcf7-submit {
-                    background: url(img/noise2.png), radial-gradient(circle 600px at 50% 0%, #36a6f9 0%, #1298ff 14%, #002b76 100%);
-                    width: 100%;
-                    height: auto;
-                    font-size: 24px;
-                    font-weight: 100;
-                    .waves-button-input { 
-                        margin: 0;
-                        font-weight: 100;
-                    }
-                }
+
 section#course {
     position: relative;
     min-height: 1000px;
@@ -638,8 +621,7 @@ section#course {
             margin: 10px 0px;
         }
         .course-section {
-            max-width: 720px;
-            width: 100%;
+            width: 720px;
             margin: 80px auto 350px;
         }
         .course-title-container {
@@ -674,7 +656,17 @@ section#course {
                 p {
                     margin-bottom: 15px;
                 }
-               
+                .wpcf7-submit {
+                    background: url(img/noise2.png), radial-gradient(circle 600px at 50% 0%, #36a6f9 0%, #1298ff 14%, #002b76 100%);
+                    width: 100%;
+                    height: auto;
+                    font-size: 24px;
+                    font-weight: 100;
+                    .waves-button-input {
+                        margin: 0;
+                        font-weight: 100;
+                    }
+                }
                 div.wpcf7-mail-sent-ng {
                     border: 3px solid #E91E63;
                     border-radius: 3px;
@@ -747,41 +739,13 @@ section#course {
             &.pos-1 {
                 top: 300px;
             }
-            &.pos-2 { 
+            &.pos-2 {
                 top: 550px;
             }
             &.pos-3 {
                 top: 850px;
                 height: 10px;
             }
-        }
-    }
-}
-
-#send-link{
-    background-color: transparent;
-    padding-bottom: 50px; 
-    form{
-        .wpcf7-submit{
-            width: auto;
-        }
-        input{
-            width: 100%;
-        }
-        p{
-            margin: 0;
-        }
-        .wpcf7-response-output{
-            display: none;
-        }
-        span.wpcf7-not-valid-tip {
-            display: none;
-        }
-        div.wpcf7-validation-errors{
-            display: none;
-        }
-        div.wpcf7-mail-sent-ng{
-            display: none;
         }
     }
 }
@@ -883,7 +847,7 @@ section#course {
         min-width: 250px;
     }
     .post-icon {
-        //        background: url("./img/training-white.svg");
+        background: url("./img/training-white.svg");
         .post-icon;
         width: 100px;
         height: 100px;
@@ -901,7 +865,7 @@ section#course {
         min-width: 250px;
     }
     .post-icon {
-        // background: url("./img/change-white.svg");
+        background: url("./img/change-white.svg");
         .post-icon;
         top: 115px;
     }

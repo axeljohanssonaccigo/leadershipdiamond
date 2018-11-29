@@ -104,12 +104,6 @@ h3 {
 span.copyright {
   font-size: 40px;
   vertical-align: super;
-  top: 110px;
-  position: absolute;
-}
-span.copyright-not-in-heading {
-  font-size: 40px;
-  vertical-align: super;
   top: 60px;
   position: absolute;
 }
@@ -522,17 +516,6 @@ section#diamond .row .diamond-section .koestenbaum {
 section#diamond .row .diamond-section .koestenbaum a {
   color: #333 !important;
 }
-.wpcf7-submit {
-  background: url(img/noise2.png), radial-gradient(circle 600px at 50% 0%, #36a6f9 0%, #1298ff 14%, #002b76 100%);
-  width: 100%;
-  height: auto;
-  font-size: 24px;
-  font-weight: 100;
-}
-.wpcf7-submit .waves-button-input {
-  margin: 0;
-  font-weight: 100;
-}
 section#course {
   position: relative;
   min-height: 1000px;
@@ -587,8 +570,7 @@ section#course .row .course-title {
   margin: 10px 0px;
 }
 section#course .row .course-section {
-  max-width: 720px;
-  width: 100%;
+  width: 720px;
   margin: 80px auto 350px;
 }
 section#course .row .course-title-container {
@@ -622,6 +604,17 @@ section#course .row .contact-form-placeholder form input {
 }
 section#course .row .contact-form-placeholder form p {
   margin-bottom: 15px;
+}
+section#course .row .contact-form-placeholder form .wpcf7-submit {
+  background: url(img/noise2.png), radial-gradient(circle 600px at 50% 0%, #36a6f9 0%, #1298ff 14%, #002b76 100%);
+  width: 100%;
+  height: auto;
+  font-size: 24px;
+  font-weight: 100;
+}
+section#course .row .contact-form-placeholder form .wpcf7-submit .waves-button-input {
+  margin: 0;
+  font-weight: 100;
 }
 section#course .row .contact-form-placeholder form div.wpcf7-mail-sent-ng {
   border: 3px solid #E91E63;
@@ -700,31 +693,6 @@ section#course .row .shadow.pos-2 {
 section#course .row .shadow.pos-3 {
   top: 850px;
   height: 10px;
-}
-#send-link {
-  background-color: transparent;
-  padding-bottom: 50px;
-}
-#send-link form .wpcf7-submit {
-  width: auto;
-}
-#send-link form input {
-  width: 100%;
-}
-#send-link form p {
-  margin: 0;
-}
-#send-link form .wpcf7-response-output {
-  display: none;
-}
-#send-link form span.wpcf7-not-valid-tip {
-  display: none;
-}
-#send-link form div.wpcf7-validation-errors {
-  display: none;
-}
-#send-link form div.wpcf7-mail-sent-ng {
-  display: none;
 }
 .read-more-button {
   opacity: 1;
@@ -827,6 +795,7 @@ section#course .row .shadow.pos-3 {
   min-width: 250px;
 }
 #post-2 .post-icon {
+  background: url("img/training-white.svg");
   display: none;
   position: absolute;
   z-index: 1000;
@@ -852,6 +821,7 @@ section#course .row .shadow.pos-3 {
   min-width: 250px;
 }
 #post-3 .post-icon {
+  background: url("img/change-white.svg");
   display: none;
   position: absolute;
   width: 100px;

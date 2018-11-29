@@ -711,7 +711,7 @@ class Enlimbo_Forms {
         $element['_render']['element'] .= sprintf(' data-wpt-type="%s"', __FUNCTION__);
         $element['_render']['element'] .= $this->_getDataWptId($element);
 
-        /**
+        /*
          * Add html attribute value=""
          *
          * We have key #value and we also have #default-value key
@@ -725,9 +725,16 @@ class Enlimbo_Forms {
          *
          * To get things right we flip the usage of Types fields to handle it the same way as CRED does
          *
+         * The fact that a field comes from Types is determined from its name (sic!). This is very fragile.
+         *
          * START Todo: Types should deliver the correct values instead of flipping it here
          */
-        if( strpos( $element['#name'], 'wpcf[' ) === 0 ) {
+        $is_types_field = (
+	        ( strpos( $element['#name'], 'wpcf[' ) === 0 )
+	        || ( strpos( $element['#name'], 'wpcf_post_relationship[' ) === 0 )
+        );
+
+        if( $is_types_field ) {
             $tmp_value = $element['#value'];
 
             $element['#value'] = array_key_exists( '#default_value', $element )
@@ -975,7 +982,11 @@ class Enlimbo_Forms {
         //$element['_render']['element'] .= sprintf( ' data-wpt-type="%s" ', __FUNCTION__ );
         $element['_render']['element'] .= sprintf(' id="%s"', $element['#id']);
         $element['_render']['element'] .= sprintf(' name="%s"', $element['#name']);
-        $element['_render']['element'] .= sprintf(' value="%s"', isset($element['#value']) ? esc_attr($element['#value']) : '' );
+
+        $value = toolset_getarr( $element, '#value' );
+        $value = ( is_string( $value ) ? esc_attr( $value ) : '' );
+        $element['_render']['element'] .= sprintf(' value="%s"', $value );
+
         $element['_render']['element'] .= $element['_attributes_string'];
         if (isset($element['#disable']) && $element['#disable']) {
             $element['_render']['element'] .= ' disabled="disabled"';
@@ -1165,7 +1176,7 @@ class Enlimbo_Forms {
             if ($element['#type'] == 'file') {
                 return $_FILES[$name]['tmp_name'];
             }
-            return isset($_REQUEST[$name]) ? $_REQUEST[$name] : in_array($element['#type'], array('textfield', 'textarea')) ? '' : 0;
+            return isset($_REQUEST[$name]) ? sanitize_text_field( $_REQUEST[$name] ) : in_array($element['#type'], array('textfield', 'textarea')) ? '' : 0;
         }
 
         $parts = explode('[', $name);

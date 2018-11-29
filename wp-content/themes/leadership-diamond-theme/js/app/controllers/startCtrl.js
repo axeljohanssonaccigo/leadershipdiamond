@@ -202,6 +202,7 @@ diamondApp.controller('startCtrl', ['$scope', 'startSvc', 'scrollSvc', '$locatio
             if ('wpcf-extra-content' in post.custom_fields) {
                 transObject["extraContent"] = post.custom_fields['wpcf-extra-content'][0];
             };
+            transObject.content = transObject.content.replace(/&#8211;/g, '--')
             $scope.allTranslations.push(transObject);
         });
         //Set the custom strings

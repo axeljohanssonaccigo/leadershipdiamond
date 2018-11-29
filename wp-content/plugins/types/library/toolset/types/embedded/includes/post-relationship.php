@@ -5,7 +5,37 @@
  *
  */
 add_action( 'wpcf_admin_post_init', 'wpcf_pr_admin_post_init_action', 10, 4 );
+
 add_action( 'save_post', 'wpcf_pr_admin_save_post_hook', 20, 2 ); // Trigger afer main hook
+
+/*
+ * Temporary fix for https://core.trac.wordpress.org/ticket/17817
+ *
+ * WordPress 4.7 fixes this issue and the code below is not needed anymore.
+ *
+ * Supported by WPML 3.6.0 and above.
+ */
+$wp_version = get_bloginfo( 'version' );
+if( version_compare( $wp_version, '4.7' ) == -1 ) {
+
+	global $sitepress;
+	$is_wpml_active = (
+		defined( 'ICL_SITEPRESS_VERSION' )
+		&& ! ICL_PLUGIN_INACTIVE
+		&& ! is_null( $sitepress )
+		&& class_exists( 'SitePress' )
+	);
+
+	$is_wpml_required_version = ( defined( 'ICL_SITEPRESS_VERSION' ) && version_compare( ICL_SITEPRESS_VERSION, '3.6.0' ) >= 0 );
+
+	if( $is_wpml_active && $is_wpml_required_version ) {
+		// WPML *guarantees* that the wpml_after_save_post action will be fired for each post.
+		remove_action( 'save_post', 'wpcf_pr_admin_save_post_hook', 20 );
+		add_action( 'wpml_after_save_post', 'wpcf_pr_admin_save_post_hook', 10, 2 );
+	}
+}
+
+
 if ( is_admin() ) {
     add_action('wp_ajax_wpcf_relationship_search', 'wpcf_pr_admin_wpcf_relationship_search');
 	// Deprecated since the introduction of select v.4
@@ -25,10 +55,10 @@ if ( is_admin() ) {
  *
  * Enqueues styles and scripts on post edit page.
  *
- * @param type $post_type
- * @param type $post
- * @param type $groups
- * @param type $wpcf_active
+ * @param $post_type
+ * @param $post
+ * @param $groups
+ * @param $wpcf_active
  */
 function wpcf_pr_admin_post_init_action( $post_type, $post, $groups, $wpcf_active )
 {
@@ -77,14 +107,15 @@ function wpcf_pr_admin_post_init_action( $post_type, $post, $groups, $wpcf_activ
                 wp_enqueue_style( 'wpcf-pr-post',
                         WPCF_EMBEDDED_RES_RELPATH . '/css/fields-post.css',
                         array(), WPCF_VERSION );
-                wp_enqueue_script( 'wpcf-form-validation',
-                        WPCF_EMBEDDED_RES_RELPATH . '/js/'
-                        . 'jquery-form-validation/jquery.validate.min.js',
-                        array('jquery'), WPCF_VERSION );
-                wp_enqueue_script( 'wpcf-form-validation-additional',
-                        WPCF_EMBEDDED_RES_RELPATH . '/js/'
-                        . 'jquery-form-validation/additional-methods.min.js',
-                        array('jquery'), WPCF_VERSION );
+
+	            $asset_manager = Types_Asset_Manager::get_instance();
+	            $asset_manager->enqueue_scripts(
+		            array(
+			            Types_Asset_Manager::SCRIPT_JQUERY_UI_VALIDATION,
+			            Types_Asset_Manager::SCRIPT_ADDITIONAL_VALIDATION_RULES,
+		            )
+	            );
+
             }
             wpcf_admin_add_js_settings( 'wpcf_pr_del_warning',
                     '\'' . __( 'Are you sure about deleting this post?', 'wpcf' ) . '\'' );
@@ -94,37 +125,51 @@ function wpcf_pr_admin_post_init_action( $post_type, $post, $groups, $wpcf_activ
     }
 }
 
+
+/**
+ * Determine if a post type can take a part in a post relationship.
+ *
+ * @param string $post_type_slug
+ * @return bool
+ * @since 2.3
+ */
+function wpcf_pr_is_post_type_available_for_relationships( $post_type_slug ) {
+	$is_active = ( null != get_post_type_object( $post_type_slug ) );
+	$is_excluded_from_relationships = ( 'attachment' == $post_type_slug );
+	return ( $is_active && ! $is_excluded_from_relationships );
+}
+
+
 /**
  * Gets post types that belong to current post type.
  *
- * @param type $post_type
- * @return type
+ * @param string $parent_post_type_slug
+ * @return array|false
  */
-function wpcf_pr_admin_get_has( $post_type ) {
+function wpcf_pr_admin_get_has( $parent_post_type_slug ) {
     static $cache = array();
-    if ( isset( $cache[$post_type] ) ) {
-        return $cache[$post_type];
+    if ( isset( $cache[$parent_post_type_slug] ) ) {
+        return $cache[$parent_post_type_slug];
     }
     $relationships = get_option( 'wpcf_post_relationship', array() );
-    if ( empty( $relationships[$post_type] ) ) {
+    if ( empty( $relationships[$parent_post_type_slug] ) ) {
         return false;
     }
     // See if enabled
-    foreach ( $relationships[$post_type] as $temp_post_type => $temp_post_type_data ) {
-        $active = get_post_type_object( $temp_post_type );
-        if ( !$active ) {
-            unset( $relationships[$post_type][$temp_post_type] );
+    foreach ( $relationships[ $parent_post_type_slug ] as $child_post_type_slug => $ignored ) {
+        if ( ! wpcf_pr_is_post_type_available_for_relationships( $child_post_type_slug ) ) {
+            unset( $relationships[ $parent_post_type_slug ][ $child_post_type_slug ] );
         }
     }
-    $cache[$post_type] = !empty( $relationships[$post_type] ) ? $relationships[$post_type] : false;
-    return $cache[$post_type];
+    $cache[$parent_post_type_slug] = !empty( $relationships[$parent_post_type_slug] ) ? $relationships[$parent_post_type_slug] : false;
+    return $cache[$parent_post_type_slug];
 }
 
 /**
  * Gets post types that current post type belongs to.
  *
- * @param type $post_type
- * @return type
+ * @param string $post_type
+ * @return array|false
  */
 function wpcf_pr_admin_get_belongs( $post_type ) {
     static $cache = array();
@@ -135,11 +180,11 @@ function wpcf_pr_admin_get_belongs( $post_type ) {
     $results = array();
     if ( is_array( $relationships ) ) {
         foreach ( $relationships as $has => $belongs ) {
-            // See if enabled
-            $active = get_post_type_object( $has );
-            if ( !$active ) {
+
+            if ( ! wpcf_pr_is_post_type_available_for_relationships( $has ) ) {
                 continue;
             }
+
             if ( array_key_exists( $post_type, $belongs ) ) {
                 $results[$has] = $belongs[$post_type];
             }
@@ -217,11 +262,14 @@ function wpcf_admin_notice_post_locked_no_parent() {
 </div>
 <?php
 }
+
 /**
  * Meta boxes contents output.
  *
- * @param type $post
- * @param type $args
+ * @param WP_Post $post
+ * @param array $args
+ *
+ * @return string
  */
 function wpcf_pr_admin_post_meta_box_output( $post, $args )
 {
@@ -330,70 +378,102 @@ function wpcf_pr_admin_post_meta_box_belongs_form_items_helper( $item )
 /**
  * Belongs form.
  *
- * @param type $post
- * @param type $post_type
- * @param type $data
- * @param type $parent_post_type
+ * @param $post
+ * @param $type
+ * @param $belongs
+ * @return array
  */
-function wpcf_pr_admin_post_meta_box_belongs_form( $post, $type, $belongs )
-{
-    global $wpdb;
-    $temp_type = get_post_type_object( $type );
-    if ( empty( $temp_type ) ) {
-        return array();
-    }
-    $form = array();
-    $id = esc_attr(sprintf('wpcf_pr_belongs_%d_%s', $post->ID, $type));
-	$belongs_id = isset( $belongs['belongs'][$type] ) ? $belongs['belongs'][$type] : 0;
-	
+function wpcf_pr_admin_post_meta_box_belongs_form( $post, $type, $belongs ) {
+	global $wpdb;
+	$temp_type = get_post_type_object( $type );
+	if ( empty( $temp_type ) ) {
+		return array();
+	}
+
+	$form = array();
+	$id = esc_attr( sprintf( 'wpcf_pr_belongs_%d_%s', $post->ID, $type ) );
+	$belongs_id = isset( $belongs['belongs'][ $type ] ) ? $belongs['belongs'][ $type ] : 0;
+
 	$options_array = array();
-	
+
+	$values_to_prepare = array();
+
+	$post_status = array( 'publish', 'private' );
+
+	$wpml_join = $wpml_where = "";
+	$is_translated_post_type = apply_filters( 'wpml_is_translated_post_type', false, $type );
+
+	if ( $is_translated_post_type ) {
+		$wpml_current_language = apply_filters( 'wpml_current_language', '' );
+		$wpml_join  = " JOIN {$wpdb->prefix}icl_translations t ";
+		$wpml_where = " AND p.ID = t.element_id AND t.language_code = %s AND t.element_type = concat( 'post_', %s ) ";
+		$values_to_prepare[] = $wpml_current_language;
+		$values_to_prepare[] = sanitize_text_field( $type );
+
+		// This is covered by the element_type condition in $wpml_where
+		$where_post_type = '';
+	} else {
+        // No WPML tables, we just query the post type directly.
+	    $where_post_type = ' AND p.post_type = %s ';
+		$values_to_prepare[] = sanitize_text_field( $type );
+    }
+
+	$not_in_selected = '';
 	if ( $belongs_id ) {
+		$not_in_selected = ' AND p.ID != %d';
+		$values_to_prepare[] = (int) $belongs_id;
 		$options_array[ $belongs_id ] = array(
 			'#title' => get_the_title( $belongs_id ),
 			'#value' => $belongs_id,
 		);
+	} else {
+		$options_array[''] = array(
+			'#title' => '',
+			'#value' => '',
+		);
 	}
-	
-	$form[$type] = array(
-        '#type' => 'select',
-        '#name' => 'wpcf_pr_belongs[' . $post->ID . '][' . $type . ']',
-        '#default_value' => $belongs_id,
-        '#id' => $id,
+
+	$sql_query = $wpdb->prepare(
+		"SELECT p.ID, p.post_title 
+			FROM {$wpdb->posts} p {$wpml_join} 
+			WHERE 
+			    p.post_status IN ('" . implode( "','", $post_status ) . "') 
+			    {$wpml_where} 
+			    {$where_post_type} 
+			    {$not_in_selected} 
+			ORDER BY p.post_date DESC 
+			LIMIT 15",
+		$values_to_prepare
+	);
+
+	$parents_available = $wpdb->get_results( $sql_query );
+
+	foreach ( $parents_available as $parent_option ) {
+		$options_array[ $parent_option->ID ] = array(
+			'#title' => $parent_option->post_title,
+			'#value' => $parent_option->ID,
+		);
+	}
+
+
+	$form[ $type ] = array(
+		'#type' => 'select',
+		'#name' => 'wpcf_pr_belongs[' . $post->ID . '][' . $type . ']',
+		'#default_value' => $belongs_id,
+		'#id' => $id,
 		'#options' => $options_array,
-        '#attributes' => array(
-            'class' => 'wpcf-pr-belongs',
-            'data-loading' => esc_attr__('Please Wait, Loading…', 'wpcf'),
-            'data-nounce' => wp_create_nonce($id),
-            'data-placeholder' => esc_attr( sprintf( __('Search for %s', 'wpcf'), $temp_type->labels->name ) ),
-            'data-post-id' => $post->ID,
-            'data-post-type' => esc_attr($type),
-        ),
-    );
-	
-	/*
-    $form[$type] = array(
-        '#type' => 'textfield',
-        '#name' => 'wpcf_pr_belongs[' . $post->ID . '][' . $type . ']',
-        '#value' => isset( $belongs['belongs'][$type] ) ? $belongs['belongs'][$type] : 0,
-        '#id' => $id,
-        '#attributes' => array(
-            'class' => 'wpcf-pr-belongs',
-            'data-loading' => esc_attr__('Please Wait, Loading…', 'wpcf'),
-            'data-nounce' => wp_create_nonce($id),
-            'data-placeholder' => esc_attr__('Search for a entries', 'wpcf'),
-            'data-post-id' => $post->ID,
-            'data-post-type' => esc_attr($type),
-            'data-input-too-short' => esc_attr(__('Please enter 1 or more character.', 'wpcf')),
-        ),
-    );
+		'#attributes' => array(
+			'class' => 'wpcf-pr-belongs',
+			'data-loading' => esc_attr__( 'Please Wait, Loading…', 'wpcf' ),
+			'data-nounce' => wp_create_nonce( $id ),
+			'data-placeholder' => esc_attr( sprintf( __( 'Search for %s', 'wpcf' ), $temp_type->labels->name ) ),
+			'data-post-id' => $post->ID,
+			'data-post-type' => esc_attr( $type ),
+			'autocomplete' => 'off'
+		),
+	);
 
-    if( $belongs_id != 0 && get_post_status( $belongs_id ) ) {
-        //$form[$type]['#attributes']['data-belongs-title'] = get_the_title( $belongs_id );
-    }
-	*/
-
-    return $form;
+	return $form;
 }
 
 /**
@@ -629,90 +709,102 @@ function wpcf_pr_admin_wpcf_relationship_check($keys_to_check = array())
             die(__('Sorry, something went wrong. The requested can not be completed.', 'wpcf'));
         }
     }
-    $id = esc_attr(sprintf('wpcf_pr_belongs_%d_%s', $_REQUEST['post_id'], $_REQUEST['post_type']));
+    $id = esc_attr(sprintf('wpcf_pr_belongs_%d_%s', (int) $_REQUEST['post_id'], sanitize_text_field( $_REQUEST['post_type'] )));
     if ( !wp_verify_nonce($_REQUEST['nounce'], $id) ) {
         die(__('Sorry, something went wrong. The requested can not be completed.', 'wpcf'));
     }
 }
 
-function wpcf_pr_admin_wpcf_relationship_search()
-{
-    wpcf_pr_admin_wpcf_relationship_check(array('s'));
-	
+function wpcf_pr_admin_wpcf_relationship_search() {
+	wpcf_pr_admin_wpcf_relationship_check();
+
 	global $wpdb;
-	$values_to_prepare			= array();
-	
-	$posts_per_page				= apply_filters( 'wpcf_pr_belongs_post_numberposts', 10 );
-	$post_type					= sanitize_text_field( $_REQUEST['post_type'] );
-	$post_status				= apply_filters( 'wpcf_pr_belongs_post_status', array( 'publish', 'private' ) );
-	
-	$wpml_join = $wpml_where	= "";
-	$is_translated_post_type	= apply_filters( 'wpml_is_translated_post_type', false, $post_type );
-	
+	$values_to_prepare = array();
+
+	$posts_per_page = apply_filters( 'wpcf_pr_belongs_post_numberposts', 10 );
+	$post_type = sanitize_text_field( $_REQUEST['post_type'] );
+	$post_status = apply_filters( 'wpcf_pr_belongs_post_status', array( 'publish', 'private' ) );
+
+	$wpml_join               = $wpml_where = "";
+	$is_translated_post_type = apply_filters( 'wpml_is_translated_post_type', false, $post_type );
+
+	// TODO Almost the same query is in wpcf_pr_admin_post_meta_box_belongs_form(), DRY.
 	if ( $is_translated_post_type ) {
-		$wpml_current_language	= apply_filters( 'wpml_current_language', '' );
-		$wpml_join				= " JOIN {$wpdb->prefix}icl_translations t ";
-		$wpml_where				= " AND p.ID = t.element_id AND t.language_code = %s ";
-		$values_to_prepare[]	= $wpml_current_language;
+		$wpml_current_language = apply_filters( 'wpml_current_language', '' );
+		$wpml_join = " JOIN {$wpdb->prefix}icl_translations t ";
+		$wpml_where = " AND p.ID = t.element_id AND t.language_code = %s AND t.element_type = concat( 'post_', %s ) ";
+		$values_to_prepare[] = $wpml_current_language;
+		$values_to_prepare[] = $post_type;
+
+		// This is covered by the element_type condition in $wpml_where
+		$where_post_type = '';
+	} else {
+		// No WPML tables, we just query the post type directly.
+		$where_post_type = ' AND p.post_type = %s ';
+		$values_to_prepare[] = $post_type;
 	}
-	
-	$values_to_prepare[]		= sanitize_text_field( $post_type );
-	
-	$search_where				= "";
-	
-	if ( isset( $_REQUEST['s'] ) ) {
-		$search_term = "";
-		if ( method_exists( $wpdb, 'esc_like' ) ) { 
-			$search_term = '%' . $wpdb->esc_like( $_REQUEST['s'] ) . '%'; 
-		} else { 
-			$search_term = '%' . like_escape( esc_sql( $_REQUEST['s'] ) ) . '%'; 
-		}
-		$search_where			= " AND p.post_title LIKE %s ";
-		$values_to_prepare[]	= $search_term;
-	}
-	
-	if ( 
-		isset( $_REQUEST['page'] ) 
-		&& preg_match( '/^\d+$/', $_REQUEST['page'] ) 
+
+	$search_where = "";
+
+	if (
+		isset( $_REQUEST['s'] )
+		&& $_REQUEST['s'] != ''
 	) {
-        $values_to_prepare[]	= (int) $_REQUEST['page'] * $posts_per_page;
-    } else {
-		$values_to_prepare[]	= 0;
+		$search_term = "";
+		if ( method_exists( $wpdb, 'esc_like' ) ) {
+			$search_term = '%' . $wpdb->esc_like( $_REQUEST['s'] ) . '%';
+		} else {
+			$search_term = '%' . like_escape( esc_sql( $_REQUEST['s'] ) ) . '%';
+		}
+		$search_where = " AND p.post_title LIKE %s ";
+		$values_to_prepare[] = $search_term;
+		$orderby = ' ORDER BY p.post_title ';
+	} else {
+		$orderby = ' ORDER BY p.post_date DESC ';
 	}
-	$values_to_prepare[]		= $posts_per_page;
-	
+
+	if (
+		isset( $_REQUEST['page'] )
+		&& preg_match( '/^\d+$/', $_REQUEST['page'] )
+	) {
+		$values_to_prepare[] = ( (int) $_REQUEST['page'] - 1 ) * $posts_per_page;
+	} else {
+		$values_to_prepare[] = 0;
+	}
+	$values_to_prepare[] = $posts_per_page;
+
 	$parents_available = $wpdb->get_results(
 		$wpdb->prepare(
 			"SELECT SQL_CALC_FOUND_ROWS p.ID as id, p.post_title as text, p.post_type as type, p.post_status as status 
 			FROM {$wpdb->posts} p {$wpml_join} 
-			WHERE p.post_status IN ('" . implode( "','" , $post_status ) . "') 
+			WHERE p.post_status IN ('" . implode( "','", $post_status ) . "') 
 			{$wpml_where} 
-			AND p.post_type = %s 
+			{$where_post_type} 
 			{$search_where} 
-			ORDER BY p.post_title 
+			{$orderby}  
 			LIMIT %d,%d",
 			$values_to_prepare
 		)
 	);
-	
-	$parents_count = $wpdb->get_var('SELECT FOUND_ROWS()');
-	
+
+	$parents_count = $wpdb->get_var( 'SELECT FOUND_ROWS()' );
+
 	$results = array(
-		'items'					=> $parents_available,
-        'total_count'			=> $parents_count,
-        'incomplete_results'	=> $parents_count > $posts_per_page,
-        'posts_per_page'		=> $posts_per_page,
+		'items' => $parents_available,
+		'total_count' => $parents_count,
+		'incomplete_results' => $parents_count > $posts_per_page,
+		'posts_per_page' => $posts_per_page,
 	);
-	
-    echo json_encode( $results );
-    die;
+
+	echo json_encode( $results );
+	die;
 }
 
 // Deprecated since the introduction of select v.4
 function wpcf_pr_admin_wpcf_relationship_entry()
 {
     wpcf_pr_admin_wpcf_relationship_check(array('p'));
-    $wpcf_post = get_post($_REQUEST['p'], ARRAY_A);
+    $wpcf_post = get_post( (int) $_REQUEST['p'], ARRAY_A);
     /**
      * remove unnecessary data and add some necessary
      */
@@ -732,10 +824,10 @@ function wpcf_pr_admin_wpcf_relationship_entry()
 function wpcf_pr_admin_wpcf_relationship_delete()
 {
     wpcf_pr_admin_wpcf_relationship_check();
-    delete_post_meta( $_REQUEST['post_id'], sprintf('_wpcf_belongs_%s_id', $_REQUEST['post_type']));
+    delete_post_meta( (int) $_REQUEST['post_id'], sprintf('_wpcf_belongs_%s_id', sanitize_text_field( $_REQUEST['post_type'] )));
     echo json_encode(
         array(
-            'target' => sprintf('#wpcf_pr_belongs_%d_%s-wrapper', $_REQUEST['post_id'], $_REQUEST['post_type']),
+            'target' => sprintf('#wpcf_pr_belongs_%d_%s-wrapper', (int) $_REQUEST['post_id'], sanitize_text_field( $_REQUEST['post_type'] )),
         )
     );
     die;
@@ -745,7 +837,7 @@ function wpcf_pr_admin_wpcf_relationship_delete()
 function wpcf_pr_admin_wpcf_relationship_save()
 {
     wpcf_pr_admin_wpcf_relationship_check(array('p'));
-    update_post_meta( $_REQUEST['post_id'], sprintf('_wpcf_belongs_%s_id', $_REQUEST['post_type']), intval($_REQUEST['p']));
+    update_post_meta( (int) $_REQUEST['post_id'], sprintf('_wpcf_belongs_%s_id', sanitize_text_field( $_REQUEST['post_type'] )), intval($_REQUEST['p']));
     die;
 }
 

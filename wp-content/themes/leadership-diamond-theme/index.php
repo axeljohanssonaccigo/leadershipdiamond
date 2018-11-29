@@ -205,10 +205,10 @@
                             </div>
                             <div class="text-center col-xs-12" id="send-link">
                                 <div ng-if="currentLanguage.name === 'Svenska'">
-                                    <?php echo do_shortcode( '[contact-form-7 id="346" title="Dela - Svenska"]' );  ?>
+                                    <?php echo do_shortcode( '[contact-form-7 id="299" title="Dela - Svenska"]' );  ?>
                                 </div>
                                 <div ng-if="currentLanguage.name === 'English'">
-                                    <?php echo do_shortcode( '[contact-form-7 id="348" title="Dela - English"]' );  ?>
+                                    <?php echo do_shortcode( '[contact-form-7 id="298" title="Dela - English"]' );  ?>
                                 </div>
                             </div>
                         </div> <img class="diamond pos-1" src="../wp-content/themes/leadership-diamond-theme/img/Diamond-new.svg" />

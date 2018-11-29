@@ -64,13 +64,7 @@
   span.copyright {
     font-size: 18px;
     vertical-align: super;
-    top: 45px;
-    position: absolute;
-  }
-  span.copyright-not-in-heading {
-    font-size: 18px;
-    vertical-align: super;
-    top: 60px;
+    top: 30px;
     position: absolute;
   }
   .fixed-action-btn {
@@ -673,10 +667,5 @@
   }
   section#diamond .row .peter-image-caption {
     float: none;
-  }
-}
-@media screen and (max-width: 400px) {
-  section#heading .row .heading-container .heading-title {
-    font-size: 26px;
   }
 }

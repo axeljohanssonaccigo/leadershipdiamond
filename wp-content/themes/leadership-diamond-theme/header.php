@@ -28,6 +28,7 @@
 
 	wp_head(); ?>
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="google-site-verification" content="G5WvnpOZGxqiizFrE1_MTwYS5Zt2RMjNkxeKoigwoMs" />
     </head>
 
     <body <?php body_class(); ?> >

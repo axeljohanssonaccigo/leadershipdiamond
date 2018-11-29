@@ -127,7 +127,7 @@ if ( ! class_exists( 'Toolset_Relevanssi_Compatibility' ) ) {
 		function toolset_relevanssi_settings( $sections, $toolset_options ) {
 			
 			$section_content = '';
-			$text_search_documentation_link = 'https://wp-types.com/documentation/user-guides/views-text-search/?utm_source=viewsplugin&utm_campaign=views&utm_medium=views-text-search-settings&utm_term=Text Search documentation';
+			$text_search_documentation_link = 'https://wp-types.com/documentation/user-guides/filtering-views-for-a-specific-text-string-search/?utm_source=viewsplugin&utm_campaign=views&utm_medium=views-text-search-settings&utm_term=Text Search documentation';
 
 			
 			if ( ! $this->relevanssi_installed ) {
@@ -508,7 +508,7 @@ if ( ! class_exists( 'Toolset_Relevanssi_Compatibility' ) ) {
 			
 			$current_page = '';
 			if ( isset( $_GET['page'] ) ) {
-				$current_page = $_GET['page'];
+				$current_page = sanitize_text_field( $_GET['page'] );
 			}
 			
 			if ( ! $current_page == 'wpcf-edit' ) {
